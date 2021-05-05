@@ -8,9 +8,15 @@ export const getSprintRequest = createAction('@sprint/getSprintRequest');
 export const getSprintSuccess = createAction('@sprint/getSprintSuccess');
 export const getSprintError = createAction('@sprint/getSprintError');
 
-export const changeSprintRequest = createAction('@sprint/changeSprintRequest');
-export const changeSprintSuccess = createAction('@sprint/changeSprintSuccess');
-export const changeSprintError = createAction('@sprint/changeSprintError');
+export const changeTitleSprintRequest = createAction(
+  '@sprint/changeTitleSprintRequest',
+);
+export const changeTitleSprintSuccess = createAction(
+  '@sprint/changeTitleSprintSuccess',
+);
+export const changeTitleSprintError = createAction(
+  '@sprint/changeTitleSprintError',
+);
 
 export const deleteSprintRequest = createAction('@sprint/deleteSprintRequest');
 export const deleteSprintSuccess = createAction('@sprint/deleteSprintSuccess');
