@@ -1,0 +1,16 @@
+@import 'styles/shared.scss';
+
+.sidebar-wrapper {
+  // @media (min-width: 768px) {
+  display: block;
+  position: sticky;
+  top: 0;
+  padding-left: 40px;
+  min-width: 255px;
+  max-width: 255px;
+  height: 100vh;
+  // }
+  //    @media screen and (min-width: 1280px) {
+  padding-left: 55px;
+  //   }
+}
