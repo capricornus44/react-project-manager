@@ -18,7 +18,9 @@ body {
   font-size: 14px;
   letter-spacing: 0.04em;
   color: $text-primary;
-  background-color: $primary-bg;
+  // background-color: $primary-bg;
+  background-color: violet;
+  // z-index: 1;
 }
 
 code {
