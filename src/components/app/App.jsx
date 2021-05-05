@@ -1,11 +1,14 @@
 import React from 'react';
 import Header from '../header/Header';
-import SprintsList from '../projectDetails/sprintsList/SprintsList';
+import Main from '../main/Main';
 
 const App = () => {
-  return <> <Header />
-    <SprintsList />
-    </>;
+  return (
+    <>
+      <Header />
+      <Main />
+    </>
+  );
 };
 
 export default App;

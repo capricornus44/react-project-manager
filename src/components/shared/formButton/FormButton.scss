@@ -1,0 +1,28 @@
+@import 'styles/shared.scss';
+
+.form__button {
+  display: inline-block;
+  height: 44px;
+  margin-bottom: 20px;
+  padding: 11px 44px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.222;
+  letter-spacing: 0.04em;
+  color: $white;
+
+  background-color: $accent;
+
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+
+  &:focus,
+  &:hover {
+    box-shadow: $shadow-secondary;
+  }
+}

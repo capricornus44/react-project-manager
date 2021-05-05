@@ -1,0 +1,119 @@
+.ellipse1 {
+  position: absolute;
+  left: -110px;
+  bottom: 0;
+  z-index: -10;
+
+  @media screen and (min-width: 1280px) {
+    left: 145px;
+    // left: 50%;
+    // transform: translateX(calc(-100% - (285px - 88px)));
+  }
+}
+
+.ellipse2 {
+  position: absolute;
+  left: -72px;
+  bottom: 0;
+  opacity: 0.85;
+  z-index: 1;
+
+  @media screen and (min-width: 1280px) {
+    left: 183px;
+    // left: 50%;
+    // transform: translateX(calc(-100% - (285px - 80px)));
+  }
+}
+
+.ellipse3 {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    display: initial;
+    top: 367px;
+    left: 111px;
+    // left: 50%;
+    // transform: translateX(calc(-100% - (285px + 126px)));
+  }
+}
+
+.ellipse4 {
+  position: absolute;
+  left: -25px;
+  top: 298px;
+
+  @media screen and (min-width: 1280px) {
+    top: 240px;
+    left: 230px;
+    // left: 50%;
+    // transform: translateX(calc(-100% - (285px + 77px)));
+  }
+}
+
+.ellipse5 {
+  position: absolute;
+  top: 161px;
+  right: 50%;
+  transform: translateX(calc(100% + (285px - 48px)));
+  z-index: -10;
+
+  @media screen and (min-width: 1280px) {
+    top: 103px;
+    // right: 325px;
+  }
+}
+
+.ellipse6 {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    display: initial;
+    top: 129px;
+    // right: 199px;
+    right: 50%;
+    transform: translateX(calc(100% + (285px + 130px)));
+  }
+}
+
+.union-white {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    display: initial;
+    bottom: 0;
+    right: 0;
+    // right: 50%;
+    // transform: translateX(calc(100% + (285px - 171px)));
+    z-index: -10;
+  }
+}
+
+.union-orange {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    display: initial;
+    bottom: 33px;
+    right: 0;
+    // right: 50%;
+    // transform: translateX(calc(100% + (285px - 155px)));
+    z-index: -10;
+  }
+}
+
+.union-orange-tablet {
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    bottom: 33px;
+    right: 0;
+    z-index: -10;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}

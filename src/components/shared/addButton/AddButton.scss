@@ -1,0 +1,27 @@
+@import '../../../styles/shared.scss';
+
+.add-button {
+  width: 44px;
+  height: 44px;
+  background: $accent;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 250ms linear;
+  &:hover {
+    box-shadow: 1px 1px 5px 1px $accent;
+  }
+}
+.icon-plus {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: $white;
+  font-size: 22px;
+  text-align: center;
+  }
