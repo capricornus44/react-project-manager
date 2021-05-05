@@ -2,7 +2,7 @@ import React from 'react';
 import '../addButton/AddButton.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 
-const AddButton = ({ onClick }) => {
+const GraphButton = ({ onClick }) => {
   return (
     <button
       type="button"
@@ -17,4 +17,4 @@ const AddButton = ({ onClick }) => {
   );
 };
 
-export default AddButton;
+export default GraphButton;
