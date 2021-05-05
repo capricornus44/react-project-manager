@@ -1,0 +1,37 @@
+@import 'styles/shared.scss';
+
+.project_item {
+  position: relative;
+  width: calc(100% / 4 - 30px);
+  height: 270px;
+  background-color: #8c72df;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.project_link {
+  display: inline-block;
+
+  padding: 30px;
+}
+
+.project_title {
+  margin-bottom: 20px;
+
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.23;
+
+  color: $white;
+}
+
+.project_desc {
+  line-height: 1.21;
+  color: $white;
+}
+
+.project_link .delete-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
