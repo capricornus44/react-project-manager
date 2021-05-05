@@ -3,5 +3,11 @@
 .sprint-list {
   display: flex;
   flex-wrap: wrap;
-  //   justify-content: center;
+
+  padding-top: 30px;
+  padding-left: 70px;
+  padding-right: 85px;
+
+  justify-content: flex-start;
+  grid-gap: 30px;
 }
