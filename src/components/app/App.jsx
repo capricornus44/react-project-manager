@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from '../header/Header';
-import Main from '../main/Main';
+// import Main from '../main/Main';
+import ProjectDetails from '../projectDetails/ProjectDetails';
 
 const App = () => {
   return (
     <>
       <Header />
-      <Main />
+      <ProjectDetails />
     </>
   );
 };
