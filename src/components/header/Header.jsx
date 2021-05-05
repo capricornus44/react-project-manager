@@ -5,7 +5,7 @@ import logo from '../../assets/icons/logo.svg';
 import './Header.scss';
 
 const Header = () => {
-  const isAuth = true;
+  const isAuth = false;
 
   return (
     <header className="header">
