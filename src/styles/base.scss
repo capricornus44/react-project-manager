@@ -12,15 +12,12 @@ html {
 
 body {
   margin: 0;
-
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: 0.04em;
   color: $text-primary;
-  // background-color: $primary-bg;
-  background-color: violet;
-  // z-index: 1;
+  background-color: $primary-bg;
 }
 
 code {
