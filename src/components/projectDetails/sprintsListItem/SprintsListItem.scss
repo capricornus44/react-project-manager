@@ -1,0 +1,28 @@
+@import '../../../styles/shared.scss';
+
+.sprint-item {
+  width: 270px;
+  height: 224px;
+  background-color: $white;
+  box-shadow: $shadow-primary;
+  border-radius: 5px;
+}
+
+.sprint-item__title {
+  padding-top: 18px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.sprint-item__details {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 28px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+}
+
+.sprint-item__details-elem {
+  padding-top: 20px;
+}
