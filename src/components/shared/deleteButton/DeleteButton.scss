@@ -26,19 +26,41 @@
 
 .sprint__delete-button {
   outline: none;
+
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: $logout-bg-mobile;
+  border-radius: 50%;
+  background-image: url(./../../../assets/icons/bin.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-position-y: -22px;
+  cursor: pointer;
+
+  background-color: transparent;
+  backface-visibility: visible;
+  transition: all 250ms linear;
+  &:hover {
+    transition: all 250ms linear;
+    cursor: pointer;
+    background-color: $accent;
+  }
+}
+
+.sprint__delete-button {
+  outline: none;
   border: none;
   border-radius: 50%;
   width: 25px;
   height: 25px;
   background-color: $logout-bg-mobile;
+  &:hover {
+    transition: all 250ms linear;
+    cursor: pointer;
+    background-color: $accent;
+  }
 }
-
-.sprint__delete-button:hover {
-  transition: all 250ms linear;
-  cursor: pointer;
-  background-color: $accent;
-}
-
 .sprint__icon-delete {
   fill: $white;
   width: 14px;

@@ -1,6 +1,5 @@
 import React from 'react';
 import './DeleteButton.scss';
-import sprite from '../../../assets/icons/sprite.svg';
 
 const DeleteButton = () => {
   return (
