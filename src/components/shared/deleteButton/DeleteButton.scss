@@ -1,0 +1,49 @@
+@import '../../../styles/shared.scss';
+
+.delete-button {
+  width: 34px;
+  height: 34px;
+  background: $white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 250ms linear;
+  &:hover {
+    box-shadow: 1px 1px 5px 1px $white;
+  }
+}
+.icon-delete {
+  background-color: inherit;
+  outline: none;
+  border: none;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  fill: rgba(24, 28, 39, 0.25);
+  font-size: 22px;
+  text-align: center;
+}
+
+.sprint__delete-button {
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: #a6a6a6;
+}
+
+.sprint__delete-button:hover {
+  transition: all 250ms linear;
+  cursor: pointer;
+  background-color: $accent;
+}
+
+.sprint__icon-delete {
+  fill: white;
+  width: 14px;
+  height: 17px;
+  display: flex;
+}
