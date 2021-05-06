@@ -3,12 +3,13 @@ import { Switch } from 'react-router-dom';
 import mainRoutes from '../../routes/mainRoutes';
 import PrivateRoute from '../routes/PrivateRoute';
 import PublicRoute from '../routes/PublicRoute';
+import Spinner from '../spinner/Spinner';
 
 const NavigationRoutes = () => {
   const isAuth = true;
 
   return (
-    <Suspense fallback={<h1>Loading</h1>}>
+    <Suspense fallback={<Spinner />}>
       <Switch>
         {mainRoutes.map(route =>
           route.isPrivate ? (
