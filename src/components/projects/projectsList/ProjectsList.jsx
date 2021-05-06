@@ -1,5 +1,13 @@
 import React from 'react';
+import ProjectsListItem from '../projectsListItem/ProjectsListItem';
+import './ProjectsList.scss';
 
-export default function ProjectsList() {
-  return <h1>ProjectsList</h1>;
-}
+const ProjectsList = ({ projects }) => {
+  return (
+    <ul className="projects_list">
+      <ProjectsListItem />
+    </ul>
+  );
+};
+
+export default ProjectsList;

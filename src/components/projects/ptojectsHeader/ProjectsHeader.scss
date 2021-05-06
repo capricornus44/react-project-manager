@@ -1,0 +1,31 @@
+@import 'styles/shared.scss';
+
+.projects_header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.projects_title {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.22;
+  color: $text-primary;
+}
+
+.projects_add {
+  display: flex;
+  align-items: center;
+}
+
+.projects_add_text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+  color: $text-primary;
+}
+
+.projects_header .add-button {
+  margin-right: 20px;
+}
