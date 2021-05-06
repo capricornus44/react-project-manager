@@ -1,0 +1,49 @@
+@import 'styles/shared.scss';
+
+.project_item {
+  position: relative;
+
+  width: calc(100% / 4 - 30px);
+
+  height: 270px;
+  background-color: $card-1;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.project_link {
+  display: block;
+  height: 100%;
+  padding: 30px;
+}
+
+.project_title {
+  margin-bottom: 20px;
+
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.23;
+
+  color: $white;
+}
+
+.project_desc {
+  line-height: 1.21;
+  color: $white;
+  // display: none;.
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  .project_item :hover & {
+    // display: block;
+    opacity: 1;
+    transform: translateX(0);
+    // transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.project_link .delete-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
