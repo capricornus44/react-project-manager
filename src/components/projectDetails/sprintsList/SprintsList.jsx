@@ -1,5 +1,15 @@
 import React from 'react';
+import SprintsListItem from '../sprintsListItem/SprintsListItem';
+import "./SprintsList.scss"
 
-export default function SprintsList() {
-  return <h1>SprintsList</h1>;
-}
+const SprintsList = () => {
+    return (
+        <>
+            <ul className="sprint-list">
+                <SprintsListItem />
+            </ul>
+        </>
+    );
+};
+
+export default SprintsList;
