@@ -1,61 +1,81 @@
-// @import '../../../styles/shared.scss';
+@import '../../../styles/shared.scss';
 
-// .sidebar-modal {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   background: rgba(0, 0, 0, 0.8);
-//   width: 100vw;
-//   height: 100vh;
-// }
+.sidebar-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+}
 
-// .sidebar-modal__container {
-//   right: 0;
+.sidebar-modal__container {
+  right: 0;
 
-//   padding-top: 67px;
-//   padding-left: 20px;
-//   padding-right: 20px;
-//   padding-bottom: 20px;
-//   margin-bottom: 20px;
-//   margin: 0 auto;
-//   width: 320px;
-//   position: absolute;
-//   height: 100vh;
-//   background: $white;
-//   @media screen and (min-width: 768px) {
-//     display: block;
-//     position: absolute;
-//     height: 100vh;
-//     width: 512px;
+  padding-top: 67px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  height: 100vh;
+  background: $white;
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    height: 100vh;
+    width: 512px;
 
-//     max-width: 512px;
-//     padding-top: 121px;
-//     padding-left: 32px;
-//     padding-right: 50px;
-//     padding-bottom: 100px;
-//     margin-bottom: 40px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     max-width: 530px;
-//     padding-left: 50px;
-//     width: 530px;
-//   }
-// }
+    max-width: 512px;
+    padding-top: 121px;
+    padding-left: 32px;
+    padding-right: 50px;
+    padding-bottom: 100px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 530px;
+    padding-left: 50px;
+    width: 530px;
+  }
+}
 
-// .sidebar-modal__btn {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   width: 18px;
-//   height: 18px;
-//   background-color: transparent;
-//   border: none;
-//   cursor: pointer;
-// }
-// .sidebar-modal__icon {
-//   height: 20px;
-//   width: 20px;
-// }
+.sidebar-modal__btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.sidebar-modal__icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.sidebar-modal__link {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 0.818;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: $text-secondary;
+}
+.sidebar-modal__btm {
+  text-align: center;
+  margin-top: 40px;
+}

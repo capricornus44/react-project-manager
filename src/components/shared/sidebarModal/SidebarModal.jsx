@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import './SidebarModal.scss';
 import sprite from '../../../assets/icons/sprite.svg';
@@ -9,12 +10,6 @@ const modalRoot = document.querySelector('#modal_root');
 const SidebarModal = ({ children, onClose, setShowModal, title }) => {
   const modalRef = useRef();
 
-  useEffect(() => {
-    window.addEventListener('keydown', handleEsc);
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
-  });
   useEffect(() => {
     window.addEventListener('keydown', handleEsc);
     return () => {
@@ -44,6 +39,7 @@ const SidebarModal = ({ children, onClose, setShowModal, title }) => {
   //       setShowModal(false);
   //     }
   //   };
+  const showModal = true;
   return createPortal(
     showModal && (
       <div
@@ -64,7 +60,11 @@ const SidebarModal = ({ children, onClose, setShowModal, title }) => {
           </button>
           <h2>{title}</h2>
           {children}
-          <FormButton onClose={onClose} />
+          <div className="sidebar-modal__btm">
+            <FormButton onClose={onClose} />
+
+            <Link className="sidebar-modal__link">Відміна</Link>
+          </div>
         </div>
       </div>
     ),
