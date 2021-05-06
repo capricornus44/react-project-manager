@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Container>
         <ProjectDetails />
-        </Container>
+      </Container>
     </>
   );
 };

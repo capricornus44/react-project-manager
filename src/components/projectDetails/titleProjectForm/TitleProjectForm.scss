@@ -1,0 +1,51 @@
+@import 'styles/shared.scss';
+
+.project__details-title {
+  display: inline-block;
+  position: relative;
+
+  padding-top: 40px;
+  padding-left: 70px;
+  padding-bottom: 30px;
+
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0.04em;
+}
+
+.project__details-edit__button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 250ms linear;
+  &:hover {
+    box-shadow: 1px 1px 5px 1px $accent;
+  }
+}
+
+.project__details-edit__icon {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: $logout-bg-mobile;
+  // font-size: 22px;
+  text-align: center;
+}
+.project__details-edit {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -40px;
+}
+
+.project__details-edit:hover {
+  cursor: pointer;
+  color: $accent;
+}
