@@ -9,13 +9,15 @@ import TitleProjectDetails from './titleProjectForm/TitleProjectDetails/TitlePro
 const ProjectDetails = () => {
     return (
         <>
-            <div className="project-details">
-                <TitleProjectForm />
-                <AddSprintForm />
+            <div className="project-details-section">
+                <div className="project-details">
+                    <TitleProjectForm />
+                    <AddSprintForm />
+                </div>
+                <TitleProjectDetails/>
+                <AddMemberForm />
+                <SprintsList />
             </div>
-            <TitleProjectDetails/>
-            <AddMemberForm />
-            <SprintsList />
         </>
     );
 };

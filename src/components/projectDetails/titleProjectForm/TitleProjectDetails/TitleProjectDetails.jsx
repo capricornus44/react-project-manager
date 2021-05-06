@@ -1,5 +1,5 @@
 import React from 'react';
-import "../TitleProjectForm.scss"
+import "./TitleProjectDetails.scss"
 
 const TitleProjectDetails = () => {
     return (
