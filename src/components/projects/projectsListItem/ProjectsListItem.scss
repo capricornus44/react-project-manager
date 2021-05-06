@@ -3,42 +3,86 @@
 .project_item {
   position: relative;
 
-  width: calc(100% / 4 - 30px);
-
-  height: 270px;
+  width: calc(100% / 2 - 10px);
+  height: 136px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: all 0.25s linear;
   background-color: $card-1;
-  margin-left: 30px;
-  margin-top: 30px;
+
+  @media screen and (min-width: 768px) {
+    width: calc(100% / 3 - 20px);
+    background-image: url(../../../assets/images/project-card/wave-1.svg),
+      url(../../../assets/images/project-card/wave-2.svg);
+    background-position: right bottom;
+    background-size: auto;
+    background-repeat: no-repeat;
+
+    height: 216px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: calc(100% / 4 - 30px);
+    height: 270px;
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+}
+.project_item:hover {
+  box-shadow: 1px 6px 10px $card-1;
 }
 
 .project_link {
   display: block;
   height: 100%;
-  padding: 30px;
+  padding: 10px;
+  text-decoration: none;
+  @media screen and (min-width: 768px) {
+    padding: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 30px;
+  }
 }
 
 .project_title {
-  margin-bottom: 20px;
-
   font-weight: 800;
-  font-size: 26px;
-  line-height: 1.23;
-
+  font-size: 16px;
+  line-height: 1.25;
   color: $white;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 800;
+    font-size: 26px;
+    line-height: 1.23;
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 20px;
+  }
 }
 
 .project_desc {
+  font-size: 10px;
+
   line-height: 1.21;
   color: $white;
-  // display: none;.
+
   opacity: 0;
   transform: translateX(-100%);
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   .project_item :hover & {
-    // display: block;
     opacity: 1;
     transform: translateX(0);
-    // transition: all 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
   }
 }
 
