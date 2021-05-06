@@ -8,20 +8,30 @@ import {
   logoutRequest,
   logoutSuccess,
   logoutError,
-  // refreshRequest,
-  // refreshSuccess,
-  // refreshError,
+  userSuccess,
+  refreshRequest,
+  refreshSuccess,
+  refreshError,
 } from './authActions';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
 const token = {
+  token: '',
+
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    this.token = `Bearer ${token}`;
+  },
+
+  refresh(refreshToken) {
+    this.token = refreshToken;
+    axios.defaults.headers.common.Authorization = refreshToken;
   },
 
   unset() {
     axios.defaults.headers.common.Authorization = '';
+    this.token = '';
   },
 };
 
@@ -42,13 +52,14 @@ const signinOperation = user => async dispatch => {
 
   try {
     const response = await axios.post('/auth/login', user);
+
     const { accessToken, refreshToken, sid } = response.data;
-    // const { email, id } = response.data.data;
+    const { email, id } = response.data.data;
     // const { projects } = response.data.data;
 
     token.set(response.data.accessToken);
     dispatch(signinSuccess({ accessToken, refreshToken, sid }));
-    // dispatch(userSuccess({ email, id }));
+    dispatch(userSuccess({ email, id }));
     // dispatch(projectsSuccess({ projects }));
   } catch (error) {
     dispatch(signinError(error.message));
@@ -69,4 +80,24 @@ const logoutOperation = () => async dispatch => {
   }
 };
 
-export { signupOperation, signinOperation, logoutOperation };
+const refreshOperation = () => async (dispatch, getState) => {
+  const { refreshToken, sid } = getState().auth.token;
+  token.refresh(refreshToken);
+  dispatch(refreshRequest());
+
+  try {
+    const response = await axios.post('/auth/refresh', sid);
+
+    dispatch(
+      refreshSuccess({
+        accessToken: `Bearer $(response.data.newAccessToken)`,
+        refreshToken: `Bearer $(response.data.newRefreshToken)`,
+        sid: response.data.newSid,
+      }),
+    );
+  } catch (error) {
+    dispatch(refreshError(error.message));
+  }
+};
+
+export { signupOperation, signinOperation, logoutOperation, refreshOperation };
