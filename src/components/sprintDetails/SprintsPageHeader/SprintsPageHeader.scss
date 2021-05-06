@@ -1,0 +1,212 @@
+@import 'styles/shared.scss';
+
+// * {
+//   outline: 1px solid tomato;
+// }
+
+.sprintsPageHeader__MainContainer {
+  @media screen and (min-width: 768px) {
+    border-bottom: 1px solid $border-header;
+  }
+}
+
+.sprintsPageHeader__container {
+  width: 280px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 512px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1025px;
+  }
+}
+
+.sprintsPageHeader__datesInput_box {
+  padding: 23px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sprintsPageHeader__dates {
+  margin-left: 20px;
+  display: flex;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 200px;
+    margin-left: 0;
+  }
+}
+
+.sprintsPageHeader__date {
+  margin-left: auto;
+  font-size: 12px;
+  line-height: 1.25;
+  color: $text-secondary;
+}
+
+.sprintsPageHeader__dates_curDay {
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+}
+
+.sprintsPageHeader__dates_days {
+  font-size: 12px;
+  line-height: 1.25;
+  color: $text-secondary;
+}
+
+.sprintsPageHeader__dates_btn {
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.sprintsPageHeader_editHeaderBtn {
+  cursor: pointer;
+  margin-top: 7px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  fill: rgba(166, 166, 166, 1);
+  border: none;
+  transition: all 250ms linear;
+
+  &:hover {
+    fill: $accent;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 20px;
+  }
+}
+
+.sprintsPageHeader__searchForm {
+  margin-top: 20px;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0px;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.sprintsPageHeader__input {
+  width: 280px;
+  height: 30px;
+  padding-left: 30px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $border-header;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+
+  @media screen and (min-width: 768px) {
+    width: 214px;
+    padding-left: 10px;
+  }
+}
+
+.sprintsPageHeader__searchBtn {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: inherit;
+  border: none;
+  position: absolute;
+  background-image: url('../../../assets/icons/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and (min-width: 768px) {
+    right: 0;
+  }
+  @media screen and (min-width: 1200px) {
+    right: 40px;
+  }
+}
+
+.sprintsPageHeader__heading_box {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.sprintsPageHeader__heading {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  color: $text-primary;
+
+  @media screen and (min-width: 768px) {
+    width: 340px;
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+.sprintsPageHeader__addTask_btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50px;
+  margin-left: auto;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+
+  @media screen and (min-width: 768px) {
+    position: initial;
+  }
+}
+
+.sprintsPageHeader__addTask_text {
+  height: 44px;
+  padding-top: 10px;
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: $text-primary;
+}
+
+.sprintsPageHeader__categories {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+}
+
+.sprintsPageHeader__categories_list {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.sprintsPageHeader__categories_list_item {
+  width: 98px;
+  font-size: 14px;
+  line-height: 1.21;
+  color: $text-primary;
+}
+
+.desktop_item {
+  display: none;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+}
