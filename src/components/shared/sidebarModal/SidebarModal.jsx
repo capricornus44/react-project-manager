@@ -22,23 +22,23 @@ const SidebarModal = ({ children, onClose, setShowModal, title }) => {
       setShowModal(false);
     }
   };
-  const onHandleClick = () => {
-    setShowModal(false);
-  };
+  //   const onHandleClick = () => {
+  //     setShowModal(false);
+  //   };
 
   const handleBackdropClick = e => {
     if (e.target.dataset) {
-      if (e.target.nodeName === 'DIV' && e.target.dataset.zone === 'overlay') {
+      if (e.target === modalRef.current) {
         setShowModal(false);
       }
     }
   };
 
-  //   const closeModal = e => {
-  //     if (e.target === modalRef.current) {
-  //       setShowModal(false);
-  //     }
-  //   };
+  const closeModal = e => {
+    if (e.target === modalRef.current) {
+      setShowModal(false);
+    }
+  };
   const showModal = true;
   return createPortal(
     showModal && (
@@ -52,7 +52,7 @@ const SidebarModal = ({ children, onClose, setShowModal, title }) => {
           <button
             type="button"
             className="sidebar-modal__btn"
-            onClick={onHandleClick}
+            onClick={closeModal}
           >
             <svg className="sidebar-modal__icon">
               <use href={sprite + '#close'} />
