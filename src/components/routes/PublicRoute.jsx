@@ -9,7 +9,7 @@ const PublicRoute = ({
   isRestricted,
 }) => {
   return isAuth && isRestricted ? (
-    <Redirect to="/project" />
+    <Redirect to="/projects" />
   ) : (
     <Route exact={exact} path={path} component={Component} key={path} />
   );

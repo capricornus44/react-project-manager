@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 import mainRoutes from '../../routes/mainRoutes';
 import PrivateRoute from '../routes/PrivateRoute';
 import PublicRoute from '../routes/PublicRoute';
@@ -18,6 +18,7 @@ const NavigationRoutes = () => {
             <PublicRoute {...route} isAuth={isAuth} key={route.path} />
           ),
         )}
+        <Redirect to="/signup" />
       </Switch>
     </Suspense>
   );

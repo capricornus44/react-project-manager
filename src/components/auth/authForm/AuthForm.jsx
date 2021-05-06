@@ -39,7 +39,7 @@ const AuthForm = () => {
   };
 
   const isSignupForm = () => {
-    return location.pathname === '/';
+    return location.pathname === '/signup';
   };
 
   return (
@@ -114,7 +114,7 @@ const AuthForm = () => {
         ) : (
           <p className="auth-form__redirect-question">
             Немає акаунту?
-            <NavLink to="/" className="auth-form__redirect-link">
+            <NavLink to="/signup" className="auth-form__redirect-link">
               Зареєструватись
             </NavLink>
           </p>

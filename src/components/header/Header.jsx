@@ -7,13 +7,13 @@ import HeaderInterlayer from './headerInterlayer/HeaderInterlayer';
 import './Header.scss';
 
 const Header = () => {
-  const isAuth = true;
+  const isAuth = false;
 
   return (
     <header className="header">
       <Container>
         <HeaderInterlayer>
-          <NavLink to="/">
+          <NavLink to="/projects">
             <img src={logo} alt="" className="logo" width="140" height="42" />
           </NavLink>
           {isAuth && <UserMenu />}
