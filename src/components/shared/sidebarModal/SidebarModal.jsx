@@ -1,4 +1,4 @@
-// import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 // import { createPortal } from 'react-dom';
 // import './SidebarModal.scss';
 // import sprite from '../../../assets/icons/sprite.svg';
