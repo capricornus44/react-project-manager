@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import './SidebarModal.scss';
@@ -7,43 +7,36 @@ import FormButton from '../formButton/FormButton';
 
 const modalRoot = document.querySelector('#modal_root');
 
-const SidebarModal = ({ children, onClose, setShowModal, title }) => {
+const SidebarModal = ({ children, onClose, title }) => {
   const modalRef = useRef();
 
+  const [showModal, setShowModal] = useState(true);
   useEffect(() => {
     window.addEventListener('keydown', handleEsc);
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
-  });
+  }, []);
 
   const handleEsc = e => {
     if (e.code === 'Escape') {
       setShowModal(false);
     }
   };
-  //   const onHandleClick = () => {
-  //     setShowModal(false);
-  //   };
 
   const handleBackdropClick = e => {
-    if (e.target.dataset) {
-      if (e.target === modalRef.current) {
-        setShowModal(false);
-      }
-    }
-  };
-
-  const closeModal = e => {
-    if (e.target === modalRef.current) {
+    if (e.target === e.currentTarget) {
       setShowModal(false);
     }
   };
-  const showModal = true;
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return createPortal(
     showModal && (
       <div
-        data-zone="overlay"
         className="sidebar-modal"
         ref={modalRef}
         onClick={handleBackdropClick}
@@ -63,7 +56,9 @@ const SidebarModal = ({ children, onClose, setShowModal, title }) => {
           <div className="sidebar-modal__btm">
             <FormButton onClose={onClose} />
 
-            <Link className="sidebar-modal__link">Відміна</Link>
+            <Link to="/" className="sidebar-modal__link">
+              Відміна
+            </Link>
           </div>
         </div>
       </div>
