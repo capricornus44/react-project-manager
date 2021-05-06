@@ -12,12 +12,15 @@ import {
   userSuccess,
 } from './authActions';
 
+import storage from 'redux-persist/lib/storage';
+import persistReducer from 'redux-persist/es/persistReducer';
+
 const initialUserState = {
   email: '',
   id: '',
 };
 
-const user = createReducer(initialUserState, {
+const userReducer = createReducer(initialUserState, {
   [signupSuccess]: (_, { payload }) => payload.user,
   [userSuccess]: (_, { payload }) => payload,
   [refreshSuccess]: (_, { payload }) => payload,
@@ -42,8 +45,16 @@ const error = createReducer('', {
   [refreshError]: setError,
 });
 
-export default combineReducers({
-  user,
+const userPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['email'],
+};
+
+const authReducer = combineReducers({
+  user: persistReducer(userPersistConfig, userReducer),
   token,
   error,
 });
+
+export default authReducer;
