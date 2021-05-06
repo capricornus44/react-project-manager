@@ -7,7 +7,7 @@
 
 // const SidebarModal = ({ children }) => {
 //   const ShowModal = true;
-
+// const closeModal=(e)=>{}
 //   return createPortal(
 //     showModal && (
 //       <div className="sidebar-modal" ref={modalRef} onClick={closeModal}>
