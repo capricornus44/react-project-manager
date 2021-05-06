@@ -5,7 +5,7 @@ const PrivateRoute = ({ isAuth, exact, path, component: Component }) => {
   return isAuth ? (
     <Route exact={exact} path={path} component={Component} key={path} />
   ) : (
-    <Redirect to="/auth/register" />
+    <Redirect to="/signup" />
   );
 };
 
