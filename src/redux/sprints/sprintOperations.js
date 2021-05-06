@@ -14,12 +14,6 @@ import {
   deleteSprintSuccess,
 } from './sprintActions';
 
-// {
-//   "title": "Sprint 1",
-//   "endDate": "2020-12-31",
-//   "duration": 1
-// }
-
 const projectID = '60929ff533a36061e804eaa8';
 
 export const addSprint = ({ title, endDate, duration }) => async dispatch => {

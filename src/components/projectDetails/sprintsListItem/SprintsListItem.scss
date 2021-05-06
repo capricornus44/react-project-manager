@@ -1,14 +1,20 @@
-@import '../../../styles/shared.scss';
+@import 'styles/shared.scss';
 
 .sprint-item {
   position: relative;
+
   width: 270px;
   height: 224px;
   background-color: $white;
   box-shadow: $shadow-primary;
   border-radius: 5px;
+
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.sprint-item:hover {
+  transform: scale(1.03);
+}
 .sprint-item__title {
   letter-spacing: 0.04em;
 
