@@ -1,6 +1,16 @@
 .projects_list {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -30px;
-  margin-top: -30px;
+  margin-left: -10px;
+  margin-top: -10px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-left: -30px;
+    margin-top: -30px;
+  }
 }

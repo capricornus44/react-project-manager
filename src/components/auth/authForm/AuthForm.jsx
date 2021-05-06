@@ -32,7 +32,7 @@ const AuthForm = () => {
     e.preventDefault();
 
     isSignupForm()
-      ? dispatch(signupOperation({ email, password, confirmPassword })) // вставить нужное название операции регистрации
+      ? dispatch(signupOperation({ email, password })) // вставить нужное название операции регистрации
       : dispatch(signinOperation({ email, password })); // вставить нужное название операции логинизации
 
     resetInputs();
@@ -55,7 +55,7 @@ const AuthForm = () => {
             name="email"
             value={email}
             placeholder=" "
-            autoComplete="off"
+            // autoComplete="off"
             required
             onChange={handleChange}
             id="email"
@@ -72,7 +72,7 @@ const AuthForm = () => {
             name="password"
             value={password}
             placeholder=" "
-            autoComplete="off"
+            // autoComplete="off"
             required
             onChange={handleChange}
             id="password"
@@ -90,7 +90,7 @@ const AuthForm = () => {
               name="confirmPassword"
               value={confirmPassword}
               placeholder=" "
-              autoComplete="off"
+              // autoComplete="off"
               required
               onChange={handleChange}
               id="confirmPassword"

@@ -8,7 +8,7 @@ const ProjectsHeader = () => {
       <h2 className="projects_title">Проекти</h2>
       <div className="projects_add">
         <AddButton />
-        <p className="project_add_text">Створити проект</p>
+        <p className="projects_add_text">Створити проект</p>
       </div>
     </div>
   );
