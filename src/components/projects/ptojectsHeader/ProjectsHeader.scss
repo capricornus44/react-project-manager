@@ -17,7 +17,6 @@
 .projects_add {
   display: flex;
   align-items: center;
-  margin-left: 20px;
 }
 
 .projects_add_text {
@@ -25,4 +24,8 @@
   font-size: 18px;
   line-height: 1.22;
   color: $text-primary;
+}
+
+.projects_header .add-button {
+  margin-right: 20px;
 }

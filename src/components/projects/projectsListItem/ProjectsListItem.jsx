@@ -11,6 +11,7 @@ const ProjectsListItem = () => {
           <p className="project_desc">
             Lorem ipsum dolor sit amet consectetur adipisicing.
           </p>
+
           <DeleteButton />
         </a>
       </li>
