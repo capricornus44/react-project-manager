@@ -84,8 +84,12 @@
   background-color: transparent;
   transition: all 250ms ease-in-out;
 
-  &:focus {
+  &:hover {
     border-bottom: 1px solid $text-primary;
+  }
+
+  &:focus {
+    border-bottom: 2px solid $accent;
   }
 
   @media screen and (min-width: 768px) {
