@@ -1,8 +1,16 @@
+@import 'styles/shared.scss';
+
 .project__details-add__ember-form {
   padding-left: 70px;
 }
 .project__details-add__ember-link {
   padding-left: 40px;
+
+  color: $black;
+  &:hover {
+    fill: $accent;
+    color: $accent;
+  }
 }
 
 .project__details-add__ember {
@@ -12,9 +20,11 @@
   letter-spacing: 0.04em;
 }
 
-.project__details-add__ember-img {
+.project__details-add__ember-icon {
   content: '';
   position: absolute;
+  width: 20px;
+  height: 20px;
   top: 0;
   left: -40px;
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-// import edit from "../../../assets/icons/edit.svg"
 import sprite from "../../../assets/icons/sprite.svg"
 import "./TitleProjectForm.scss"
 
