@@ -2,7 +2,7 @@ import { lazy } from 'react';
 
 const mainRoutes = [
   {
-    path: '/',
+    path: '/signup',
     name: 'Sign up',
     exact: true,
     component: lazy(() =>
@@ -28,8 +28,8 @@ const mainRoutes = [
     isRestricted: true,
   },
   {
-    path: '/project',
-    name: 'Project',
+    path: '/projects',
+    name: 'Projects',
     exact: true,
     component: lazy(() =>
       import(
@@ -54,7 +54,7 @@ const mainRoutes = [
   {
     path: '/projects/:projectId/:sprintId',
     name: 'SingleSprint',
-    exact: false,
+    exact: true,
     component: lazy(() =>
       import(
         '../pages/sprintDetailsPage/SprintDetailsPage' /* webpackChunkName: "Single sprint" */
