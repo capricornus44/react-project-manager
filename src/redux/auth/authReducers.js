@@ -9,16 +9,17 @@ import {
   logoutError,
   refreshSuccess,
   refreshError,
+  userSuccess,
 } from './authActions';
 
 const initialUserState = {
   email: '',
-  password: '',
+  id: '',
 };
 
 const user = createReducer(initialUserState, {
   [signupSuccess]: (_, { payload }) => payload.user,
-  [signinSuccess]: (_, { payload }) => payload,
+  [userSuccess]: (_, { payload }) => payload,
   [refreshSuccess]: (_, { payload }) => payload,
   [refreshError]: () => initialUserState,
   [logoutSuccess]: () => initialUserState,

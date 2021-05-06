@@ -16,6 +16,8 @@ const refreshRequest = createAction('auth/refreshRequest');
 const refreshSuccess = createAction('auth/refreshSuccess');
 const refreshError = createAction('auth/refreshError');
 
+const userSuccess = createAction('members/userSuccess');
+
 export {
   signupRequest,
   signupSuccess,
@@ -29,4 +31,5 @@ export {
   refreshRequest,
   refreshSuccess,
   refreshError,
+  userSuccess,
 };
