@@ -9,6 +9,7 @@ const modalRoot = document.querySelector('#modal_root');
 
 const SidebarModal = ({ children, onClose, title,showModal,setShowModal }) => {
   const modalRef = useRef();
+//   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     window.addEventListener('keydown', handleEsc);
