@@ -1,9 +1,5 @@
 @import 'styles/shared.scss';
 
-// * {
-//   outline: 1px solid tomato;
-// }
-
 .sprintsPageHeader__MainContainer {
   @media screen and (min-width: 768px) {
     border-bottom: 1px solid $border-header;
@@ -15,11 +11,11 @@
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    width: 512px;
+    width: 452px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1025px;
+    width: 869px;
   }
 }
 
@@ -103,7 +99,7 @@
 .sprintsPageHeader__input {
   width: 280px;
   height: 30px;
-  padding-left: 30px;
+  padding-left: 35px;
   background-color: inherit;
   border: none;
   outline: none;
@@ -131,10 +127,10 @@
   background-position: center;
 
   @media screen and (min-width: 768px) {
-    right: 0;
+    right: 10px;
   }
   @media screen and (min-width: 1200px) {
-    right: 40px;
+    right: 30px;
   }
 }
 
@@ -157,16 +153,15 @@
   }
 }
 
-.sprintsPageHeader__addTask_btn {
-  width: 44px;
+.sprintsPageHeader__addTask_btn_box {
+  position: fixed;
   height: 44px;
-  border-radius: 50px;
-  margin-left: auto;
-  position: absolute;
   bottom: 20px;
   right: 20px;
 
   @media screen and (min-width: 768px) {
+    margin-left: auto;
+    display: flex;
     position: initial;
   }
 }
@@ -191,9 +186,9 @@
 
 .sprintsPageHeader__categories_list {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
-  padding-bottom: 10px;
+  padding: 0 60px 10px 30px;
 }
 
 .sprintsPageHeader__categories_list_item {

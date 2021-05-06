@@ -1,5 +1,6 @@
 import './SprintsPageHeader.scss';
 import sprite from '../../../assets/icons/sprite.svg';
+import AddButton from '../../shared/addButton/AddButton';
 
 const SprintsPageHeader = () => {
   return (
@@ -31,11 +32,12 @@ const SprintsPageHeader = () => {
               <use href={sprite + '#edit'}></use>
             </svg>
           </button>
-
-          <button className="sprintsPageHeader__addTask_btn">+</button>
-          <p className="sprintsPageHeader__addTask_text desktop_item">
-            Створити задачу
-          </p>
+          <div className="sprintsPageHeader__addTask_btn_box">
+            <AddButton />
+            <p className="sprintsPageHeader__addTask_text desktop_item">
+              Створити задачу
+            </p>
+          </div>
         </div>
         <div className="sprintsPageHeader__categories">
           <ul className="sprintsPageHeader__categories_list">
