@@ -3,7 +3,7 @@ import './ModalHoc.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import SidebarModal from '../sidebarModal/SidebarModal';
 
-const ModalHoc = ({ children, title, addOperation, titleModal }) => {
+const ModalHoc = ({ children, title, addOperation, titleModal, data }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toogleModal = () => {
@@ -24,6 +24,7 @@ const ModalHoc = ({ children, title, addOperation, titleModal }) => {
       </button>
       <p className="projects_add_text">{title}</p>
       <SidebarModal
+        data={data}
         titleModal={titleModal}
         showModal={showModal}
         setShowModal={setShowModal}

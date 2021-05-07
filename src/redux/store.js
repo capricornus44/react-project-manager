@@ -11,7 +11,8 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducers';
-// import projectsReducer from './projects/projectReducers';
+import projectsReducer from './projects/projectReducers';
+
 // import sprintsReducer from './sprints/sprintReducers';
 // import tasksReducer from './task/taskReducers';
 
@@ -32,7 +33,7 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // projects: projectsReducer,
+    projects: projectsReducer,
     // sprints: sprintsReducer,
     // tasks: tasksReducer,
   },

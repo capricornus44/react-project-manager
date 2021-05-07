@@ -16,7 +16,7 @@ import {
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
-const token = {
+export const token = {
   token: '',
 
   set(token) {
