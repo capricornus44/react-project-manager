@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: $overlay;
   width: 100vw;
   height: 100vh;
 }
@@ -63,7 +63,6 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  transition: all 0.2s linear;
 }
 .sidebar-modal__link {
   font-family: Montserrat;
