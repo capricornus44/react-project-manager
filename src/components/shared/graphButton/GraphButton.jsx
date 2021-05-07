@@ -1,5 +1,5 @@
 import React from 'react';
-import '../addButton/AddButton.scss';
+import '../ModalHoc/ModalHoc.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 
 const GraphButton = () => {
