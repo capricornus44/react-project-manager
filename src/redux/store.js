@@ -14,7 +14,7 @@ import authReducer from './auth/authReducers';
 import projectsReducer from './projects/projectReducers';
 
 // import sprintsReducer from './sprints/sprintReducers';
-// import tasksReducer from './task/taskReducers';
+import tasksReducer from './tasks/taskReducers';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -35,7 +35,7 @@ const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     projects: projectsReducer,
     // sprints: sprintsReducer,
-    // tasks: tasksReducer,
+    tasks: tasksReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
