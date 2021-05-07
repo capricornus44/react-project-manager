@@ -62,7 +62,7 @@ export const deleteSprint = id => async dispatch => {
   dispatch(deleteSprintRequest());
   try {
     const responce = await axios.delete(`/sprint/${id}`);
-    dispatch(deleteSprintSuccess(responce.data));
+    dispatch(deleteSprintSuccess(responce.data.sprints));
   } catch (error) {
     dispatch(deleteSprintError(error));
   }

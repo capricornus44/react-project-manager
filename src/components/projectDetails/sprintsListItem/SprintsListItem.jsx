@@ -2,8 +2,8 @@ import React from 'react';
 import SprintDeleteButton from '../../shared/deleteButton/SprintDeleteButton';
 import "./SprintsListItem.scss"
 
-const SprintsListItem = ({ startDate, endDate, duration, title }) => {
-  console.log(startDate)
+const SprintsListItem = ({ startDate, endDate, duration, title,_id }) => {
+  console.log(_id)
     return (<>
       <li className="sprint-item">
         <h3 className="sprint-item__title">{title}</h3>
@@ -34,7 +34,7 @@ const SprintsListItem = ({ startDate, endDate, duration, title }) => {
           </div>
       </div>
   <div className="sprint-item__button">
-      <SprintDeleteButton />
+          <SprintDeleteButton id={_id}/>
    </div>
       </li>
       
