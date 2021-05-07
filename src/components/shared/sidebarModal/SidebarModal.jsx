@@ -13,6 +13,7 @@ const SidebarModal = ({
   showModal,
   setShowModal,
   addOperation,
+  titleModal,
 }) => {
   const modalRef = useRef();
 
@@ -61,7 +62,7 @@ const SidebarModal = ({
               <use href={sprite + '#close'} />
             </svg>
           </button>
-          <h2>{title}</h2>
+          <h2>{titleModal}</h2>
           <form onSubmit={onSave}>
             {children}
             <div className="sidebar-modal__btm">
