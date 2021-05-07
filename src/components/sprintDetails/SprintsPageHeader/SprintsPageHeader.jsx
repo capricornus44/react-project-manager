@@ -1,6 +1,6 @@
 import './SprintsPageHeader.scss';
 import sprite from '../../../assets/icons/sprite.svg';
-import AddButton from '../../shared/addButton/AddButton';
+import ModalHoc from '../../shared/ModalHoc/ModalHoc';
 
 const SprintsPageHeader = () => {
   return (
@@ -33,7 +33,7 @@ const SprintsPageHeader = () => {
             </svg>
           </button>
           <div className="sprintsPageHeader__addTask_btn_box">
-            <AddButton />
+            <ModalHoc />
             <p className="sprintsPageHeader__addTask_text desktop_item">
               Створити задачу
             </p>
