@@ -13,6 +13,12 @@
 
   @media screen and (max-width: 1280px) {
     width: 216px;
+    height: 255px;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 170px;
   }
 }
 
@@ -25,41 +31,91 @@
   padding-top: 18px;
   padding-left: 30px;
   padding-right: 30px;
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1279px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media screen and (max-width: 727px) {
+    font-size: 16px;
+    line-height: 20px;
     padding-left: 20px;
     padding-right: 20px;
   }
 }
 
 .sprint-item__details {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   padding-top: 28px;
   padding-left: 30px;
   padding-right: 30px;
-  padding-bottom: 40px;
-  @media screen and (max-width: 1280px) {
+  // padding-bottom: 40px;
+  @media screen and (max-width: 1279px) {
     padding-left: 20px;
     padding-right: 20px;
   }
-}
-
-.sprint-item__details-elem:not(:first-child) {
-  padding-top: 20px;
-}
-.sprint-item__details-column {
-  @media screen and (max-width: 1280px) {
-    width: calc(100% / 2);
+  @media screen and (max-width: 767px) {
+    padding-top: 20px;
   }
 }
-.sprint-item__details-elem {
+
+.sprint-item__details-elem-name {
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.04em;
+  @media screen and (max-width: 767px) {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+.sprint-item__details-elem-value {
+  text-align: end;
+  @media screen and (max-width: 767px) {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+.sprint-item__details-column:not(:first-child) {
+  padding-top: 20px;
+  @media screen and (max-width: 767px) {
+    padding-top: 10px;
+  }
+}
+
+.sprint-item__details-column {
+  // @media screen and (max-width: 1280px) {
+  // width: calc(100% / 2);
+  display: flex;
+  // justify-content: space-between;
+  // flex-wrap: wrap;
+  // }
+}
+.sprint-item__details-column-details {
+  width: calc(100% * 2 / 3);
+  @media screen and (max-width: 1279px) {
+  }
+}
+.sprint-item__details-column-details-value {
+  width: calc(100% / 3);
+  @media screen and (max-width: 1279px) {
+    width: calc(100% / 2);
+  }
+  // text-align: end;
+}
+.sprint-item__details-column__name,
+.sprint-item__details-column__value {
+  width: calc(100% / 2);
+}
+.sprint-item__details-column__value {
+  text-align: end;
 }
 .sprint-item__button {
   content: '';
   position: absolute;
+
+  width: 20px;
+  height: 20px;
 
   bottom: 10px;
   right: 10px;

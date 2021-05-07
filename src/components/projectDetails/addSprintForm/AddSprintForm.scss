@@ -1,8 +1,12 @@
 .add__sprint-form {
   display: flex;
   // align-items: center;
-  padding-top: 40px;
-  padding-right: 85px;
+  // padding-top: 40px;
+
+  @media screen and (min-width: 1280px) {
+    padding-right: 30px;
+  }
+  // padding-right: 85px;
 }
 
 .add__sprint-button__name {
@@ -12,4 +16,7 @@
 
   padding-top: 11px;
   margin-left: 20px;
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
 }

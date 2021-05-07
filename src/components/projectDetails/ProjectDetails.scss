@@ -2,3 +2,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+.project-details-section {
+  padding-top: 30px;
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-right: 30px;
+    padding-left: 70px;
+  }
+}
