@@ -1,9 +1,9 @@
-.project-details {
+.project__details {
   display: flex;
   justify-content: space-between;
 }
 
-.project-details-section {
+.project__details-section {
   padding-top: 30px;
   @media screen and (min-width: 768px) {
     padding-top: 40px;
@@ -13,4 +13,8 @@
     padding-right: 30px;
     padding-left: 70px;
   }
+}
+
+.project__details-form {
+  display: flex;
 }

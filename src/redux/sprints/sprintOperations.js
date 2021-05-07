@@ -13,8 +13,10 @@ import {
   deleteSprintError,
   deleteSprintSuccess,
 } from './sprintActions';
+import { token } from '../auth/authOperations';
 
-const projectID = '60929ff533a36061e804eaa8';
+axios.defaults.baseURL = 'https://sbc-backend.goit.global';
+const projectID = '6094ff1033a36061e804eb4d';
 
 export const addSprint = ({ title, endDate, duration }) => async dispatch => {
   const sprint = {
@@ -32,11 +34,15 @@ export const addSprint = ({ title, endDate, duration }) => async dispatch => {
   }
 };
 
-export const getSprints = () => async dispatch => {
+export const getSprints = () => async (dispatch, getState) => {
   dispatch(getSprintRequest());
+
+  const { accessToken } = getState().auth.token;
+  token.set(accessToken);
+
   try {
     const responce = await axios.get(`/sprint/${projectID}`);
-    dispatch(getSprintSuccess(responce.data));
+    dispatch(getSprintSuccess(responce.data.sprints));
   } catch (error) {
     dispatch(getSprintError(error));
   }

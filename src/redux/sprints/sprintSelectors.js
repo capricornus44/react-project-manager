@@ -1,1 +1,1 @@
-export const getAllSprints = state => state.sprint;
+export const getAllSprints = state => state.sprints;
