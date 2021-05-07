@@ -84,12 +84,9 @@
   background-color: transparent;
   transition: all 250ms ease-in-out;
 
-  &:hover {
-    border-bottom: 1px solid $text-primary;
-  }
-
+  &:hover,
   &:focus {
-    border-bottom: 2px solid $accent;
+    border-bottom: 1px solid $accent;
   }
 
   @media screen and (min-width: 768px) {
@@ -98,6 +95,10 @@
     font-size: 18px;
     line-height: 1.222;
   }
+}
+
+.error {
+  color: $text-error;
 }
 
 .auth-form__input:focus + .auth-form__label,
