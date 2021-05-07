@@ -3,19 +3,22 @@ import { createPortal } from 'react-dom';
 import './SidebarModal.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import FormButton from '../formButton/FormButton';
+import { useDispatch } from 'react-redux';
 
 const modalRoot = document.querySelector('#modal_root');
 
 const SidebarModal = ({
   children,
   onClose,
-  title,
   showModal,
   setShowModal,
   addOperation,
   titleModal,
+  data,
 }) => {
   const modalRef = useRef();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleEsc = e => {
@@ -42,7 +45,7 @@ const SidebarModal = ({
   const onSave = e => {
     e.preventDefault();
     closeModal();
-    addOperation();
+    dispatch(addOperation(data));
   };
 
   return createPortal(

@@ -12,9 +12,10 @@ import {
 import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducers';
 import { sprintsReducer } from './sprints/sprintReducers';
-// import projectsReducer from './projects/projectReducers';
+import projectsReducer from './projects/projectReducers';
+
 // import sprintsReducer from './sprints/sprintReducers';
-// import tasksReducer from './task/taskReducers';
+import tasksReducer from './tasks/taskReducers';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -33,9 +34,9 @@ const authPersistConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    // projects: projectsReducer,
+    projects: projectsReducer,
     sprints: sprintsReducer,
-    // tasks: tasksReducer,
+    tasks: tasksReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
