@@ -14,10 +14,6 @@ const validationSchema = yup.object().shape({
   //   /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}$/,
   //   'Пароль повинен містити символи латинского алфавіту, прописні та заглавні букви та цифри',
   // ),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'Passwords do not match')
-    .required('Confirm Password is required'),
 });
 
 export { validationSchema };
