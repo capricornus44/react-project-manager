@@ -14,15 +14,10 @@ const validationSchema = yup.object().shape({
   //   /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}$/,
   //   'Пароль повинен містити символи латинского алфавіту, прописні та заглавні букви та цифри',
   // ),
-  // changePassword: yup
-  //   .string()
-  //   .required('Будь-ласка, підтвердіть свій пароль')
-  //   .when('password', {
-  //     is: val => (val && val.length > 0 ? true : false),
-  //     then: yup
-  //       .string()
-  //       .oneOf([yup.ref('password')], 'Both password need to be the same'),
-  //   }),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Passwords do not match')
+    .required('Confirm Password is required'),
 });
 
 export { validationSchema };
