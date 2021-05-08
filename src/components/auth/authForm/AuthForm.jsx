@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik, Form, Field } from 'formik';
+import FormButton from '../../shared/formButton/FormButton';
+import { getAuthError } from '../../../redux/auth/authSelectors';
+import { clearError } from '../../../redux/auth/authActions';
 import {
   signinOperation,
   signupOperation,
 } from '../../../redux/auth/authOperations';
-import FormButton from '../../shared/formButton/FormButton';
+import { validationSchema } from '../validation/validationSchema';
 import './AuthForm.scss';
-
-import { validationSchema } from '../validation/signupSchema';
-import { Formik, Form, Field } from 'formik';
 
 const AuthForm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const authError = useSelector(getAuthError);
+  const [signupError, setSignupError] = useState({
+    isError: false,
+    message: '',
+  });
+
+  useEffect(() => {
+    if (authError?.includes('code 409')) {
+      setSignupError({
+        isError: true,
+        message: 'Користувач з таким іменем вже існує',
+      });
+      setTimeout(() => {
+        dispatch(clearError());
+        setSignupError({ isError: false, message: '' });
+      }, 3000);
+    }
+  }, [authError, dispatch]);
 
   const isSignupForm = () => {
     return location.pathname === '/signup';
@@ -28,8 +47,15 @@ const AuthForm = () => {
           confirmPassword: '',
         }}
         validationSchema={validationSchema}
-        onSubmit={({ email, password }) => {
+        onSubmit={({ email, password, confirmPassword }, error) => {
           if (isSignupForm()) {
+            if (password !== confirmPassword) {
+              error.setErrors({
+                confirmPassword: 'Паролі не співпадають',
+              });
+              return;
+            }
+
             dispatch(signupOperation({ email, password }));
           } else {
             dispatch(signinOperation({ email, password }));
@@ -56,8 +82,10 @@ const AuthForm = () => {
                 Email
               </label>
 
-              {errors.email && touched.email ? (
-                <p className="error">{errors.email}</p>
+              {(errors.email && touched.email) || signupError.isError ? (
+                <p className="error">
+                  {signupError.isError ? signupError.message : errors.email}
+                </p>
               ) : null}
             </div>
 
