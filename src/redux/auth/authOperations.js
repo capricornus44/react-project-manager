@@ -75,6 +75,7 @@ const logoutOperation = () => async dispatch => {
 
     token.unset();
     dispatch(logoutSuccess());
+    window.location.reload();
   } catch (error) {
     dispatch(logoutError(error.message));
   }
@@ -86,7 +87,7 @@ const refreshOperation = () => async (dispatch, getState) => {
   dispatch(refreshRequest());
 
   try {
-    const response = await axios.post('/auth/refresh', sid);
+    const response = await axios.post('/auth/refresh', { sid: sid });
 
     dispatch(
       refreshSuccess({
