@@ -70,10 +70,14 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 0.818;
-  display: block;
   text-align: center;
   letter-spacing: 0.04em;
   color: $text-secondary;
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  display: block;
+  margin: auto;
 }
 .sidebar-modal__btm {
   text-align: center;
