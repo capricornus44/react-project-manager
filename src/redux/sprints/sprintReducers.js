@@ -18,6 +18,6 @@ import {
 export const sprintsReducer = createReducer([], {
   [addSprintSuccess]: (state, { payload }) => [...state, payload],
   [deleteSprintSuccess]: (state, { payload }) =>
-    state.filter(item => item.id !== payload),
+    state.filter(item => item._id !== payload),
   [getSprintSuccess]: (_, { payload }) => [...payload],
 });

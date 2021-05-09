@@ -45,7 +45,7 @@ const SidebarModal = ({
   const onSave = e => {
     e.preventDefault();
     closeModal();
-    dispatch(addOperation(data));
+    // dispatch(addOperation(data));
   };
 
   return createPortal(

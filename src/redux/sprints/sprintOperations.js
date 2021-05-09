@@ -18,7 +18,10 @@ import { token } from '../auth/authOperations';
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 const projectID = '6094ff1033a36061e804eb4d';
 
-export const addSprint = ({ title, endDate, duration }) => async dispatch => {
+export const addSprint = ({ title, endDate, duration }) => async (
+  dispatch,
+  getState,
+) => {
   const sprint = {
     title,
     endDate,
@@ -26,6 +29,10 @@ export const addSprint = ({ title, endDate, duration }) => async dispatch => {
   };
 
   dispatch(addSprintRequest());
+
+  const { accessToken } = getState().auth.token;
+  token.set(accessToken);
+
   try {
     const responce = await axios.post(`/sprint/${projectID}`, sprint);
     dispatch(addSprintSuccess(responce.data));

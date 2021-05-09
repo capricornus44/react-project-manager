@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SprintDeleteButton from '../../shared/deleteButton/SprintDeleteButton';
 import "./SprintsListItem.scss"
 
 const SprintsListItem = ({ startDate, endDate, duration, title,_id }) => {
-  console.log(_id)
+  // console.log(_id)
+
+      // useEffect(() => {
+        
+      // }, [])
+  
+  
     return (<>
       <li className="sprint-item">
         <h3 className="sprint-item__title">{title}</h3>
