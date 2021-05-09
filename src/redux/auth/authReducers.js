@@ -10,6 +10,7 @@ import {
   refreshSuccess,
   refreshError,
   userSuccess,
+  clearError,
 } from './authActions';
 
 import storage from 'redux-persist/lib/storage';
@@ -43,6 +44,7 @@ const error = createReducer('', {
   [signinError]: setError,
   [logoutError]: setError,
   [refreshError]: setError,
+  [clearError]: () => '',
 });
 
 const userPersistConfig = {

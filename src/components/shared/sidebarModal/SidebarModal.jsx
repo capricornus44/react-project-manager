@@ -69,7 +69,7 @@ const SidebarModal = ({
           <form onSubmit={onSave}>
             {children}
             <div className="sidebar-modal__btm">
-              <FormButton />
+              <FormButton>Готово</FormButton>
               <button
                 type="button"
                 onClick={closeModal}
