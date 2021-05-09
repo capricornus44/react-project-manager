@@ -1,6 +1,20 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-
+// [
+//   {
+//     title: 'Task 1',
+//     hoursPlanned: 1,
+//     hoursWasted: 0,
+//     hoursWastedPerDay: [
+//       {
+//         currentDay: '2020-12-31',
+//         singleHoursWasted: 0,
+//       },
+//     ],
+//     _id: '507f1f77bcf86cd799439011',
+//     __v: 0,
+//   },
+// ];
 const Graph = () => {
   const getAll = 250; //здесь должна быть сумма всех тасков
   //(в этих тасках должны быть плановые и фактические)
@@ -70,7 +84,7 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        data: [250, 242, 236, 229, 221, 214, 208], //[plannedLine,...otherDayPlannedLine]
+        data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
       },
     ],
   };
