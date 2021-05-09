@@ -10,6 +10,7 @@ const App = () => {
       <Header />
       <Container>
         <ProjectDetails />
+        {/* <Main/> */}
       </Container>
     </>
   );
