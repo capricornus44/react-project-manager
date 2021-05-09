@@ -81,5 +81,23 @@
 }
 .sidebar-modal__btm {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
+}
+
+.form__title {
+  margin-bottom: 30px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.231;
+  letter-spacing: 0.04em;
+  color: $text-primary;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+
+    font-size: 36px;
+    line-height: 1.222;
+  }
 }

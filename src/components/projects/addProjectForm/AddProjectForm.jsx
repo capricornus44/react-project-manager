@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { LangContext } from '../../app/App';
+import './AddProjectForm.scss';
 
 const AddProjectForm = ({ cb }) => {
   const { language } = useContext(LangContext);
@@ -18,7 +19,7 @@ const AddProjectForm = ({ cb }) => {
 
   return (
     <>
-      <div className="auth-form__group">
+      <div className="projects-form__group">
         <input
           type="text"
           name="title"
@@ -28,13 +29,13 @@ const AddProjectForm = ({ cb }) => {
           required
           onChange={handleChange}
           id="name"
-          className="auth-form__input"
+          className="projects-form__input"
         />
-        <label className="auth-form__label" htmlFor="name">
+        <label className="projects-form__label" htmlFor="name">
           {language.projectsPageForm.projectName}
         </label>
       </div>
-      <div className="auth-form__group">
+      <div className="projects-form__group">
         <input
           type="text"
           name="description"
@@ -44,9 +45,9 @@ const AddProjectForm = ({ cb }) => {
           required
           onChange={handleChange}
           id="desc"
-          className="auth-form__input"
+          className="projects-form__input"
         />
-        <label className="auth-form__label" htmlFor="desc">
+        <label className="projects-form__label" htmlFor="desc">
           {language.projectsPageForm.projectDescription}
         </label>
       </div>
