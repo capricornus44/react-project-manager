@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { LangContext } from '../../app/App';
 
 const AddProjectForm = ({ cb }) => {
+  const { language } = useContext(LangContext);
   const [data, setData] = useState({ title: '', description: '' });
   const { title, description } = data;
 
@@ -29,7 +31,7 @@ const AddProjectForm = ({ cb }) => {
           className="auth-form__input"
         />
         <label className="auth-form__label" htmlFor="name">
-          Назва проекту
+          {language.projectsPageForm.projectName}
         </label>
       </div>
       <div className="auth-form__group">
@@ -45,7 +47,7 @@ const AddProjectForm = ({ cb }) => {
           className="auth-form__input"
         />
         <label className="auth-form__label" htmlFor="desc">
-          Опис
+          {language.projectsPageForm.projectDescription}
         </label>
       </div>
     </>
