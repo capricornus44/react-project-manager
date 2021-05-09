@@ -1,6 +1,6 @@
 const ukrainian = {
   title: 'ukrainian',
-  name: 'UKR',
+  name: 'UA',
   userMenu: {
     exit: 'Вихiд',
   },
@@ -16,6 +16,19 @@ const ukrainian = {
     signinQuestion: 'Немає акаунту?',
     signupLink: 'Увійти',
     signinLink: 'Зареєструватись',
+  },
+  sidebarModal: {
+    createButton: 'Готово',
+    cancelButton: 'Вiдмiна',
+  },
+  projectsPage: {
+    pageTitle: 'Проекти',
+    addButton: 'Створити проект',
+  },
+  projectsPageForm: {
+    formTitle: 'Створення проекту',
+    projectName: 'Назва проекту',
+    projectDescription: 'Опис',
   },
 };
 

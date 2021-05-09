@@ -1,6 +1,6 @@
 const english = {
   title: 'english',
-  name: 'ENG',
+  name: 'EN',
   userMenu: {
     exit: 'Log out',
   },
@@ -16,6 +16,19 @@ const english = {
     signinQuestion: "Haven't got an account yet?",
     signupLink: 'Sign in',
     signinLink: 'Sign up',
+  },
+  sidebarModal: {
+    createButton: 'Create',
+    cancelButton: 'Cancel',
+  },
+  projectsPage: {
+    pageTitle: 'Projects',
+    addButton: 'Create project',
+  },
+  projectsPageForm: {
+    formTitle: 'Project creation',
+    projectName: 'Project name',
+    projectDescription: 'Project description',
   },
 };
 
