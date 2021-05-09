@@ -18,6 +18,8 @@ const refreshError = createAction('auth/refreshError');
 
 const userSuccess = createAction('members/userSuccess');
 
+const clearError = createAction('auth/clearError');
+
 export {
   signupRequest,
   signupSuccess,
@@ -32,4 +34,5 @@ export {
   refreshSuccess,
   refreshError,
   userSuccess,
+  clearError,
 };
