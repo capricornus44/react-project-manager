@@ -8,12 +8,12 @@ const SprintDeleteButton = ( {id} ) => {
 
   const dispatch = useDispatch()
 
-  const deleteBtn = (id) => {
-  dispatch(deleteSprint(id))
-}
+//   const deleteBtn = (id) => {
+//   dispatch(deleteSprint(id))
+// }
 
   return (
-    <button onClick={()=>deleteBtn(id)}
+    <button onClick={()=>dispatch(deleteSprint(id))}
       type="button"
       aria-label="delete button"
       className="sprint__delete-button"

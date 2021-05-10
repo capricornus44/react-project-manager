@@ -9,11 +9,16 @@ const SprintsList = () => {
     const dispatch = useDispatch()
     const allSprints = useSelector(getAllSprints)
 
-    useEffect(() => {
-        dispatch(getSprints())
-    }, [dispatch])
+    // useEffect(() => {
+    //     console.log("2")
+    //     dispatch(getSprints())
+    // }, [allSprints.length])
 
-    console.log(allSprints)
+    //     useEffect(() => {
+    //     // dispatch(getSprints())
+    // }, [allSprints.length])
+
+    // console.log(allSprints)
 
     return (
         <>

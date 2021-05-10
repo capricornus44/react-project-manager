@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: $overlay;
   width: 100vw;
   height: 100vh;
 }
@@ -63,7 +63,6 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
-  transition: all 0.2s linear;
 }
 .sidebar-modal__link {
   font-family: Montserrat;
@@ -71,10 +70,14 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 0.818;
-  display: block;
   text-align: center;
   letter-spacing: 0.04em;
   color: $text-secondary;
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  display: block;
+  margin: auto;
 }
 .sidebar-modal__btm {
   text-align: center;
