@@ -1,10 +1,12 @@
 import React from 'react';
-import NavigationRoutes from '../navigation/NavigationRoutes';
+import SprintDetailsPage from '../../pages/sprintDetailsPage/SprintDetailsPage';
+// import NavigationRoutes from '../navigation/NavigationRoutes';
 
 const Main = () => {
   return (
     <main>
-      <NavigationRoutes />
+      {/* <NavigationRoutes /> */}
+      <SprintDetailsPage />
     </main>
   );
 };

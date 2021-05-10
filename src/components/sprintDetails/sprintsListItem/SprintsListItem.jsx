@@ -1,7 +1,7 @@
-import SprintDeleteButton from '../../shared/deleteButton/SprintDeleteButton';
+import TaskDeleteButton from '../../shared/deleteButton/TaskDeleteButton';
 import './SprintsListItem.scss';
 
-const SprintsListItem = ({ title, hoursPlanned, hoursWasted }) => {
+const SprintsListItem = ({ _id: id, title, hoursPlanned, hoursWasted }) => {
   return (
     <>
       <li className="sprintsListItem">
@@ -30,7 +30,7 @@ const SprintsListItem = ({ title, hoursPlanned, hoursWasted }) => {
           </li>
         </ul>
         <div className="sprintsListItem__deleteBtn_box">
-          <SprintDeleteButton />
+          <TaskDeleteButton id={id} />
         </div>
       </li>
     </>

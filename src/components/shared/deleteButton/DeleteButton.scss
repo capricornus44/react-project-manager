@@ -35,6 +35,7 @@
   &:hover {
     cursor: pointer;
     background-color: $accent;
+    transform: scale(1.3);
   }
 }
 .sprint__icon-delete {
