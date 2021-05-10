@@ -8,7 +8,7 @@ const ProjectsListItem = ({ title, description, _id: id }) => {
     <>
       <li className="project_item">
         <Link
-          to={{ pathname: `/projects/${id}`, state: { from: location } }}
+          to={{ pathname: `/projects/${id}`, state: { from: location, title } }}
           className="project_link"
         >
           <h3 className="project_title">{title}</h3>

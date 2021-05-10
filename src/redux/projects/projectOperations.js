@@ -22,6 +22,7 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   token.set(accessToken);
   try {
     const responce = await axios.get('/project');
+    console.log(responce);
     dispatch(getProjectSuccess(responce.data));
   } catch (error) {
     dispatch(getProjectError(error.message));
@@ -66,7 +67,9 @@ const deleteProjectsOperation = id => async dispatch => {
 const changeTitleProject = ({ id, title }) => async dispatch => {
   dispatch(changeTitleProjectRequest());
   try {
-    const responce = await axios.patch(`/project/title/${id}`, title);
+    const newTitle = { title };
+    const responce = await axios.patch(`/project/title/${id}`, newTitle);
+    console.log(responce.data);
     dispatch(changeTitleProjectSuccess(responce.data));
   } catch (error) {
     dispatch(changeTitleProjectError(error.message));

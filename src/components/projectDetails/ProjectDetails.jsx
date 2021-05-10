@@ -32,7 +32,7 @@ const ProjectDetails = () => {
             </SidebarPanel>
             <div className="project__details-section">
                 <div className="project__details">
-                    <TitleProjectForm />
+                    <TitleProjectForm projectId={projectId}/>
                     <AddSprintForm projectId={projectId} onSubmit/>
                 </div>
                 <TitleProjectDetails/>

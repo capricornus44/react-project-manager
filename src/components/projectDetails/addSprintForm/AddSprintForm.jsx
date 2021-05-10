@@ -10,10 +10,10 @@ const AddSprintForm = ({ projectId }) => {
   const [data, setData] = useState("")
   const dispatch = useDispatch()
 
-  const submitSprint = ( data) => {
-    // console.log(projectId)
-    dispatch(addSprint(data))
-  }
+  // const submitSprint = ( data) => {
+  //   // console.log(projectId)
+  //   dispatch(addSprint(data))
+  // }
 
 
   return (

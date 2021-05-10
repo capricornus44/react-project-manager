@@ -16,7 +16,7 @@ const SprintsList = ({projectId}) => {
 
     //     useEffect(() => {
     //     dispatch(getSprints(projectId))
-    // }, [allSprints.length])
+    // }, [dispatch])
 
     // console.log(allSprints)
 
@@ -26,7 +26,7 @@ const SprintsList = ({projectId}) => {
         <>
             <ul className="sprint-list">
                 {allSprints.map(elem => {
-                    console.log(elem)
+                    // console.log(elem)
                     return < SprintsListItem key={elem._id} {...elem} />})}
             </ul>
         </>

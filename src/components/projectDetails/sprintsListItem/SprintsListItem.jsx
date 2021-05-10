@@ -5,7 +5,7 @@ import { deleteSprint } from '../../../redux/sprints/sprintOperations';
 import SprintDeleteButton from '../../shared/deleteButton/SprintDeleteButton';
 import "./SprintsListItem.scss"
 
-const SprintsListItem = ({ startDate, endDate, duration, title, _id }) => {
+const SprintsListItem = ({ startDate, endDate, duration, title, _id:id }) => {
   // console.log(_id)
 
       // useEffect(() => {
@@ -17,7 +17,7 @@ const SprintsListItem = ({ startDate, endDate, duration, title, _id }) => {
   
     return (<>
       <li className="sprint-item">
-        <Link to={{pathname: `/projects/:projectId/${_id}`, state: {from : location}}}>
+        <Link to={{pathname: `/projects/:projectId/${id}`, state: {from : location}}}>
         <h3 className="sprint-item__title">{title}</h3>
           <div className="sprint-item__details">
             <div className="sprint-item__details-column">
@@ -46,7 +46,7 @@ const SprintsListItem = ({ startDate, endDate, duration, title, _id }) => {
           </div>
       </div>
   <div className="sprint-item__button">
-            <SprintDeleteButton id={_id} deleteOperation={deleteSprint}/>
+            <SprintDeleteButton id={id} deleteOperation={deleteSprint}/>
           </div>
           </Link>
       </li>
