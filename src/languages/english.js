@@ -30,6 +30,22 @@ const english = {
     projectName: 'Project name',
     projectDescription: 'Project description',
   },
+  projectPage: {
+    addSprintButton: 'Create sprint',
+    addMembersButton: 'Add members',
+  },
+  projectPageSidebar: {
+    addSprintButton: 'Create sprint',
+    goBack: 'Back',
+  },
+  projectPageForm: {
+    formTitle: 'Sprint creation',
+    sprintName: 'Sprint name',
+    prevDays: 'Previous days',
+    startDate: 'Start date',
+    expireDate: 'Expire date',
+    duration: 'Duration',
+  },
 };
 
 export { english };
