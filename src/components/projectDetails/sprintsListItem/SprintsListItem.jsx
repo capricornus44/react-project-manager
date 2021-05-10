@@ -1,4 +1,6 @@
+import { Link } from '@material-ui/core';
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router';
 import SprintDeleteButton from '../../shared/deleteButton/SprintDeleteButton';
 import "./SprintsListItem.scss"
 
@@ -8,10 +10,12 @@ const SprintsListItem = ({ startDate, endDate, duration, title,_id }) => {
       // useEffect(() => {
         
       // }, [])
-  
+  console.log(_id)
+  const location = useLocation()
   
     return (<>
       <li className="sprint-item">
+        <Link to={{pathname: `/projects/:projectId/:sprintId`, state: {from : location}}}>
         <h3 className="sprint-item__title">{title}</h3>
           <div className="sprint-item__details">
             <div className="sprint-item__details-column">
@@ -41,7 +45,8 @@ const SprintsListItem = ({ startDate, endDate, duration, title,_id }) => {
       </div>
   <div className="sprint-item__button">
           <SprintDeleteButton id={_id}/>
-   </div>
+          </div>
+          </Link>
       </li>
       
 </>
