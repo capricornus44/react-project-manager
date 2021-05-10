@@ -1,5 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import { useSelector } from 'react-redux';
+import { getAllSprints } from '../../redux/sprints/sprintSelectors';
 // [
 //   {
 //     title: 'Task 1',
@@ -28,12 +30,12 @@ import { Line } from 'react-chartjs-2';
 // предыдущего дня(Если это первый день - отнимает от общей суммы оценочных часов)
 // В результате получаем массив с числами[250, 232, 228, ....]
 const Graph = () => {
-  const getAll = 250; //здесь должна быть сумма всех тасков
-  //(в этих тасках должны быть плановые и фактические)
-  //вытянуть из данных Влада useSelector или другим способом
+  const getAll = useSelector(getAllSprints);
 
-  // const plannedLine=()=>{достать из getAll планируемые }
-  //const otherDayPlannedLine=()=>{планируемая линия -=планируемые/getAll}
+  const plannedLine = () => {
+    getAll.reduce((acc, getAll) => acc + getAll.hoursPlanned, 0);
+  };
+  //const otherDayPlannedLine=()=>{(сумма часов / количество дней спринта)}
   //const otherDayFactLine=()=>{фактическая линия-=остаток предыдущего дня}
   const months = [
     '',
@@ -110,3 +112,33 @@ const Graph = () => {
   );
 };
 export default Graph;
+
+// const planedHours = 100;
+// const days = 7;
+// const delta = planedHours / days;
+// const planed = Array(days + 1)
+//   .fill('')
+//   .map((_, idx, arr) => ({
+//     day: idx,
+//     hours: Math.ceil(delta * (arr.length - 1 - idx)),
+//   }));
+// console.log('base :>> ', planed);
+// const hoursArr = [0, 15, 25, 3];
+// const finishedArr = hoursArr.map((el, idx, arr) => {
+//   if (!idx) return el;
+//   return arr.filter((el, i) => i <= idx).reduce((acc, el) => acc + el, 0);
+// });
+// console.log('finishedArr :>> ', finishedArr);
+// const getChart = (planed, hoursArr) => {
+//   return planed
+//     .map(({ day, hours }, idx, arr) => {
+//       if (!idx) return { day, hours };
+//       if (hoursArr[idx]) {
+//         const diff = planedHours - hoursArr[idx];
+//         return { day, hours: diff };
+//       }
+//       if (idx === arr.length - 1) return { day, hours };
+//     })
+//     .filter(el => el);
+// };
+// console.log('getChart() :>> ', getChart(planed, finishedArr));
