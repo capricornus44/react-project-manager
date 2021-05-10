@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserEmail } from '../../redux/auth/authSelectors';
@@ -6,11 +6,14 @@ import { logoutSuccess } from '../../redux/auth/authActions';
 import sprite from '../../assets/icons/sprite.svg';
 import './UserMenu.scss';
 
+import { LangContext } from '../app/App';
+
 const UserMenu = () => {
   const isMobile = useMediaQuery({
     query: '(max-device-width: 767px)',
   });
 
+  const { language } = useContext(LangContext);
   const userEmail = useSelector(getUserEmail);
   const dispatch = useDispatch();
 
@@ -43,7 +46,7 @@ const UserMenu = () => {
           <svg className="user__logout-icon">
             <use href={sprite + '#logout'}></use>
           </svg>
-          Log Out
+          {language.userMenu.exit}
         </button>
       )}
     </div>

@@ -1,0 +1,12 @@
+@import 'styles/shared.scss';
+
+.lang-select {
+  width: 50px;
+  border-radius: 4px;
+  outline: none;
+  background-color: $white;
+}
+
+.lang-select__option {
+  color: $text-primary;
+}

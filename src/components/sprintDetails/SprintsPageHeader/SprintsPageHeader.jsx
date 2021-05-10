@@ -1,8 +1,20 @@
 import './SprintsPageHeader.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import ModalHoc from '../../shared/ModalHoc/ModalHoc';
+import AddTaskForm from '../addTaskForm/AddTaskForm';
+import { addTask } from '../../../redux/tasks/taskOperations';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 
 const SprintsPageHeader = () => {
+  const [data, setData] = useState({});
+
+  const dispatch = useDispatch();
+
+  const submitTask = data => {
+    dispatch(addTask(data));
+  };
+
   return (
     <div className="sprintsPageHeader__MainContainer">
       <div className="sprintsPageHeader__container">
@@ -33,7 +45,15 @@ const SprintsPageHeader = () => {
             </svg>
           </button>
           <div className="sprintsPageHeader__addTask_btn_box">
-            <ModalHoc />
+            <ModalHoc
+              titleModal="Створення задачі"
+              // title
+              cbOnSubmit={submitTask}
+              addOperation={addTask}
+              data={data}
+            >
+              <AddTaskForm callback={setData} />
+            </ModalHoc>
             <p className="sprintsPageHeader__addTask_text desktop_item">
               Створити задачу
             </p>

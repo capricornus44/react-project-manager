@@ -1,6 +1,6 @@
 @import 'styles/shared.scss';
 
-.auth-form {
+.projects-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,6 @@
 
   background: $form-bg;
   box-shadow: $shadow-primary;
-  z-index: 0;
 
   @media screen and (min-width: 768px) {
     width: 570px;
@@ -21,25 +20,7 @@
   }
 }
 
-.auth-form__title {
-  margin-bottom: 30px;
-
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 1.231;
-  letter-spacing: 0.04em;
-  color: $text-primary;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 50px;
-
-    font-size: 36px;
-    line-height: 1.222;
-  }
-}
-
-.auth-form__group {
+.projects-form__group {
   position: relative;
   margin-bottom: 58px;
 
@@ -48,7 +29,7 @@
   }
 }
 
-.auth-form__label {
+.projects-form__label {
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +40,6 @@
   color: $text-secondary;
 
   transition: all 250ms ease-in-out;
-  z-index: -1;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -67,7 +47,7 @@
   }
 }
 
-.auth-form__input {
+.projects-form__input {
   width: 280px;
   height: 29px;
   padding-bottom: 9px;
@@ -84,12 +64,9 @@
   background-color: transparent;
   transition: all 250ms ease-in-out;
 
-  &:hover {
-    border-bottom: 1px solid $text-primary;
-  }
-
+  &:hover,
   &:focus {
-    border-bottom: 2px solid $accent;
+    border-bottom: 1px solid $accent;
   }
 
   @media screen and (min-width: 768px) {
@@ -100,22 +77,9 @@
   }
 }
 
-.auth-form__input:focus + .auth-form__label,
-.auth-form__input:not(:placeholder-shown) + .auth-form__label {
+.projects-form__input:focus + .projects-form__label,
+.projects-form__input:not(:placeholder-shown) + .projects-form__label {
   top: -18px;
   font-size: 12px;
   line-height: 1.25;
-}
-
-.auth-form__redirect-question {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.25;
-  letter-spacing: 0.04em;
-  color: $text-secondary;
-}
-
-.auth-form__redirect-link {
-  margin-left: 5px;
-  color: inherit;
 }
