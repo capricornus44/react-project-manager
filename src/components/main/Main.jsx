@@ -4,7 +4,7 @@ import NavigationRoutes from '../navigation/NavigationRoutes';
 const Main = () => {
   return (
     <main>
-      <NavigationRoutes />
+      <NavigationRoutes />   
     </main>
   );
 };

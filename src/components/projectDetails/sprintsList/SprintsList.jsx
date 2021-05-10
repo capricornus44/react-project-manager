@@ -5,26 +5,29 @@ import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import SprintsListItem from '../sprintsListItem/SprintsListItem';
 import "./SprintsList.scss"
 
-const SprintsList = () => {
+const SprintsList = ({projectId}) => {
     const dispatch = useDispatch()
     const allSprints = useSelector(getAllSprints)
 
     // useEffect(() => {
-    //     console.log("2")
+    //     // console.log("2")
     //     dispatch(getSprints())
     // }, [allSprints.length])
 
     //     useEffect(() => {
-    //     // dispatch(getSprints())
-    // }, [allSprints.length])
+    //     dispatch(getSprints(projectId))
+    // }, [dispatch])
 
     // console.log(allSprints)
+
+    // console.log(id)
 
     return (
         <>
             <ul className="sprint-list">
-                {allSprints.map(elem =>
-                    < SprintsListItem {...elem} />)}
+                {allSprints.map(elem => {
+                    // console.log(elem)
+                    return < SprintsListItem key={elem._id} projectId={projectId} {...elem} />})}
             </ul>
         </>
     );

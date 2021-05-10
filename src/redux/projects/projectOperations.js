@@ -14,6 +14,7 @@ import {
   changeTitleProjectError,
 } from './projectActions';
 import { token } from '../auth/authOperations';
+
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
 const getProjectsOperation = () => async (dispatch, getState) => {
@@ -22,6 +23,7 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   token.set(accessToken);
   try {
     const responce = await axios.get('/project');
+    // console.log(responce.data);
     dispatch(getProjectSuccess(responce.data));
   } catch (error) {
     dispatch(getProjectError(error.message));
@@ -42,8 +44,10 @@ const addProjectsOperation = ({ title, description }) => async (
   token.set(accessToken);
 
   try {
-    const responce = await axios.post(`/project`, project);
-    dispatch(addProjectSuccess(responce.data));
+    const {
+      data: { id, _id, ...rest },
+    } = await axios.post(`/project`, project);
+    dispatch(addProjectSuccess({ _id: id || _id, ...rest }));
   } catch (error) {
     dispatch(addProjectError(error.message));
   }
@@ -52,8 +56,10 @@ const addProjectsOperation = ({ title, description }) => async (
 const deleteProjectsOperation = id => async dispatch => {
   dispatch(deleteProjectRequest());
   try {
-    const responce = await axios.delete(`/project/${id}`);
-    dispatch(deleteProjectSuccess(responce.data));
+    await axios.delete(`/project/${id}`);
+
+    dispatch(deleteProjectSuccess(id));
+    // window.location.reload();
   } catch (error) {
     dispatch(deleteProjectError(error.message));
   }
@@ -62,7 +68,9 @@ const deleteProjectsOperation = id => async dispatch => {
 const changeTitleProject = ({ id, title }) => async dispatch => {
   dispatch(changeTitleProjectRequest());
   try {
-    const responce = await axios.patch(`/project/title/${id}`, title);
+    const newTitle = { title };
+    const responce = await axios.patch(`/project/title/${id}`, newTitle);
+    // console.log(responce.data);
     dispatch(changeTitleProjectSuccess(responce.data));
   } catch (error) {
     dispatch(changeTitleProjectError(error.message));

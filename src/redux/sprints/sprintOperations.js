@@ -16,9 +16,10 @@ import {
 import { token } from '../auth/authOperations';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
-const projectID = '6094ff1033a36061e804eb4d';
 
-export const addSprint = ({ title, endDate, duration }) => async (
+// const projectID = '6094ff1033a36061e804eb4d';
+
+export const addSprint = ({ title, endDate, duration, projectId }) => async (
   dispatch,
   getState,
 ) => {
@@ -34,21 +35,26 @@ export const addSprint = ({ title, endDate, duration }) => async (
   token.set(accessToken);
 
   try {
-    const responce = await axios.post(`/sprint/${projectID}`, sprint);
-    dispatch(addSprintSuccess(responce.data));
+    // console.log({ title, endDate, duration, projectId });
+    const {
+      data: { id, _id, ...rest },
+    } = await axios.post(`/sprint/${projectId}`, sprint);
+    dispatch(addSprintSuccess({ _id: id || _id, ...rest }));
   } catch (error) {
     dispatch(addSprintError(error));
   }
 };
 
-export const getSprints = () => async (dispatch, getState) => {
+export const getSprints = id => async (dispatch, getState) => {
   dispatch(getSprintRequest());
 
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
 
   try {
-    const responce = await axios.get(`/sprint/${projectID}`);
+    // console.log(id);
+    const responce = await axios.get(`/sprint/${id}`);
+    // console.log(responce);
     dispatch(getSprintSuccess(responce.data.sprints));
   } catch (error) {
     dispatch(getSprintError(error));
@@ -68,8 +74,9 @@ export const changeTitleSprint = ({ id, title }) => async dispatch => {
 export const deleteSprint = id => async dispatch => {
   dispatch(deleteSprintRequest());
   try {
-    const responce = await axios.delete(`/sprint/${id}`);
-    dispatch(deleteSprintSuccess(responce.data.sprints));
+    await axios.delete(`/sprint/${id}`);
+    // console.log(responce);
+    dispatch(deleteSprintSuccess(id));
   } catch (error) {
     dispatch(deleteSprintError(error));
   }

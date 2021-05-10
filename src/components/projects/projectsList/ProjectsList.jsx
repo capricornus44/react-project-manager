@@ -14,12 +14,20 @@ const ProjectsList = () => {
   }, [dispatch]);
 
   return (
-    <ul className="projects_list">
-      {allProjects.length > 0 &&
-        allProjects.map(prodj => (
-          <ProjectsListItem key={prodj._id} {...prodj} />
-        ))}
-    </ul>
+    <>
+      <ul className="projects_list">
+        {allProjects.length > 0 &&
+          allProjects.map(prodj => (
+            <ProjectsListItem key={prodj._id} {...prodj} />
+          ))}
+      </ul>
+      {allProjects.length === 0 && (
+        <h2 className="empty_title">
+          Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
+          проект"
+        </h2>
+      )}
+    </>
   );
 };
 
