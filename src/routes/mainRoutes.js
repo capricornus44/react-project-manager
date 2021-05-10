@@ -48,6 +48,7 @@ const mainRoutes = [
         '../pages/projectDetailsPage/ProjectDetailsPage' /* webpackChunkName: "Single project" */
       ),
     ),
+
     isPrivate: true,
     isRestricted: false,
   },
