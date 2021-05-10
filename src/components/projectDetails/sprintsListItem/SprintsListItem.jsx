@@ -1,6 +1,7 @@
 import { Link } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { deleteSprint } from '../../../redux/sprints/sprintOperations';
 import SprintDeleteButton from '../../shared/deleteButton/SprintDeleteButton';
 import "./SprintsListItem.scss"
@@ -17,7 +18,7 @@ const SprintsListItem = ({ startDate, endDate, duration, title, _id:id,projectId
   
     return (<>
       <li className="sprint-item">
-        <Link className="sprint-item__link" to={{pathname: `/projects/${projectId}/${id}`, state: {from : location}}}>
+        <NavLink className="sprint-item__link" to={{pathname: `/projects/${projectId}/${id}`, state: {from : location}}}>
         <h3 className="sprint-item__title">{title}</h3>
           <div className="sprint-item__details">
             <div className="sprint-item__details-column">
@@ -48,7 +49,7 @@ const SprintsListItem = ({ startDate, endDate, duration, title, _id:id,projectId
   <div className="sprint-item__button">
             <SprintDeleteButton id={id} deleteOperation={deleteSprint}/>
           </div>
-          </Link>
+          </NavLink>
       </li>
       
 </>
