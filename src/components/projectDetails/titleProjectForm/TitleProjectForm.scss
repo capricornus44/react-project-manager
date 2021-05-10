@@ -3,7 +3,7 @@
 .project__details-title {
   display: inline-block;
   position: relative;
-
+  max-width: 40vw;
   // padding-top: 40px;
   // padding-left: 70px;
   // padding-bottom: 30px;
@@ -11,6 +11,19 @@
   font-size: 36px;
   line-height: 44px;
   letter-spacing: 0.04em;
+}
+
+.project__details-title_input {
+  // max-width: 40vw;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0.04em;
+  width: 240px;
+  // width: 60vw;
+  background-color: inherit;
+  border: none;
+  outline: none;
 }
 
 .project__details-edit__button {
@@ -56,10 +69,4 @@
 .project__details-edit:hover {
   cursor: pointer;
   color: $accent;
-}
-
-.project__details-title_input {
-  width: 170px;
-  background-color: inherit;
-  border: none;
 }

@@ -53,7 +53,7 @@ export const getSprints = id => async (dispatch, getState) => {
   try {
     // console.log(id);
     const responce = await axios.get(`/sprint/${id}`);
-    console.log(responce);
+    // console.log(responce);
     dispatch(getSprintSuccess(responce.data.sprints));
   } catch (error) {
     dispatch(getSprintError(error));

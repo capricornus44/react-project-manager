@@ -10,19 +10,27 @@ import "./TitleProjectForm.scss"
 
 const TitleProjectForm = ({projectId}) => {
     const dispatch = useDispatch()
+    
+    const location = useLocation()
+    const projectTitle = location.state.title
 
-    const [newTitle, setNewTitle] = useState("")
+    const [newTitle, setNewTitle] = useState(projectTitle)
     const [toogleInput, setToogleChange] = useState(true)
     // const projectTitle = useSelector(getProjectTitle)
-    const location = useLocation()
     // console.log(location.state.title)
     // console.log(projectId)
-    const projectTitle = location.state.title
     
+    // useEffect(() => {
+    //     console.log("newTitle=====",newTitle)
+    //     console.log(location.state.title)
+    //     console.log("projectTitle======", projectTitle)
+    //     setNewTitle(newTitle)
+    // })
+
     const changeTitle = () => {
-        dispatch(changeTitleProject({ id: projectId, title: "agfhf" }))
-toogleInputChange()
-        resetName()
+        dispatch(changeTitleProject({ id: projectId, title: newTitle }))
+        toogleInputChange()
+        // resetName()
     }
 
     const handleChangeTitle = (e) => {
@@ -33,24 +41,25 @@ toogleInputChange()
         setToogleChange(!toogleInput)
     }
 
-    const resetName = () => {
-        setNewTitle("")
-    }
+    // const resetName = () => {
+    //     setNewTitle("")
+    // }
     // useEffect(() => {
     //         const changeTitle = () => {
     //     dispatch(changeTitleProject({id: projectId, title:"test"}))
     // }
     // }, [projectTitle])
 
+    // console.log(projectTitle)
     return (
     <>
         <div>
             <h2 className="project__details-title">
                     {toogleInput ? 
-                          projectTitle  :
-                        <input className="project__details-title_input" type="text" name="title" value={newTitle} required onChange={handleChangeTitle}></input>
+                          newTitle  :
+                        <input className="project__details-title_input" type="text" name={projectTitle} value={newTitle} required onChange={handleChangeTitle} placeholder="Введите новое название"></input>
                     }
-                    <button className="project__details-edit__button project__details-edit " type="button" aria-label="edit button"
+                    <button className="project__details-edit__button project__details-edit " type="submit" aria-label="edit button"
                     onClick={changeTitle}
                     >
                     <svg className="project__details-edit__icon"> 
