@@ -4,7 +4,10 @@
   // padding-top: 40px;
 
   @media screen and (min-width: 1280px) {
-    padding-right: 30px;
+    // display: block;
+    // padding-right: 0px;
+    // justify-content: flex-end;
+    // width: -webkit-fill-available;
   }
   // padding-right: 85px;
 }
@@ -16,6 +19,7 @@
 
   padding-top: 11px;
   margin-left: 20px;
+
   @media screen and (max-width: 1280px) {
     display: none;
   }
