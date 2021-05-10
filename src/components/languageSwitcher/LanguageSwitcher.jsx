@@ -14,7 +14,11 @@ const LanguageSwitcher = () => {
       className="lang-select"
     >
       {list.map(item => (
-        <option className="lang-select__option" value={item.title}>
+        <option
+          className="lang-select__option"
+          value={item.title}
+          key={item.name}
+        >
           {item.name}
         </option>
       ))}
