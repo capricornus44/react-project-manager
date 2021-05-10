@@ -9,13 +9,14 @@ const initialState = {
   projects: [],
 };
 
-const projectsReducer = createReducer(initialState, {
+const projectsReducer = createReducer(initialState.projects, {
   [getProjectSuccess]: (_, { payload }) => [...payload],
   [addProjectSuccess]: (state, { payload }) => {
     return [...state, payload];
   },
-  [deleteProjectSuccess]: (state, { payload }) =>
-    state.filter(project => project.id !== payload),
+  [deleteProjectSuccess]: (state, { payload }) => {
+    return state.filter(project => project._id !== payload);
+  },
 });
 
 export default projectsReducer;
