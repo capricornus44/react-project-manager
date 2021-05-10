@@ -2,18 +2,14 @@ import React from 'react';
 import './DeleteButton.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { deleteSprint } from '../../../redux/sprints/sprintOperations';
+import { deleteTask } from '../../../redux/tasks/taskOperations';
 
-const SprintDeleteButton = ( {id, deleteOperation} ) => {
-
-  const dispatch = useDispatch()
-
-//   const deleteBtn = (id) => {
-//   dispatch(deleteSprint(id))
-// }
+const SprintDeleteButton = ({ id }) => {
+  const dispatch = useDispatch();
 
   return (
-    <button onClick={()=>dispatch(deleteOperation(id))}
+    <button
+      onClick={() => dispatch(deleteTask(id))}
       type="button"
       aria-label="delete button"
       className="sprint__delete-button"

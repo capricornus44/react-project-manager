@@ -68,7 +68,7 @@ const SidebarModal = ({
             </svg>
           </button>
 
-          <h2 className="titleModal">{titleModal}</h2>
+          <h2 className="form__title">{titleModal}</h2>
 
           <form onSubmit={onSave}>
             {children}

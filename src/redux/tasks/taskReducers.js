@@ -10,7 +10,7 @@ import {
 const TasksItems = createReducer([], {
   [addTaskSuccess]: (state, { payload }) => [...state, payload],
   [deleteTaskSuccess]: (state, { payload }) =>
-    state.filter(task => task.id !== payload),
+    state.filter(task => task._id !== payload),
   [getTaskSuccess]: (_, { payload }) => [...payload],
 });
 
