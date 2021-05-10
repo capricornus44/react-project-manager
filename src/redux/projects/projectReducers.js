@@ -12,7 +12,6 @@ const initialState = {
 const projectsReducer = createReducer(initialState, {
   [getProjectSuccess]: (_, { payload }) => [...payload],
   [addProjectSuccess]: (state, { payload }) => {
-    console.log(payload);
     return [...state, payload];
   },
   [deleteProjectSuccess]: (state, { payload }) =>

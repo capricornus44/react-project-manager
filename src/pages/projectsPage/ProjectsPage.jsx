@@ -1,13 +1,11 @@
 import React from 'react';
-import ProjectsList from '../../components/projects/projectsList/ProjectsList';
-import ProjectsHeader from '../../components/projects/ptojectsHeader/ProjectsHeader';
 import Container from '../../components/container/Container';
+import ProjectWrapper from '../../components/projects/projectWrapper/ProjectWrapper';
 
 const ProjectsPage = () => {
   return (
     <Container>
-      <ProjectsHeader />
-      <ProjectsList />
+      <ProjectWrapper />
     </Container>
   );
 };

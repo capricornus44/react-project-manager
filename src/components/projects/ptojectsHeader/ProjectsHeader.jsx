@@ -6,7 +6,6 @@ import { addProjectsOperation } from '../../../redux/projects/projectOperations'
 import { useDispatch } from 'react-redux';
 
 const ProjectsHeader = () => {
-  // const [title, setTitle] = useState('');
   const [data, setData] = useState({});
 
   const dispatch = useDispatch();
