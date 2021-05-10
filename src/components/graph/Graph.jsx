@@ -1,7 +1,28 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-
+// [
+//   {
+//     title: 'Task 1',
+//     hoursPlanned: 1,
+//     hoursWasted: 0,
+//     hoursWastedPerDay: [
+//       {
+//         currentDay: '2020-12-31',
+//         singleHoursWasted: 0,
+//       },
+//     ],
+//     _id: '507f1f77bcf86cd799439011',
+//     __v: 0,
+//   },
+// ];
 const Graph = () => {
+  const getAll = 250; //здесь должна быть сумма всех тасков
+  //(в этих тасках должны быть плановые и фактические)
+  //вытянуть из данных Влада useSelector или другим способом
+
+  // const plannedLine=()=>{достать из getAll планируемые }
+  //const otherDayPlannedLine=()=>{планируемая линия -=планируемые/getAll}
+  //const otherDayFactLine=()=>{фактическая линия-=остаток предыдущего дня}
   const months = [
     '',
     'JAN',
@@ -17,6 +38,7 @@ const Graph = () => {
     'NOV',
     'DEC',
   ];
+
   const data = {
     // labels: result,
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -40,8 +62,9 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [65, 59, 80, 81, 56, 55, 40], //[plannedLine,...otherDayFactLine]
       },
+
       {
         label: 'Planned remaining work in hours',
         fill: false,
@@ -61,7 +84,7 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        data: [250, 242, 236, 229, 221, 214, 208],
+        data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
       },
     ],
   };

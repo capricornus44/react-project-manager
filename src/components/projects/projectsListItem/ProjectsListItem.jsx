@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './ProjectsListItem.scss';
 import DeleteButton from '../../shared/deleteButton/DeleteButton';
 
-const ProjectsListItem = ({ title, description, _id:id }) => {
+const ProjectsListItem = ({ title, description, _id: id }) => {
   const location = useLocation();
   return (
     <>
@@ -13,7 +13,7 @@ const ProjectsListItem = ({ title, description, _id:id }) => {
         >
           <h3 className="project_title">{title}</h3>
           <p className="project_desc">{description}</p>
-          <DeleteButton />
+          <DeleteButton id={id} />
         </Link>
       </li>
     </>
