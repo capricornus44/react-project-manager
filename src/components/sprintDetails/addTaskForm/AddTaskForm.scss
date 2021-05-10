@@ -1,0 +1,32 @@
+@import 'styles/shared.scss';
+
+.addTaskForm__box {
+  margin-top: 30px;
+}
+
+.addTaskForm__input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(24, 28, 39, 0.6);
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+}
+
+.addTaskForm__input.duration {
+  @media screen and (min-width: 768px) {
+    width: 220px;
+  }
+}
+
+.addTaskForm__input + .addTaskForm__input {
+  margin-top: 58px;
+}

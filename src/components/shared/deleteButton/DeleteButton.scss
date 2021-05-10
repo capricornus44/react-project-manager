@@ -31,8 +31,8 @@
   width: 25px;
   height: 25px;
   background-color: $logout-bg-mobile;
+  transition: all 250ms linear;
   &:hover {
-    transition: all 250ms linear;
     cursor: pointer;
     background-color: $accent;
   }
