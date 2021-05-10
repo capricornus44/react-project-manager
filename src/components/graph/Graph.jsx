@@ -35,17 +35,16 @@ const Graph = () => {
   const plannedLine = () => {
     getAll.reduce((acc, getAll) => acc + getAll.hoursPlanned, 0);
   };
-  //  const otherDaysRedLine = () => {
-  //    let arr = [];
-  //    let sumAllRedLine = sumRedLine;
 
-  //    for (let i = 0; i <= getAll[0].hoursWastedPerDay.length; i++) {
-  //      sumAllRedLine -= sumRedLine / getAll[0].hoursWastedPerDay.length;
-  //      arr.push(sumAllRedLine);
-  //    }
-  //    return arr;
-  //  };
-
+  // const getPeriodPlanned = (days, hoursPlanned) => {
+  //   const deltaPlanned = hoursPlanned / days;
+  //   return Array(days + 1) //передаем кол-во дней спринта
+  //     .fill('')
+  //     .map((elem, index) => ({
+  //       day: index,
+  //       hoursPlanned: deltaPlanned * index,
+  //     }));
+  // };
   const otherDayPlannedLine = () => {};
   //const otherDayFactLine=()=>{фактическая линия-=остаток предыдущего дня}
   const months = [
