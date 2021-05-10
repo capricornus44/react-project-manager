@@ -7,7 +7,6 @@ import './ProjectsList.scss';
 
 const ProjectsList = () => {
   const allProjects = useSelector(getProjects);
-  console.log(allProjects);
   const dispatch = useDispatch();
 
   useEffect(() => {
