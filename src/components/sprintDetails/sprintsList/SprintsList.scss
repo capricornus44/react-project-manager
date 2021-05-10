@@ -18,6 +18,22 @@
   }
 }
 
-// * {
-//   outline: 1px solid tomato;
-// }
+.empty_title {
+  color: gray;
+  opacity: 0.5;
+  padding-top: 10px;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 20px;
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 30px;
+  }
+}
