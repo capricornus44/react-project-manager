@@ -27,7 +27,7 @@ const SprintsList = ({projectId}) => {
             <ul className="sprint-list">
                 {allSprints.map(elem => {
                     // console.log(elem)
-                    return < SprintsListItem key={elem._id} {...elem} />})}
+                    return < SprintsListItem key={elem._id} projectId={projectId} {...elem} />})}
             </ul>
         </>
     );

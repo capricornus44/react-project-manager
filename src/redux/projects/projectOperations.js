@@ -14,6 +14,7 @@ import {
   changeTitleProjectError,
 } from './projectActions';
 import { token } from '../auth/authOperations';
+
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
 const getProjectsOperation = () => async (dispatch, getState) => {
@@ -22,7 +23,7 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   token.set(accessToken);
   try {
     const responce = await axios.get('/project');
-    console.log(responce.data);
+    // console.log(responce.data);
     dispatch(getProjectSuccess(responce.data));
   } catch (error) {
     dispatch(getProjectError(error.message));
