@@ -1,21 +1,23 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import './SidebarModal.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import FormButton from '../formButton/FormButton';
 import { useDispatch } from 'react-redux';
+import { LangContext } from '../../app/App';
 
 const modalRoot = document.querySelector('#modal_root');
 
 const SidebarModal = ({
   children,
-  onClose,
+  // onClose,
   showModal,
   setShowModal,
   addOperation,
   titleModal,
   data,
 }) => {
+  const { language } = useContext(LangContext);
   const modalRef = useRef();
 
   const dispatch = useDispatch();
@@ -45,7 +47,7 @@ const SidebarModal = ({
   const onSave = e => {
     e.preventDefault();
     closeModal();
-    // dispatch(addOperation(data));
+    dispatch(addOperation(data));
   };
 
   return createPortal(
@@ -65,17 +67,19 @@ const SidebarModal = ({
               <use href={sprite + '#close'} />
             </svg>
           </button>
-          <h2>{titleModal}</h2>
+
+          <h2 className="titleModal">{titleModal}</h2>
+
           <form onSubmit={onSave}>
             {children}
             <div className="sidebar-modal__btm">
-              <FormButton>Готово</FormButton>
+              <FormButton>{language.sidebarModal.createButton}</FormButton>
               <button
                 type="button"
                 onClick={closeModal}
                 className="sidebar-modal__link"
               >
-                Відміна
+                {language.sidebarModal.cancelButton}
               </button>
             </div>
           </form>

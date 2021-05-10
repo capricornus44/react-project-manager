@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
@@ -11,8 +11,10 @@ import {
 } from '../../../redux/auth/authOperations';
 import { validationSchema } from '../validation/validationSchema';
 import './AuthForm.scss';
+import { LangContext } from '../../app/App';
 
 const AuthForm = () => {
+  const { language } = useContext(LangContext);
   const location = useLocation();
   const dispatch = useDispatch();
   const authError = useSelector(getAuthError);
@@ -65,7 +67,9 @@ const AuthForm = () => {
         {({ values, errors, touched }) => (
           <Form className="auth-form">
             <h1 className="auth-form__title">
-              {isSignupForm() ? 'Реєстрація' : 'Вхід'}
+              {isSignupForm()
+                ? language.authForm.signupTitle
+                : language.authForm.signinTitle}
             </h1>
 
             <div className="auth-form__group">
@@ -79,7 +83,7 @@ const AuthForm = () => {
                 className="auth-form__input"
               />
               <label className="auth-form__label" htmlFor="email">
-                Email
+                {language.authForm.email}
               </label>
 
               {(errors.email && touched.email) || signupError.isError ? (
@@ -100,7 +104,7 @@ const AuthForm = () => {
                 className="auth-form__input"
               />
               <label className="auth-form__label" htmlFor="password">
-                Пароль
+                {language.authForm.password}
               </label>
               {errors.password && touched.password ? (
                 <p className="error">{errors.password}</p>
@@ -119,7 +123,7 @@ const AuthForm = () => {
                   className="auth-form__input"
                 />
                 <label className="auth-form__label" htmlFor="confirmPassword">
-                  Повторіть пароль
+                  {language.authForm.confirmPassword}
                 </label>
                 {errors.confirmPassword && touched.confirmPassword ? (
                   <p className="error">{errors.confirmPassword}</p>
@@ -128,21 +132,23 @@ const AuthForm = () => {
             )}
 
             <FormButton>
-              {isSignupForm() ? 'Зареєструватися' : 'Увійти'}
+              {isSignupForm()
+                ? language.authForm.signupButton
+                : language.authForm.signinButton}
             </FormButton>
 
             {isSignupForm() ? (
               <p className="auth-form__redirect-question">
-                Маєте акаунт?
+                {language.authForm.signupQuestion}
                 <NavLink to="/signin" className="auth-form__redirect-link">
-                  Увійти
+                  {language.authForm.signupLink}
                 </NavLink>
               </p>
             ) : (
               <p className="auth-form__redirect-question">
-                Немає акаунту?
+                {language.authForm.signinQuestion}
                 <NavLink to="/signup" className="auth-form__redirect-link">
-                  Зареєструватись
+                  {language.authForm.signinLink}
                 </NavLink>
               </p>
             )}
