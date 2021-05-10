@@ -37,7 +37,7 @@ const ProjectDetails = () => {
                 </div>
                 <TitleProjectDetails/>
                 <AddMemberForm />
-                <SprintsList />
+                <SprintsList projectId={projectId}/>
             </div>
             </div>
         </>
