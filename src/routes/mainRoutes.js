@@ -5,11 +5,7 @@ const mainRoutes = [
     path: '/signup',
     name: 'Sign up',
     exact: true,
-    component: lazy(() =>
-      import(
-        '../pages/registrationPage/RegistrationPage' /* webpackChunkName: "Sign up" */
-      ),
-    ),
+    component: lazy(() => import('../pages/registrationPage/RegistrationPage')),
 
     isPrivate: false,
     isRestricted: true,
@@ -18,11 +14,7 @@ const mainRoutes = [
     path: '/signin',
     name: 'Sign in',
     exact: false,
-    component: lazy(() =>
-      import(
-        '../pages/registrationPage/RegistrationPage' /* webpackChunkName: "Sign in" */
-      ),
-    ),
+    component: lazy(() => import('../pages/registrationPage/RegistrationPage')),
 
     isPrivate: false,
     isRestricted: true,
@@ -31,11 +23,7 @@ const mainRoutes = [
     path: '/projects',
     name: 'Projects',
     exact: true,
-    component: lazy(() =>
-      import(
-        '../pages/projectsPage/ProjectsPage' /* webpackChunkName: "Projects" */
-      ),
-    ),
+    component: lazy(() => import('../pages/projectsPage/ProjectsPage')),
     isPrivate: true,
     isRestricted: false,
   },
@@ -44,9 +32,7 @@ const mainRoutes = [
     name: 'Sprints',
     exact: true,
     component: lazy(() =>
-      import(
-        '../pages/projectDetailsPage/ProjectDetailsPage' /* webpackChunkName: "Single project" */
-      ),
+      import('../pages/projectDetailsPage/ProjectDetailsPage'),
     ),
 
     isPrivate: true,
@@ -57,9 +43,7 @@ const mainRoutes = [
     name: 'SingleSprint',
     exact: true,
     component: lazy(() =>
-      import(
-        '../pages/sprintDetailsPage/SprintDetailsPage' /* webpackChunkName: "Single sprint" */
-      ),
+      import('../pages/sprintDetailsPage/SprintDetailsPage'),
     ),
     isPrivate: true,
     isRestricted: false,

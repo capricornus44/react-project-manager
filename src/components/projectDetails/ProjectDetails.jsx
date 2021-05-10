@@ -9,13 +9,21 @@ import TitleProjectDetails from './titleProjectForm/TitleProjectDetails/TitlePro
 import SidebarPanel from '../shared/sidebarPanel/SidebarPanel';
 import SidebarSprintPanel from './SidebarSprintPanel/SidebarSprintPanel';
 import { getSprints } from '../../redux/sprints/sprintOperations';
+import { useLocation } from 'react-router';
 
 const ProjectDetails = () => {
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
+    const location = useLocation()
 
-    // useEffect(() => {
-    //     dispatch(getSprints())
-    // }, [dispatch])
+    const projectId = location.pathname.slice(10)
+
+    // console.log(projectId)
+
+    useEffect(() => {
+        dispatch(getSprints(projectId))
+    }, [dispatch])
+    
+
 
     return (
         <> <div className="project__details-form" >
@@ -25,7 +33,7 @@ const ProjectDetails = () => {
             <div className="project__details-section">
                 <div className="project__details">
                     <TitleProjectForm />
-                    <AddSprintForm />
+                    <AddSprintForm projectId={projectId} onSubmit/>
                 </div>
                 <TitleProjectDetails/>
                 <AddMemberForm />

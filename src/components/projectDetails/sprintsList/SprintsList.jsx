@@ -6,11 +6,11 @@ import SprintsListItem from '../sprintsListItem/SprintsListItem';
 import "./SprintsList.scss"
 
 const SprintsList = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const allSprints = useSelector(getAllSprints)
 
     // useEffect(() => {
-    //     console.log("2")
+    //     // console.log("2")
     //     dispatch(getSprints())
     // }, [allSprints.length])
 
@@ -20,11 +20,14 @@ const SprintsList = () => {
 
     // console.log(allSprints)
 
+    // console.log(id)
+
     return (
         <>
             <ul className="sprint-list">
-                {allSprints.map(elem =>
-                    < SprintsListItem {...elem} />)}
+                {allSprints.map(elem => {
+                    // console.log(elem)
+                    return < SprintsListItem key={elem._id} {...elem} />})}
             </ul>
         </>
     );
