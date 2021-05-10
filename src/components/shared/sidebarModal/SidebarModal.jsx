@@ -10,7 +10,7 @@ const modalRoot = document.querySelector('#modal_root');
 
 const SidebarModal = ({
   children,
-  onClose,
+  // onClose,
   showModal,
   setShowModal,
   addOperation,
@@ -67,7 +67,9 @@ const SidebarModal = ({
               <use href={sprite + '#close'} />
             </svg>
           </button>
-          <h2 className="form__title">{titleModal}</h2>
+
+          <h2 className="titleModal">{titleModal}</h2>
+
           <form onSubmit={onSave}>
             {children}
             <div className="sidebar-modal__btm">

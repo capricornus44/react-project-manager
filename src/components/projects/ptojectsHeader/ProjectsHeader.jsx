@@ -9,6 +9,7 @@ import { LangContext } from '../../app/App';
 const ProjectsHeader = () => {
   const { language } = useContext(LangContext);
   // const [title, setTitle] = useState('');
+
   const [data, setData] = useState({});
 
   const dispatch = useDispatch();

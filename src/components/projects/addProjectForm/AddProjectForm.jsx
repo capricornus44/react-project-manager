@@ -15,7 +15,7 @@ const AddProjectForm = ({ cb }) => {
 
   useEffect(() => {
     cb({ title, description });
-  }, [title, description]);
+  }, [title, description, cb]);
 
   return (
     <>
