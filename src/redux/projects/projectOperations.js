@@ -42,8 +42,10 @@ const addProjectsOperation = ({ title, description }) => async (
   token.set(accessToken);
 
   try {
-    const responce = await axios.post(`/project`, project);
-    dispatch(addProjectSuccess(responce.data));
+    const {
+      data: { id, _id, ...rest },
+    } = await axios.post(`/project`, project);
+    dispatch(addProjectSuccess({ _id: id || _id, ...rest }));
   } catch (error) {
     dispatch(addProjectError(error.message));
   }
@@ -52,8 +54,10 @@ const addProjectsOperation = ({ title, description }) => async (
 const deleteProjectsOperation = id => async dispatch => {
   dispatch(deleteProjectRequest());
   try {
-    const responce = await axios.delete(`/project/${id}`);
-    dispatch(deleteProjectSuccess(responce.data));
+    await axios.delete(`/project/${id}`);
+
+    dispatch(deleteProjectSuccess(id));
+    // window.location.reload();
   } catch (error) {
     dispatch(deleteProjectError(error.message));
   }
