@@ -14,10 +14,10 @@ import {
   changeTaskHoursError,
 } from './taskActions';
 
-// const projId2="6098375933a36061e804ee6b";
+// const projId="6098fb0c33a36061e804eee2";
 import { token } from '../auth/authOperations';
-const sprintId = '60983c4033a36061e804ee70';
-axios.defaults.baseURL = 'https://sbc-backend.goit.global';
+const sprintId = '6098fba433a36061e804eee5';
+axios.defaults.baseURL = 'https://sbc-backend.goit.global/';
 
 const addTask = ({ title, hoursPlanned }) => async (dispatch, getState) => {
   dispatch(addTaskRequest());
@@ -38,16 +38,6 @@ const getTask = () => async (dispatch, getState) => {
     .then(({ data }) => dispatch(getTaskSuccess(data)))
     .catch(error => dispatch(getTaskError(error.message)));
 };
-
-// const getTask = () => async dispatch => {
-//   dispatch(getTaskRequest());
-//   try {
-//     const res = await axios.get(`/task/${sprintId}`);
-//     dispatch(getTaskSuccess(res.data));
-//   } catch (error) {
-//     dispatch(getTaskError(error));
-//   }
-// };
 
 const deleteTask = taskId => async (dispatch, getState) => {
   dispatch(deleteTaskRequest());
