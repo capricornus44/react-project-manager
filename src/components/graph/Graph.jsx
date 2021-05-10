@@ -35,7 +35,18 @@ const Graph = () => {
   const plannedLine = () => {
     getAll.reduce((acc, getAll) => acc + getAll.hoursPlanned, 0);
   };
-  //const otherDayPlannedLine=()=>{(сумма часов / количество дней спринта)}
+  //  const otherDaysRedLine = () => {
+  //    let arr = [];
+  //    let sumAllRedLine = sumRedLine;
+
+  //    for (let i = 0; i <= getAll[0].hoursWastedPerDay.length; i++) {
+  //      sumAllRedLine -= sumRedLine / getAll[0].hoursWastedPerDay.length;
+  //      arr.push(sumAllRedLine);
+  //    }
+  //    return arr;
+  //  };
+
+  const otherDayPlannedLine = () => {};
   //const otherDayFactLine=()=>{фактическая линия-=остаток предыдущего дня}
   const months = [
     '',
@@ -142,3 +153,22 @@ export default Graph;
 //     .filter(el => el);
 // };
 // console.log('getChart() :>> ', getChart(planed, finishedArr));
+
+// const getPeriodPlanned = (days, hoursPlanned) => {
+//   const deltaPlanned = hoursPlanned / days;
+//   return Array(days + 1) //передаем кол-во дней спринта
+//     .fill('')
+//     .map((elem, index) => ({
+//       day: index,
+//       hoursPlanned: deltaPlanned * index,
+//     }));
+// };
+// const period = getPeriodPlanned(6, 100).reduce((acc, elem) => {
+//   if (!acc.day) {
+//     return { day: [elem.day], hoursPlanned: [elem.hoursPlanned] };
+//   }
+//   acc.day.push(elem.day);
+//   acc.hoursPlanned.unshift(Math.round(elem.hoursPlanned));
+//   return acc;
+// }, {});
+//  data: [...period.hoursPlanned]
