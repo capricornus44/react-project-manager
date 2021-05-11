@@ -3,34 +3,42 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSprints } from '../../../redux/sprints/sprintOperations';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import SprintsListItem from '../sprintsListItem/SprintsListItem';
-import "./SprintsList.scss"
+import './SprintsList.scss';
 
-const SprintsList = ({projectId}) => {
-    const dispatch = useDispatch()
-    const allSprints = useSelector(getAllSprints)
+const SprintsList = ({ projectId }) => {
+  const dispatch = useDispatch();
+  const allSprints = useSelector(getAllSprints);
 
-    // useEffect(() => {
-    //     // console.log("2")
-    //     dispatch(getSprints())
-    // }, [allSprints.length])
+  // useEffect(() => {
+  //     // console.log("2")
+  //     dispatch(getSprints())
+  // }, [allSprints.length])
 
-    //     useEffect(() => {
-    //     dispatch(getSprints(projectId))
-    // }, [dispatch])
+  // console.log(allSprints)
+  useEffect(() => {
+    dispatch(getSprints(projectId));
+  }, [dispatch]);
 
-    // console.log(allSprints)
+  // console.log(allSprints)
 
-    // console.log(id)
+  // console.log(id)
 
-    return (
-        <>
-            <ul className="sprint-list">
-                {allSprints.map(elem => {
-                    // console.log(elem)
-                    return < SprintsListItem key={elem._id} projectId={projectId} {...elem} />})}
-            </ul>
-        </>
-    );
+  return (
+    <>
+      <ul className="sprint-list">
+        {allSprints.length > 0 &&
+          allSprints.map(elem => (
+            <SprintsListItem key={elem._id} projectId={projectId} {...elem} />
+          ))}
+        {allSprints.length < 0 && (
+          <h2 className="empty_title">
+            Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
+            проект"
+          </h2>
+        )}
+      </ul>
+    </>
+  );
 };
 
 export default SprintsList;

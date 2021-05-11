@@ -14,7 +14,7 @@ const SprintsListItem = ({ startDate, endDate, duration, title, _id:id,projectId
     return (<>
 
       <li className="sprint-item">
-        <NavLink className="sprint-item__link" to={{pathname: `/projects/${projectId}/${id}`, state: {from : location}}}>
+        <NavLink className="sprint-item__link" to={{pathname: `/projects/${projectId}/sprints/${id}`, state: {from : location}}}>
         <h3 className="sprint-item__title">{title}</h3>
         <div className="sprint-item__details">
           <div className="sprint-item__details-column">

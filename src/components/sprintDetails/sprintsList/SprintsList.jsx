@@ -5,18 +5,20 @@ import { getTasksSelector } from '../../../redux/tasks/taskSelectors';
 import SprintsListItem from '../sprintsListItem/SprintsListItem';
 import GraphButton from '../../shared/graphButton/GraphButton';
 import './SprintsList.scss';
+import { useRouteMatch } from 'react-router';
 
 const SprintsList = () => {
   const dispatch = useDispatch();
   const allTasks = useSelector(getTasksSelector);
 
+  const sprintId = useRouteMatch().params.sprintId;
+
   useEffect(() => {
-    dispatch(getTask());
-  }, [dispatch]);
+    dispatch(getTask(sprintId));
+  }, [dispatch, sprintId]);
 
   return (
-
-  <div className="sprintsList_box">
+    <div className="sprintsList_box">
       <ul className="sprintsList">
         {allTasks.length > 0 &&
           allTasks.map(task => <SprintsListItem key={task._id} {...task} />)}
