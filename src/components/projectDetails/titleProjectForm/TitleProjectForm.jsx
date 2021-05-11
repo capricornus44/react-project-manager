@@ -26,7 +26,7 @@ const TitleProjectForm = ({ projectId }) => {
   const thisProject = allProjects.find(project => project._id === projectId);
   //console.log(thisProject);
   const title = thisProject?.title || '';
- //console.log(title);
+  //console.log(title);
   const [newTitle, setNewTitle] = useState('');
   const [toogleInput, setToogleChange] = useState(true);
   // const projectTitle = useSelector(getProjectTitle)
