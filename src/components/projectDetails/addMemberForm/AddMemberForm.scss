@@ -3,10 +3,12 @@
 .project__details-add__ember-form {
   // padding-left: 70px;
 }
-.project__details-add__ember-link {
+.project__details-add__ember-button {
   padding-left: 40px;
-
+  border: none;
+  background-color: inherit;
   color: $black;
+  cursor: pointer;
   &:hover {
     fill: $accent;
     color: $accent;
@@ -27,4 +29,25 @@
   height: 20px;
   top: 0;
   left: -40px;
+}
+
+.add-member-data__members {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+}
+
+.add-member-data__members:not(:first-child) {
+  margin-top: 10px;
+}
+
+.add-member-data__members-title {
+  font-weight: normal;
+
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+
+  color: rgba(24, 28, 39, 0.6);
 }

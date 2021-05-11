@@ -52,7 +52,7 @@ const SidebarSprintPanel = () => {
             <AddSprintForm />
           </div>
           <p className="sidebar__addSprintForm_title sidebar__text">
-            Створити спринт
+            Створити проект
           </p>
         </div>
       </div>

@@ -12,6 +12,9 @@ import {
   changeTitleProjectRequest,
   changeTitleProjectSuccess,
   changeTitleProjectError,
+  addMemberProjectError,
+  addMemberProjectRequest,
+  addMemberProjectSuccess,
 } from './projectActions';
 import { token } from '../auth/authOperations';
 
@@ -78,9 +81,24 @@ const changeTitleProject = ({ id, title }) => async dispatch => {
   }
 };
 
+const addMemberProject = ({ id, email }) => async (dispatch, getState) => {
+  dispatch(addMemberProjectRequest());
+  const { accessToken } = getState().auth.token;
+  token.set(accessToken);
+  console.log(id, email);
+  try {
+    const responce = await axios.patch(`/project/contributor/${id}`, { email });
+    dispatch(addMemberProjectSuccess(responce.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(addMemberProjectError(error));
+  }
+};
+
 export {
   getProjectsOperation,
   addProjectsOperation,
+  addMemberProject,
   deleteProjectsOperation,
   changeTitleProject,
 };

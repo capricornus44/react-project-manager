@@ -20,6 +20,10 @@ const deleteProjectRequest = createAction('prodj/deleteProjectRequest');
 const deleteProjectSuccess = createAction('prodj/deleteProjectSuccess');
 const deleteProjectError = createAction('prodj/deleteProjectError');
 
+const addMemberProjectRequest = createAction('@sprint/addMemberProjectRequest');
+const addMemberProjectSuccess = createAction('@sprint/addMemberProjectSuccess');
+const addMemberProjectError = createAction('@sprint/addMemberProjectError');
+
 export {
   addProjectRequest,
   addProjectSuccess,
@@ -33,4 +37,7 @@ export {
   changeTitleProjectRequest,
   changeTitleProjectSuccess,
   changeTitleProjectError,
+  addMemberProjectError,
+  addMemberProjectRequest,
+  addMemberProjectSuccess,
 };

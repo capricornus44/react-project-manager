@@ -47,6 +47,7 @@ const SidebarModal = ({
   const onSave = e => {
     e.preventDefault();
     closeModal();
+    console.log(data);
     dispatch(addOperation(data));
   };
 

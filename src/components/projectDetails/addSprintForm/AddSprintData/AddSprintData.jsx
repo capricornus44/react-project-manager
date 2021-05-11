@@ -16,10 +16,6 @@ const AddSprintData = ({ cb, projectId }) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-
-    if ([name] === 'duration') {
-      console.log('da');
-    }
     setData(prev => ({ ...prev, [name]: value }));
   };
   // const handleSubmit = e => {
