@@ -109,6 +109,7 @@ const refreshOperation = () => async (dispatch, getState) => {
         sid: response.data.newSid,
       }),
     );
+    window.location.reload();
   } catch (error) {
     dispatch(refreshError(error.message));
   }

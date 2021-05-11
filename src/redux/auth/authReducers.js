@@ -15,6 +15,7 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
+import { statement } from '@babel/template';
 
 const initialUserState = {
   email: '',
@@ -24,7 +25,7 @@ const initialUserState = {
 const userReducer = createReducer(initialUserState, {
   [signupSuccess]: (_, { payload }) => payload.user,
   [userSuccess]: (_, { payload }) => payload,
-  [refreshSuccess]: (_, { payload }) => payload,
+  [refreshSuccess]: (state, { payload }) => ({ ...state, ...payload }),
   [refreshError]: () => initialUserState,
   [logoutSuccess]: () => initialUserState,
 });
