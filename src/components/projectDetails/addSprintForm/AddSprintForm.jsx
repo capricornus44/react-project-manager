@@ -7,7 +7,7 @@ import AddSprintData from './AddSprintData/AddSprintData';
 import './AddSprintForm.scss';
 import { LangContext } from '../../app/App';
 
-const AddSprintForm = ({ projectId }) => {
+const AddSprintForm = () => {
   const { language } = useContext(LangContext);
   const [data, setData] = useState('');
   const dispatch = useDispatch();
