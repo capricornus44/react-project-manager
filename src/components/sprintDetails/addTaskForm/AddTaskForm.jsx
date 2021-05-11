@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AddTaskForm.scss';
 
-const AddTaskForm = ({ callback }) => {
+const AddTaskForm = ({ callback, sprintId }) => {
   const [data, setData] = useState({ title: '', hoursPlanned: '' });
   const { title, hoursPlanned } = data;
 
@@ -12,8 +12,8 @@ const AddTaskForm = ({ callback }) => {
   };
 
   useEffect(() => {
-    callback({ title, hoursPlanned });
-  }, [callback, title, hoursPlanned]);
+    callback({ title, hoursPlanned, sprintId });
+  }, [callback, title, hoursPlanned, sprintId]);
 
   //   const [name, setName] = useState('');
   //   const onUpdateName = e => {

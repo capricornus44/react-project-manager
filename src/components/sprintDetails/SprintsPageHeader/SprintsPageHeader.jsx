@@ -5,15 +5,21 @@ import AddTaskForm from '../addTaskForm/AddTaskForm';
 import { addTask } from '../../../redux/tasks/taskOperations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useRouteMatch } from 'react-router';
 
 const SprintsPageHeader = () => {
   const [data, setData] = useState({});
 
   const dispatch = useDispatch();
+  const sprintId = useRouteMatch().params.sprintId;
 
   const submitTask = data => {
-    dispatch(addTask(data));
+    dispatch(addTask({ sprintId, data }));
   };
+
+  // const onFilterChange = e => {
+  //   const { name, value } = e.target;
+  // };
 
   return (
     <div className="sprintsPageHeader__MainContainer">
@@ -34,7 +40,12 @@ const SprintsPageHeader = () => {
               type="submit"
               className="sprintsPageHeader__searchBtn"
             ></button>
-            <input className="sprintsPageHeader__input" type="text" />
+            <input
+              className="sprintsPageHeader__input"
+              type="text"
+              name="tasksFilter"
+              // onChange={onFilterChange}
+            />
           </form>
         </div>
         <div className="sprintsPageHeader__heading_box">
@@ -47,12 +58,11 @@ const SprintsPageHeader = () => {
           <div className="sprintsPageHeader__addTask_btn_box">
             <ModalHoc
               titleModal="Створення задачі"
-              // title
               cbOnSubmit={submitTask}
               addOperation={addTask}
               data={data}
             >
-              <AddTaskForm callback={setData} />
+              <AddTaskForm callback={setData} sprintId={sprintId} />
             </ModalHoc>
             <p className="sprintsPageHeader__addTask_text desktop_item">
               Створити задачу
