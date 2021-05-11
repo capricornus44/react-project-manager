@@ -23,33 +23,33 @@ const Graph = () => {
   const tasksList = useSelector(getTasksSelector);
   console.log(tasksList);
 
-  // const plannedHours = tasksList.reduce(
-  //   (acc, task) => acc + task.hoursPlanned,
-  //   0,
-  // );
+  const plannedHours = tasksList.reduce(
+    (acc, task) => acc + task.hoursPlanned,
+    0,
+  );
 
-  // const getPeriodPlanned = (days, hours) => {
-  //   const deltaPlanned = hours / days;
-  //   return Array(days + 1) //передаем кол-во дней спринта
-  //     .fill('')
-  //     .map((elem, index) => ({
-  //       day: index,
-  //       hours: deltaPlanned * index,
-  //     }));
-  // };
+  const getPeriodPlanned = (days, hours) => {
+    const deltaPlanned = hours / days;
+    return Array(days + 1) //передаем кол-во дней спринта
+      .fill('')
+      .map((elem, index) => ({
+        day: index,
+        hours: deltaPlanned * index,
+      }));
+  };
 
-  // const period = getPeriodPlanned(6, plannedHours).reduce((acc, elem) => {
-  //   if (!acc.day) {
-  //     return { day: [elem.day], hours: [elem.hours] };
-  //   }
-  //   acc.day.push(elem.day);
-  //   acc.hours.unshift(elem.hours.toFixed(1));
-  //   return acc;
-  // }, {});
+  const period = getPeriodPlanned(6, plannedHours).reduce((acc, elem) => {
+    if (!acc.day) {
+      return { day: [elem.day], hours: [elem.hours] };
+    }
+    acc.day.push(elem.day);
+    acc.hours.unshift(elem.hours.toFixed(1));
+    return acc;
+  }, {});
 
   const data = {
-    labels: [1, 2, 3],
-    // labels: [...period.day],
+    // labels: [1, 2, 3],
+    labels: [...period.day],
     datasets: [
       {
         label: 'Actual remaining labor in hours',
@@ -70,8 +70,8 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        // data: [...period.hours],
-        data: [300, 250, 200, 150, 100, 50, 0],
+        //data: [...period.hours],
+        data: [7, 6, 6, 3, 1, 5, 0],
       },
 
       {
@@ -93,7 +93,8 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
+        data: [...period.hours],
+        //data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
       },
     ],
   };
