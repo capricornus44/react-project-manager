@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 
 import { getTasksSelector } from '../../redux/tasks/taskSelectors';
+import { getAllSprints } from '../../redux/sprints/sprintSelectors';
 // [
 //   {
 //     title: 'Task 1',
@@ -20,36 +21,77 @@ import { getTasksSelector } from '../../redux/tasks/taskSelectors';
 // ];
 
 const Graph = () => {
-  const tasksList = useSelector(getTasksSelector);
-  console.log(tasksList);
-
-  const plannedHours = tasksList.reduce(
-    (acc, task) => acc + task.hoursPlanned,
+  const tasks = useSelector(getTasksSelector);
+  const sprints = useSelector(getAllSprints);
+  console.log(sprints);
+  const planedHours = tasks.reduce(
+    (acc, task) => (acc += task.hoursPlanned),
     0,
   );
+  const duration = sprints.duration;
+  //sprints[1].duration; // кол-во дней спринта
+  const deltaHours = (planedHours / duration) // tasks[0].hoursWastedPerDay.length
+    .toFixed(4);
+  // console.log('planedHours :>> ', planedHours);
+  // console.log('deltaHours :>> ', deltaHours);
 
-  const getPeriodPlanned = (days, hours) => {
-    const deltaPlanned = hours / days;
-    return Array(days + 1) //передаем кол-во дней спринта
-      .fill('')
-      .map((elem, index) => ({
-        day: index,
-        hours: deltaPlanned * index,
-      }));
+  const wastedByTask = tasks.map(task =>
+    task.hoursWastedPerDay.reduce((acc, task) => {
+      acc.push(task.singleHoursWasted);
+      return acc;
+    }, []),
+  );
+
+  let myPlanedTasksHours = planedHours;
+  const arr = wastedByTask.reduce((acc, task, ind) => {
+    const result = wastedByTask.reduce((acc, task) => {
+      acc += task[ind];
+      return acc;
+    }, 0);
+    acc.push(myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result);
+    myPlanedTasksHours = myPlanedTasksHours - result;
+    return acc;
+  }, []);
+  console.log('result :>> ', arr);
+  // ==== Plannedline
+  const getStreightLine = () => {
+    const arr = [planedHours];
+    let prev = planedHours;
+    for (let i = 0; i < duration; i += 1) {
+      arr.push(prev - deltaHours);
+      prev = prev - deltaHours;
+    }
+    return arr;
+  };
+  console.log('get :>> ', getStreightLine());
+  // ====
+  // data: [planedHours, ...arr],
+  // const arr2 = wastedByTask.reduce((acc, task, ind) => {
+  //   const result = wastedByTask.reduce((acc, task) => {
+  //     acc += task[ind];
+  //     return acc;
+  //   }, 0);
+  //   acc.push(result);
+  //   return acc;
+  // }, []);
+
+  console.log('wastedByTask :>> ', wastedByTask);
+  const getDatesArray = () => {
+    return tasks.map(task => {
+      return task.hoursWastedPerDay.reduce((acc, task) => {
+        acc.push(task.currentDay);
+        return acc;
+      }, []);
+    });
   };
 
-  const period = getPeriodPlanned(6, plannedHours).reduce((acc, elem) => {
-    if (!acc.day) {
-      return { day: [elem.day], hours: [elem.hours] };
-    }
-    acc.day.push(elem.day);
-    acc.hours.unshift(elem.hours.toFixed(1));
-    return acc;
-  }, {});
-
   const data = {
-    // labels: [1, 2, 3],
-    labels: [...period.day],
+    labels: [
+      'заплановано',
+      ...getDatesArray(), //[0]
+      //сюда дни
+    ],
+    // labels: [...period.day],
     datasets: [
       {
         label: 'Actual remaining labor in hours',
@@ -71,7 +113,9 @@ const Graph = () => {
         pointRadius: 3,
         pointHitRadius: 10,
         //data: [...period.hours],
-        data: [7, 6, 6, 3, 1, 5, 0],
+        data: [...getStreightLine()],
+
+        // data: [7, 6, 6, 3, 1, 5, 0],
       },
 
       {
@@ -93,8 +137,9 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        data: [...period.hours],
-        //data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
+        // data: [...period.hours],
+        data: [planedHours, ...arr],
+        // data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
       },
     ],
   };
@@ -109,6 +154,79 @@ const Graph = () => {
 };
 export default Graph;
 
+// const tasks = [
+//   {
+//     planed: 7,
+//     wasted: 9,
+//     wastedPerDay: [
+//       { date: "dfgh", singleWasted: 4 },
+//       { date: "efd", singleWasted: 2 },
+//       { date: "dfasdsagh", singleWasted: 3 },
+//     ],
+//   },
+//   {
+//     planed: 6,
+//     wasted: 5,
+//     wastedPerDay: [
+//       { date: "dsfsdfgh", singleWasted: 3 },
+//       { date: "efsdfd", singleWasted: 1 },
+//       { date: "dfassdfsdsagh", singleWasted: 1 },
+//     ],
+//   },
+//   {
+//     planed: 7,
+//     wasted: 9,
+//     wastedPerDay: [
+//       { date: "dfgh", singleWasted: 4 },
+//       { date: "efd", singleWasted: 2 },
+//       { date: "dfasdsagh", singleWasted: 3 },
+//     ],
+//   },
+// ];
+// const planedHours = tasks.reduce((acc, task) => (acc += task.planed), 0);
+// const deltaHours = (planedHours / tasks[0].wastedPerDay.length).toFixed(4);
+// console.log("planedHours :>> ", planedHours);
+// console.log("deltaHours :>> ", deltaHours);
+// const wastedByTask = tasks.map((task) =>
+//   task.wastedPerDay.reduce((acc, task) => {
+//     acc.push(task.singleWasted);
+//     return acc;
+//   }, [])
+// );
+// console.log("wastedByTask :>> ", wastedByTask);
+// let myPlanedTasksHours = planedHours;
+// const arr = wastedByTask.reduce((acc, task, ind) => {
+//   const result = wastedByTask.reduce((acc, task) => {
+//     acc += task[ind];
+//     return acc;
+//   }, 0);
+//   acc.push(myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result);
+//   myPlanedTasksHours = myPlanedTasksHours - result;
+//   return acc;
+// }, []);
+// console.log("result :>> ", arr);
+// const duration = 3;
+// const getStreightLine = () => {
+//   const arr = [];
+//   let prev = planedHours;
+//   for (let i = 0; i < duration; i += 1) {
+//     arr.push(prev - deltaHours);
+//     prev = prev - deltaHours;
+//   }
+//   return arr;
+// };
+// console.log("get :>> ", getStreightLine());
+// const arr2 = wastedByTask.reduce((acc, task, ind) => {
+//   const result = wastedByTask.reduce((acc, task) => {
+//     acc += task[ind];
+//     return acc;
+//   }, 0);
+//   acc.push(result);
+//   return acc;
+// }, []);
+// console.log("result :>> ", arr2);
+
+////////////////////////////=======////////////////////////////////
 // const planedHours = 100;
 // const days = 7;
 // const delta = planedHours / days;
@@ -138,110 +256,3 @@ export default Graph;
 //     .filter(el => el);
 // };
 // console.log('getChart() :>> ', getChart(planed, finishedArr));
-
-// const getPeriodPlanned = (days, hoursPlanned) => {
-//   const deltaPlanned = hoursPlanned / days;
-//   return Array(days + 1) //передаем кол-во дней спринта
-//     .fill('')
-//     .map((elem, index) => ({
-//       day: index,
-//       hoursPlanned: deltaPlanned * index,
-//     }));
-// };
-// const period = getPeriodPlanned(6, 100).reduce((acc, elem) => {
-//   if (!acc.day) {
-//     return { day: [elem.day], hoursPlanned: [elem.hoursPlanned] };
-//   }
-//   acc.day.push(elem.day);
-//   acc.hoursPlanned.unshift(Math.round(elem.hoursPlanned));
-//   return acc;
-// }, {});
-//  data: [...period.hoursPlanned]
-
-// const getPeriod = (days, hours) => {
-//     const deltaPlan = hours / days;
-//     return Array(days + 1) //передаем кол-во дней спринта
-//         .fill('')
-//         .map((elem, index) => ({ day: index, hours: deltaPlan * index }));
-// };
-// const period = getPeriod(6, 100).reduce((acc, elem) => {
-//     if (!acc.day) {
-//         return { day: [elem.day], hours: [elem.hours] };
-//     }
-//     acc.day.push(elem.day);
-//     acc.hours.unshift(Math.round(elem.hours));
-
-//     return acc;
-// }, {});
-// // console.log(period);
-// // console.log([...period.hours]);
-
-// const chartLine = () => {
-//     setChartData({
-//         labels: [
-//             ...period.day,
-//             //сюда дни
-//         ],
-
-// const plannedLine = () => {
-//   getAll.reduce((acc, getAll) => acc + getAll.hoursPlanned, 0);
-// };
-
-// const getPeriodPlanned = (days, hoursPlanned) => {
-//   const deltaPlanned = hoursPlanned / days;
-//   return Array(days + 1) //передаем кол-во дней спринта
-//     .fill('')
-//     .map((elem, index) => ({
-//       day: index,
-//       hoursPlanned: deltaPlanned * index,
-//     }));
-// };
-// const otherDayPlannedLine = () => {};
-//const otherDayFactLine=()=>{фактическая линия-=остаток предыдущего дня}
-// const months = [
-//   '',
-//   'JAN',
-//   'FEB',
-//   'MAR',
-//   'APR',
-//   'MAY',
-//   'JUN',
-//   'JUL',
-//   'AUG',
-//   'SEP',
-//   'OCT',
-//   'NOV',
-//   'DEC',
-// ];
-// const getDatesArray = () => {
-//   return getAll.map(task => {
-//     return task.hoursWastedPerDay.reduce((acc, task) => {
-//       acc.push(task.currentDay);
-//       return acc;
-//     }, []);
-//   });
-// };
-
-// const getData = async () => {
-//   let hours = plannedHours;
-//   const getHoursArr = tasks.map(task => {
-//     return task.hoursWastedPerDay.reduce((acc, singleTask) => {
-//       acc.push(singleTask.singleHoursWasted);
-//       return acc;
-//     }, []);
-//   });
-//   console.log('getHoursArr :>> ', getHoursArr);
-//   // получить все даты
-//   // const sprints = await axios.get(
-//   //     `https://sbc-backend.goit.global/sprint/609639ea33a36061e804ec19`,
-//   // );
-//   // console.log('sprints :>> ', sprints);
-//   // const sprintsDates = sprints.data.sprints.map(
-//   //     ({ startDate, duration }) => ({
-//   //         startDate,
-//   //         duration,
-//   //     }),
-//   // );
-//   // console.log('sprintsDates :>> ', sprintsDates);
-//   // формируем даты
-// };
