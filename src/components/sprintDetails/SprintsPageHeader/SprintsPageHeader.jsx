@@ -6,8 +6,9 @@ import { addTask } from '../../../redux/tasks/taskOperations';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useRouteMatch } from 'react-router';
+import DatePagination from '../datePagination/DatePagination';
 
-const SprintsPageHeader = () => {
+const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
   const [data, setData] = useState({});
 
   const dispatch = useDispatch();
@@ -20,20 +21,16 @@ const SprintsPageHeader = () => {
   // const onFilterChange = e => {
   //   const { name, value } = e.target;
   // };
-
   return (
     <div className="sprintsPageHeader__MainContainer">
       <div className="sprintsPageHeader__container">
         <div className="sprintsPageHeader__datesInput_box">
-          <div className="sprintsPageHeader__dates">
-            <button className="sprintsPageHeader__dates_btn">&#9668;</button>
-            <p>
-              <span className="sprintsPageHeader__dates_curDay">day</span>/
-              <span className="sprintsPageHeader__dates_days">days</span>
-            </p>
-            <button className="sprintsPageHeader__dates_btn">&#9658;</button>
-            <p className="sprintsPageHeader__date">date</p>
-          </div>
+          <DatePagination
+            counter={counter}
+            setCounter={setCounter}
+            duration={duration}
+            curDate={curDate}
+          />
 
           <form className="sprintsPageHeader__searchForm">
             <button
