@@ -1,78 +1,101 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router';
-import sprite from "../../../assets/icons/sprite.svg"
-import { changeTitleProject } from '../../../redux/projects/projectOperations';
+import { useLocation, useRouteMatch } from 'react-router';
+import sprite from '../../../assets/icons/sprite.svg';
+import { getProjectRequest } from '../../../redux/projects/projectActions';
+import {
+  changeTitleProject,
+  getProjectsOperation,
+} from '../../../redux/projects/projectOperations';
+import { getProjects } from '../../../redux/projects/projectSelectors';
 import { changeTitleSprint } from '../../../redux/sprints/sprintOperations';
 import { getProjectTitle } from '../../../redux/sprints/sprintSelectors';
-import "./TitleProjectForm.scss"
+import './TitleProjectForm.scss';
 
+const TitleProjectForm = ({ projectId }) => {
+  const dispatch = useDispatch();
 
-const TitleProjectForm = ({projectId}) => {
-    const dispatch = useDispatch()
-    
-    const location = useLocation()
-    const projectTitle = location.state.title
+  useEffect(() => {
+    dispatch(getProjectsOperation());
+  }, [dispatch]);
 
-    const [newTitle, setNewTitle] = useState(projectTitle)
-    const [toogleInput, setToogleChange] = useState(true)
-    // const projectTitle = useSelector(getProjectTitle)
-    // console.log(location.state.title)
-    // console.log(projectId)
-    
-    // useEffect(() => {
-    //     console.log("newTitle=====",newTitle)
-    //     console.log(location.state.title)
-    //     console.log("projectTitle======", projectTitle)
-    //     setNewTitle(newTitle)
-    // })
+  // const location = useLocation()
+  // const projectTitle = location.state.title
+  const allProjects = useSelector(getProjects);
+  console.log(allProjects);
+  const thisProject = allProjects.find(project => project._id === projectId);
+  console.log(thisProject);
+  const title = thisProject.title;
+  console.log(title);
 
-    const changeTitle = () => {
-        dispatch(changeTitleProject({ id: projectId, title: newTitle }))
-        toogleInputChange()
-        // resetName()
-    }
+  const [newTitle, setNewTitle] = useState(title);
+  const [toogleInput, setToogleChange] = useState(true);
+  // const projectTitle = useSelector(getProjectTitle)
+  // console.log(location.state.title)
+  // console.log(projectId)
 
-    const handleChangeTitle = (e) => {
-        setNewTitle ( e.target.value )
-    }
+  // useEffect(() => {
+  //     console.log("newTitle=====",newTitle)
+  //     console.log(location.state.title)
+  //     console.log("projectTitle======", projectTitle)
+  //     setNewTitle(newTitle)
+  // })
 
-    const toogleInputChange = () => {
-        setToogleChange(!toogleInput)
-    }
+  const changeTitle = () => {
+    dispatch(changeTitleProject({ id: projectId, title: newTitle }));
+    toogleInputChange();
+    // resetName()
+  };
 
-    // const resetName = () => {
-    //     setNewTitle("")
-    // }
-    // useEffect(() => {
-    //         const changeTitle = () => {
-    //     dispatch(changeTitleProject({id: projectId, title:"test"}))
-    // }
-    // }, [projectTitle])
+  const handleChangeTitle = e => {
+    setNewTitle(e.target.value);
+  };
 
-    // console.log(projectTitle)
-    return (
+  const toogleInputChange = () => {
+    setToogleChange(!toogleInput);
+  };
+
+  // const resetName = () => {
+  //     setNewTitle("")
+  // }
+  // useEffect(() => {
+  //         const changeTitle = () => {
+  //     dispatch(changeTitleProject({id: projectId, title:"test"}))
+  // }
+  // }, [projectTitle])
+
+  // console.log(projectTitle)
+  return (
     <>
-        <div>
-            <h2 className="project__details-title">
-                    {toogleInput ? 
-                          newTitle  :
-                        <input className="project__details-title_input" type="text" name={projectTitle} value={newTitle} required onChange={handleChangeTitle} placeholder="Введите новое название"></input>
-                    }
-                    <button className="project__details-edit__button project__details-edit " type="submit" aria-label="edit button"
-                    onClick={changeTitle}
-                    >
-                    <svg className="project__details-edit__icon"> 
-                        <use href={sprite + '#edit'}/> 
-                    </svg>
-                </button>
-                    
-                    
-             </h2>
-
-        </div>
+      <div>
+        <h2 className="project__details-title">
+          {toogleInput ? (
+            newTitle
+          ) : (
+            <input
+              className="project__details-title_input"
+              type="text"
+              name={title}
+              value={newTitle}
+              required
+              onChange={handleChangeTitle}
+              placeholder="Введите новое название"
+            ></input>
+          )}
+          <button
+            className="project__details-edit__button project__details-edit "
+            type="submit"
+            aria-label="edit button"
+            onClick={changeTitle}
+          >
+            <svg className="project__details-edit__icon">
+              <use href={sprite + '#edit'} />
+            </svg>
+          </button>
+        </h2>
+      </div>
     </>
-    );
+  );
 };
 
 export default TitleProjectForm;

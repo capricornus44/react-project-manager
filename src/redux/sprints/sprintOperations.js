@@ -57,6 +57,7 @@ export const getSprints = id => async (dispatch, getState) => {
     // console.log(responce);
     dispatch(getSprintSuccess(responce.data.sprints));
   } catch (error) {
+    // console.log(error);
     dispatch(getSprintError(error));
   }
 };
