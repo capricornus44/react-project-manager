@@ -23,7 +23,7 @@ import { getAllSprints } from '../../redux/sprints/sprintSelectors';
 const Graph = () => {
   const tasks = useSelector(getTasksSelector);
   const sprints = useSelector(getAllSprints);
-  console.log(sprints);
+
   const planedHours = tasks.reduce(
     (acc, task) => (acc += task.hoursPlanned),
     0,
@@ -87,9 +87,8 @@ const Graph = () => {
 
   const data = {
     labels: [
-      'заплановано',
+      '0',
       ...getDatesArray(), //[0]
-      //сюда дни
     ],
     // labels: [...period.day],
     datasets: [
