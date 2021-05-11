@@ -30,6 +30,22 @@ const ukrainian = {
     projectName: 'Назва проекту',
     projectDescription: 'Опис',
   },
+  projectPage: {
+    addSprintButton: 'Створити спринт',
+    addMembersButton: 'Додати людей',
+  },
+  projectPageSidebar: {
+    addSprintButton: 'Додати спринт',
+    goBack: 'Назад',
+  },
+  projectPageForm: {
+    formTitle: 'Створення спринта',
+    sprintName: 'Назва спринта',
+    prevDays: 'Попереднi днi',
+    startDate: 'Дата початку',
+    expire: 'Дата закiнчення',
+    duration: 'Тривалiсть',
+  },
 };
 
 export { ukrainian };

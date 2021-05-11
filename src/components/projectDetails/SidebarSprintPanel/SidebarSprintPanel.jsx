@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { LangContext } from '../../app/App';
 
 const SidebarSprintPanel = () => {
-    return (
-        <>
-            <button >hello</button>
-        </>
-    );
+  const { language } = useContext(LangContext);
+  return (
+    <>
+      <button>{language.projectPageSidebar.goBack}</button>
+    </>
+  );
 };
 
 export default SidebarSprintPanel;

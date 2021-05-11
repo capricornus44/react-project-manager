@@ -1,0 +1,91 @@
+.sidebar__box {
+  margin-top: 20px;
+}
+
+.sidebar__Btn {
+  padding: 0;
+  width: 170px;
+  height: 35px;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #181c27;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms linear;
+  border: none;
+  outline: none;
+  background-color: inherit;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.sidebar__Btn_arrow {
+  width: 30px;
+  height: 100%;
+  margin-right: 21px;
+}
+
+.sidebar__Btn_text {
+  text-align: left;
+}
+
+.sidebar__list {
+  margin-top: 60px;
+}
+
+.sidebar__list_item {
+  display: flex;
+  align-items: center;
+  width: 170px;
+  cursor: pointer;
+  transition: all 200ms linear;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.sidebar__list_item + .sidebar__list_item {
+  margin-top: 30px;
+}
+
+.sidebar__list_square {
+  display: block;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+  border-radius: 5px;
+}
+
+.sidebar__list_item_name {
+  width: 120px;
+  margin-left: 15px;
+}
+
+.sidebar__text {
+  font-size: 14px;
+  line-height: 1.21;
+  color: #181c27;
+}
+
+.sidebar__addSprintForm_box {
+  position: fixed;
+  bottom: 80px;
+  transition: all 200ms linear;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.sidebar__addSprintFormBtn_box {
+  width: 44px;
+  margin: 0 auto;
+}
+
+.sidebar__addSprintForm_title {
+  margin-top: 15px;
+}

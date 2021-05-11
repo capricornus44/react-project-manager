@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { useRouteMatch } from 'react-router';
 import { addSprint } from '../../../redux/sprints/sprintOperations';
 import ModalHoc from '../../shared/ModalHoc/ModalHoc';
 import AddSprintData from './AddSprintData/AddSprintData';
 import './AddSprintForm.scss';
+import { LangContext } from '../../app/App';
 
-const AddSprintForm = () => {
+const AddSprintForm = ({ projectId }) => {
+  const { language } = useContext(LangContext);
   const [data, setData] = useState('');
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // const submitSprint = ( data) => {
   //   // console.log(projectId)
