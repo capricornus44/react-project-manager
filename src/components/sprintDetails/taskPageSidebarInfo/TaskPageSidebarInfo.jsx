@@ -34,7 +34,7 @@ const TaskPageSidebarInfo = () => {
               className="sidebar__list_item"
               activeClassName="sidebar__list_item_selected"
               to={{
-                pathname: `/projects/${projectId}/${sprint._id}`,
+                pathname: `/projects/${projectId}/sprints/${sprint._id}`,
                 state: { from: location },
               }}
             >
