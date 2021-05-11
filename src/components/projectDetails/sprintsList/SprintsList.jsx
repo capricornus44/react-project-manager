@@ -30,10 +30,10 @@ const SprintsList = ({ projectId }) => {
           allSprints.map(elem => (
             <SprintsListItem key={elem._id} projectId={projectId} {...elem} />
           ))}
-        {allSprints.length < 0 && (
+        {allSprints.length === 0 && (
           <h2 className="empty_title">
-            Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
-            проект"
+            Ваша колекція спринтів порожня, скористайтесь кнопкою "Створити
+            спринт"
           </h2>
         )}
       </ul>
