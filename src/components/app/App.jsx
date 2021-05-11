@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import Main from '../main/Main';
 import { useLanguage } from '../../hooks/useLanguage';
 import GraphModal from '../graph/GraphModal';
-import SprintsPageHeader from '../sprintDetails/SprintsPageHeader/SprintsPageHeader';
+
 export const LangContext = createContext();
 
 const App = () => {
