@@ -16,22 +16,32 @@ import {
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
-export const token = {
-  token: '',
+// export const token = {
+//   token: '',
 
+//   set(token) {
+//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+//     this.token = `Bearer ${token}`;
+//   },
+
+//   refresh(refreshToken) {
+//     this.token = refreshToken;
+//     axios.defaults.headers.common.Authorization = refreshToken;
+//   },
+
+//   unset() {
+//     axios.defaults.headers.common.Authorization = '';
+//     this.token = '';
+//   },
+// };
+
+export const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    this.token = `Bearer ${token}`;
-  },
-
-  refresh(refreshToken) {
-    this.token = refreshToken;
-    axios.defaults.headers.common.Authorization = refreshToken;
   },
 
   unset() {
     axios.defaults.headers.common.Authorization = '';
-    this.token = '';
   },
 };
 
@@ -83,7 +93,8 @@ const logoutOperation = () => async dispatch => {
 
 const refreshOperation = () => async (dispatch, getState) => {
   const { refreshToken, sid } = getState().auth.token;
-  token.refresh(refreshToken);
+  // token.refresh(refreshToken);
+  token.set(refreshToken);
   dispatch(refreshRequest());
 
   try {
@@ -91,8 +102,10 @@ const refreshOperation = () => async (dispatch, getState) => {
 
     dispatch(
       refreshSuccess({
-        accessToken: `Bearer $(response.data.newAccessToken)`,
-        refreshToken: `Bearer $(response.data.newRefreshToken)`,
+        // accessToken: `Bearer $(response.data.newAccessToken)`,
+        // refreshToken: `Bearer $(response.data.newRefreshToken)`,
+        accessToken: response.data.newAccessToken,
+        refreshToken: response.data.newRefreshToken,
         sid: response.data.newSid,
       }),
     );
