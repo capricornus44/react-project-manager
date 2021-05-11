@@ -1,20 +1,47 @@
 @import 'styles/shared.scss';
 
+.sprintsList_box {
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 512px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 1026px;
+  }
+}
+
 .sprintsList {
   width: 280px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  // justify-content: space-between;
 
   @media screen and (min-width: 768px) {
-    padding: 20px 0;
-    width: 452px;
+    width: 512px;
+    padding: 20px 20px;
     gap: 20px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 869px;
-    padding: 20px 0;
+    width: 1026px;
+    padding: 20px 70px;
+  }
+}
+
+.graphButton_box {
+  position: fixed;
+  height: 44px;
+  bottom: 20px;
+  left: 20px;
+
+  @media screen and (min-width: 768px) {
+    left: auto;
+    bottom: 60px;
+    right: 55px;
   }
 }
 

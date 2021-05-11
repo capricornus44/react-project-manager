@@ -4,7 +4,7 @@ import sprite from '../../../assets/icons/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { deleteSprint } from '../../../redux/sprints/sprintOperations';
 
-const SprintDeleteButton = ( {id} ) => {
+const SprintDeleteButton = ( {id, deleteOperation} ) => {
 
   const dispatch = useDispatch()
 
@@ -13,7 +13,7 @@ const SprintDeleteButton = ( {id} ) => {
 // }
 
   return (
-    <button onClick={()=>dispatch(deleteSprint(id))}
+    <button onClick={()=>dispatch(deleteOperation(id))}
       type="button"
       aria-label="delete button"
       className="sprint__delete-button"
