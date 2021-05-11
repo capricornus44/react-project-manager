@@ -6,15 +6,22 @@ import SprintsListItem from '../sprintsListItem/SprintsListItem';
 import GraphButton from '../../shared/graphButton/GraphButton';
 import './SprintsList.scss';
 import { useRouteMatch } from 'react-router';
+import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
+import { getSprints } from '../../../redux/sprints/sprintOperations';
 
 const SprintsList = () => {
   const dispatch = useDispatch();
   const allTasks = useSelector(getTasksSelector);
-
+  const sprints = useSelector(getAllSprints);
   const sprintId = useRouteMatch().params.sprintId;
+  const projectId = useRouteMatch().params.projectId;
 
   useEffect(() => {
     dispatch(getTask(sprintId));
+    if (sprints.length) {
+      return;
+    }
+    dispatch(getSprints(projectId));
   }, [dispatch, sprintId]);
 
   return (
