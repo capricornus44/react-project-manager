@@ -11,9 +11,15 @@ const SprintDeleteButton = ( {id, deleteOperation} ) => {
 //   const deleteBtn = (id) => {
 //   dispatch(deleteSprint(id))
 // }
+  const onDeleteBtn = e => {
+    e.preventDefault()
+    if (e.currentTarget.type === "button") {
+      dispatch(deleteOperation(id))
+    }
+  }
 
   return (
-    <button onClick={()=>dispatch(deleteOperation(id))}
+    <button onClick={onDeleteBtn}
       type="button"
       aria-label="delete button"
       className="sprint__delete-button"

@@ -39,7 +39,7 @@ const mainRoutes = [
     isRestricted: false,
   },
   {
-    path: '/projects/:projectId/:sprintId',
+    path: '/projects/:projectId/sprints/:sprintId',
     name: 'SingleSprint',
     exact: true,
     component: lazy(() =>
