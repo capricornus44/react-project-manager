@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 import {
   addSprintError,
   addSprintRequest,
@@ -25,8 +26,8 @@ export const addSprint = ({ title, endDate, duration, projectId }) => async (
 ) => {
   const sprint = {
     title,
-    endDate,
-    duration,
+    endDate: moment(endDate).format('YYYY-M-D'),
+    duration: Number(duration),
   };
 
   dispatch(addSprintRequest());
