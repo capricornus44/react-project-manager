@@ -28,10 +28,10 @@ const Graph = () => {
     (acc, task) => (acc += task.hoursPlanned),
     0,
   );
-  const duration = sprints.duration;
+  const duration = sprints[0]?.duration;
+  console.log(sprints);
   //sprints[1].duration; // кол-во дней спринта
-  const deltaHours = (planedHours / duration) // tasks[0].hoursWastedPerDay.length
-    .toFixed(4);
+  const deltaHours = planedHours / duration; // tasks[0].hoursWastedPerDay.length.toFixed(4);
   // console.log('planedHours :>> ', planedHours);
   // console.log('deltaHours :>> ', deltaHours);
 
@@ -77,6 +77,7 @@ const Graph = () => {
 
   console.log('wastedByTask :>> ', wastedByTask);
   const getDatesArray = () => {
+    console.log('tasks', tasks);
     return tasks.map(task => {
       return task.hoursWastedPerDay.reduce((acc, task) => {
         acc.push(task.currentDay);
@@ -84,12 +85,14 @@ const Graph = () => {
       }, []);
     });
   };
-
+  console.log(getDatesArray());
   const data = {
-    labels: [
-      '0',
-      ...getDatesArray(), //[0]
-    ],
+    labels: getDatesArray().length
+      ? [
+          '0',
+          ...getDatesArray()[0], //[0]
+        ]
+      : [],
     // labels: [...period.day],
     datasets: [
       {
@@ -112,7 +115,7 @@ const Graph = () => {
         pointRadius: 3,
         pointHitRadius: 10,
         //data: [...period.hours],
-        data: [...getStreightLine()],
+        data: [planedHours, ...arr],
 
         // data: [7, 6, 6, 3, 1, 5, 0],
       },
@@ -137,7 +140,8 @@ const Graph = () => {
         pointRadius: 3,
         pointHitRadius: 10,
         // data: [...period.hours],
-        data: [planedHours, ...arr],
+        data: [...getStreightLine()],
+
         // data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
       },
     ],
