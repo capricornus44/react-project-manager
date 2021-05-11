@@ -25,10 +25,10 @@ const TitleProjectForm = ({ projectId }) => {
   console.log(allProjects);
   const thisProject = allProjects.find(project => project._id === projectId);
   console.log(thisProject);
-  const title = thisProject.title;
+  const title = thisProject?.title || '';
   console.log(title);
 
-  const [newTitle, setNewTitle] = useState(title);
+  const [newTitle, setNewTitle] = useState('');
   const [toogleInput, setToogleChange] = useState(true);
   // const projectTitle = useSelector(getProjectTitle)
   // console.log(location.state.title)
@@ -42,7 +42,8 @@ const TitleProjectForm = ({ projectId }) => {
   // })
 
   const changeTitle = () => {
-    dispatch(changeTitleProject({ id: projectId, title: newTitle }));
+    !toogleInput &&
+      dispatch(changeTitleProject({ id: projectId, title: newTitle }));
     toogleInputChange();
     // resetName()
   };
@@ -70,17 +71,17 @@ const TitleProjectForm = ({ projectId }) => {
       <div>
         <h2 className="project__details-title">
           {toogleInput ? (
-            newTitle
+            newTitle || title
           ) : (
             <input
               className="project__details-title_input"
               type="text"
               name={title}
-              value={newTitle}
+              value={newTitle || title}
               required
               onChange={handleChangeTitle}
               placeholder="Введите новое название"
-            ></input>
+            />
           )}
           <button
             className="project__details-edit__button project__details-edit "

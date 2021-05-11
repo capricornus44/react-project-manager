@@ -68,11 +68,12 @@ const deleteProjectsOperation = id => async dispatch => {
 const changeTitleProject = ({ id, title }) => async dispatch => {
   dispatch(changeTitleProjectRequest());
   try {
-    const newTitle = { title };
-    const responce = await axios.patch(`/project/title/${id}`, newTitle);
+    // const newTitle = { title };
+    const responce = await axios.patch(`/project/title/${id}`, { title });
     // console.log(responce.data);
-    dispatch(changeTitleProjectSuccess(responce.data));
+    dispatch(changeTitleProjectSuccess({ ...responce.data, _id: id }));
   } catch (error) {
+    console.log(error);
     dispatch(changeTitleProjectError(error.message));
   }
 };
