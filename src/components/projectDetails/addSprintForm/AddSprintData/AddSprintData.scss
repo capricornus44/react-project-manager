@@ -1,15 +1,6 @@
 @import 'styles/shared.scss';
 
-// .add-sprint-data {
-//   position: relative;
-//   margin-bottom: 58px;
-
-//   @media screen and (min-width: 768px) {
-//     margin-bottom: 50px;
-//   }
-// }
-
-.add-sprint-data__group {
+.add-sprint-data__form {
   position: relative;
   margin-bottom: 58px;
 
@@ -27,10 +18,8 @@
   line-height: 1.25;
   letter-spacing: 0.04em;
   color: $text-secondary;
-  border: 1px solid red;
 
   transition: all 250ms ease-in-out;
-  z-index: -1;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -72,4 +61,21 @@
   top: -18px;
   font-size: 12px;
   line-height: 1.25;
+}
+
+.add-sprint-data__group {
+  display: flex;
+}
+
+.add-sprint-data__group .add-sprint-data__form {
+  width: calc(100% / 2);
+}
+
+.add-sprint-data__form-end-date {
+  margin-right: 30px;
+}
+
+.add-sprint-data_end-date,
+.add-sprint-data_duration {
+  width: 200px;
 }

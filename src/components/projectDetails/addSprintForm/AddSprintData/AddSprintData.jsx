@@ -16,6 +16,10 @@ const AddSprintData = ({ cb, projectId }) => {
 
   const handleChange = e => {
     const { name, value } = e.target;
+
+    if ([name] === 'duration') {
+      console.log('da');
+    }
     setData(prev => ({ ...prev, [name]: value }));
   };
   // const handleSubmit = e => {
@@ -27,7 +31,7 @@ const AddSprintData = ({ cb, projectId }) => {
   return (
     <>
       {/* <form onSubmit={handleSubmit}> */}
-      <div className="add-sprint-data__group">
+      <div className="add-sprint-data__form">
         <input
           className="add-sprint-data__input"
           placeholder=" "
@@ -42,32 +46,32 @@ const AddSprintData = ({ cb, projectId }) => {
           Назва спринта
         </label>
       </div>
-
-      {/* <div className="add-sprint-data__group">
-        <input
-          className="add-sprint-data__input"
-          placeholder=" "
-          type="date"
-          name="endDate"
-          value={endDate}
-          required
-          onChange={handleChange}
-        />
-        <label className="add-sprint-data__label">Назва спринта</label>
-      </div>
       <div className="add-sprint-data__group">
-        <input
-          className="add-sprint-data__input"
-          placeholder=" "
-          type="text"
-          name="duration"
-          value={duration}
-          required
-          onChange={handleChange}
-        />
-        <label className="add-sprint-data__label">Назва спринта</label>
-        
-      </div> */}
+        <div className="add-sprint-data__form add-sprint-data__form-end-date">
+          <input
+            className="add-sprint-data__input add-sprint-data_end-date"
+            placeholder=" "
+            type="date"
+            name="endDate"
+            value={endDate}
+            required
+            onChange={handleChange}
+          />
+          <label className="add-sprint-data__label">Дата закінчення</label>
+        </div>
+        <div className="add-sprint-data__form">
+          <input
+            className="add-sprint-data__input add-sprint-data_duration"
+            placeholder=" "
+            type="text"
+            name="duration"
+            value={duration}
+            required
+            onChange={handleChange}
+          />
+          <label className="add-sprint-data__label">Тривалість</label>
+        </div>
+      </div>
     </>
   );
 };
