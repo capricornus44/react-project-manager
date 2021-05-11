@@ -1,7 +1,8 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-import { getAllSprints } from '../../redux/sprints/sprintSelectors';
+
+import { getTasksSelector } from '../../redux/tasks/taskSelectors';
 // [
 //   {
 //     title: 'Task 1',
@@ -30,11 +31,11 @@ import { getAllSprints } from '../../redux/sprints/sprintSelectors';
 // предыдущего дня(Если это первый день - отнимает от общей суммы оценочных часов)
 // В результате получаем массив с числами[250, 232, 228, ....]
 const Graph = () => {
-  const getAll = useSelector(getAllSprints);
+  const getAll = useSelector(getTasksSelector);
 
-  const plannedLine = () => {
-    getAll.reduce((acc, getAll) => acc + getAll.hoursPlanned, 0);
-  };
+  // const plannedLine = () => {
+  //   getAll.reduce((acc, getAll) => acc + getAll.hoursPlanned, 0);
+  // };
 
   // const getPeriodPlanned = (days, hoursPlanned) => {
   //   const deltaPlanned = hoursPlanned / days;
@@ -47,24 +48,55 @@ const Graph = () => {
   // };
   const otherDayPlannedLine = () => {};
   //const otherDayFactLine=()=>{фактическая линия-=остаток предыдущего дня}
-  const months = [
-    '',
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC',
-  ];
+  // const months = [
+  //   '',
+  //   'JAN',
+  //   'FEB',
+  //   'MAR',
+  //   'APR',
+  //   'MAY',
+  //   'JUN',
+  //   'JUL',
+  //   'AUG',
+  //   'SEP',
+  //   'OCT',
+  //   'NOV',
+  //   'DEC',
+  // ];
+  const getDatesArray = () => {
+    return getAll.map(task => {
+      return task.hoursWastedPerDay.reduce((acc, task) => {
+        acc.push(task.currentDay);
+        return acc;
+      }, []);
+    });
+  };
 
+  // const getData = async () => {
+  //   let hours = plannedHours;
+  //   const getHoursArr = tasks.map(task => {
+  //     return task.hoursWastedPerDay.reduce((acc, singleTask) => {
+  //       acc.push(singleTask.singleHoursWasted);
+  //       return acc;
+  //     }, []);
+  //   });
+  //   console.log('getHoursArr :>> ', getHoursArr);
+  //   // получить все даты
+  //   // const sprints = await axios.get(
+  //   //     `https://sbc-backend.goit.global/sprint/609639ea33a36061e804ec19`,
+  //   // );
+  //   // console.log('sprints :>> ', sprints);
+  //   // const sprintsDates = sprints.data.sprints.map(
+  //   //     ({ startDate, duration }) => ({
+  //   //         startDate,
+  //   //         duration,
+  //   //     }),
+  //   // );
+  //   // console.log('sprintsDates :>> ', sprintsDates);
+  //   // формируем даты
+  // };
   const data = {
-    // labels: result,
+    // labels: getDatesArray,
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
@@ -171,3 +203,28 @@ export default Graph;
 //   return acc;
 // }, {});
 //  data: [...period.hoursPlanned]
+
+// const getPeriod = (days, hours) => {
+//     const deltaPlan = hours / days;
+//     return Array(days + 1) //передаем кол-во дней спринта
+//         .fill('')
+//         .map((elem, index) => ({ day: index, hours: deltaPlan * index }));
+// };
+// const period = getPeriod(6, 100).reduce((acc, elem) => {
+//     if (!acc.day) {
+//         return { day: [elem.day], hours: [elem.hours] };
+//     }
+//     acc.day.push(elem.day);
+//     acc.hours.unshift(Math.round(elem.hours));
+
+//     return acc;
+// }, {});
+// // console.log(period);
+// // console.log([...period.hours]);
+
+// const chartLine = () => {
+//     setChartData({
+//         labels: [
+//             ...period.day,
+//             //сюда дни
+//         ],
