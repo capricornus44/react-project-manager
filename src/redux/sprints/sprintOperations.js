@@ -41,7 +41,7 @@ export const addSprint = ({ title, endDate, duration, projectId }) => async (
     } = await axios.post(`/sprint/${projectId}`, sprint);
     dispatch(addSprintSuccess({ _id: id || _id, ...rest }));
   } catch (error) {
-    dispatch(addSprintError(error));
+    dispatch(addSprintError(error.message));
   }
 };
 
@@ -57,7 +57,7 @@ export const getSprints = id => async (dispatch, getState) => {
     // console.log(responce);
     dispatch(getSprintSuccess(responce.data.sprints));
   } catch (error) {
-    dispatch(getSprintError(error));
+    dispatch(getSprintError(error.message));
   }
 };
 
@@ -67,7 +67,7 @@ export const changeTitleSprint = ({ id, title }) => async dispatch => {
     const responce = await axios.patch(`/sprint/title/${id}`, title);
     dispatch(changeTitleSprintSuccess(responce.data));
   } catch (error) {
-    dispatch(changeTitleSprintError(error));
+    dispatch(changeTitleSprintError(error.message));
   }
 };
 
@@ -78,6 +78,6 @@ export const deleteSprint = id => async dispatch => {
     // console.log(responce);
     dispatch(deleteSprintSuccess(id));
   } catch (error) {
-    dispatch(deleteSprintError(error));
+    dispatch(deleteSprintError(error.message));
   }
 };
