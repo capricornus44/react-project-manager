@@ -16,10 +16,13 @@ import {
 
 // const projId="6098fb0c33a36061e804eee2";
 import { token } from '../auth/authOperations';
-const sprintId = '6098fba433a36061e804eee5';
+// const sprintId = '6098fba433a36061e804eee5';
 axios.defaults.baseURL = 'https://sbc-backend.goit.global/';
 
-const addTask = ({ title, hoursPlanned }) => async (dispatch, getState) => {
+const addTask = ({ sprintId, title, hoursPlanned }) => async (
+  dispatch,
+  getState,
+) => {
   dispatch(addTaskRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
@@ -34,7 +37,7 @@ const addTask = ({ title, hoursPlanned }) => async (dispatch, getState) => {
   }
 };
 
-const getTask = () => async (dispatch, getState) => {
+const getTask = sprintId => async (dispatch, getState) => {
   dispatch(getTaskRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
