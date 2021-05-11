@@ -35,8 +35,8 @@ const english = {
     addMembersButton: 'Add members',
   },
   projectPageSidebar: {
-    addSprintButton: 'Create sprint',
-    goBack: 'Back',
+    goBack: 'Show projects',
+    addProjectButton: 'Create project',
   },
   projectPageForm: {
     formTitle: 'Sprint creation',
@@ -45,6 +45,22 @@ const english = {
     startDate: 'Start date',
     expireDate: 'Expire date',
     duration: 'Duration',
+  },
+  sprintPageSidebar: {
+    goBack: 'Show sprints',
+    addSprintButton: 'Create sprint',
+  },
+  sprintPageHeader: {
+    addTaskButton: 'Create task',
+    taskName: 'Task',
+    plannedHours: 'Scheduled hours',
+    spentHoursPerDay: 'Spent hours / day',
+    spentHoursTotally: 'Spent hours',
+  },
+  sprintPageForm: {
+    formTitle: 'Task creation',
+    taskName: 'Task name',
+    plannedHours: 'Scheduled hours',
   },
 };
 
