@@ -5,7 +5,7 @@ import Main from '../main/Main';
 import { useLanguage } from '../../hooks/useLanguage';
 import { getIsAuthError } from '../../redux/error/errorSelector';
 import { refreshOperation } from '../../redux/auth/authOperations';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 
 export const LangContext = createContext();
@@ -15,12 +15,11 @@ const App = () => {
   const isAuthError = useSelector(getIsAuthError);
 
   useEffect(() => {
-    // isAuthError && dispatch(refreshOperation());
+    isAuthError && dispatch(refreshOperation());
 
-    if (isAuthError) {
-      dispatch(refreshOperation());
-      toast.error('Повторiть останню дiю');
-    }
+    // if (isAuthError) {
+    //   dispatch(refreshOperation());
+    // }
   }, [isAuthError, dispatch]);
 
   const [language, setLanguage, list] = useLanguage();
@@ -28,7 +27,6 @@ const App = () => {
     <LangContext.Provider value={{ language, setLanguage, list }}>
       <Header />
       <Main />
-      <ToastContainer autoClose={2500} position="top-right" type="error" />
     </LangContext.Provider>
   );
 };
