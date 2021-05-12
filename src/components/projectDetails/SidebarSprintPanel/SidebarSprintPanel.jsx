@@ -44,7 +44,7 @@ const SidebarSprintPanel = () => {
                   state: { from: location },
                 }}
               >
-                <p className="sidebar__list_item_name sidebar__text">
+                <p className="sidebar__list_item_name sidebar__text sidebar__list_item-sprint ">
                   {proj.title}
                 </p>
               </NavLink>

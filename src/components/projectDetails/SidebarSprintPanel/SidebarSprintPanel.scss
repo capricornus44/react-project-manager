@@ -13,6 +13,11 @@
   //   background-color: red;
   border-radius: 5px;
 }
+.sidebar__list_item-sprint {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 .sidebar-list__item-square:nth-child(3n + 1):before {
   background-color: $card-1;
