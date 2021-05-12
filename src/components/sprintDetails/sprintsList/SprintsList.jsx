@@ -9,7 +9,7 @@ import { useRouteMatch } from 'react-router';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import { getSprints } from '../../../redux/sprints/sprintOperations';
 
-const SprintsList = () => {
+const SprintsList = ({ curDate }) => {
   const dispatch = useDispatch();
   const allTasks = useSelector(getTasksSelector);
   const sprints = useSelector(getAllSprints);
@@ -22,13 +22,15 @@ const SprintsList = () => {
       return;
     }
     dispatch(getSprints(projectId));
-  }, [dispatch, sprintId]);
+  }, [dispatch, sprintId, projectId, sprints.length]);
 
   return (
     <div className="sprintsList_box">
       <ul className="sprintsList">
         {allTasks.length > 0 &&
-          allTasks.map(task => <SprintsListItem key={task._id} {...task} />)}
+          allTasks.map(task => (
+            <SprintsListItem curDate={curDate} key={task._id} {...task} />
+          ))}
       </ul>
       {allTasks.length === 0 && (
         <h2 className="empty_title">

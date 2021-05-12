@@ -22,6 +22,10 @@
   }
 }
 
+.sidebar__Btn_navlink {
+  text-decoration: none;
+}
+
 .sidebar__Btn_arrow {
   width: 30px;
   height: 100%;
@@ -46,6 +50,14 @@
   &:hover {
     font-weight: bold;
   }
+
+  & a {
+    text-decoration: none;
+  }
+}
+
+.sidebar__list_item_selected {
+  font-weight: bold;
 }
 
 .sidebar__list_item + .sidebar__list_item {
@@ -75,10 +87,6 @@
   position: fixed;
   bottom: 80px;
   transition: all 200ms linear;
-
-  &:hover {
-    font-weight: bold;
-  }
 }
 
 .sidebar__addSprintFormBtn_box {

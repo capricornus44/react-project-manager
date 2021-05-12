@@ -30,6 +30,7 @@ const SprintDetailsPage = () => {
 
   useEffect(() => {
     setDate(moment(startSprintDate).add(counter, 'days').format('DD.MM.YYYY'));
+    // eslint-disable-next-line
   }, [counter]);
 
   return (
@@ -46,7 +47,7 @@ const SprintDetailsPage = () => {
           curSprint={curSprint}
           startSprintDate={startSprintDate}
         />
-        <SprintsList />
+        <SprintsList curDate={date} />
       </div>
     </div>
   );
