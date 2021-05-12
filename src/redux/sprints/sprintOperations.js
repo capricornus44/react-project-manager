@@ -1,17 +1,13 @@
 import axios from 'axios';
 import moment from 'moment';
 import {
-  addSprintError,
   addSprintRequest,
   addSprintSuccess,
-  getSprintError,
   getSprintRequest,
   getSprintSuccess,
   changeTitleSprintRequest,
   changeTitleSprintSuccess,
-  changeTitleSprintError,
   deleteSprintRequest,
-  deleteSprintError,
   deleteSprintSuccess,
   // addMemberProjectRequest,
   // addMemberProjectSuccess,
@@ -19,11 +15,8 @@ import {
 } from './sprintActions';
 import { token } from '../auth/authOperations';
 import { getError } from '../error/errorHandler';
-import { id } from 'date-fns/locale';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
-
-// const projectID = '6094ff1033a36061e804eb4d';
 
 export const addSprint =
   ({ title, endDate, duration, projectId }) =>
@@ -39,23 +32,23 @@ export const addSprint =
     const { accessToken } = getState().auth.token;
     token.set(accessToken);
 
-  try {
-    // console.log({ title, endDate, duration, projectId });
-    const {
-      data: { id, _id, ...rest },
-    } = await axios.post(`/sprint/${projectId}`, sprint);
-    dispatch(addSprintSuccess({ _id: id || _id, ...rest }));
-  } catch (error) {
-    dispatch(
-      getError({
-        error,
-        requestCallback: () =>
-          addSprint({ title, endDate, duration, projectId }),
-        errorIdent: 'addSprintError',
-      }),
-    );
-  }
-};
+    try {
+      // console.log({ title, endDate, duration, projectId });
+      const {
+        data: { id, _id, ...rest },
+      } = await axios.post(`/sprint/${projectId}`, sprint);
+      dispatch(addSprintSuccess({ _id: id || _id, ...rest }));
+    } catch (error) {
+      dispatch(
+        getError({
+          error,
+          requestCallback: () =>
+            addSprint({ title, endDate, duration, projectId }),
+          errorIdent: 'addSprintError',
+        }),
+      );
+    }
+  };
 
 export const getSprints = id => async (dispatch, getState) => {
   dispatch(getSprintRequest());
@@ -64,7 +57,6 @@ export const getSprints = id => async (dispatch, getState) => {
   token.set(accessToken);
 
   try {
-    // console.log(id);
     const responce = await axios.get(`/sprint/${id}`);
     // console.log(responce);
     dispatch(getSprintSuccess(responce.data.sprints));
@@ -79,21 +71,23 @@ export const getSprints = id => async (dispatch, getState) => {
   }
 };
 
-export const changeTitleSprint = ({ id, title }) => async dispatch => {
-  dispatch(changeTitleSprintRequest());
-  try {
-    const responce = await axios.patch(`/sprint/title/${id}`, title);
-    dispatch(changeTitleSprintSuccess(responce.data));
-  } catch (error) {
-    dispatch(
-      getError({
-        error,
-        requestCallback: () => changeTitleSprint({ id, title }),
-        errorIdent: 'changeTitleSprintError',
-      }),
-    );
-  }
-};
+export const changeTitleSprint =
+  ({ id, title }) =>
+  async dispatch => {
+    dispatch(changeTitleSprintRequest());
+    try {
+      const responce = await axios.patch(`/sprint/title/${id}`, { title });
+      dispatch(changeTitleSprintSuccess({ ...responce.data, _id: id }));
+    } catch (error) {
+      dispatch(
+        getError({
+          error,
+          requestCallback: () => changeTitleSprint({ id, title }),
+          errorIdent: 'changeTitleSprintError',
+        }),
+      );
+    }
+  };
 
 export const deleteSprint = id => async dispatch => {
   dispatch(deleteSprintRequest());

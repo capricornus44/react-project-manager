@@ -1,9 +1,16 @@
 .add__sprint-form {
-  display: flex;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  // display: flex;
   // align-items: center;
   // padding-top: 40px;
-
+  @media screen and (min-width: 768px) {
+    top: 120px;
+    right: 40px;
+  }
   @media screen and (min-width: 1280px) {
+    right: 280px;
     // display: block;
     // padding-right: 0px;
     // justify-content: flex-end;

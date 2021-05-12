@@ -26,6 +26,10 @@ const ProjectDetails = () => {
     dispatch(getProjectsOperation());
   }, [dispatch]);
 
+  useEffect(() => {
+    projectId && dispatch(getSprints(projectId));
+  }, [dispatch, projectId]);
+
   return (
     <>
       <div className="project__details-form">

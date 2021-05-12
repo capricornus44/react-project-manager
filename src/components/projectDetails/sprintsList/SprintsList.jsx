@@ -7,7 +7,7 @@ import './SprintsList.scss';
 import { LangContext } from '../../app/App';
 
 const SprintsList = ({ projectId }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const allSprints = useSelector(getAllSprints);
   const { language } = useContext(LangContext);
   // useEffect(() => {
@@ -16,9 +16,9 @@ const SprintsList = ({ projectId }) => {
   // }, [allSprints.length])
 
   // console.log(allSprints)
-  useEffect(() => {
-    dispatch(getSprints(projectId));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getSprints(projectId));
+  // }, [dispatch]);
 
   // console.log(allSprints)
 
