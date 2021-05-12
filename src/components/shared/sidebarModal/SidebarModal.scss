@@ -7,11 +7,15 @@
   background: $overlay;
   width: 100vw;
   height: 100vh;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    top: 60px;
+    right: 0;
+  }
 }
 
 .sidebar-modal__container {
   right: 0;
-
   padding-top: 67px;
   padding-left: 20px;
   padding-right: 20px;
@@ -99,6 +103,10 @@
 
     font-size: 36px;
     line-height: 1.222;
+  }
+
+  @media screen and (max-width: 1279px) {
+    text-align: center;
   }
 }
 

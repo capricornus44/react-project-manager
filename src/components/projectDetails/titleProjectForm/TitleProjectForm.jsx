@@ -25,6 +25,7 @@ const TitleProjectForm = ({ projectId }) => {
   const allProjects = useSelector(getProjects);
   // console.log(allProjects);
   const thisProject = allProjects.find(project => project._id === projectId);
+  const description = thisProject?.description;
   // console.log(thisProject);
   const title = thisProject?.title || '';
   //console.log(title);
@@ -94,7 +95,8 @@ const TitleProjectForm = ({ projectId }) => {
             </svg>
           </button>
         </h2>
-        <TitleProjectDetails description={thisProject.description} />
+
+        <TitleProjectDetails description={description} />
       </div>
     </>
   );
