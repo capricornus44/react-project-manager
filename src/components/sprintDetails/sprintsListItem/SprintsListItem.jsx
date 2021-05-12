@@ -1,21 +1,26 @@
+import React, { useContext } from 'react';
 import TaskDeleteButton from '../../shared/deleteButton/TaskDeleteButton';
 import './SprintsListItem.scss';
+import { LangContext } from '../../app/App';
 
 const SprintsListItem = ({ _id: id, title, hoursPlanned, hoursWasted }) => {
+  const { language } = useContext(LangContext);
   return (
     <>
       <li className="sprintsListItem">
         <h2 className="sprintsListItem__heading">{title}</h2>
         <ul className="sprintsListItem__list">
           <li className="sprintsListItem__list_item">
-            <p className="sprintsListItem__list_item_text">Заплановано годин</p>
+            <p className="sprintsListItem__list_item_text">
+              {language.sprintPageHeader.plannedHours}
+            </p>
             <span className="sprintsListItem__list_item_digit">
               {hoursPlanned}
             </span>
           </li>
           <li className="sprintsListItem__list_item">
             <p className="sprintsListItem__list_item_text">
-              Витрачено год / день
+              {language.sprintPageHeader.spentHoursPerDay}
             </p>
             <input
               className="sprintsListItem__list_input"
@@ -23,7 +28,9 @@ const SprintsListItem = ({ _id: id, title, hoursPlanned, hoursWasted }) => {
             ></input>
           </li>
           <li className="sprintsListItem__list_item">
-            <p className="sprintsListItem__list_item_text">Витрачено годин</p>
+            <p className="sprintsListItem__list_item_text">
+              {language.sprintPageHeader.spentHoursTotally}
+            </p>
             <span className="sprintsListItem__list_item_digit">
               {hoursWasted}
             </span>
