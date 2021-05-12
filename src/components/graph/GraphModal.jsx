@@ -33,7 +33,11 @@ const GraphModal = () => {
   return (
     showModal && (
       <div className="graph-modal__backdrop" onClick={handleBackdropClick}>
-        <div className="graph-modal__container">
+        <div
+          className="graph-modal__container"
+          // showModal={showModal}
+          // setShowModal={setShowModal}
+        >
           <button
             type="button"
             className="graph-modal__btn"

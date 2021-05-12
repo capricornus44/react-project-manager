@@ -12,6 +12,9 @@ import {
   changeTitleProjectRequest,
   changeTitleProjectSuccess,
   changeTitleProjectError,
+  addMemberProjectError,
+  addMemberProjectRequest,
+  addMemberProjectSuccess,
 } from './projectActions';
 import { token } from '../auth/authOperations';
 
@@ -68,18 +71,34 @@ const deleteProjectsOperation = id => async dispatch => {
 const changeTitleProject = ({ id, title }) => async dispatch => {
   dispatch(changeTitleProjectRequest());
   try {
-    const newTitle = { title };
-    const responce = await axios.patch(`/project/title/${id}`, newTitle);
+    // const newTitle = { title };
+    const responce = await axios.patch(`/project/title/${id}`, { title });
     // console.log(responce.data);
-    dispatch(changeTitleProjectSuccess(responce.data));
+    dispatch(changeTitleProjectSuccess({ ...responce.data, _id: id }));
   } catch (error) {
+    console.log(error);
     dispatch(changeTitleProjectError(error.message));
+  }
+};
+
+const addMemberProject = ({ id, email }) => async (dispatch, getState) => {
+  dispatch(addMemberProjectRequest());
+  const { accessToken } = getState().auth.token;
+  token.set(accessToken);
+  console.log(id, email);
+  try {
+    const responce = await axios.patch(`/project/contributor/${id}`, { email });
+    dispatch(addMemberProjectSuccess(responce.data));
+  } catch (error) {
+    console.log(error);
+    dispatch(addMemberProjectError(error));
   }
 };
 
 export {
   getProjectsOperation,
   addProjectsOperation,
+  addMemberProject,
   deleteProjectsOperation,
   changeTitleProject,
 };

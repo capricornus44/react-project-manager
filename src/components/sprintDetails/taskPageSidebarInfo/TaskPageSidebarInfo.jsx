@@ -1,45 +1,62 @@
-// import { useSelector } from 'react-redux';
-// import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
+import { useSelector } from 'react-redux';
+import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 
 import AddSprintForm from '../../projectDetails/addSprintForm/AddSprintForm';
 import './TaskPageSidebarInfo.scss';
 import sprite from '../../../assets/icons/sprite.svg';
+import { NavLink, useLocation, useRouteMatch } from 'react-router-dom';
 const TaskPageSidebarInfo = () => {
-  //   const sprints = useSelector(getAllSprints);
+  const sprints = useSelector(getAllSprints);
+  const projectId = useRouteMatch().params.projectId;
+  const location = useLocation();
 
   return (
     <div className="sidebar__box">
-      <button type="button" className="sidebar__Btn">
-        <svg className="sidebar__Btn_arrow">
-          <use href={sprite + '#back-arrow'}></use>
-        </svg>
-        <span className="sidebar__Btn_text sidebar__text">
-          Показати спринти
-        </span>
-      </button>
+      <NavLink
+        to={{
+          pathname: `/projects/${projectId}`,
+          state: { from: location },
+        }}
+      >
+        <button type="button" className="sidebar__Btn">
+          <svg className="sidebar__Btn_arrow">
+            <use href={sprite + '#back-arrow'}></use>
+          </svg>
+          <span className="sidebar__Btn_text sidebar__text">
+            Показати спринти
+          </span>
+        </button>
+      </NavLink>
       <ul className="sidebar__list">
-        <li className="sidebar__list_item">
-          <span className="sidebar__list_square"></span>
-          <p className="sidebar__list_item_name sidebar__text">
-            Sprint looooooong name 1
-          </p>
-        </li>
-        <li className="sidebar__list_item">
-          <span className="sidebar__list_square"></span>
-          <p className="sidebar__list_item_name sidebar__text">
-            Sprint looooooong name 2
-          </p>
-        </li>
-        <li className="sidebar__list_item">
-          <span className="sidebar__list_square"></span>
-          <p className="sidebar__list_item_name sidebar__text">
-            Sprint looooooong name 3
-          </p>
-        </li>
+        {sprints.map(sprint => (
+          <li className="sidebar__list_item" key={sprint._id}>
+            <NavLink
+              className="sidebar__list_item"
+              activeClassName="sidebar__list_item_selected"
+              to={{
+                pathname: `/projects/${projectId}/sprints/${sprint._id}`,
+                state: { from: location },
+              }}
+            >
+              <span className="sidebar__list_square"></span>
+              <p className="sidebar__list_item_name sidebar__text">
+                {sprint.title}
+              </p>
+            </NavLink>
+          </li>
+        ))}
       </ul>
       <div className="sidebar__addSprintForm_box">
         <div className="sidebar__addSprintFormBtn_box">
           <AddSprintForm />
+
+          {/* <ModalHoc
+            titleModal="Створення спринта"
+            addOperation={addSprint}
+            data={data}
+          >
+            <AddSprintData cb={setData} projectId={projectId} />
+          </ModalHoc> */}
         </div>
 
         <p className="sidebar__addSprintForm_title sidebar__text">

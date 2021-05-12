@@ -19,3 +19,5 @@ export const changeTaskHoursError = createAction('@task/changeTaskHoursError');
 export const deleteTaskRequest = createAction('@task/deleteTaskRequest');
 export const deleteTaskSuccess = createAction('@task/deleteTaskSuccess');
 export const deleteTaskError = createAction('@task/deleteTaskError');
+
+// export const filterTasks = createAction('task/filterTasks');
