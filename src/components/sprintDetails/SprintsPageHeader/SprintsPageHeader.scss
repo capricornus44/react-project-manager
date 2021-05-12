@@ -66,25 +66,6 @@
   cursor: pointer;
 }
 
-.sprintsPageHeader_editHeaderBtn {
-  cursor: pointer;
-  margin-top: 7px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  fill: rgba(166, 166, 166, 1);
-  border: none;
-  transition: all 250ms linear;
-
-  &:hover {
-    fill: $accent;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-left: 20px;
-  }
-}
-
 .sprintsPageHeader__searchForm {
   margin-top: 20px;
   position: relative;
@@ -140,20 +121,6 @@
 .sprintsPageHeader__heading_box {
   display: flex;
   margin-bottom: 30px;
-}
-
-.sprintsPageHeader__heading {
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 1.23;
-  letter-spacing: 0.04em;
-  color: $text-primary;
-
-  @media screen and (min-width: 768px) {
-    width: 340px;
-    font-size: 36px;
-    line-height: 1.22;
-  }
 }
 
 .sprintsPageHeader__addTask_btn_box {

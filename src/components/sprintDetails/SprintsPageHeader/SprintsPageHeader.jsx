@@ -1,5 +1,5 @@
 import './SprintsPageHeader.scss';
-import sprite from '../../../assets/icons/sprite.svg';
+// import sprite from '../../../assets/icons/sprite.svg';
 import ModalHoc from '../../shared/ModalHoc/ModalHoc';
 import AddTaskForm from '../addTaskForm/AddTaskForm';
 import { addTask } from '../../../redux/tasks/taskOperations';
@@ -7,13 +7,13 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import DatePagination from '../datePagination/DatePagination';
+import TitleSprintForm from '../titleSprintForm/TitleSprintForm';
 
 const SprintsPageHeader = ({
   counter,
   setCounter,
   duration,
   curDate,
-  curSprint,
   startSprintDate,
 }) => {
   const dispatch = useDispatch();
@@ -54,12 +54,7 @@ const SprintsPageHeader = ({
           </form>
         </div>
         <div className="sprintsPageHeader__heading_box">
-          <h1 className="sprintsPageHeader__heading">{curSprint?.title}</h1>
-          <button className="sprintsPageHeader_editHeaderBtn">
-            <svg width="20" height="20">
-              <use href={sprite + '#edit'}></use>
-            </svg>
-          </button>
+          <TitleSprintForm sprintId={sprintId} />
           <div className="sprintsPageHeader__addTask_btn_box">
             <ModalHoc
               titleModal="Створення задачі"
