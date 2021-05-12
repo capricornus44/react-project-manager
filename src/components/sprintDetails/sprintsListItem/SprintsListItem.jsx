@@ -1,16 +1,11 @@
-
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeTaskHours } from '../../../redux/tasks/taskOperations';
-import React, { useContext } from 'react';
-
 import TaskDeleteButton from '../../shared/deleteButton/TaskDeleteButton';
 import './SprintsListItem.scss';
 import { LangContext } from '../../app/App';
 
-
 const getSingleHours = (hoursWastedPerDay, curDate) => {
-  const { language } = useContext(LangContext);
   const hoursWasted = hoursWastedPerDay?.find(({ currentDay }) => {
     return currentDay === curDate;
   });
@@ -27,6 +22,7 @@ const SprintsListItem = ({
   hoursWasted,
   hoursWastedPerDay,
 }) => {
+  const { language } = useContext(LangContext);
   const dispatch = useDispatch();
 
   const [inputValue, setInputValue] = useState(() =>
@@ -58,7 +54,6 @@ const SprintsListItem = ({
   useEffect(() => {
     getSingleHours(hoursWastedPerDay, curDate);
   }, [curDate]);
-
 
   return (
     <>
