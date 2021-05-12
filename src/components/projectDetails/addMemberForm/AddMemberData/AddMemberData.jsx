@@ -47,7 +47,9 @@ const AddMemberData = ({ cb, id }) => {
       </h3>
       <ul>
         {members.members.map(el => (
-          <li className="add-member-data__members">{el}</li>
+          <li className="add-member-data__members" key={el}>
+            {el}
+          </li>
         ))}
       </ul>
     </>

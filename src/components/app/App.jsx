@@ -6,8 +6,6 @@ import { useLanguage } from '../../hooks/useLanguage';
 import { getIsAuthError } from '../../redux/error/errorSelector';
 import { refreshOperation } from '../../redux/auth/authOperations';
 
-import 'react-toastify/dist/ReactToastify.css';
-
 export const LangContext = createContext();
 
 const App = () => {

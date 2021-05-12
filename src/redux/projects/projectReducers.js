@@ -4,6 +4,7 @@ import {
   getProjectSuccess,
   deleteProjectSuccess,
   changeTitleProjectSuccess,
+  getProjectRequest,
 } from './projectActions';
 
 const initialState = {
@@ -18,6 +19,7 @@ const projectsReducer = createReducer(initialState.projects, {
   [deleteProjectSuccess]: (state, { payload }) => {
     return state.filter(project => project._id !== payload);
   },
+
   [changeTitleProjectSuccess]: (state, { payload }) => {
     return state.map(proj => {
       if (proj._id === payload._id) {
@@ -26,6 +28,7 @@ const projectsReducer = createReducer(initialState.projects, {
       } else return proj;
     });
   },
+  [getProjectRequest]: (state, { payload }) => [],
 });
 
 export default projectsReducer;

@@ -5,7 +5,7 @@ import AddSprintForm from './addSprintForm/AddSprintForm';
 import SprintsList from './sprintsList/SprintsList';
 import TitleProjectForm from './titleProjectForm/TitleProjectForm';
 import './ProjectDetails.scss';
-import TitleProjectDetails from './titleProjectForm/TitleProjectDetails/TitleProjectDetails';
+import TitleProjectDetails from './titleProjectForm/TitleProjectDescription/TitleProjectDescription';
 import SidebarPanel from '../shared/sidebarPanel/SidebarPanel';
 import SidebarSprintPanel from './SidebarSprintPanel/SidebarSprintPanel';
 import { getSprints } from '../../redux/sprints/sprintOperations';
@@ -38,7 +38,7 @@ const ProjectDetails = () => {
             {/* <AddSprintForm projectId={projectId} onSubmit/> */}
             <AddSprint />
           </div>
-          <TitleProjectDetails />
+          {/* <TitleProjectDetails /> */}
           <AddMemberForm />
           <SprintsList projectId={projectId} />
         </div>

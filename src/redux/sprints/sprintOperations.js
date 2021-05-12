@@ -13,9 +13,9 @@ import {
   deleteSprintRequest,
   deleteSprintError,
   deleteSprintSuccess,
-  addMemberProjectRequest,
-  addMemberProjectSuccess,
-  addMemberProjectError,
+  // addMemberProjectRequest,
+  // addMemberProjectSuccess,
+  // addMemberProjectError,
 } from './sprintActions';
 import { token } from '../auth/authOperations';
 import { getError } from '../error/errorHandler';
@@ -25,20 +25,19 @@ axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
 // const projectID = '6094ff1033a36061e804eb4d';
 
-export const addSprint = ({ title, endDate, duration, projectId }) => async (
-  dispatch,
-  getState,
-) => {
-  const sprint = {
-    title,
-    endDate: moment(endDate).format('YYYY-M-D'),
-    duration: Number(duration),
-  };
+export const addSprint =
+  ({ title, endDate, duration, projectId }) =>
+  async (dispatch, getState) => {
+    const sprint = {
+      title,
+      endDate: moment(endDate).format('YYYY-M-D'),
+      duration: Number(duration),
+    };
 
-  dispatch(addSprintRequest());
+    dispatch(addSprintRequest());
 
-  const { accessToken } = getState().auth.token;
-  token.set(accessToken);
+    const { accessToken } = getState().auth.token;
+    token.set(accessToken);
 
   try {
     // console.log({ title, endDate, duration, projectId });

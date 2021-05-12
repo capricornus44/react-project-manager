@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './SprintsPageHeader.scss';
-import sprite from '../../../assets/icons/sprite.svg';
+// import sprite from '../../../assets/icons/sprite.svg';
 import ModalHoc from '../../shared/ModalHoc/ModalHoc';
 import AddTaskForm from '../addTaskForm/AddTaskForm';
 import { addTask } from '../../../redux/tasks/taskOperations';
@@ -9,12 +9,19 @@ import { useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import DatePagination from '../datePagination/DatePagination';
 import { LangContext } from '../../app/App';
+import TitleSprintForm from '../titleSprintForm/TitleSprintForm';
 
-const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
-  const { language } = useContext(LangContext);
-  const [data, setData] = useState({});
+const SprintsPageHeader = ({
+  counter,
+  setCounter,
+  duration,
+  curDate,
+  startSprintDate,
+}) => {
 
   const dispatch = useDispatch();
+  const { language } = useContext(LangContext);
+  const [data, setData] = useState({});
   const sprintId = useRouteMatch().params.sprintId;
 
   const submitTask = data => {
@@ -33,6 +40,7 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
             setCounter={setCounter}
             duration={duration}
             curDate={curDate}
+            startSprintDate={startSprintDate}
           />
 
           <form className="sprintsPageHeader__searchForm">
@@ -49,12 +57,7 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
           </form>
         </div>
         <div className="sprintsPageHeader__heading_box">
-          <h1 className="sprintsPageHeader__heading">Sprint Burndown Chart</h1>
-          <button className="sprintsPageHeader_editHeaderBtn">
-            <svg width="20" height="20">
-              <use href={sprite + '#edit'}></use>
-            </svg>
-          </button>
+          <TitleSprintForm sprintId={sprintId} />
           <div className="sprintsPageHeader__addTask_btn_box">
             <ModalHoc
               titleModal={language.sprintPageForm.formTitle}
@@ -84,10 +87,10 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
               {language.sprintPageHeader.spentHoursTotally}
             </li>
             <li className="  desktop_item">
-              <button
+              {/* <button
                 className="sprintsPageHeader__searchBtn"
                 type="button"
-              ></button>
+              ></button> */}
             </li>
           </ul>
         </div>

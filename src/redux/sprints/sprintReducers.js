@@ -1,18 +1,11 @@
-import { combineReducers, createReducer } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 
 import {
-  addSprintRequest,
   addSprintSuccess,
-  addSprintError,
   getSprintRequest,
   getSprintSuccess,
-  getSprintError,
-  changeSprintRequest,
-  changeSprintSuccess,
-  changeSprintError,
-  deleteSprintRequest,
+  changeTitleSprintSuccess,
   deleteSprintSuccess,
-  deleteSprintError,
 } from './sprintActions';
 
 export const sprintsReducer = createReducer([], {
@@ -21,6 +14,12 @@ export const sprintsReducer = createReducer([], {
     state.filter(item => item._id !== payload),
   [getSprintSuccess]: (_, { payload }) => [...payload],
   [getSprintRequest]: (state, { payload }) => [],
-});
 
-// export const SprintRequest
+  [changeTitleSprintSuccess]: (state, { payload }) => {
+    return state.map(sprint => {
+      if (sprint._id === payload._id) {
+        return sprint;
+      } else return sprint;
+    });
+  },
+});

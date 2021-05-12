@@ -17,24 +17,18 @@ const SprintDetailsPage = () => {
   const dispatch = useDispatch();
   const { sprintId, projectId } = useRouteMatch().params;
   const sprints = useSelector(getAllSprints);
-  const curSprint = sprints.find(sprint => sprint._id === sprintId);
+  const curSprint = sprints?.find(sprint => sprint._id === sprintId);
   const curSprintDuration = curSprint?.duration;
   const startSprintDate = curSprint?.startDate;
 
   const [counter, setCounter] = useState(curDay(startSprintDate));
-  const [date, setDate] = useState(moment().format('DD.MM.YYYY'));
-
-  // console.log(moment().diff(moment(startSprintDate), 'days'));
+  const [date, setDate] = useState(Date.now());
 
   useEffect(() => {
     dispatch(getSprints(projectId));
   }, [dispatch, projectId]);
 
   useEffect(() => {
-    console.log(startSprintDate);
-    console.log(counter);
-    console.log(date);
-
     setDate(moment(startSprintDate).add(counter, 'days').format('DD.MM.YYYY'));
   }, [counter]);
 
@@ -49,6 +43,7 @@ const SprintDetailsPage = () => {
           setCounter={setCounter}
           duration={curSprintDuration}
           curDate={date}
+          startSprintDate={startSprintDate}
         />
         <SprintsList />
       </div>

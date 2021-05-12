@@ -64,11 +64,15 @@
 }
 
 .add-sprint-data__group {
-  display: flex;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .add-sprint-data__group .add-sprint-data__form {
-  width: calc(100% / 2);
+  @media screen and (min-width: 768px) {
+    width: calc(100% / 2);
+  }
 }
 
 .add-sprint-data__form-end-date {
@@ -77,5 +81,7 @@
 
 .add-sprint-data_end-date,
 .add-sprint-data_duration {
-  width: 200px;
+  @media screen and (min-width: 768px) {
+    width: 200px;
+  }
 }
