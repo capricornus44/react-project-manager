@@ -5,37 +5,12 @@ const DatePagination = ({
   curDate,
   startSprintDate,
 }) => {
-  // console.log(`new Date`, new Date(curDate).getTime());
-  // console.log();
   const getMs = value => new Date(value).getTime();
-  const normDate = value =>
-    value ? value?.split('-').reverse().join('.') : curDate;
 
-  // console.log('stSpr', Number(getMs(normDate(startSprintDate))));
-  // console.log('cur date', getMs(curDate));
-
-  // console.log(`curDate`, new Date(curDate));
-  // console.log(
-  //   `startSprintDate`,
-  //   startSprintDate ? new Date(startSprintDate) : null,
-  // );
-  // console.log(
-  //   'test',
-  //   getMs(normDate(startSprintDate)),
-  //   // startSprintDate?.split('-').reverse(),
-  //   // .map(item => `${item}`.padStart(2, '0')
-  // );
-  // console.log('getMs(curDate)', getMs(curDate));
-  // console.log('getMs(startSprintDate)', getMs(startSprintDate));
-  // console.log(
-  //   'getms + dur',
-  //   getMs(startSprintDate) + duration * 24 * 60 * 60 * 1000,
-  // );
-  // console.log('duration', duration);
   return (
     <>
-      {getMs(curDate) >= getMs(startSprintDate) &&
-        getMs(curDate) <=
+      {Date.now() >= getMs(startSprintDate) &&
+        Date.now() <=
           getMs(startSprintDate) + duration * 24 * 60 * 60 * 1000 && (
           <div className="sprintsPageHeader__dates">
             <button

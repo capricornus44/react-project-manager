@@ -12,7 +12,6 @@ import moment from 'moment';
 import { getSprints } from '../../redux/sprints/sprintOperations';
 
 const curDay = startDate => moment().diff(moment(startDate), 'days');
-// console.log('curDay', curDay);
 
 const SprintDetailsPage = () => {
   const dispatch = useDispatch();
@@ -21,22 +20,15 @@ const SprintDetailsPage = () => {
   const curSprint = sprints?.find(sprint => sprint._id === sprintId);
   const curSprintDuration = curSprint?.duration;
   const startSprintDate = curSprint?.startDate;
-  // console.log(`curSprintDuration =====>>`, curSprintDuration);
-  // console.log(`startSprintDate ====>>`, startSprintDate);
-  const [counter, setCounter] = useState(curDay(startSprintDate));
-  const [date, setDate] = useState(moment().format('DD.MM.YYYY'));
 
-  // console.log(moment().diff(moment(startSprintDate), 'days'));
+  const [counter, setCounter] = useState(curDay(startSprintDate));
+  const [date, setDate] = useState(Date.now());
 
   useEffect(() => {
     dispatch(getSprints(projectId));
   }, [dispatch, projectId]);
 
   useEffect(() => {
-    // console.log(startSprintDate);
-    // console.log(counter);
-    // console.log(date);
-
     setDate(moment(startSprintDate).add(counter, 'days').format('DD.MM.YYYY'));
   }, [counter]);
 
@@ -50,7 +42,7 @@ const SprintDetailsPage = () => {
           counter={counter}
           setCounter={setCounter}
           duration={curSprintDuration}
-          curDate={moment().format('DD.MM.YYYY')}
+          curDate={date}
           curSprint={curSprint}
           startSprintDate={startSprintDate}
         />
