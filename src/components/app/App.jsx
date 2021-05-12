@@ -2,7 +2,6 @@ import React, { createContext } from 'react';
 import Header from '../header/Header';
 import Main from '../main/Main';
 import { useLanguage } from '../../hooks/useLanguage';
-
 export const LangContext = createContext();
 
 const App = () => {
