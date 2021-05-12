@@ -2,7 +2,6 @@ import React, { createContext } from 'react';
 import Header from '../header/Header';
 import Main from '../main/Main';
 import { useLanguage } from '../../hooks/useLanguage';
-import GraphModal from '../graph/GraphModal';
 export const LangContext = createContext();
 
 const App = () => {
@@ -10,7 +9,6 @@ const App = () => {
   return (
     <LangContext.Provider value={{ language, setLanguage, list }}>
       <Header />
-      {/* <GraphModal /> */}
       <Main />
     </LangContext.Provider>
   );

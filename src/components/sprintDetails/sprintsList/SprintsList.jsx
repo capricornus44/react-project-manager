@@ -26,7 +26,7 @@ const SprintsList = () => {
   }, [dispatch, sprintId]);
   const openModal = () => {
     setShowModal(true);
-    console.log(showModal);
+    // console.log(showModal);
   };
   return (
     <div className="sprintsList_box">

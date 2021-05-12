@@ -4,9 +4,6 @@ import sprite from '../../assets/icons/sprite.svg';
 import Graph from './Graph';
 
 const GraphModal = ({ showModal, setShowModal }) => {
-  //{ showModal, setShowModal }
-  // const [showModal, setShowModal] = useState(true);
-
   useEffect(() => {
     window.addEventListener('keydown', handleEsc);
     return () => {
@@ -34,11 +31,7 @@ const GraphModal = ({ showModal, setShowModal }) => {
     <>
       {showModal && (
         <div className="graph-modal__backdrop" onClick={handleBackdropClick}>
-          <div
-            className="graph-modal__container"
-            // showModal={showModal}
-            // setShowModal={setShowModal}
-          >
+          <div className="graph-modal__container">
             <button
               type="button"
               className="graph-modal__btn"
