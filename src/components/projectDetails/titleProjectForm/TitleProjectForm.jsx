@@ -69,20 +69,35 @@ const TitleProjectForm = ({ projectId }) => {
   // console.log(projectTitle)
   return (
     <>
-      <div>
+      <div className="edit-box">
         <h2 className="project__details-title">
           {toogleInput ? (
             newTitle || title
           ) : (
-            <input
-              className="project__details-title_input"
-              type="text"
-              name={title}
-              value={newTitle || title}
-              required
-              onChange={handleChangeTitle}
-              placeholder="Введите новое название"
-            />
+            <div className="edit-form__group">
+              <input
+                type="text"
+                name={title}
+                value={newTitle || title}
+                placeholder=" "
+                onChange={handleChangeTitle}
+                // autoComplete="off"
+                id="title"
+                className="project__details-title_input"
+              />
+              <label className="edit-form__label" htmlFor="title">
+                Enter new title
+              </label>
+            </div>
+            // <input
+            //   className="project__details-title_input"
+            //   type="text"
+            //   name={title}
+            //   value={newTitle || title}
+            //   required
+            //   onChange={handleChangeTitle}
+            //   placeholder="Введите новое название"
+            // />
           )}
           <button
             className="project__details-edit__button project__details-edit "
@@ -95,7 +110,6 @@ const TitleProjectForm = ({ projectId }) => {
             </svg>
           </button>
         </h2>
-
         <TitleProjectDetails description={description} />
       </div>
     </>

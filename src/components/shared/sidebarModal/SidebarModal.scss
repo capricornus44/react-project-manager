@@ -7,6 +7,8 @@
   background: $overlay;
   width: 100vw;
   height: 100vh;
+  z-index: 5;
+
   @media screen and (max-width: 767px) {
     width: 100%;
     top: 60px;
@@ -26,6 +28,7 @@
   position: absolute;
   height: 100vh;
   background: $white;
+
   @media screen and (min-width: 768px) {
     display: block;
     position: absolute;
@@ -39,6 +42,7 @@
     padding-bottom: 100px;
     margin-bottom: 40px;
   }
+
   @media screen and (min-width: 1280px) {
     max-width: 530px;
     padding-left: 50px;
@@ -70,6 +74,7 @@
 }
 .sidebar-modal__link {
   font-family: Montserrat;
+  padding-bottom: 5px;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -77,12 +82,15 @@
   text-align: center;
   letter-spacing: 0.04em;
   color: $text-secondary;
-  text-decoration: underline;
+  text-decoration: none;
   border: none;
+  border-bottom: 1px solid $text-secondary;
   background-color: transparent;
   display: block;
   margin: auto;
+  cursor: pointer;
 }
+
 .sidebar-modal__btm {
   text-align: center;
   margin-top: 60px;
@@ -95,7 +103,7 @@
   font-weight: 500;
   font-size: 26px;
   line-height: 1.231;
-  letter-spacing: 0.04em;
+
   color: $text-primary;
 
   @media screen and (min-width: 768px) {
