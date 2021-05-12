@@ -43,7 +43,6 @@ const SprintDetailsPage = () => {
           setCounter={setCounter}
           duration={curSprintDuration}
           curDate={date}
-          curSprint={curSprint}
           startSprintDate={startSprintDate}
         />
         <SprintsList />
