@@ -15,7 +15,7 @@ const Graph = () => {
     tasks.reduce((acc, task) => (acc += task.hoursPlanned), 0);
   const duration = sprints.find(sprint => sprint._id === sprintId).duration;
 
-  const deltaHours = Math.ceil(getPlanedHours() / duration); //.toFixed(2); // tasks[0].hoursWastedPerDay.length.toFixed(4);
+  const deltaHours = (getPlanedHours() / duration).toFixed(1); //.toFixed(2); // tasks[0].hoursWastedPerDay.length.toFixed(4);
 
   const getwastedByTask = () => {
     return tasks.map(task =>
@@ -39,7 +39,7 @@ const Graph = () => {
         return acc;
       }, 0);
       resultArr.push(
-        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result, // + Math.random() * 10
+        myPlanedTasksHours - result < 0 ? +0 : myPlanedTasksHours - result, // + Math.random() * 10
       );
       myPlanedTasksHours = myPlanedTasksHours - result;
     }
@@ -51,7 +51,7 @@ const Graph = () => {
     const arr = [getPlanedHours()];
     let prev = getPlanedHours();
     for (let i = 0; i < duration; i += 1) {
-      arr.push(Math.ceil(prev - deltaHours));
+      arr.push((prev - deltaHours).toFixed(1));
       prev = prev - deltaHours;
     }
     return arr;
