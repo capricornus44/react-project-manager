@@ -32,7 +32,7 @@ const SprintDetailsPage = () => {
 
   useEffect(() => {
     setDate(moment(startSprintDate).add(counter, 'days').format('DD.MM.YYYY'));
-  }, [counter]);
+  }, [counter, startSprintDate]);
 
   return (
     <div className="pageCont">

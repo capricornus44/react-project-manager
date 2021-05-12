@@ -1,17 +1,13 @@
 import axios from 'axios';
 import moment from 'moment';
 import {
-  addSprintError,
   addSprintRequest,
   addSprintSuccess,
-  getSprintError,
   getSprintRequest,
   getSprintSuccess,
   changeTitleSprintRequest,
   changeTitleSprintSuccess,
-  changeTitleSprintError,
   deleteSprintRequest,
-  deleteSprintError,
   deleteSprintSuccess,
   // addMemberProjectRequest,
   // addMemberProjectSuccess,
@@ -19,11 +15,8 @@ import {
 } from './sprintActions';
 import { token } from '../auth/authOperations';
 import { getError } from '../error/errorHandler';
-import { id } from 'date-fns/locale';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
-
-// const projectID = '6094ff1033a36061e804eb4d';
 
 export const addSprint =
   ({ title, endDate, duration, projectId }) =>

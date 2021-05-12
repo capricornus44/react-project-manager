@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/icons/sprite.svg';
-import {
-  changeTitleSprint,
-  getSprints,
-} from '../../../redux/sprints/sprintOperations.js';
+import { changeTitleSprint } from '../../../redux/sprints/sprintOperations.js';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import './TitleSprintForm.scss';
 
 const TitleSprintForm = ({ sprintId }) => {
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getSprints());
-  // }, [dispatch]);
 
   const allSprints = useSelector(getAllSprints);
 
@@ -25,7 +18,6 @@ const TitleSprintForm = ({ sprintId }) => {
   const [isInput, setIsInput] = useState(false);
 
   const changeTitle = () => {
-    console.log(newTitle);
     isInput && dispatch(changeTitleSprint({ id: sprintId, title: newTitle }));
     toogleInputChange();
   };
