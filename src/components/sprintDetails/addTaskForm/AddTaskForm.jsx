@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './AddTaskForm.scss';
+import { LangContext } from '../../app/App';
 
 const AddTaskForm = ({ callback, sprintId }) => {
+  const { language } = useContext(LangContext);
   const [data, setData] = useState({ title: '', hoursPlanned: '' });
   const { title, hoursPlanned } = data;
 
@@ -33,7 +35,7 @@ const AddTaskForm = ({ callback, sprintId }) => {
           type="text"
           name="title"
           value={title}
-          placeholder="Назва задачі"
+          placeholder={language.sprintPageForm.taskName}
           // autoComplete="off"
           required
           onChange={handleChange}
@@ -43,7 +45,7 @@ const AddTaskForm = ({ callback, sprintId }) => {
           type="number"
           name="hoursPlanned"
           value={hoursPlanned}
-          placeholder="Заплановано годин"
+          placeholder={language.sprintPageForm.plannedHours}
           // autoComplete="off"
           required
           onChange={handleChange}

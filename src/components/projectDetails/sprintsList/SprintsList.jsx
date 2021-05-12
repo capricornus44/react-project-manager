@@ -1,14 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSprints } from '../../../redux/sprints/sprintOperations';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import SprintsListItem from '../sprintsListItem/SprintsListItem';
 import './SprintsList.scss';
+import { LangContext } from '../../app/App';
 
 const SprintsList = ({ projectId }) => {
   const dispatch = useDispatch();
   const allSprints = useSelector(getAllSprints);
-
+  const { language } = useContext(LangContext);
   // useEffect(() => {
   //     // console.log("2")
   //     dispatch(getSprints())
@@ -32,8 +33,7 @@ const SprintsList = ({ projectId }) => {
           ))}
         {allSprints.length === 0 && (
           <h2 className="empty_title">
-            Ваша колекція спринтів порожня, скористайтесь кнопкою "Створити
-            спринт"
+            {language.projectPage.sprintCollection}
           </h2>
         )}
       </ul>

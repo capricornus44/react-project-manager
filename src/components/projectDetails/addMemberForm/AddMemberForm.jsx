@@ -16,7 +16,7 @@ const AddMemberForm = () => {
   const toogleModal = () => {
     setShowModal(true);
   };
-  console.log(data);
+  // console.log(data);
   return (
     <div className="project__details-add__ember-form">
       <button
@@ -32,7 +32,7 @@ const AddMemberForm = () => {
       </button>
       <SidebarModal
         data={data}
-        titleModal="Додати людей"
+        titleModal={language.addMembersForm.formTitle}
         showModal={showModal}
         setShowModal={setShowModal}
         addOperation={addMemberProject}
