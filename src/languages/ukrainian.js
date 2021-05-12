@@ -69,6 +69,11 @@ const ukrainian = {
     taskName: 'Назва задачi',
     plannedHours: 'Заплановано годин',
   },
+  sprintPage: {
+    taskCollection:
+      'Ваша колекція задач порожня, скористайтесь кнопкою "Створити задачу"',
+    editProjectName: 'Введiть нову назву',
+  },
 };
 
 export { ukrainian };
