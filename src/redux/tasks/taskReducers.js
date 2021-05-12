@@ -5,6 +5,7 @@ import {
   getTaskSuccess,
   //   changeTaskHoursSuccess,
   deleteTaskSuccess,
+  getTaskRequest,
 } from './taskActions';
 
 const TasksItems = createReducer([], {
@@ -12,6 +13,7 @@ const TasksItems = createReducer([], {
   [deleteTaskSuccess]: (state, { payload }) =>
     state.filter(task => task._id !== payload),
   [getTaskSuccess]: (_, { payload }) => [...payload],
+  [getTaskRequest]: (state, { payload }) => [],
 });
 
 const tasksReducer = combineReducers({

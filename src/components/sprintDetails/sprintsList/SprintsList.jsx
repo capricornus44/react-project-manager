@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTask } from '../../../redux/tasks/taskOperations';
 import { getTasksSelector } from '../../../redux/tasks/taskSelectors';
@@ -8,6 +8,7 @@ import './SprintsList.scss';
 import { useRouteMatch } from 'react-router';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import { getSprints } from '../../../redux/sprints/sprintOperations';
+import GraphModal from '../../graph/GraphModal';
 
 const SprintsList = ({ curDate }) => {
   const dispatch = useDispatch();
@@ -15,15 +16,18 @@ const SprintsList = ({ curDate }) => {
   const sprints = useSelector(getAllSprints);
   const sprintId = useRouteMatch().params.sprintId;
   const projectId = useRouteMatch().params.projectId;
-
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     dispatch(getTask(sprintId));
     if (sprints.length) {
       return;
     }
     dispatch(getSprints(projectId));
-  }, [dispatch, sprintId, projectId, sprints.length]);
-
+  }, [dispatch, sprintId]);
+  const openModal = () => {
+    setShowModal(true);
+    // console.log(showModal);
+  };
   return (
     <div className="sprintsList_box">
       <ul className="sprintsList">
@@ -39,7 +43,8 @@ const SprintsList = ({ curDate }) => {
       )}
       {allTasks.length > 2 && (
         <div className="graphButton_box">
-          <GraphButton />
+          <GraphButton openModal={openModal} />
+          <GraphModal showModal={showModal} setShowModal={setShowModal} />
         </div>
       )}
     </div>

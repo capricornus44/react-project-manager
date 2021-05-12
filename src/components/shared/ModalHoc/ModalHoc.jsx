@@ -22,7 +22,7 @@ const ModalHoc = ({ children, title, addOperation, titleModal, data }) => {
           <use href={sprite + '#plus'}></use>
         </svg>
       </button>
-      <p className="projects_add_text">{title}</p>
+      {/* <p className="projects_add_text">{title}</p> */}
       <SidebarModal
         data={data}
         titleModal={titleModal}

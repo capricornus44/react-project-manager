@@ -1,11 +1,15 @@
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
+import { LangContext } from '../../app/App';
 
 import AddSprintForm from '../../projectDetails/addSprintForm/AddSprintForm';
 import './TaskPageSidebarInfo.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import { NavLink, useLocation, useRouteMatch } from 'react-router-dom';
+
 const TaskPageSidebarInfo = () => {
+  const { language } = useContext(LangContext);
   const sprints = useSelector(getAllSprints);
   const projectId = useRouteMatch().params.projectId;
   const location = useLocation();
@@ -24,7 +28,7 @@ const TaskPageSidebarInfo = () => {
             <use href={sprite + '#back-arrow'}></use>
           </svg>
           <span className="sidebar__Btn_text sidebar__text">
-            Показати спринти
+            {language.sprintPageSidebar.goBack}
           </span>
         </button>
       </NavLink>
@@ -61,7 +65,7 @@ const TaskPageSidebarInfo = () => {
         </div>
 
         <p className="sidebar__addSprintForm_title sidebar__text">
-          Створити спринт
+          {language.sprintPageSidebar.addSprintButton}
         </p>
       </div>
     </div>
