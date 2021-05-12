@@ -18,7 +18,9 @@ export const sprintsReducer = createReducer([], {
   [changeTitleSprintSuccess]: (state, { payload }) => {
     return state.map(sprint => {
       if (sprint._id === payload._id) {
-        return sprint;
+        const newSprint = { ...sprint };
+        newSprint.title = payload.newTitle;
+        return newSprint;
       } else return sprint;
     });
   },

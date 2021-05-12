@@ -18,7 +18,6 @@ const SprintsPageHeader = ({
   curDate,
   startSprintDate,
 }) => {
-
   const dispatch = useDispatch();
   const { language } = useContext(LangContext);
   const [data, setData] = useState({});
