@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import './SprintsPageHeader.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import ModalHoc from '../../shared/ModalHoc/ModalHoc';
@@ -7,8 +8,10 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import DatePagination from '../datePagination/DatePagination';
+import { LangContext } from '../../app/App';
 
 const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
+  const { language } = useContext(LangContext);
   const [data, setData] = useState({});
 
   const dispatch = useDispatch();
@@ -54,7 +57,7 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
           </button>
           <div className="sprintsPageHeader__addTask_btn_box">
             <ModalHoc
-              titleModal="Створення задачі"
+              titleModal={language.sprintPageForm.formTitle}
               cbOnSubmit={submitTask}
               addOperation={addTask}
               data={data}
@@ -62,23 +65,23 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
               <AddTaskForm callback={setData} sprintId={sprintId} />
             </ModalHoc>
             <p className="sprintsPageHeader__addTask_text desktop_item">
-              Створити задачу
+              {language.sprintPageHeader.addTaskButton}
             </p>
           </div>
         </div>
         <div className="sprintsPageHeader__categories">
           <ul className="sprintsPageHeader__categories_list">
             <li className="sprintsPageHeader__categories_list_item desktop_item">
-              Задача
+              {language.sprintPageHeader.taskName}
             </li>
             <li className="sprintsPageHeader__categories_list_item">
-              Заплановано годин
+              {language.sprintPageHeader.plannedHours}
             </li>
             <li className="sprintsPageHeader__categories_list_item">
-              Витрачено год / день
+              {language.sprintPageHeader.spentHoursPerDay}
             </li>
             <li className="sprintsPageHeader__categories_list_item">
-              Витрачено годин
+              {language.sprintPageHeader.spentHoursTotally}
             </li>
             <li className="  desktop_item">
               <button

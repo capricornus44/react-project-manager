@@ -32,7 +32,7 @@ const AddMemberForm = () => {
       </button>
       <SidebarModal
         data={data}
-        titleModal="Додати людей"
+        titleModal={language.addMembersForm.formTitle}
         showModal={showModal}
         setShowModal={setShowModal}
         addOperation={addMemberProject}

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './AddSprintData.scss';
+import { LangContext } from '../../../app/App';
 
 const AddSprintData = ({ cb, projectId }) => {
+  const { language } = useContext(LangContext);
   const [data, setData] = useState({
     title: '',
     endDate: '2021-12-31',
@@ -39,7 +41,7 @@ const AddSprintData = ({ cb, projectId }) => {
           onChange={handleChange}
         />
         <label className="add-sprint-data__label" htmlFor="name">
-          Назва спринта
+          {language.projectPageForm.sprintName}
         </label>
       </div>
       <div className="add-sprint-data__group">
@@ -53,7 +55,9 @@ const AddSprintData = ({ cb, projectId }) => {
             required
             onChange={handleChange}
           />
-          <label className="add-sprint-data__label">Дата закінчення</label>
+          <label className="add-sprint-data__label">
+            {language.projectPageForm.expireDate}
+          </label>
         </div>
         <div className="add-sprint-data__form">
           <input
@@ -65,7 +69,9 @@ const AddSprintData = ({ cb, projectId }) => {
             required
             onChange={handleChange}
           />
-          <label className="add-sprint-data__label">Тривалість</label>
+          <label className="add-sprint-data__label">
+            {language.projectPageForm.duration}
+          </label>
         </div>
       </div>
     </>
