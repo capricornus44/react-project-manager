@@ -8,10 +8,17 @@ import { useState } from 'react';
 import { useRouteMatch } from 'react-router';
 import DatePagination from '../datePagination/DatePagination';
 
-const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
-  const [data, setData] = useState({});
-
+const SprintsPageHeader = ({
+  counter,
+  setCounter,
+  duration,
+  curDate,
+  curSprint,
+  startSprintDate,
+}) => {
   const dispatch = useDispatch();
+
+  const [data, setData] = useState({});
   const sprintId = useRouteMatch().params.sprintId;
 
   const submitTask = data => {
@@ -30,6 +37,7 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
             setCounter={setCounter}
             duration={duration}
             curDate={curDate}
+            startSprintDate={startSprintDate}
           />
 
           <form className="sprintsPageHeader__searchForm">
@@ -46,7 +54,7 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
           </form>
         </div>
         <div className="sprintsPageHeader__heading_box">
-          <h1 className="sprintsPageHeader__heading">Sprint Burndown Chart</h1>
+          <h1 className="sprintsPageHeader__heading">{curSprint?.title}</h1>
           <button className="sprintsPageHeader_editHeaderBtn">
             <svg width="20" height="20">
               <use href={sprite + '#edit'}></use>
@@ -81,10 +89,10 @@ const SprintsPageHeader = ({ counter, setCounter, duration, curDate }) => {
               Витрачено годин
             </li>
             <li className="  desktop_item">
-              <button
+              {/* <button
                 className="sprintsPageHeader__searchBtn"
                 type="button"
-              ></button>
+              ></button> */}
             </li>
           </ul>
         </div>
