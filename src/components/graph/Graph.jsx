@@ -14,13 +14,9 @@ const Graph = () => {
   const getPlanedHours = () =>
     tasks.reduce((acc, task) => (acc += task.hoursPlanned), 0);
   const duration = sprints.find(sprint => sprint._id === sprintId).duration;
-  // console.log(duration);
 
-  //sprints[1].duration; // кол-во дней спринта
   const deltaHours = (getPlanedHours() / duration).toFixed(2); // tasks[0].hoursWastedPerDay.length.toFixed(4);
-  // .toFixed(2);
 
-  console.log('deltaHours :>> ', deltaHours);
   const getwastedByTask = () => {
     return tasks.map(task =>
       task.hoursWastedPerDay.reduce((acc, task) => {
@@ -57,7 +53,6 @@ const Graph = () => {
   };
 
   const getDatesArray = () => {
-    // console.log('tasks', tasks);
     return tasks.map(task => {
       return task.hoursWastedPerDay.reduce((acc, task) => {
         acc.push(task.currentDay);
@@ -68,7 +63,7 @@ const Graph = () => {
 
   const data = {
     labels: getDatesArray().length ? ['0', ...getDatesArray()[0]] : [],
-    // labels: [...period.day],
+
     datasets: [
       {
         label: 'Actual remaining labor in hours',
@@ -89,10 +84,7 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-
         data: [getPlanedHours(), ...getPlanedTasksHours()],
-
-        // data: [7, 6, 6, 3, 1, 5, 0],
       },
 
       {
@@ -114,10 +106,8 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        // data: [...period.hours],
-        data: [...getStreightLine()],
 
-        // data: [300, 250, 200, 150, 100, 50, 0], //[plannedLine,...otherDayPlannedLine]
+        data: [...getStreightLine()],
       },
     ],
   };
