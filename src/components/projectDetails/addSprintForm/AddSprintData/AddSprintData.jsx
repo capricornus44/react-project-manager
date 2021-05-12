@@ -1,15 +1,24 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './AddSprintData.scss';
 import { LangContext } from '../../../app/App';
+import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
+import '../../../dataPicker/DatePick.scss';
+import uk from 'date-fns/locale/uk';
+const locale = 'uk';
+registerLocale('uk', uk);
+setDefaultLocale('uk');
 
 const AddSprintData = ({ cb, projectId }) => {
   const { language } = useContext(LangContext);
+
+  const [endDate, setStartDate] = useState(new Date());
+  // console.log(startDate);
   const [data, setData] = useState({
     title: '',
-    endDate: '2021-12-31',
+    // endDate: '2021-12-28',
     duration: '1',
   });
-  const { title, endDate, duration } = data;
+  const { title, duration } = data;
 
   useEffect(() => {
     // console.log(projectId)
@@ -20,11 +29,6 @@ const AddSprintData = ({ cb, projectId }) => {
     const { name, value } = e.target;
     setData(prev => ({ ...prev, [name]: value }));
   };
-  // const handleSubmit = e => {
-  //     // e.preventDefault();
-  //     submitSprint({ title, endDate, duration, projectId })
-  //     // reset();
-  // }
 
   return (
     <>
@@ -46,7 +50,7 @@ const AddSprintData = ({ cb, projectId }) => {
       </div>
       <div className="add-sprint-data__group">
         <div className="add-sprint-data__form add-sprint-data__form-end-date">
-          <input
+          {/* <input
             className="add-sprint-data__input add-sprint-data_end-date"
             placeholder=" "
             type="date"
@@ -57,7 +61,24 @@ const AddSprintData = ({ cb, projectId }) => {
           />
           <label className="add-sprint-data__label">
             {language.projectPageForm.expireDate}
-          </label>
+          </label> */}
+          <div className="picker_container" spellcheck="false">
+            <label htmlFor="picker_label">
+              <span className="picker_span">
+                {language.projectPageForm.expireDate}
+              </span>
+            </label>
+            <DatePicker
+              locale={locale}
+              className="picker"
+              selected={endDate}
+              // onSelect={value}
+              onChange={date => setStartDate(date)}
+              id="picker"
+              dateFormat="dd MMMM"
+            />
+          </div>
+          {/* <DatePick value={endDate} /> */}
         </div>
         <div className="add-sprint-data__form">
           <input
