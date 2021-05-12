@@ -23,7 +23,7 @@ const UserMenu = () => {
 
   return (
     <div className="user">
-      <span className="user__greeting">{userEmail}</span>
+      {!isMobile ? <span className="user__greeting">{userEmail}</span> : null}
 
       {isMobile ? (
         <button
