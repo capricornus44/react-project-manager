@@ -16,37 +16,18 @@ import './TitleProjectForm.scss';
 const TitleProjectForm = ({ projectId }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getProjectsOperation());
-  }, [dispatch]);
-
-  // const location = useLocation()
-  // const projectTitle = location.state.title
   const allProjects = useSelector(getProjects);
-  // console.log(allProjects);
   const thisProject = allProjects.find(project => project._id === projectId);
   const description = thisProject?.description;
-  // console.log(thisProject);
-  const title = thisProject?.title || '';
-  //console.log(title);
+  const title = thisProject?.title;
+
   const [newTitle, setNewTitle] = useState('');
   const [toogleInput, setToogleChange] = useState(true);
-  // const projectTitle = useSelector(getProjectTitle)
-  // console.log(location.state.title)
-  // console.log(projectId)
-
-  // useEffect(() => {
-  //     console.log("newTitle=====",newTitle)
-  //     console.log(location.state.title)
-  //     console.log("projectTitle======", projectTitle)
-  //     setNewTitle(newTitle)
-  // })
 
   const changeTitle = () => {
     !toogleInput &&
       dispatch(changeTitleProject({ id: projectId, title: newTitle }));
     toogleInputChange();
-    // resetName()
   };
 
   const handleChangeTitle = e => {
@@ -57,47 +38,30 @@ const TitleProjectForm = ({ projectId }) => {
     setToogleChange(!toogleInput);
   };
 
-  // const resetName = () => {
-  //     setNewTitle("")
-  // }
-  // useEffect(() => {
-  //         const changeTitle = () => {
-  //     dispatch(changeTitleProject({id: projectId, title:"test"}))
-  // }
-  // }, [projectTitle])
+  useEffect(() => {
+    title && setNewTitle(title);
+  }, [setNewTitle, title]);
 
-  // console.log(projectTitle)
   return (
     <>
-      <div className="edit-box">
-        <h2 className="project__details-title">
+      <div>
+        <div className="edit-box">
           {toogleInput ? (
-            newTitle || title
+            <h2 className="project__details-title">{newTitle}</h2>
           ) : (
             <div className="edit-form__group">
               <input
+                className="project__details-title_input"
                 type="text"
                 name={title}
-                value={newTitle || title}
+                value={newTitle}
                 placeholder=" "
                 onChange={handleChangeTitle}
-                // autoComplete="off"
-                id="title"
-                className="project__details-title_input"
               />
               <label className="edit-form__label" htmlFor="title">
                 Enter new title
               </label>
             </div>
-            // <input
-            //   className="project__details-title_input"
-            //   type="text"
-            //   name={title}
-            //   value={newTitle || title}
-            //   required
-            //   onChange={handleChangeTitle}
-            //   placeholder="Введите новое название"
-            // />
           )}
           <button
             className="project__details-edit__button project__details-edit "
@@ -109,7 +73,7 @@ const TitleProjectForm = ({ projectId }) => {
               <use href={sprite + '#edit'} />
             </svg>
           </button>
-        </h2>
+        </div>
         <TitleProjectDetails description={description} />
       </div>
     </>

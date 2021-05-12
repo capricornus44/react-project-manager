@@ -3,17 +3,19 @@
 .project__details-title {
   display: inline-block;
   position: relative;
-  max-width: 40vw;
+  max-width: 50vw;
 
+  margin-right: 20px;
   font-size: 26px;
-  line-height: 1.231px;
-  // white-space: nowrap;
-  // overflow-y: hidden;
-  // text-overflow: ellipsis;
+  line-height: 1.231;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     font-size: 36px;
-    line-height: 1.22px;
+    line-height: 1.22;
   }
 }
 
@@ -40,7 +42,7 @@
 }
 
 .edit-form__group {
-  position: relative;
+  display: contents;
 }
 
 .edit-form__label {
@@ -51,7 +53,7 @@
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.04em;
-  color: $text-secondary;
+  color: $accent;
 
   transition: all 250ms ease-in-out;
 
@@ -74,6 +76,8 @@
   line-height: 1.25;
   letter-spacing: 0.04em;
   color: $text-primary;
+
+  margin-right: 20px;
 
   background-color: transparent;
   transition: all 250ms ease-in-out;
@@ -130,12 +134,12 @@
 }
 
 .project__details-edit {
-  content: '';
   position: absolute;
+  content: '';
   top: 50%;
-  right: -40px;
+  // right: -30px;
 
-  transform: translateY(-20px);
+  transform: translateY(-10px);
 }
 
 .project__details-edit:hover {

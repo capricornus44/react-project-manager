@@ -8,10 +8,15 @@
   content: '';
   width: 36px;
   height: 36px;
-  top: -50%;
+  // top: -50%;
   left: -33px;
   //   background-color: red;
   border-radius: 5px;
+}
+.sidebar__list_item-sprint {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sidebar-list__item-square:nth-child(3n + 1):before {
