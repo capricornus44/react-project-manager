@@ -33,6 +33,8 @@ const ukrainian = {
   projectPage: {
     addSprintButton: 'Створити спринт',
     addMembersButton: 'Додати людей',
+    sprintCollection:
+      'Ваша колекція спринтів порожня, скористайтесь кнопкою "Створити спринт"',
   },
   projectPageSidebar: {
     goBack: 'Показати проекти',
@@ -45,6 +47,11 @@ const ukrainian = {
     startDate: 'Дата початку',
     expireDate: 'Дата закiнчення',
     duration: 'Тривалiсть',
+  },
+  addMembersForm: {
+    formTitle: 'Додати людей',
+    email: 'Введiть email',
+    members: 'Доданi користувачi:',
   },
   sprintPageSidebar: {
     goBack: 'Показати спринти',
