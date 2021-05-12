@@ -69,6 +69,11 @@ const english = {
     taskName: 'Task name',
     plannedHours: 'Scheduled hours',
   },
+  sprintPage: {
+    taskCollection:
+      'This folder is empty. Use "Create task" button to add new one',
+    editProjectName: 'Enter new name',
+  },
 };
 
 export { english };

@@ -23,8 +23,9 @@ const projectsReducer = createReducer(initialState.projects, {
   [changeTitleProjectSuccess]: (state, { payload }) => {
     return state.map(proj => {
       if (proj._id === payload._id) {
-        // proj.title = payload.newTitle;
-        return proj;
+        const newProdj = { ...proj };
+        newProdj.title = payload.newTitle;
+        return newProdj;
       } else return proj;
     });
   },

@@ -31,10 +31,12 @@
   padding-top: 18px;
   padding-left: 30px;
   padding-right: 30px;
+
   @media screen and (max-width: 1279px) {
     padding-left: 20px;
     padding-right: 20px;
   }
+
   @media screen and (max-width: 727px) {
     font-size: 16px;
     line-height: 20px;
@@ -44,16 +46,15 @@
 }
 
 .sprint-item__details {
-  // display: flex;
-  // justify-content: space-between;
   padding-top: 28px;
   padding-left: 30px;
   padding-right: 30px;
-  // padding-bottom: 40px;
+
   @media screen and (max-width: 1279px) {
     padding-left: 20px;
     padding-right: 20px;
   }
+
   @media screen and (max-width: 767px) {
     padding-top: 20px;
   }
@@ -61,23 +62,27 @@
 
 .sprint-item__details-elem-name {
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.214;
   letter-spacing: 0.04em;
+
   @media screen and (max-width: 767px) {
     font-size: 10px;
-    line-height: 12px;
+    line-height: 1.2;
   }
 }
+
 .sprint-item__details-elem-value {
   text-align: end;
+
   @media screen and (max-width: 767px) {
     font-size: 10px;
-    line-height: 12px;
+    line-height: 1.2;
   }
 }
 
 .sprint-item__details-column:not(:first-child) {
   padding-top: 20px;
+
   @media screen and (max-width: 767px) {
     padding-top: 10px;
   }

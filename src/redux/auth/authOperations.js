@@ -1,18 +1,13 @@
 import axios from 'axios';
 import {
   signupRequest,
-  signupError,
   signinRequest,
   signinSuccess,
-  signinError,
   logoutRequest,
   logoutSuccess,
-  logoutError,
   userSuccess,
   refreshRequest,
   refreshSuccess,
-  refreshError,
-  signupSuccess,
 } from './authActions';
 
 import { getError } from '../error/errorHandler';
@@ -37,7 +32,6 @@ const signupOperation = user => async dispatch => {
 
     dispatch(signinOperation(user));
   } catch (error) {
-    // dispatch(signupError());
     dispatch(
       getError({
         error,
@@ -61,7 +55,6 @@ const signinOperation = user => async dispatch => {
     dispatch(signinSuccess({ accessToken, refreshToken, sid }));
     dispatch(userSuccess({ email, id }));
   } catch (error) {
-    // dispatch(signinError());
     dispatch(
       getError({
         error,
@@ -81,7 +74,6 @@ const logoutOperation = () => async dispatch => {
     token.unset();
     dispatch(logoutSuccess());
   } catch (error) {
-    // dispatch(logoutError());
     dispatch(
       getError({
         error,
@@ -108,7 +100,7 @@ const refreshOperation = callback => async (dispatch, getState) => {
         sid: response.data.newSid,
       }),
     );
-    callback();
+    callback && callback();
   } catch (error) {
     dispatch(logoutSuccess());
   }

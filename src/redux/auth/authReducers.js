@@ -29,12 +29,14 @@ const userReducer = createReducer(initialUserState, {
   [logoutSuccess]: () => initialUserState,
 });
 
-const token = createReducer('', {
+const initToken = { accessToken: '', refreshToken: '', sid: '' };
+
+const token = createReducer(initToken, {
   [signupSuccess]: (_, { payload }) => payload,
   [signinSuccess]: (_, { payload }) => payload,
   [refreshSuccess]: (_, { payload }) => payload,
-  [refreshError]: () => '',
-  [logoutSuccess]: () => '',
+  [refreshError]: () => initToken,
+  [logoutSuccess]: () => initToken,
 });
 
 const setError = (_, { payload }) => payload;

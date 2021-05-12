@@ -3,27 +3,103 @@
 .project__details-title {
   display: inline-block;
   position: relative;
-  max-width: 40vw;
-  // padding-top: 40px;
-  // padding-left: 70px;
-  // padding-bottom: 30px;
+  max-width: 50vw;
 
-  font-size: 36px;
-  line-height: 44px;
+  margin-right: 20px;
+  font-size: 26px;
+  line-height: 1.231;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+// .project__details-title_input {
+//   font-weight: 700;
+//   font-size: 26px;
+//   line-height: 1.231;
+
+//   width: 240px;
+
+//   background-color: inherit;
+//   border: none;
+//   outline: none;
+//   border-bottom: 1px solid tomato;
+
+//   @media screen and (min-width: 768px) {
+//     font-size: 36px;
+//     line-height: 1.22;
+//   }
+// }
+
+.edit-box {
+  position: relative;
+}
+
+.edit-form__group {
+  display: contents;
+}
+
+.edit-form__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
   letter-spacing: 0.04em;
+  color: $accent;
+
+  transition: all 250ms ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.222;
+  }
 }
 
 .project__details-title_input {
-  // max-width: 40vw;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 44px;
-  letter-spacing: 0.04em;
-  width: 240px;
-  // width: 60vw;
-  background-color: inherit;
+  width: 140px;
+  height: 29px;
+  padding-bottom: 9px;
   border: none;
   outline: none;
+  border-bottom: 1px solid $border-input;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: $text-primary;
+
+  margin-right: 20px;
+
+  background-color: transparent;
+  transition: all 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $accent;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 429px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 1.222;
+  }
+}
+
+.project__details-title_input:focus + .edit-form__label,
+.project__details-title_input:not(:placeholder-shown) + .edit-form__label {
+  top: -18px;
+  font-size: 12px;
+  line-height: 1.25;
 }
 
 .project__details-edit__button {
@@ -58,11 +134,11 @@
 }
 
 .project__details-edit {
-  content: '';
   position: absolute;
+  content: '';
   top: 50%;
-  right: -40px;
-  // transition: translateY(-10px);
+  // right: -30px;
+
   transform: translateY(-10px);
 }
 

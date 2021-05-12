@@ -20,7 +20,7 @@ const ProjectDetails = () => {
   // console.log(match)
   const projectId = match.params.projectId;
 
-  // console.log(projectId)
+  // console.log(projectId);
 
   useEffect(() => {
     dispatch(getProjectsOperation());

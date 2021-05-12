@@ -14,6 +14,7 @@ import { getSprints } from '../../redux/sprints/sprintOperations';
 const curDay = startDate => moment().diff(moment(startDate), 'days');
 
 const SprintDetailsPage = () => {
+  // const isLoading = useSelector();
   const dispatch = useDispatch();
   const { sprintId, projectId } = useRouteMatch().params;
   const sprints = useSelector(getAllSprints);
@@ -35,6 +36,7 @@ const SprintDetailsPage = () => {
   useEffect(() => {
     setCounter(curDay(startSprintDate));
   }, [curSprint, startSprintDate]);
+
 
   return (
     <div className="pageCont">
