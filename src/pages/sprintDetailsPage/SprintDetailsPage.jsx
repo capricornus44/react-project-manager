@@ -24,8 +24,10 @@ const SprintDetailsPage = () => {
   const [counter, setCounter] = useState(curDay(startSprintDate));
   const [date, setDate] = useState(Date.now());
 
+  // console.log(projectId);
+
   useEffect(() => {
-    dispatch(getSprints(projectId));
+    projectId && dispatch(getSprints(projectId));
   }, [dispatch, projectId]);
 
   useEffect(() => {

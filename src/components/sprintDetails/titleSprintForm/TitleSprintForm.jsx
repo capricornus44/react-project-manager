@@ -11,22 +11,22 @@ import './TitleSprintForm.scss';
 const TitleSprintForm = ({ sprintId }) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getSprints());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getSprints());
+  // }, [dispatch]);
 
   const allSprints = useSelector(getAllSprints);
 
   const thisSprint = allSprints.find(sprint => sprint._id === sprintId);
 
-  const title = thisSprint?.title || '';
+  const title = thisSprint?.title;
 
   const [newTitle, setNewTitle] = useState('');
-  const [toogleInput, setToogleChange] = useState(true);
+  const [isInput, setIsInput] = useState(false);
 
   const changeTitle = () => {
-    !toogleInput &&
-      dispatch(changeTitleSprint({ id: sprintId, title: newTitle }));
+    console.log(newTitle);
+    isInput && dispatch(changeTitleSprint({ id: sprintId, title: newTitle }));
     toogleInputChange();
   };
 
@@ -35,27 +35,30 @@ const TitleSprintForm = ({ sprintId }) => {
   };
 
   const toogleInputChange = () => {
-    setToogleChange(!toogleInput);
+    setIsInput(!isInput);
   };
+
+  useEffect(() => {
+    title && setNewTitle(title);
+  }, [setNewTitle, title]);
 
   return (
     <>
       <div>
-        <h2 className="sprintsPageHeader__heading">
-          {toogleInput ? (
-            newTitle || title
-          ) : (
-            <input
-              className="sprintsPageHeader__title_input"
-              type="text"
-              name={title}
-              value={newTitle || title}
-              required
-              onChange={handleChangeTitle}
-              placeholder="Введите новое название"
-            />
-          )}
-        </h2>
+        {!isInput ? (
+          <h2 className="sprintsPageHeader__heading">{newTitle}</h2>
+        ) : (
+          <input
+            className="sprintsPageHeader__title_input"
+            type="text"
+            name={title}
+            value={newTitle}
+            required
+            onChange={handleChangeTitle}
+            placeholder="Введите новое название"
+          />
+        )}
+
         <button
           className="sprintsPageHeader_editHeaderBtn"
           type="submit"
