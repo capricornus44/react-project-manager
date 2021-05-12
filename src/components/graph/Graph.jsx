@@ -8,18 +8,18 @@ import { getAllSprints } from '../../redux/sprints/sprintSelectors';
 const Graph = () => {
   const tasks = useSelector(getTasksSelector);
   const sprints = useSelector(getAllSprints);
-  const sprintId = useParams();
-  const planedHours = tasks.reduce(
-    (acc, task) => (acc += task.hoursPlanned),
-    0,
-  );
+  const { sprintId } = useParams();
+  console.log(sprintId);
+
+  const getPlanedHours = () =>
+    tasks.reduce((acc, task) => (acc += task.hoursPlanned), 0);
   const duration = sprints.find(sprint => sprint._id === sprintId).duration;
-  console.log(duration);
+  // console.log(duration);
 
   //sprints[1].duration; // кол-во дней спринта
-  const deltaHours = (planedHours / duration).toFixed(2); // tasks[0].hoursWastedPerDay.length.toFixed(4);
+  const deltaHours = (getPlanedHours() / duration).toFixed(2); // tasks[0].hoursWastedPerDay.length.toFixed(4);
   // .toFixed(2);
-  console.log('planedHours :>> ', planedHours);
+
   console.log('deltaHours :>> ', deltaHours);
   const getwastedByTask = () => {
     return tasks.map(task =>
@@ -31,7 +31,7 @@ const Graph = () => {
   };
 
   const getPlanedTasksHours = () => {
-    let myPlanedTasksHours = planedHours;
+    let myPlanedTasksHours = getPlanedHours();
     const resultArr = [];
     for (let i = 0; i < duration; i += 1) {
       const result = getwastedByTask().reduce((acc, task) => {
@@ -39,7 +39,7 @@ const Graph = () => {
         return acc;
       }, 0);
       resultArr.push(
-        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result,
+        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result, // + Math.random() * 10
       );
       myPlanedTasksHours = myPlanedTasksHours - result;
     }
@@ -47,8 +47,8 @@ const Graph = () => {
   };
 
   const getStreightLine = () => {
-    const arr = [planedHours];
-    let prev = planedHours;
+    const arr = [getPlanedHours()];
+    let prev = getPlanedHours();
     for (let i = 0; i < duration; i += 1) {
       arr.push(prev - deltaHours).toFixed(2);
       prev = prev - deltaHours;
@@ -65,7 +65,7 @@ const Graph = () => {
       }, []);
     });
   };
-  console.log(getDatesArray());
+
   const data = {
     labels: getDatesArray().length ? ['0', ...getDatesArray()[0]] : [],
     // labels: [...period.day],
@@ -89,8 +89,8 @@ const Graph = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 3,
         pointHitRadius: 10,
-        //data: [...period.hours],
-        data: [planedHours, ...getPlanedTasksHours()],
+
+        data: [getPlanedHours(), ...getPlanedTasksHours()],
 
         // data: [7, 6, 6, 3, 1, 5, 0],
       },
@@ -123,6 +123,7 @@ const Graph = () => {
   };
   return (
     <>
+      {console.log(getPlanedTasksHours())}
       <div className="graph__content">
         <p>Burndown Chart (Calendar Team)</p>
         <Line data={data} width={900} height={450} />
