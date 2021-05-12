@@ -17,6 +17,7 @@ const TaskPageSidebarInfo = () => {
   return (
     <div className="sidebar__box">
       <NavLink
+        className="sidebar__Btn_navlink"
         to={{
           pathname: `/projects/${projectId}`,
           state: { from: location },

@@ -11,7 +11,9 @@ import { getSprints } from '../../../redux/sprints/sprintOperations';
 import GraphModal from '../../graph/GraphModal';
 import { LangContext } from '../../app/App';
 
-const SprintsList = () => {
+
+const SprintsList = ({ curDate }) => {
+
   const { language } = useContext(LangContext);
   const dispatch = useDispatch();
   const allTasks = useSelector(getTasksSelector);
@@ -34,7 +36,9 @@ const SprintsList = () => {
     <div className="sprintsList_box">
       <ul className="sprintsList">
         {allTasks.length > 0 &&
-          allTasks.map(task => <SprintsListItem key={task._id} {...task} />)}
+          allTasks.map(task => (
+            <SprintsListItem curDate={curDate} key={task._id} {...task} />
+          ))}
       </ul>
       {allTasks.length === 0 && (
         <h2 className="empty_title">{language.sprintPage.taskCollection}</h2>
