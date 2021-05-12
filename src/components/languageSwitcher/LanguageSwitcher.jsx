@@ -8,21 +8,23 @@ const LanguageSwitcher = () => {
     setLanguage(e.target.value);
   };
   return (
-    <select
-      defaultValue={language.title}
-      onChange={onHandleChange}
-      className="lang-select"
-    >
-      {list.map(item => (
-        <option
-          className="lang-select__option"
-          value={item.title}
-          key={item.name}
-        >
-          {item.name}
-        </option>
-      ))}
-    </select>
+    <div className="lang-box">
+      <select
+        defaultValue={language.title}
+        onChange={onHandleChange}
+        className="lang-select"
+      >
+        {list.map(item => (
+          <option
+            className="lang-select__option"
+            value={item.title}
+            key={item.name}
+          >
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
 

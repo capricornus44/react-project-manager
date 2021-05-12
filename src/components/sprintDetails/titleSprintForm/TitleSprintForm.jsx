@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/icons/sprite.svg';
 import { changeTitleSprint } from '../../../redux/sprints/sprintOperations.js';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import './TitleSprintForm.scss';
+import { LangContext } from '../../app/App';
 
 const TitleSprintForm = ({ sprintId }) => {
+  const { language } = useContext(LangContext);
   const dispatch = useDispatch();
 
   const allSprints = useSelector(getAllSprints);
@@ -47,7 +49,7 @@ const TitleSprintForm = ({ sprintId }) => {
             value={newTitle}
             required
             onChange={handleChangeTitle}
-            placeholder="Введите новое название"
+            placeholder={language.sprintPage.editProjectName}
           />
         )}
 

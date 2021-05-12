@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTask } from '../../../redux/tasks/taskOperations';
 import { getTasksSelector } from '../../../redux/tasks/taskSelectors';
@@ -9,8 +9,10 @@ import { useRouteMatch } from 'react-router';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import { getSprints } from '../../../redux/sprints/sprintOperations';
 import GraphModal from '../../graph/GraphModal';
+import { LangContext } from '../../app/App';
 
 const SprintsList = () => {
+  const { language } = useContext(LangContext);
   const dispatch = useDispatch();
   const allTasks = useSelector(getTasksSelector);
   const sprints = useSelector(getAllSprints);
@@ -35,9 +37,7 @@ const SprintsList = () => {
           allTasks.map(task => <SprintsListItem key={task._id} {...task} />)}
       </ul>
       {allTasks.length === 0 && (
-        <h2 className="empty_title">
-          Ваша колекція задач порожня, скористайтесь кнопкою "Створити задачу"
-        </h2>
+        <h2 className="empty_title">{language.sprintPage.taskCollection}</h2>
       )}
       {allTasks.length > 2 && (
         <div className="graphButton_box">
