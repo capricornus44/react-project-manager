@@ -81,16 +81,17 @@ const deleteTask = taskId => async (dispatch, getState) => {
   }
 };
 
-const changeTaskHours = ({ taskId, date, hours }) => async (
-  dispatch,
-  getState,
-) => {
+const changeTaskHours = ({
+  id: taskId,
+  curDate: date,
+  inputValue: hours,
+}) => async (dispatch, getState) => {
   dispatch(changeTaskHoursRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
   await axios
     .patch(`/task/${taskId}`, { date, hours })
-    .then(({ data }) => dispatch(changeTaskHoursSuccess(data)))
+    .then(({ data }) => dispatch(changeTaskHoursSuccess({ taskId, ...data })))
     .catch(error =>
       dispatch(
         getError({

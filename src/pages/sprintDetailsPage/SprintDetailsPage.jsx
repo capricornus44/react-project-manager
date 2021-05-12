@@ -24,16 +24,17 @@ const SprintDetailsPage = () => {
   const [counter, setCounter] = useState(curDay(startSprintDate));
   const [date, setDate] = useState(Date.now());
 
-  // console.log(projectId);
-
   useEffect(() => {
     projectId && dispatch(getSprints(projectId));
   }, [dispatch, projectId]);
 
   useEffect(() => {
-    setDate(moment(startSprintDate).add(counter, 'days').format('DD.MM.YYYY'));
-    // eslint-disable-next-line
-  }, [counter]);
+    setDate(moment(startSprintDate).add(counter, 'days'));
+  }, [counter, startSprintDate]);
+
+  useEffect(() => {
+    setCounter(curDay(startSprintDate));
+  }, [curSprint, startSprintDate]);
 
   return (
     <div className="pageCont">
@@ -45,10 +46,10 @@ const SprintDetailsPage = () => {
           counter={counter}
           setCounter={setCounter}
           duration={curSprintDuration}
-          curDate={date}
+          curDate={moment(date).format('DD.MM.YYYY')}
           startSprintDate={startSprintDate}
         />
-        <SprintsList curDate={date} />
+        <SprintsList curDate={moment(date).format('YYYY-MM-DD')} />
       </div>
     </div>
   );
