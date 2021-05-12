@@ -18,7 +18,7 @@ import {
   addTaskError,
 } from '../tasks/taskActions';
 
-import { resetError, putError } from './errorAction';
+import { resetError } from './errorAction';
 
 const setError = (_, { payload }) => payload;
 
@@ -34,5 +34,4 @@ export const errorReducer = createReducer(null, {
   [deleteTaskError]: setError,
   [refreshRequest]: () => null,
   [resetError]: () => null,
-  // [putError]: (_, { payload }) => payload,
 });

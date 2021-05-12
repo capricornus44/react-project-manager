@@ -15,7 +15,6 @@ import { sprintsReducer } from './sprints/sprintReducers';
 import projectsReducer from './projects/projectReducers';
 import { errorReducer } from './error/errorReducer';
 
-// import sprintsReducer from './sprints/sprintReducers';
 import tasksReducer from './tasks/taskReducers';
 
 const middleware = [

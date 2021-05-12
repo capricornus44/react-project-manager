@@ -15,7 +15,6 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
-import { statement } from '@babel/template';
 
 const initialUserState = {
   email: '',
