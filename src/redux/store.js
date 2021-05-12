@@ -13,8 +13,8 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/authReducers';
 import { sprintsReducer } from './sprints/sprintReducers';
 import projectsReducer from './projects/projectReducers';
+import { errorReducer } from './error/errorReducer';
 
-// import sprintsReducer from './sprints/sprintReducers';
 import tasksReducer from './tasks/taskReducers';
 
 const middleware = [
@@ -37,6 +37,7 @@ const store = configureStore({
     projects: projectsReducer,
     sprints: sprintsReducer,
     tasks: tasksReducer,
+    error: errorReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

@@ -33,18 +33,41 @@ const ukrainian = {
   projectPage: {
     addSprintButton: 'Створити спринт',
     addMembersButton: 'Додати людей',
+    sprintCollection:
+      'Ваша колекція спринтів порожня, скористайтесь кнопкою "Створити спринт"',
   },
   projectPageSidebar: {
-    addSprintButton: 'Додати спринт',
-    goBack: 'Назад',
+    goBack: 'Показати проекти',
+    addProjectButton: 'Створити проект',
   },
   projectPageForm: {
     formTitle: 'Створення спринта',
     sprintName: 'Назва спринта',
     prevDays: 'Попереднi днi',
     startDate: 'Дата початку',
-    expire: 'Дата закiнчення',
+    expireDate: 'Дата закiнчення',
     duration: 'Тривалiсть',
+  },
+  addMembersForm: {
+    formTitle: 'Додати людей',
+    email: 'Введiть email',
+    members: 'Доданi користувачi:',
+  },
+  sprintPageSidebar: {
+    goBack: 'Показати спринти',
+    addSprintButton: 'Стврорити спринт',
+  },
+  sprintPageHeader: {
+    addTaskButton: 'Створити задачу',
+    taskName: 'Задача',
+    plannedHours: 'Заплановано годин',
+    spentHoursPerDay: 'Витрачено год / день',
+    spentHoursTotally: 'Витрачено годин',
+  },
+  sprintPageForm: {
+    formTitle: 'Створення задачi',
+    taskName: 'Назва задачi',
+    plannedHours: 'Заплановано годин',
   },
 };
 

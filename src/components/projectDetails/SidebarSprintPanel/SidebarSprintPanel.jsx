@@ -56,7 +56,7 @@ const SidebarSprintPanel = () => {
             <AddProjectBtn />
           </div>
           <p className="sidebar__addSprintForm_title sidebar__text">
-            Створити проект
+            {language.projectPageSidebar.addProjectButton}
           </p>
         </div>
       </div>

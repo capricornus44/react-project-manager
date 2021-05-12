@@ -17,6 +17,7 @@ import {
   addMemberProjectSuccess,
 } from './projectActions';
 import { token } from '../auth/authOperations';
+import { getError } from '../error/errorHandler';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
@@ -26,10 +27,16 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   token.set(accessToken);
   try {
     const responce = await axios.get('/project');
-    // console.log(responce.data);
+
     dispatch(getProjectSuccess(responce.data));
   } catch (error) {
-    dispatch(getProjectError(error.message));
+    dispatch(
+      getError({
+        error,
+        requestCallback: getProjectsOperation,
+        errorIdent: 'getProjectError',
+      }),
+    );
   }
 };
 
@@ -52,7 +59,13 @@ const addProjectsOperation = ({ title, description }) => async (
     } = await axios.post(`/project`, project);
     dispatch(addProjectSuccess({ _id: id || _id, ...rest }));
   } catch (error) {
-    dispatch(addProjectError(error.message));
+    dispatch(
+      getError({
+        error,
+        requestCallback: () => addProjectsOperation({ title, description }),
+        errorIdent: 'addProjectError',
+      }),
+    );
   }
 };
 
@@ -62,9 +75,14 @@ const deleteProjectsOperation = id => async dispatch => {
     await axios.delete(`/project/${id}`);
 
     dispatch(deleteProjectSuccess(id));
-    // window.location.reload();
   } catch (error) {
-    dispatch(deleteProjectError(error.message));
+    dispatch(
+      getError({
+        error,
+        requestCallback: () => deleteProjectsOperation(id),
+        errorIdent: 'deleteProjectError',
+      }),
+    );
   }
 };
 
@@ -73,11 +91,16 @@ const changeTitleProject = ({ id, title }) => async dispatch => {
   try {
     // const newTitle = { title };
     const responce = await axios.patch(`/project/title/${id}`, { title });
-    // console.log(responce.data);
+
     dispatch(changeTitleProjectSuccess({ ...responce.data, _id: id }));
   } catch (error) {
-    console.log(error);
-    dispatch(changeTitleProjectError(error.message));
+    dispatch(
+      getError({
+        error,
+        requestCallback: () => changeTitleProject({ id, title }),
+        errorIdent: 'changeTitleProjectError',
+      }),
+    );
   }
 };
 
@@ -90,8 +113,13 @@ const addMemberProject = ({ id, email }) => async (dispatch, getState) => {
     const responce = await axios.patch(`/project/contributor/${id}`, { email });
     dispatch(addMemberProjectSuccess(responce.data));
   } catch (error) {
-    console.log(error);
-    dispatch(addMemberProjectError(error));
+    dispatch(
+      getError({
+        error,
+        requestCallback: () => addMemberProject({ id, email }),
+        errorIdent: 'addMemberProjectError',
+      }),
+    );
   }
 };
 

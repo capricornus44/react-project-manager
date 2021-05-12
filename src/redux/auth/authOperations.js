@@ -12,26 +12,20 @@ import {
   refreshRequest,
   refreshSuccess,
   refreshError,
+  signupSuccess,
 } from './authActions';
+
+import { getError } from '../error/errorHandler';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
 export const token = {
-  token: '',
-
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-    this.token = `Bearer ${token}`;
-  },
-
-  refresh(refreshToken) {
-    this.token = refreshToken;
-    axios.defaults.headers.common.Authorization = refreshToken;
   },
 
   unset() {
     axios.defaults.headers.common.Authorization = '';
-    this.token = '';
   },
 };
 
@@ -43,7 +37,14 @@ const signupOperation = user => async dispatch => {
 
     dispatch(signinOperation(user));
   } catch (error) {
-    dispatch(signupError(error.message));
+    // dispatch(signupError());
+    dispatch(
+      getError({
+        error,
+        requestCallback: () => signupOperation(user),
+        errorIdent: 'signupError',
+      }),
+    );
   }
 };
 
@@ -55,18 +56,22 @@ const signinOperation = user => async dispatch => {
 
     const { accessToken, refreshToken, sid } = response.data;
     const { email, id } = response.data.data;
-    // const { projects } = response.data.data;
 
     token.set(response.data.accessToken);
     dispatch(signinSuccess({ accessToken, refreshToken, sid }));
     dispatch(userSuccess({ email, id }));
-    // dispatch(projectsSuccess({ projects }));
   } catch (error) {
-    dispatch(signinError(error.message));
+    // dispatch(signinError());
+    dispatch(
+      getError({
+        error,
+        requestCallback: () => signinOperation(user),
+        errorIdent: 'signinError',
+      }),
+    );
   }
 };
 
-// * После успешного логаута, удаляем токен из HTTP-заголовка
 const logoutOperation = () => async dispatch => {
   dispatch(logoutRequest());
 
@@ -75,29 +80,37 @@ const logoutOperation = () => async dispatch => {
 
     token.unset();
     dispatch(logoutSuccess());
-    window.location.reload();
   } catch (error) {
-    dispatch(logoutError(error.message));
+    // dispatch(logoutError());
+    dispatch(
+      getError({
+        error,
+        requestCallback: logoutOperation,
+        errorIdent: 'logoutError',
+      }),
+    );
   }
 };
 
-const refreshOperation = () => async (dispatch, getState) => {
+const refreshOperation = callback => async (dispatch, getState) => {
   const { refreshToken, sid } = getState().auth.token;
-  token.refresh(refreshToken);
+
+  token.set(refreshToken);
   dispatch(refreshRequest());
 
   try {
     const response = await axios.post('/auth/refresh', { sid: sid });
 
-    dispatch(
+    await dispatch(
       refreshSuccess({
-        accessToken: `Bearer $(response.data.newAccessToken)`,
-        refreshToken: `Bearer $(response.data.newRefreshToken)`,
+        accessToken: response.data.newAccessToken,
+        refreshToken: response.data.newRefreshToken,
         sid: response.data.newSid,
       }),
     );
+    callback();
   } catch (error) {
-    dispatch(refreshError(error.message));
+    dispatch(logoutSuccess());
   }
 };
 

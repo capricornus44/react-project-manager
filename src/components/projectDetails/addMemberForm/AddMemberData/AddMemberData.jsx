@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { getProjects } from '../../../../redux/projects/projectSelectors';
 import './AddMemberData.scss';
+import { LangContext } from '../../../app/App';
 
 const AddMemberData = ({ cb, id }) => {
+  const { language } = useContext(LangContext);
   const [email, setEmail] = useState('');
   const projects = useSelector(getProjects);
 
@@ -37,10 +39,12 @@ const AddMemberData = ({ cb, id }) => {
           onChange={handleChange}
         />
         <label className="add-member-data__label" htmlFor="name">
-          Введіть e-mail
+          {language.addMembersForm.email}
         </label>
       </div>
-      <h3 className="add-member-data__members-title">Додані користувачі: </h3>
+      <h3 className="add-member-data__members-title">
+        {language.addMembersForm.members}{' '}
+      </h3>
       <ul>
         {members.members.map(el => (
           <li className="add-member-data__members" key={el}>

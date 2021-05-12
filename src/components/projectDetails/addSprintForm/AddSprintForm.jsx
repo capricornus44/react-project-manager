@@ -25,7 +25,7 @@ const AddSprintForm = () => {
       {/* <div className="add__sprint-form"> */}
       <ModalHoc
         // title="Створити спринт"
-        titleModal="Створення спринта"
+        titleModal={language.projectPageForm.formTitle}
         addOperation={addSprint}
         data={data}
       >
