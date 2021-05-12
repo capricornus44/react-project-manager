@@ -1,22 +1,16 @@
 .add__sprint-form {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
-  // display: flex;
-  // align-items: center;
-  // padding-top: 40px;
+  z-index: 2;
+
   @media screen and (min-width: 768px) {
     top: 120px;
     right: 40px;
   }
   @media screen and (min-width: 1280px) {
     right: 280px;
-    // display: block;
-    // padding-right: 0px;
-    // justify-content: flex-end;
-    // width: -webkit-fill-available;
   }
-  // padding-right: 85px;
 }
 
 .add__sprint-button__name {
