@@ -13,13 +13,14 @@ const Graph = () => {
     (acc, task) => (acc += task.hoursPlanned),
     0,
   );
-  const duration = sprints?.find(sprint => sprint._id === sprintId).duration;
-  // console.log(sprints);
+  const duration = sprints.find(sprint => sprint._id === sprintId).duration;
+  console.log(duration);
+
   //sprints[1].duration; // кол-во дней спринта
-  const deltaHours = planedHours / duration; // tasks[0].hoursWastedPerDay.length.toFixed(4);
+  const deltaHours = (planedHours / duration).toFixed(2); // tasks[0].hoursWastedPerDay.length.toFixed(4);
   // .toFixed(2);
-  // console.log('planedHours :>> ', planedHours);
-  // console.log('deltaHours :>> ', deltaHours);
+  console.log('planedHours :>> ', planedHours);
+  console.log('deltaHours :>> ', deltaHours);
   const getwastedByTask = () => {
     return tasks.map(task =>
       task.hoursWastedPerDay.reduce((acc, task) => {
@@ -28,55 +29,35 @@ const Graph = () => {
       }, []),
     );
   };
-  // const wastedByTask = tasks.map(task =>
-  //   task.hoursWastedPerDay.reduce((acc, task) => {
-  //     acc.push(task.singleHoursWasted);
-  //     return acc;
-  //   }, []),
-  // );
+
   const getPlanedTasksHours = () => {
     let myPlanedTasksHours = planedHours;
     const resultArr = [];
     for (let i = 0; i < duration; i += 1) {
-      // const arr = getwastedByTask().reduce((acc, task, ind) => {
       const result = getwastedByTask().reduce((acc, task) => {
         acc += task[i];
-        return result;
+        return acc;
       }, 0);
       resultArr.push(
         myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result,
       );
       myPlanedTasksHours = myPlanedTasksHours - result;
-      //   return acc;
-      // }, []);
     }
     return resultArr;
   };
 
-  // ==== Plannedline
   const getStreightLine = () => {
     const arr = [planedHours];
     let prev = planedHours;
     for (let i = 0; i < duration; i += 1) {
-      arr.push(prev - deltaHours);
+      arr.push(prev - deltaHours).toFixed(2);
       prev = prev - deltaHours;
     }
     return arr;
   };
-  console.log('get :>> ', getStreightLine());
-  // ====
-  // data: [planedHours, ...arr],
-  // const arr2 = wastedByTask.reduce((acc, task, ind) => {
-  //   const result = wastedByTask.reduce((acc, task) => {
-  //     acc += task[ind];
-  //     return acc;
-  //   }, 0);
-  //   acc.push(result);
-  //   return acc;
-  // }, []);
 
   const getDatesArray = () => {
-    console.log('tasks', tasks);
+    // console.log('tasks', tasks);
     return tasks.map(task => {
       return task.hoursWastedPerDay.reduce((acc, task) => {
         acc.push(task.currentDay);
@@ -181,3 +162,4 @@ export default Graph;
 //     .filter(el => el);
 // };
 // console.log('getChart() :>> ', getChart(planed, finishedArr));
+//////////////////////////////////////////////////////////////////
