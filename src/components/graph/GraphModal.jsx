@@ -3,9 +3,9 @@ import './Graph.scss';
 import sprite from '../../assets/icons/sprite.svg';
 import Graph from './Graph';
 
-const GraphModal = () => {
+const GraphModal = ({ showModal, setShowModal }) => {
   //{ showModal, setShowModal }
-  const [showModal, setShowModal] = useState(true);
+  // const [showModal, setShowModal] = useState(true);
 
   useEffect(() => {
     window.addEventListener('keydown', handleEsc);
@@ -31,26 +31,28 @@ const GraphModal = () => {
   };
 
   return (
-    showModal && (
-      <div className="graph-modal__backdrop" onClick={handleBackdropClick}>
-        <div
-          className="graph-modal__container"
-          // showModal={showModal}
-          // setShowModal={setShowModal}
-        >
-          <button
-            type="button"
-            className="graph-modal__btn"
-            onClick={closeModal}
+    <>
+      {showModal && (
+        <div className="graph-modal__backdrop" onClick={handleBackdropClick}>
+          <div
+            className="graph-modal__container"
+            // showModal={showModal}
+            // setShowModal={setShowModal}
           >
-            <svg className="graph-modal__icon">
-              <use href={sprite + '#close'} />
-            </svg>
-          </button>
-          <Graph />
+            <button
+              type="button"
+              className="graph-modal__btn"
+              onClick={closeModal}
+            >
+              <svg className="graph-modal__icon">
+                <use href={sprite + '#close'} />
+              </svg>
+            </button>
+            <Graph />
+          </div>
         </div>
-      </div>
-    )
+      )}
+    </>
   );
 };
 

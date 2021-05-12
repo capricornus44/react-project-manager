@@ -1,58 +1,58 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
-
+import { useParams } from 'react-router-dom';
 import { getTasksSelector } from '../../redux/tasks/taskSelectors';
 import { getAllSprints } from '../../redux/sprints/sprintSelectors';
-// [
-//   {
-//     title: 'Task 1',
-//     hoursPlanned: 1,
-//     hoursWasted: 0,
-//     hoursWastedPerDay: [
-//       {
-//         currentDay: '2020-12-31',
-//         singleHoursWasted: 0,
-//       },
-//     ],
-//     _id: '507f1f77bcf86cd799439011',
-//     __v: 0,
-//   },
-// ];
 
 const Graph = () => {
   const tasks = useSelector(getTasksSelector);
   const sprints = useSelector(getAllSprints);
-
+  const sprintId = useParams();
   const planedHours = tasks.reduce(
     (acc, task) => (acc += task.hoursPlanned),
     0,
   );
-  const duration = sprints[0]?.duration;
-  console.log(sprints);
+  const duration = sprints?.find(sprint => sprint._id === sprintId).duration;
+  // console.log(sprints);
   //sprints[1].duration; // кол-во дней спринта
   const deltaHours = planedHours / duration; // tasks[0].hoursWastedPerDay.length.toFixed(4);
+  // .toFixed(2);
   // console.log('planedHours :>> ', planedHours);
   // console.log('deltaHours :>> ', deltaHours);
+  const getwastedByTask = () => {
+    return tasks.map(task =>
+      task.hoursWastedPerDay.reduce((acc, task) => {
+        acc.push(task.singleHoursWasted);
+        return acc;
+      }, []),
+    );
+  };
+  // const wastedByTask = tasks.map(task =>
+  //   task.hoursWastedPerDay.reduce((acc, task) => {
+  //     acc.push(task.singleHoursWasted);
+  //     return acc;
+  //   }, []),
+  // );
+  const getPlanedTasksHours = () => {
+    let myPlanedTasksHours = planedHours;
+    const resultArr = [];
+    for (let i = 0; i < duration; i += 1) {
+      // const arr = getwastedByTask().reduce((acc, task, ind) => {
+      const result = getwastedByTask().reduce((acc, task) => {
+        acc += task[i];
+        return result;
+      }, 0);
+      resultArr.push(
+        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result,
+      );
+      myPlanedTasksHours = myPlanedTasksHours - result;
+      //   return acc;
+      // }, []);
+    }
+    return resultArr;
+  };
 
-  const wastedByTask = tasks.map(task =>
-    task.hoursWastedPerDay.reduce((acc, task) => {
-      acc.push(task.singleHoursWasted);
-      return acc;
-    }, []),
-  );
-
-  let myPlanedTasksHours = planedHours;
-  const arr = wastedByTask.reduce((acc, task, ind) => {
-    const result = wastedByTask.reduce((acc, task) => {
-      acc += task[ind];
-      return acc;
-    }, 0);
-    acc.push(myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result);
-    myPlanedTasksHours = myPlanedTasksHours - result;
-    return acc;
-  }, []);
-  console.log('result :>> ', arr);
   // ==== Plannedline
   const getStreightLine = () => {
     const arr = [planedHours];
@@ -75,7 +75,6 @@ const Graph = () => {
   //   return acc;
   // }, []);
 
-  console.log('wastedByTask :>> ', wastedByTask);
   const getDatesArray = () => {
     console.log('tasks', tasks);
     return tasks.map(task => {
@@ -87,12 +86,7 @@ const Graph = () => {
   };
   console.log(getDatesArray());
   const data = {
-    labels: getDatesArray().length
-      ? [
-          '0',
-          ...getDatesArray()[0], //[0]
-        ]
-      : [],
+    labels: getDatesArray().length ? ['0', ...getDatesArray()[0]] : [],
     // labels: [...period.day],
     datasets: [
       {
@@ -115,7 +109,7 @@ const Graph = () => {
         pointRadius: 3,
         pointHitRadius: 10,
         //data: [...period.hours],
-        data: [planedHours, ...arr],
+        data: [planedHours, ...getPlanedTasksHours()],
 
         // data: [7, 6, 6, 3, 1, 5, 0],
       },
@@ -156,78 +150,6 @@ const Graph = () => {
   );
 };
 export default Graph;
-
-// const tasks = [
-//   {
-//     planed: 7,
-//     wasted: 9,
-//     wastedPerDay: [
-//       { date: "dfgh", singleWasted: 4 },
-//       { date: "efd", singleWasted: 2 },
-//       { date: "dfasdsagh", singleWasted: 3 },
-//     ],
-//   },
-//   {
-//     planed: 6,
-//     wasted: 5,
-//     wastedPerDay: [
-//       { date: "dsfsdfgh", singleWasted: 3 },
-//       { date: "efsdfd", singleWasted: 1 },
-//       { date: "dfassdfsdsagh", singleWasted: 1 },
-//     ],
-//   },
-//   {
-//     planed: 7,
-//     wasted: 9,
-//     wastedPerDay: [
-//       { date: "dfgh", singleWasted: 4 },
-//       { date: "efd", singleWasted: 2 },
-//       { date: "dfasdsagh", singleWasted: 3 },
-//     ],
-//   },
-// ];
-// const planedHours = tasks.reduce((acc, task) => (acc += task.planed), 0);
-// const deltaHours = (planedHours / tasks[0].wastedPerDay.length).toFixed(4);
-// console.log("planedHours :>> ", planedHours);
-// console.log("deltaHours :>> ", deltaHours);
-// const wastedByTask = tasks.map((task) =>
-//   task.wastedPerDay.reduce((acc, task) => {
-//     acc.push(task.singleWasted);
-//     return acc;
-//   }, [])
-// );
-// console.log("wastedByTask :>> ", wastedByTask);
-// let myPlanedTasksHours = planedHours;
-// const arr = wastedByTask.reduce((acc, task, ind) => {
-//   const result = wastedByTask.reduce((acc, task) => {
-//     acc += task[ind];
-//     return acc;
-//   }, 0);
-//   acc.push(myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result);
-//   myPlanedTasksHours = myPlanedTasksHours - result;
-//   return acc;
-// }, []);
-// console.log("result :>> ", arr);
-// const duration = 3;
-// const getStreightLine = () => {
-//   const arr = [];
-//   let prev = planedHours;
-//   for (let i = 0; i < duration; i += 1) {
-//     arr.push(prev - deltaHours);
-//     prev = prev - deltaHours;
-//   }
-//   return arr;
-// };
-// console.log("get :>> ", getStreightLine());
-// const arr2 = wastedByTask.reduce((acc, task, ind) => {
-//   const result = wastedByTask.reduce((acc, task) => {
-//     acc += task[ind];
-//     return acc;
-//   }, 0);
-//   acc.push(result);
-//   return acc;
-// }, []);
-// console.log("result :>> ", arr2);
 
 ////////////////////////////=======////////////////////////////////
 // const planedHours = 100;
