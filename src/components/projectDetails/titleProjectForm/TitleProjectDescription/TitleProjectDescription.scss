@@ -1,18 +1,15 @@
 .project__title-details__text {
-  //   padding-left: 70px;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 
   font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 1.214;
   letter-spacing: 0.04em;
 
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.22px;
     width: 400px;
   }
-  //   @media screen and (max-width: 767px) {
-  //     width: 400px;
-  //     background-color: red;
-  //   }
 }
