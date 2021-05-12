@@ -14,10 +14,6 @@ const App = () => {
 
   useEffect(() => {
     isAuthError && dispatch(refreshOperation());
-
-    // if (isAuthError) {
-    //   dispatch(refreshOperation());
-    // }
   }, [isAuthError, dispatch]);
 
   const [language, setLanguage, list] = useLanguage();
