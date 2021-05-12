@@ -10,6 +10,7 @@ import {
 import { getProjects } from '../../../redux/projects/projectSelectors';
 import { changeTitleSprint } from '../../../redux/sprints/sprintOperations';
 import { getProjectTitle } from '../../../redux/sprints/sprintSelectors';
+import TitleProjectDetails from './TitleProjectDescription/TitleProjectDescription';
 import './TitleProjectForm.scss';
 
 const TitleProjectForm = ({ projectId }) => {
@@ -24,7 +25,7 @@ const TitleProjectForm = ({ projectId }) => {
   const allProjects = useSelector(getProjects);
   // console.log(allProjects);
   const thisProject = allProjects.find(project => project._id === projectId);
-  //console.log(thisProject);
+  // console.log(thisProject);
   const title = thisProject?.title || '';
   //console.log(title);
   const [newTitle, setNewTitle] = useState('');
@@ -93,6 +94,7 @@ const TitleProjectForm = ({ projectId }) => {
             </svg>
           </button>
         </h2>
+        <TitleProjectDetails description={thisProject.description} />
       </div>
     </>
   );

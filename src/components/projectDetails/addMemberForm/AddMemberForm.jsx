@@ -16,7 +16,7 @@ const AddMemberForm = () => {
   const toogleModal = () => {
     setShowModal(true);
   };
-  console.log(data);
+  // console.log(data);
   return (
     <div className="project__details-add__ember-form">
       <button
