@@ -1,0 +1,82 @@
+@import 'styles/shared.scss';
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.user__greeting {
+  margin-right: 20px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+  color: $text-primary;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 77px;
+  }
+}
+
+// * Mobile
+.user__logout-button-mobile {
+  display: flex;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgb(118, 118, 118);
+  // border: none;
+  border-radius: 4px;
+  // border-radius: 50%;
+
+  // background-color: $logout-bg-mobile;
+  background-color: $white;
+}
+
+.user__logout-icon-mobile {
+  width: 18px;
+  height: 18px;
+
+  fill: $text-primary;
+  // fill: $white;
+}
+
+// * Tablet and Desktop
+.user__logout-button {
+  display: flex;
+  align-items: center;
+
+  border: none;
+
+  font-size: 14px;
+  line-height: 1.214;
+  letter-spacing: 0.04em;
+  color: $text-secondary;
+
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    color: $accent;
+  }
+}
+
+.user__logout-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+
+  fill: $text-primary;
+
+  transition: all 250ms ease-in-out;
+
+  .user__logout-button:hover &,
+  .user__logout-button:focus & {
+    fill: $accent;
+  }
+}

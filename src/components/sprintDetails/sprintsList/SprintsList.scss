@@ -1,0 +1,68 @@
+@import 'styles/shared.scss';
+
+.sprintsList_box {
+  width: 100%;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+    // width: 1026px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // padding-left: 20px;
+    margin: 0 auto;
+  }
+}
+
+.sprintsList {
+  width: 280px;
+  margin: 0 auto;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px 20px;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    // width: 1026px;
+    width: 100%;
+    padding: 0 55px;
+  }
+}
+
+.graphButton_box {
+  position: fixed;
+  height: 44px;
+  bottom: 20px;
+  left: 20px;
+
+  @media screen and (min-width: 768px) {
+    left: auto;
+    bottom: 60px;
+    right: 55px;
+  }
+}
+
+.empty_title {
+  color: gray;
+  opacity: 0.5;
+  padding-top: 10px;
+  display: block;
+  text-align: center;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 20px;
+    font-size: 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-top: 30px;
+  }
+}

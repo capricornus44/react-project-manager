@@ -1,0 +1,116 @@
+@import 'styles/shared.scss';
+
+.sprintsListItem {
+  width: 100%;
+  padding: 20px;
+  background: $white;
+  box-shadow: $shadow-primary;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: all 200ms linear;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 216px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+    display: flex;
+    padding: 20px 30px;
+    align-items: flex-end;
+  }
+}
+
+.sprintsListItem__heading {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  color: #181c27;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $border-input;
+
+  @media screen and (min-width: 1200px) {
+    width: 170px;
+    margin-right: auto;
+  }
+}
+
+.sprintsListItem__list {
+  @media screen and (min-width: 1200px) {
+    display: flex;
+    margin-left: 27px;
+  }
+}
+
+.sprintsListItem__list_item {
+  position: relative;
+  width: 100%;
+  display: inline-flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  font-size: 10px;
+  line-height: 1.2;
+  color: $black;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin: 0;
+    width: 100px;
+
+    &:not(:first-child) {
+      margin-left: 100px;
+    }
+  }
+}
+
+.sprintsListItem__list_item_text {
+  @media screen and (min-width: 768px) {
+    max-width: 100px;
+  }
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.sprintsListItem__list_item_digit {
+  height: 15px;
+  margin-right: 4px;
+}
+
+.sprintsListItem__list_input {
+  width: 60px;
+  text-align: right;
+  padding-right: 3px;
+  // outline: none;
+  border: none;
+  border-bottom: 1px solid $border-input;
+  font-size: 14px;
+  line-height: 1.21;
+
+  @media screen and (min-width: 768px) {
+    padding-right: 4px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  @media screen and (min-width: 1200px) {
+    text-align: left;
+  }
+}
+
+.sprintsListItem__deleteBtn_box {
+  width: 25px;
+  margin-top: 20px;
+  margin-left: auto;
+}

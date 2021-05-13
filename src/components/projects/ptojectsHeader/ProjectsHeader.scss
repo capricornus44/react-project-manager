@@ -1,0 +1,63 @@
+@import 'styles/shared.scss';
+
+.projects_header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 36px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+}
+
+.projects_title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.22;
+  color: $text-primary;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 500;
+    font-size: 36px;
+  }
+}
+
+.projects_add {
+  display: flex;
+  // align-items: center;
+}
+
+.projects_add_text {
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+    color: $text-primary;
+
+    padding-top: 11px;
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.04em;
+  }
+}
+
+.projects_header .add-button {
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    z-index: 5;
+    right: 25px;
+    bottom: 10px;
+  }
+}

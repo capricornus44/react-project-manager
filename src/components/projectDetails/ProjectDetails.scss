@@ -1,0 +1,23 @@
+.project__details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project__details-section {
+  width: 100%;
+  padding-top: 30px;
+  @media screen and (min-width: 768px) {
+    padding-top: 40px;
+    padding-left: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-left: 70px;
+  }
+}
+
+.project__details-form {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding-bottom: 20px;
+  }
+}

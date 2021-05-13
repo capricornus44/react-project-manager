@@ -1,0 +1,32 @@
+@import 'styles/shared.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  min-height: 60px;
+  // padding: 0 20px;
+  border-bottom: 1px solid $border-header;
+
+  @media screen and (min-width: 768px) {
+    min-height: 80px;
+    // padding: 0 40px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 55px 0 0;
+  }
+}
+
+.logo {
+  width: 100px;
+  height: 30px;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 140px;
+    height: 42px;
+  }
+}

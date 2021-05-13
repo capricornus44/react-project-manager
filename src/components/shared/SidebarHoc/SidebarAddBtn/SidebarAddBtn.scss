@@ -1,0 +1,19 @@
+.sidebar__addSprintForm_box {
+  position: absolute;
+  bottom: 50px;
+
+  @media screen and (max-width: 767px) {
+    position: none;
+  }
+}
+
+.sidebar__addSprintFormBtn_box {
+  display: flex;
+  padding-left: 40px;
+}
+
+.sidebar__addSprintForm_title {
+  margin-top: 15px;
+
+  text-align: center;
+}

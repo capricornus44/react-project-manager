@@ -1,0 +1,46 @@
+@import '../../../styles/shared.scss';
+
+.delete-button {
+  outline: none;
+  bottom: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: $white;
+  border-radius: 50%;
+  background-image: url(./../../../assets/icons/bin.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-position-y: -22px;
+  cursor: pointer;
+
+  background-color: transparent;
+  backface-visibility: visible;
+  transition: all 250ms linear;
+
+  &:hover {
+    box-shadow: 0 0 12px $white;
+  }
+}
+
+.sprint__delete-button {
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: $logout-bg-mobile;
+  transition: all 250ms linear;
+  &:hover {
+    cursor: pointer;
+    background-color: $accent;
+    transform: scale(1.3);
+  }
+}
+.sprint__icon-delete {
+  fill: $white;
+  width: 14px;
+  height: 17px;
+  display: flex;
+}

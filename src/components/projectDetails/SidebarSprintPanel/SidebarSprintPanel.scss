@@ -1,0 +1,44 @@
+@import 'styles/shared.scss';
+
+.sidebar-list__item-square {
+  position: relative;
+}
+.sidebar-list__item-square::before {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 36px;
+  left: -33px;
+  border-radius: 5px;
+}
+.sidebar__list_item-sprint {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-list__item-square:nth-child(3n + 1):before {
+  background-color: $card-1;
+}
+.sidebar-list__item-square:nth-child(3n + 2):before {
+  background-color: $card-2;
+}
+.sidebar-list__item-square:nth-child(3n + 3):before {
+  background-color: $card-3;
+}
+
+.sidebar-list__item-square:nth-child(3n + 1):hover:before {
+  box-shadow: 0.3px 2px 3px $card-1;
+}
+
+.sidebar-list__item-square:nth-child(3n + 2):hover:before {
+  box-shadow: 0.3px 2px 3px $card-2;
+}
+
+.sidebar-list__item-square:nth-child(3n + 3):hover:before {
+  box-shadow: 0.3px 2px 3px $card-3;
+}
+
+.sidebar_btn_back {
+  text-decoration: none;
+}

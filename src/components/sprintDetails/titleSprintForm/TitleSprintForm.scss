@@ -1,0 +1,55 @@
+@import 'styles/shared.scss';
+
+.sprintsPageHeader__heading {
+  display: inline-block;
+  position: relative;
+  max-width: 40vw;
+
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  // color: $text-primary;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    // width: 340px;
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+.sprintsPageHeader_editHeaderBtn {
+  cursor: pointer;
+  margin-top: 7px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  fill: rgba(166, 166, 166, 1);
+  border: none;
+  transition: all 250ms linear;
+
+  &:hover {
+    fill: $accent;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: 20px;
+  }
+}
+
+.sprintsPageHeader__title_input {
+  // max-width: 40vw;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: 0.04em;
+  width: 240px;
+  // width: 60vw;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}

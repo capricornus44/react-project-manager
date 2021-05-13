@@ -1,0 +1,29 @@
+.add__sprint-form {
+  @media screen and (min-width: 768px) {
+    top: 120px;
+    right: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    right: 86px;
+  }
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+  }
+}
+
+.add__sprint-button__name {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+
+  padding-top: 11px;
+  margin-left: 20px;
+
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+}

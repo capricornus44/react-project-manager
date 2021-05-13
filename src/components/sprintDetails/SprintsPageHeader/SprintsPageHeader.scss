@@ -1,0 +1,212 @@
+@import 'styles/shared.scss';
+
+.sprintsPageHeader__MainContainer {
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    border-bottom: 1px solid $border-header;
+  }
+}
+
+.sprintsPageHeader__container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 25px;
+
+  @media screen and (min-width: 768px) {
+    width: 512px;
+    padding: 0 40px 0 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    // width: 1026px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+}
+
+.sprintsPageHeader__datesInput_box {
+  padding: 23px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sprintsPageHeader__dates {
+  margin-left: 20px;
+  display: flex;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    // width: 200px;
+    // margin-left: 0;
+  }
+}
+
+.sprintsPageHeader__date {
+  margin-left: auto;
+  font-size: 12px;
+  line-height: 1.25;
+  color: $text-secondary;
+}
+
+.sprintsPageHeader__dates_curDay {
+  font-size: 18px;
+  line-height: 1.22;
+  letter-spacing: 0.04em;
+}
+
+.sprintsPageHeader__dates_days {
+  font-size: 12px;
+  line-height: 1.25;
+  color: $text-secondary;
+}
+
+.sprintsPageHeader__dates_btn {
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.sprintsPageHeader__searchForm {
+  display: none;
+  margin-top: 20px;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0px;
+    margin-left: auto;
+  }
+
+  @media screen and (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.sprintsPageHeader__input {
+  width: 280px;
+  height: 30px;
+  padding-left: 35px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $border-header;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.22;
+
+  @media screen and (min-width: 768px) {
+    width: 214px;
+    padding-left: 10px;
+  }
+}
+
+.sprintsPageHeader__searchBtn {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: inherit;
+  border: none;
+  position: absolute;
+  background-image: url('../../../assets/icons/search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @media screen and (min-width: 768px) {
+    right: 10px;
+  }
+  @media screen and (min-width: 1200px) {
+    right: 30px;
+  }
+}
+
+.sprintsPageHeader__heading_box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  padding: 0 55px;
+}
+
+.sprintsPageHeader__addTask_btn_box {
+  position: fixed;
+  height: 44px;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+    display: flex;
+    position: initial;
+    z-index: 0;
+  }
+}
+
+.sprintsPageHeader__addTask_text {
+  height: 44px;
+  padding-top: 10px;
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: $text-primary;
+}
+
+.sprintsPageHeader__categories {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    // width: 1026px;
+    width: 100%;
+    padding: 0 55px;
+  }
+}
+
+.sprintsPageHeader__categories_list {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 60px 10px 30px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 30px 10px 30px;
+    justify-content: flex-start;
+  }
+}
+
+.sprintsPageHeader__categories_list_item {
+  width: 98px;
+  font-size: 14px;
+  line-height: 1.21;
+  color: $text-primary;
+
+  &:first-child {
+    width: 170px;
+    margin-right: auto;
+  }
+
+  &:last-child {
+    width: 25px;
+    margin-left: auto;
+  }
+
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4) {
+    margin: 0 4%;
+  }
+}
+
+.desktop_item {
+  display: none;
+
+  @media screen and (min-width: 1200px) {
+    display: block;
+  }
+}

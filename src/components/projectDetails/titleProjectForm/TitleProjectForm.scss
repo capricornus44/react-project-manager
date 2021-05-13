@@ -1,0 +1,133 @@
+@import 'styles/shared.scss';
+
+.project__details-title {
+  display: inline-block;
+  position: relative;
+  max-width: 40vw;
+
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: 26px;
+  line-height: 1.231;
+  letter-spacing: 0.04em;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+.edit-box {
+  position: relative;
+}
+
+.edit-form__title__input {
+  display: contents;
+}
+
+.edit-form__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: $accent;
+
+  transition: all 250ms ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.222;
+  }
+}
+
+.project__details-title__input {
+  width: 140px;
+  height: 29px;
+  padding-bottom: 9px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $border-input;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: $text-primary;
+
+  margin-right: 20px;
+
+  background-color: transparent;
+  transition: all 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $accent;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 350px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 1.222;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 429px;
+  }
+}
+
+.project__details-title__input:focus + .edit-form__label,
+.project__details-title__input:not(:placeholder-shown) + .edit-form__label {
+  top: -18px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.project__details-edit__button {
+  width: 20px;
+  height: 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  border-radius: 50%;
+
+  padding: 0;
+}
+
+.project__details-edit__icon {
+  display: block;
+  outline: none;
+  border: none;
+
+  width: 20px;
+  height: 20px;
+  fill: $logout-bg-mobile;
+  background-color: transparent;
+}
+
+.project__details-edit__icon:hover {
+  box-shadow: 0.1px 0.1px 0.1px 0.1px $accent;
+  transform: scale(1.1);
+  fill: $accent;
+}
+
+.project__details-edit {
+  position: absolute;
+  content: '';
+  top: 50%;
+
+  transform: translateY(-10px);
+}
+
+.project__details-edit:hover {
+  cursor: pointer;
+  color: $accent;
+}

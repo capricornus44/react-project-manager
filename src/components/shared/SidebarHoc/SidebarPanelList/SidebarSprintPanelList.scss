@@ -1,0 +1,64 @@
+@import 'styles/shared.scss';
+
+.sidebar__list {
+  @media screen and(min-width: 768px) {
+    margin-top: 90px;
+    height: 400px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-scrollbar: $accent;
+  }
+}
+
+.sidebar__link {
+  padding-left: 50px;
+}
+
+.sidebar__list_item_selected {
+  font-weight: bold;
+}
+
+.sidebar__item-square {
+  position: relative;
+}
+.sidebar__item-square::before {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 36px;
+
+  left: 0;
+
+  border-radius: 5px;
+}
+
+.sidebar__item-square:nth-child(3n + 1):before {
+  background-color: $card-1;
+}
+.sidebar__item-square:nth-child(3n + 2):before {
+  background-color: $card-2;
+}
+.sidebar__item-square:nth-child(3n + 3):before {
+  background-color: $card-3;
+}
+
+.sidebar__item-square:nth-child(3n + 1):hover:before {
+  box-shadow: 0.3px 2px 3px $card-1;
+}
+
+.sidebar__item-square:nth-child(3n + 2):hover:before {
+  box-shadow: 0.3px 2px 3px $card-2;
+}
+
+.sidebar__item-square:nth-child(3n + 3):hover:before {
+  box-shadow: 0.3px 2px 3px $card-3;
+}
+
+.sidebar__item-name {
+  width: 120px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
