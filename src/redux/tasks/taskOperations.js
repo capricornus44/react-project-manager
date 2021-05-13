@@ -17,6 +17,7 @@ import {
 // const projId="6098fb0c33a36061e804eee2";
 import { token } from '../auth/authOperations';
 import { getError } from '../error/errorHandler';
+import { loaderOff, loaderOn } from '../loading/loadingAction';
 // const sprintId = '6098fba433a36061e804eee5';
 axios.defaults.baseURL = 'https://sbc-backend.goit.global/';
 
@@ -27,6 +28,7 @@ const addTask = ({ sprintId, title, hoursPlanned }) => async (
   dispatch(addTaskRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
+  dispatch(loaderOn());
 
   try {
     const {
@@ -41,6 +43,8 @@ const addTask = ({ sprintId, title, hoursPlanned }) => async (
         errorIdent: 'addTaskError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
@@ -48,6 +52,8 @@ const getTask = sprintId => async (dispatch, getState) => {
   dispatch(getTaskRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
+  dispatch(loaderOn());
+
   try {
     const res = await axios.get(`/task/${sprintId}`);
     dispatch(getTaskSuccess(res.data));
@@ -59,6 +65,8 @@ const getTask = sprintId => async (dispatch, getState) => {
         errorIdent: 'getTaskError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
@@ -66,6 +74,7 @@ const deleteTask = taskId => async (dispatch, getState) => {
   dispatch(deleteTaskRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
+  dispatch(loaderOn());
 
   try {
     await axios.delete(`/task/${taskId}`);
@@ -78,6 +87,8 @@ const deleteTask = taskId => async (dispatch, getState) => {
         errorIdent: 'deleteTaskError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
@@ -89,6 +100,7 @@ const changeTaskHours = ({
   dispatch(changeTaskHoursRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
+
   await axios
     .patch(`/task/${taskId}`, { date, hours })
     .then(({ data }) => dispatch(changeTaskHoursSuccess({ taskId, ...data })))

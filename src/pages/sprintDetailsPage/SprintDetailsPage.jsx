@@ -14,14 +14,12 @@ import { getSprints } from '../../redux/sprints/sprintOperations';
 const curDay = startDate => moment().diff(moment(startDate), 'days');
 
 const SprintDetailsPage = () => {
-  // const isLoading = useSelector();
   const dispatch = useDispatch();
   const { sprintId, projectId } = useRouteMatch().params;
   const sprints = useSelector(getAllSprints);
   const curSprint = sprints?.find(sprint => sprint._id === sprintId);
   const curSprintDuration = curSprint?.duration;
   const startSprintDate = curSprint?.startDate;
-
   const [counter, setCounter] = useState(curDay(startSprintDate));
   const [date, setDate] = useState(Date.now());
 
@@ -37,23 +35,24 @@ const SprintDetailsPage = () => {
     setCounter(curDay(startSprintDate));
   }, [curSprint, startSprintDate]);
 
-
   return (
-    <div className="pageCont">
-      <SidebarPanel>
-        <TaskPageSidebarInfo />
-      </SidebarPanel>
-      <div>
-        <SprintsPageHeader
-          counter={counter}
-          setCounter={setCounter}
-          duration={curSprintDuration}
-          curDate={moment(date).format('DD.MM.YYYY')}
-          startSprintDate={startSprintDate}
-        />
-        <SprintsList curDate={moment(date).format('YYYY-MM-DD')} />
+    <>
+      <div className="pageCont">
+        <SidebarPanel>
+          <TaskPageSidebarInfo />
+        </SidebarPanel>
+        <div>
+          <SprintsPageHeader
+            counter={counter}
+            setCounter={setCounter}
+            duration={curSprintDuration}
+            curDate={moment(date).format('DD.MM.YYYY')}
+            startSprintDate={startSprintDate}
+          />
+          <SprintsList curDate={moment(date).format('YYYY-MM-DD')} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
