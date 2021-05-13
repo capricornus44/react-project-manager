@@ -73,6 +73,15 @@
   font-size: 16px;
   line-height: 1.25;
   color: $white;
+  word-break: break-all; /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */
+
+  // overflow-wrap: break-word; /* не поддерживает IE, Firefox; является копией word-wrap */
+  // word-wrap: break-word;
+  // line-break: normal; /* нет поддержки для русского языка */
+  // -webkit-hyphens: auto;
+  // ​-ms-hyphens: auto;
+  // hyphens: auto; /* значение auto не поддерживается Chrome */
+  // ​width: 50%;
 
   @media screen and (min-width: 768px) {
     font-weight: 800;
@@ -88,7 +97,7 @@
 
 .project_desc {
   font-size: 10px;
-
+  word-break: break-all;
   line-height: 1.21;
   color: $white;
 

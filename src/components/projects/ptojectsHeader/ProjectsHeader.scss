@@ -44,10 +44,12 @@
 }
 
 .projects_header .add-button {
-  @media screen and (max-width: 420px) {
-    position: absolute;
-    right: 25px;
-    bottom: 10px;
+  position: fixed;
+  z-index: 5;
+  right: 25px;
+  bottom: 10px;
+  @media screen and (min-width: 768px) {
+    position: relative;
   }
 
   @media screen and (min-width: 1000px) {

@@ -30,26 +30,38 @@ const AddTaskForm = ({ callback, sprintId }) => {
   return (
     <>
       <div className="addTaskForm__box">
-        <input
-          className="addTaskForm__input"
-          type="text"
-          name="title"
-          value={title}
-          placeholder={language.sprintPageForm.taskName}
-          // autoComplete="off"
-          required
-          onChange={handleChange}
-        />
-        <input
-          className="addTaskForm__input duration"
-          type="number"
-          name="hoursPlanned"
-          value={hoursPlanned}
-          placeholder={language.sprintPageForm.plannedHours}
-          // autoComplete="off"
-          required
-          onChange={handleChange}
-        />
+        <div className="addTaskForm__group">
+          <input
+            className="addTaskForm__input"
+            type="text"
+            name="title"
+            value={title}
+            placeholder=" "
+            // autoComplete="off"
+            id="title"
+            required
+            onChange={handleChange}
+          />
+          <label className="addTaskForm__label" htmlFor="title">
+            {language.sprintPageForm.taskName}
+          </label>
+        </div>
+        <div className="addTaskForm__group">
+          <input
+            className="addTaskForm__input"
+            type="number"
+            name="hoursPlanned"
+            value={hoursPlanned}
+            placeholder=" "
+            // autoComplete="off"
+            id="hoursPlanned"
+            required
+            onChange={handleChange}
+          />
+          <label className="addTaskForm__label" htmlFor="hoursPlanned">
+            {language.sprintPageForm.plannedHours}
+          </label>
+        </div>
       </div>
     </>
   );
