@@ -10,6 +10,7 @@ import { useRouteMatch } from 'react-router';
 import { useEffect } from 'react';
 import moment from 'moment';
 import { getSprints } from '../../redux/sprints/sprintOperations';
+import Container from '../../components/container/Container';
 
 const curDay = startDate => moment().diff(moment(startDate), 'days');
 
@@ -37,23 +38,24 @@ const SprintDetailsPage = () => {
     setCounter(curDay(startSprintDate));
   }, [curSprint, startSprintDate]);
 
-
   return (
-    <div className="pageCont">
-      <SidebarPanel>
-        <TaskPageSidebarInfo />
-      </SidebarPanel>
-      <div>
-        <SprintsPageHeader
-          counter={counter}
-          setCounter={setCounter}
-          duration={curSprintDuration}
-          curDate={moment(date).format('DD.MM.YYYY')}
-          startSprintDate={startSprintDate}
-        />
-        <SprintsList curDate={moment(date).format('YYYY-MM-DD')} />
+    <Container>
+      <div className="pageCont">
+        <SidebarPanel>
+          <TaskPageSidebarInfo />
+        </SidebarPanel>
+        <div className="task-wrapper">
+          <SprintsPageHeader
+            counter={counter}
+            setCounter={setCounter}
+            duration={curSprintDuration}
+            curDate={moment(date).format('DD.MM.YYYY')}
+            startSprintDate={startSprintDate}
+          />
+          <SprintsList curDate={moment(date).format('YYYY-MM-DD')} />
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
