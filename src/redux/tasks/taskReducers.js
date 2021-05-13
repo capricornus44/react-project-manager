@@ -13,7 +13,7 @@ const TasksItems = createReducer([], {
   [deleteTaskSuccess]: (state, { payload }) =>
     state.filter(task => task._id !== payload),
   [getTaskSuccess]: (_, { payload }) => [...payload],
-  [getTaskRequest]: (state, { payload }) => [],
+  [getTaskRequest]: () => [],
   [changeTaskHoursSuccess]: (state, { payload }) =>
     state.map(task => {
       if (task._id !== payload.taskId) return task;

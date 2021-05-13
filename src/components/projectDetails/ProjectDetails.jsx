@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddMemberForm from './addMemberForm/AddMemberForm';
 import AddSprintForm from './addSprintForm/AddSprintForm';
 import SprintsList from './sprintsList/SprintsList';
@@ -13,6 +13,8 @@ import { useLocation, useRouteMatch } from 'react-router';
 import { getProjectsOperation } from '../../redux/projects/projectOperations';
 import AddSprint from './addSprintForm/AddSprint';
 
+import Spinner from '../spinner/Spinner';
+
 const ProjectDetails = () => {
   const dispatch = useDispatch();
   // const location = useLocation()
@@ -20,7 +22,7 @@ const ProjectDetails = () => {
   // console.log(match)
   const projectId = match.params.projectId;
 
-  // console.log(projectId);
+  const isLoading = useSelector(state => state.loader);
 
   useEffect(() => {
     dispatch(getProjectsOperation());
@@ -32,21 +34,25 @@ const ProjectDetails = () => {
 
   return (
     <>
-      <div className="project__details-form">
-        <SidebarPanel>
-          <SidebarSprintPanel />
-        </SidebarPanel>
-        <div className="project__details-section">
-          <div className="project__details">
-            <TitleProjectForm projectId={projectId} />
-            {/* <AddSprintForm projectId={projectId} onSubmit/> */}
-            <AddSprint />
-          </div>
-          {/* <TitleProjectDetails /> */}
-          <AddMemberForm />
-          <SprintsList projectId={projectId} />
-        </div>
-      </div>
+      {!isLoading ? (
+        <>
+          <div className="project__details-form">
+            <SidebarPanel>
+              <SidebarSprintPanel />
+            </SidebarPanel>
+            <div className="project__details-section">
+              <div className="project__details">
+                <TitleProjectForm projectId={projectId} />
+                <AddSprint />
+              </div>
+              <AddMemberForm />
+              <SprintsList projectId={projectId} />
+            </div>
+          </div>{' '}
+        </>
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 };

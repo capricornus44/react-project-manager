@@ -20,9 +20,9 @@ const deleteProjectRequest = createAction('prodj/deleteProjectRequest');
 const deleteProjectSuccess = createAction('prodj/deleteProjectSuccess');
 const deleteProjectError = createAction('prodj/deleteProjectError');
 
-const addMemberProjectRequest = createAction('@sprint/addMemberProjectRequest');
-const addMemberProjectSuccess = createAction('@sprint/addMemberProjectSuccess');
-const addMemberProjectError = createAction('@sprint/addMemberProjectError');
+const addMemberProjectRequest = createAction('prodj/addMemberProjectRequest');
+const addMemberProjectSuccess = createAction('prodj/addMemberProjectSuccess');
+const addMemberProjectError = createAction('prodj/addMemberProjectError');
 
 export {
   addProjectRequest,

@@ -18,6 +18,7 @@ import {
 } from './projectActions';
 import { token } from '../auth/authOperations';
 import { getError } from '../error/errorHandler';
+import { loaderOff, loaderOn } from '../loading/loadingAction';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
@@ -25,6 +26,9 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   dispatch(getProjectRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
+
+  dispatch(loaderOn());
+
   try {
     const responce = await axios.get('/project');
 
@@ -37,6 +41,8 @@ const getProjectsOperation = () => async (dispatch, getState) => {
         errorIdent: 'getProjectError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
@@ -53,6 +59,8 @@ const addProjectsOperation = ({ title, description }) => async (
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
 
+  dispatch(loaderOn());
+
   try {
     const {
       data: { id, _id, ...rest },
@@ -66,11 +74,15 @@ const addProjectsOperation = ({ title, description }) => async (
         errorIdent: 'addProjectError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
 const deleteProjectsOperation = id => async dispatch => {
   dispatch(deleteProjectRequest());
+
+  dispatch(loaderOn());
   try {
     await axios.delete(`/project/${id}`);
 
@@ -83,11 +95,15 @@ const deleteProjectsOperation = id => async dispatch => {
         errorIdent: 'deleteProjectError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
 const changeTitleProject = ({ id, title }) => async dispatch => {
   dispatch(changeTitleProjectRequest());
+  dispatch(loaderOn());
+
   try {
     // const newTitle = { title };
     const responce = await axios.patch(`/project/title/${id}`, { title });
@@ -101,6 +117,8 @@ const changeTitleProject = ({ id, title }) => async dispatch => {
         errorIdent: 'changeTitleProjectError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
@@ -108,10 +126,13 @@ const addMemberProject = ({ id, email }) => async (dispatch, getState) => {
   dispatch(addMemberProjectRequest());
   const { accessToken } = getState().auth.token;
   token.set(accessToken);
-  console.log(id, email);
+  dispatch(loaderOn());
+
   try {
-    const responce = await axios.patch(`/project/contributor/${id}`, { email });
-    dispatch(addMemberProjectSuccess(responce.data));
+    const response = await axios.patch(`/project/contributor/${id}`, { email });
+    dispatch(
+      addMemberProjectSuccess({ members: response.data.newMembers, id }),
+    );
   } catch (error) {
     dispatch(
       getError({
@@ -120,6 +141,8 @@ const addMemberProject = ({ id, email }) => async (dispatch, getState) => {
         errorIdent: 'addMemberProjectError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
