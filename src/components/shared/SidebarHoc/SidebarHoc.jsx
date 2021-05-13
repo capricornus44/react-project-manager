@@ -13,33 +13,34 @@ const SidebarHoc = ({ allProjects, location }) => {
     <div className="sidebar-hoc">
       <div className="sidebar-wrapper">
         <div className="sidebar__box">
-          <div className="sidebar__back-btn-group">
-            <Link className="sidebar_btn_back" to={{ pathname: '/projects' }}>
-              <button type="button" className="sidebar__Btn">
-                {/* <svg className="sidebar__Btn_arrow">
+          <div className="sidebar__back-btn-group ">
+            <NavLink
+              className="sidebar_btn_back"
+              to={{ pathname: '/projects' }}
+            >
+              {/* <button type="button" className="sidebar__Btn"> */}
+              {/* <svg className="sidebar__Btn_arrow">
                 <use href={sprite + '#back-arrow'}></use>
               </svg> */}
-                <span className="sidebar__Btn_text sidebar__text">
-                  {language.projectPageSidebar.goBack}
-                </span>
-              </button>
-            </Link>
+              <span className="sidebar__Btn_text sidebar__text sidebar__arrow">
+                {language.projectPageSidebar.goBack}
+              </span>
+              {/* </button> */}
+            </NavLink>
           </div>
+
           <ul className="sidebar__list">
             {allProjects.map(proj => (
-              <li
-                key={proj._id}
-                className="sidebar__item-square sidebar__list_item"
-              >
+              <li key={proj._id} className="sidebar__item-square sidebar__item">
                 <NavLink
-                  className="sidebar__list_item"
+                  className="sidebar__link"
                   activeClassName="sidebar__list_item_selected"
                   to={{
                     pathname: `/projects/${proj._id}/`,
                     state: { from: location },
                   }}
                 >
-                  <p className="sidebar__list_item_name sidebar__text">
+                  <p className="sidebar__item-name sidebar__text">
                     {proj.title}
                   </p>
                 </NavLink>
