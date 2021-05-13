@@ -10,7 +10,6 @@ import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import { getSprints } from '../../../redux/sprints/sprintOperations';
 import GraphModal from '../../graph/GraphModal';
 import { LangContext } from '../../app/App';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const SprintsList = ({ curDate }) => {
   const { language } = useContext(LangContext);
@@ -33,14 +32,12 @@ const SprintsList = ({ curDate }) => {
   };
   return (
     <div className="sprintsList_box">
-      <TransitionGroup component="ul" className="sprintsList">
+      <ul className="sprintsList">
         {allTasks.length > 0 &&
           allTasks.map(task => (
-            <CSSTransition key={task._id} classNames="task" timeout={2000}>
-              <SprintsListItem curDate={curDate} key={task._id} {...task} />
-            </CSSTransition>
+            <SprintsListItem curDate={curDate} key={task._id} {...task} />
           ))}
-      </TransitionGroup>
+      </ul>
       {allTasks.length === 0 && (
         <h2 className="empty_title">{language.sprintPage.taskCollection}</h2>
       )}

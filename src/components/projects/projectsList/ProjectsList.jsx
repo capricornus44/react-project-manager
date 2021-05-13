@@ -1,35 +1,28 @@
 import Spinner from '../../spinner/Spinner';
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjectsOperation } from '../../../redux/projects/projectOperations';
 import { getProjects } from '../../../redux/projects/projectSelectors';
 import ProjectsListItem from '../projectsListItem/ProjectsListItem';
 import './ProjectsList.scss';
-import { LangContext } from '../../app/App';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const ProjectsList = () => {
-  const { language } = useContext(LangContext);
   const allProjects = useSelector(getProjects);
   const dispatch = useDispatch();
+
+  const isLoading = useSelector(state => state.loader);
 
   useEffect(() => {
     dispatch(getProjectsOperation());
   }, [dispatch]);
-
-  const isLoading = useSelector(state => state.loader);
 
   return (
     <>
       <TransitionGroup component="ul" className="projects_list">
         {allProjects.length > 0 &&
           allProjects.map(prodj => (
-            <CSSTransition
-              key={prodj._id}
-              classNames="proj"
-              timeout={2000}
-              // in={true}
-            >
+            <CSSTransition key={prodj._id} classNames="proj" timeout={2000}>
               <ProjectsListItem {...prodj} />
             </CSSTransition>
           ))}
