@@ -5,9 +5,11 @@
   position: relative;
   max-width: 40vw;
 
+  font-weight: 500;
   margin-right: 20px;
   font-size: 26px;
   line-height: 1.231;
+  letter-spacing: 0.04em;
 
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -19,7 +21,7 @@
   }
 }
 
-// .project__details-title_input {
+// .project__details-title__input {
 //   font-weight: 700;
 //   font-size: 26px;
 //   line-height: 1.231;
@@ -41,7 +43,7 @@
   position: relative;
 }
 
-.edit-form__group {
+.edit-form__title__input {
   display: contents;
 }
 
@@ -63,7 +65,7 @@
   }
 }
 
-.project__details-title_input {
+.project__details-title__input {
   width: 140px;
   height: 29px;
   padding-bottom: 9px;
@@ -95,8 +97,8 @@
   }
 }
 
-.project__details-title_input:focus + .edit-form__label,
-.project__details-title_input:not(:placeholder-shown) + .edit-form__label {
+.project__details-title__input:focus + .edit-form__label,
+.project__details-title__input:not(:placeholder-shown) + .edit-form__label {
   top: -18px;
   font-size: 12px;
   line-height: 1.25;

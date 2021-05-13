@@ -1,14 +1,22 @@
 @import 'styles/shared.scss';
 
 .sprintsPageHeader__heading {
+  display: inline-block;
+  position: relative;
+  max-width: 40vw;
+
   font-weight: 500;
   font-size: 26px;
   line-height: 1.23;
   letter-spacing: 0.04em;
-  color: $text-primary;
+  // color: $text-primary;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
-    width: 340px;
+    // width: 340px;
     font-size: 36px;
     line-height: 1.22;
   }

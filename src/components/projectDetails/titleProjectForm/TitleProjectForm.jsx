@@ -49,9 +49,9 @@ const TitleProjectForm = ({ projectId }) => {
           {toogleInput ? (
             <h2 className="project__details-title">{newTitle}</h2>
           ) : (
-            <div className="edit-form__group">
+            <div className="edit-form__title__input">
               <input
-                className="project__details-title_input"
+                className="project__details-title__input"
                 type="text"
                 name={title}
                 value={newTitle}
