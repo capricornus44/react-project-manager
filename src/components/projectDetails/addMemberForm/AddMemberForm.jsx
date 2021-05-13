@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import sprite from '../../../assets/icons/sprite.svg';
 import './AddMemberForm.scss';
 import { LangContext } from '../../app/App';
-import ModalHoc from '../../shared/ModalHoc/ModalHoc';
 import SidebarModal from '../../shared/sidebarModal/SidebarModal';
 import AddMemberData from './AddMemberData/AddMemberData';
 import { addMemberProject } from '../../../redux/projects/projectOperations';
@@ -16,7 +15,7 @@ const AddMemberForm = () => {
   const toogleModal = () => {
     setShowModal(true);
   };
-  // console.log(data);
+
   return (
     <div className="project__details-add__ember-form">
       <button

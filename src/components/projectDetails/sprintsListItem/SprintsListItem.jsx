@@ -1,5 +1,4 @@
-import { Link } from '@material-ui/core';
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useLocation } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { deleteSprint } from '../../../redux/sprints/sprintOperations';

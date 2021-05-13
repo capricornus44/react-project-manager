@@ -15,11 +15,9 @@ const AddMemberData = ({ cb, id }) => {
     }
   });
 
-  console.log(members.members);
-
   useEffect(() => {
     cb({ id, email });
-  }, [email]);
+  }, [cb, id, email]);
 
   const handleChange = e => {
     setEmail(e.target.value);

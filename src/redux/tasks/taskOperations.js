@@ -2,16 +2,12 @@ import axios from 'axios';
 import {
   getTaskRequest,
   getTaskSuccess,
-  getTaskError,
   addTaskRequest,
   addTaskSuccess,
-  addTaskError,
   deleteTaskRequest,
   deleteTaskSuccess,
-  deleteTaskError,
   changeTaskHoursRequest,
   changeTaskHoursSuccess,
-  changeTaskHoursError,
 } from './taskActions';
 
 // const projId="6098fb0c33a36061e804eee2";
@@ -33,6 +29,7 @@ const addTask =
       const {
         data: { id, _id, ...rest },
       } = await axios.post(`/task/${sprintId}`, { title, hoursPlanned });
+
       dispatch(
         addTaskSuccess({
           _id: id || _id,
@@ -40,6 +37,7 @@ const addTask =
           hoursPlanned: Number(hoursPlanned),
         }),
       );
+
     } catch (error) {
       dispatch(
         getError({
