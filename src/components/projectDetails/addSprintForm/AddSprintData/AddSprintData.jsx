@@ -54,6 +54,7 @@ const AddSprintData = ({ cb, projectId }) => {
             <DatePicker
               placeholder=" "
               locale={locale}
+              // locale={language.name === 'UA' ? locale : localeEnglish}
               className="picker"
               selected={endDate}
               // onSelect={value}
