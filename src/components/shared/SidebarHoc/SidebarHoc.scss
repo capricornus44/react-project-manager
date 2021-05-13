@@ -2,6 +2,8 @@
 
 .sidebar-hoc {
   position: relative;
+  display: none;
+
   @media screen and(min-width: 768px) {
     display: block;
     position: sticky;
@@ -42,24 +44,24 @@
 //   }
 // }
 
-.sidebar__arrow {
-  position: relative;
+// .sidebar__arrow {
+//   position: relative;
 
-  margin-top: 20px;
-  padding-left: 50px;
-}
+//   margin-top: 20px;
+//   padding-left: 50px;
+// }
 
-.sidebar__arrow::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  content: '';
-  background-image: url('../../../assets/icons/back-arrow.svg');
-  width: 30px;
-  height: 8px;
-  outline: none;
-}
+// .sidebar__arrow::before {
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   transform: translateY(-50%);
+//   content: '';
+//   background-image: url('../../../assets/icons/back-arrow.svg');
+//   width: 30px;
+//   height: 8px;
+//   outline: none;
+// }
 
 .sidebar__back-btn-group {
   //   position: relative;
@@ -99,30 +101,30 @@
 //   margin-right: 21px;
 // }
 
-.sidebar__Btn_text {
-  display: block;
-  text-align: left;
-  //   white-space: wrap;
-  width: 120px;
-  cursor: pointer;
-  //   text-decoration: none;
-}
-.sidebar__Btn_text:hover {
-  text-decoration: none;
-}
-.sidebar__list {
-  @media screen and(min-width: 768px) {
-    margin-top: 90px;
-    height: 500px;
+// .sidebar__Btn_text {
+//   display: block;
+//   text-align: left;
+//   //   white-space: wrap;
+//   width: 120px;
+//   cursor: pointer;
+//   //   text-decoration: none;
+// }
+// .sidebar__Btn_text:hover {
+//   text-decoration: none;
+// }
+// .sidebar__list {
+//   @media screen and(min-width: 768px) {
+//     margin-top: 90px;
+//     height: 500px;
 
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-scrollbar: $accent;
-  }
-  @media screen and (min-width: 1280px) {
-    // margin-top: 175px;
-  }
-}
+//     overflow-x: hidden;
+//     overflow-y: auto;
+//     -webkit-scrollbar: $accent;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     // margin-top: 175px;
+//   }
+// }
 
 // .test {
 //   overflow-x: hidden;
@@ -149,18 +151,18 @@
   }
 }
 
-.sidebar__list_item_selected {
-  font-weight: bold;
-}
+// .sidebar__list_item_selected {
+//   font-weight: bold;
+// }
 
 .sidebar__item {
   margin-top: 30px;
   width: 100%;
 }
 
-.sidebar__link {
-  padding-left: 50px;
-}
+// .sidebar__link {
+//   padding-left: 50px;
+// }
 .sidebar__list_square {
   display: block;
   width: 36px;
@@ -169,14 +171,14 @@
   border-radius: 5px;
 }
 
-.sidebar__item-name {
-  width: 120px;
-  //   margin-left: 15px;
+// .sidebar__item-name {
+//   width: 120px;
+//   //   margin-left: 15px;
 
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   overflow: hidden;
+// }
 
 .sidebar__text {
   font-size: 14px;
@@ -184,80 +186,78 @@
   color: #181c27;
 }
 
-.sidebar__addSprintForm_box {
-  position: absolute;
-  bottom: 50px;
+// .sidebar__addSprintForm_box {
+//   position: absolute;
+//   bottom: 50px;
 
-  @media screen and (max-width: 767px) {
-    position: none;
-    // bottom: 80px;
-    // transition: all 200ms linear;
-  }
-}
+//   @media screen and (max-width: 767px) {
+//     position: none;
+//     // bottom: 80px;
+//     // transition: all 200ms linear;
+//   }
+// }
 
-.sidebar__addSprintFormBtn_box {
-  //   width: 44px;
-  //   margin: 0 auto;
-  display: flex;
-  padding-left: 65px;
-  //   justify-content: center;
-}
+// .sidebar__addSprintFormBtn_box {
+//   //   width: 44px;
+//   //   margin: 0 auto;
+//   display: flex;
+//   padding-left: 65px;
+//   //   justify-content: center;
+// }
 
-.sidebar__addSprintForm_title {
-  margin-top: 15px;
-  margin-left: 20px;
-  text-align: center;
-}
+// .sidebar__addSprintForm_title {
+//   margin-top: 15px;
+//   margin-left: 20px;
+//   text-align: center;
+// }
 
-.sidebar__item-square {
-  position: relative;
-}
-.sidebar__item-square::before {
-  position: absolute;
-  content: '';
-  width: 36px;
-  height: 36px;
-  // top: -50%;
-  //   top: 50%;
-  //   left: -51px;
-  left: 0;
-  //   background-color: red;
-  border-radius: 5px;
+// .sidebar__item-square {
+//   position: relative;
+// }
+// .sidebar__item-square::before {
+//   position: absolute;
+//   content: '';
+//   width: 36px;
+//   height: 36px;
+//   // top: -50%;
+//   //   top: 50%;
+//   //   left: -51px;
+//   left: 0;
+//   //   background-color: red;
+//   border-radius: 5px;
 
-  //   text-overflow: ellipsis;
-  //   white-space: nowrap;
-  //   overflow: hidden;
-}
+//   //   text-overflow: ellipsis;
+//   //   white-space: nowrap;
+//   //   overflow: hidden;
+// }
 
-.sidebar__item-square:nth-child(3n + 1):before {
-  background-color: $card-1;
-}
-.sidebar__item-square:nth-child(3n + 2):before {
-  background-color: $card-2;
-}
-.sidebar__item-square:nth-child(3n + 3):before {
-  background-color: $card-3;
-}
+// .sidebar__item-square:nth-child(3n + 1):before {
+//   background-color: $card-1;
+// }
+// .sidebar__item-square:nth-child(3n + 2):before {
+//   background-color: $card-2;
+// }
+// .sidebar__item-square:nth-child(3n + 3):before {
+//   background-color: $card-3;
+// }
 
-.sidebar__item-square:nth-child(3n + 1):hover:before {
-  box-shadow: 0.3px 2px 3px $card-1;
-}
+// .sidebar__item-square:nth-child(3n + 1):hover:before {
+//   box-shadow: 0.3px 2px 3px $card-1;
+// }
 
-.sidebar__item-square:nth-child(3n + 2):hover:before {
-  box-shadow: 0.3px 2px 3px $card-2;
-}
+// .sidebar__item-square:nth-child(3n + 2):hover:before {
+//   box-shadow: 0.3px 2px 3px $card-2;
+// }
 
-.sidebar__item-square:nth-child(3n + 3):hover:before {
-  box-shadow: 0.3px 2px 3px $card-3;
-}
+// .sidebar__item-square:nth-child(3n + 3):hover:before {
+//   box-shadow: 0.3px 2px 3px $card-3;
+// }
 
-.sidebar_btn_back {
-  //   margin-top: 20px;
-  text-decoration: none;
-  //   padding-left: 50px;
-}
+// .sidebar_btn_back {
+//   text-decoration: none;
+// }
 
-.sidebar_btn_back:hover {
-  text-decoration: none;
-  font-weight: 700;
-}
+// .sidebar_btn_back:hover {
+//   text-decoration: none;
+//   font-weight: 700;
+// }

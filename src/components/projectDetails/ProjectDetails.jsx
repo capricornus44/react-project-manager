@@ -16,15 +16,23 @@ import SidebarHoc from '../shared/SidebarHoc/SidebarHoc';
 import { getProjects } from '../../redux/projects/projectSelectors';
 
 import Spinner from '../spinner/Spinner';
+import { getAllSprints } from '../../redux/sprints/sprintSelectors';
+import SidebarSprintPanelList from '../shared/SidebarHoc/SidebarPanelList/SidebarSprintPanelList';
+import SidebarSprintBackBtn from '../shared/SidebarHoc/SidebarBackBtn/SidebarSprintBackBtn';
+import SidebarAddProject from '../shared/SidebarHoc/SidebarAddBtn/SidebarAddProject';
 
 const ProjectDetails = () => {
   const dispatch = useDispatch();
 
   const match = useRouteMatch();
 
-  const projectId = match.params.projectId;
+  // const projectId = match.params.projectId;
 
   const allProjects = useSelector(getProjects);
+  // const sprints = useSelector(getAllSprints);
+  console.log(allProjects);
+  const projectId = useRouteMatch().params.projectId;
+
   const location = useLocation();
   const isLoading = useSelector(state => state.loader);
 
@@ -44,7 +52,14 @@ const ProjectDetails = () => {
             {/* <SidebarPanel>
           <SidebarSprintPanel />
         </SidebarPanel> */}
-            <SidebarHoc allProjects={allProjects} location={location} />
+            <SidebarHoc>
+              <SidebarSprintBackBtn />
+              <SidebarSprintPanelList
+                allProjects={allProjects}
+                location={location}
+              />
+              <SidebarAddProject />
+            </SidebarHoc>
             <div className="project__details-section">
               <div className="project__details">
                 <TitleProjectForm projectId={projectId} />
