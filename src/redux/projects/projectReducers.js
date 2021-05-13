@@ -1,10 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
+import { signinSuccess } from '../auth/authActions';
 import {
   addProjectSuccess,
   getProjectSuccess,
   deleteProjectSuccess,
   changeTitleProjectSuccess,
   getProjectRequest,
+  addMemberProjectSuccess,
 } from './projectActions';
 
 const initialState = {
@@ -29,7 +31,17 @@ const projectsReducer = createReducer(initialState.projects, {
       } else return proj;
     });
   },
-  [getProjectRequest]: (state, { payload }) => [],
+  [getProjectRequest]: () => initialState.projects,
+  [addMemberProjectSuccess]: (state, { payload }) => {
+    console.log(payload, state);
+    return state.map(project => {
+      if (project._id !== payload.id) return project;
+
+      const newProject = { ...project };
+      newProject.members = payload.members;
+      return newProject;
+    });
+  },
 });
 
 export default projectsReducer;
