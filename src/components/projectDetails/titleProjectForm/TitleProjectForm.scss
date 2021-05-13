@@ -21,24 +21,6 @@
   }
 }
 
-// .project__details-title__input {
-//   font-weight: 700;
-//   font-size: 26px;
-//   line-height: 1.231;
-
-//   width: 240px;
-
-//   background-color: inherit;
-//   border: none;
-//   outline: none;
-//   border-bottom: 1px solid tomato;
-
-//   @media screen and (min-width: 768px) {
-//     font-size: 36px;
-//     line-height: 1.22;
-//   }
-// }
-
 .edit-box {
   position: relative;
 }
@@ -90,10 +72,14 @@
   }
 
   @media screen and (min-width: 768px) {
-    width: 429px;
+    width: 350px;
     height: 30px;
     font-size: 18px;
     line-height: 1.222;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 429px;
   }
 }
 
