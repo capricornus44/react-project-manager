@@ -24,6 +24,8 @@ const english = {
   projectsPage: {
     pageTitle: 'Projects',
     addButton: 'Create project',
+    projectCollection:
+      'This folder is empty. Use "Create project" button to add new one',
   },
   projectsPageForm: {
     formTitle: 'Project creation',

@@ -1,12 +1,14 @@
 import Spinner from '../../spinner/Spinner';
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjectsOperation } from '../../../redux/projects/projectOperations';
 import { getProjects } from '../../../redux/projects/projectSelectors';
 import ProjectsListItem from '../projectsListItem/ProjectsListItem';
 import './ProjectsList.scss';
+import { LangContext } from '../../app/App';
 
 const ProjectsList = () => {
+  const { language } = useContext(LangContext);
   const allProjects = useSelector(getProjects);
   const dispatch = useDispatch();
 
@@ -28,8 +30,7 @@ const ProjectsList = () => {
           </ul>
           {allProjects.length === 0 && (
             <h2 className="empty_title">
-              Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
-              проект"
+              {language.projectsPage.projectCollection}
             </h2>
           )}
         </>
