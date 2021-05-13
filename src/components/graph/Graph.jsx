@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Graph = () => {
   const tasks = useSelector(getTasksSelector);
   const sprints = useSelector(getAllSprints);
   const { sprintId } = useParams();
-  console.log(sprintId);
+  const [newData, setNewData] = useState([]);
 
   const getPlanedHours = () =>
     tasks.reduce((acc, task) => (acc += task.hoursPlanned), 0);
@@ -35,7 +35,7 @@ const Graph = () => {
         return acc;
       }, 0);
       resultArr.push(
-        myPlanedTasksHours - result < 0 ? +0 : myPlanedTasksHours - result, // + Math.random() * 10
+        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result, // + Math.random() * 10
       );
       myPlanedTasksHours = myPlanedTasksHours - result;
     }
@@ -47,7 +47,7 @@ const Graph = () => {
     const arr = [getPlanedHours()];
     let prev = getPlanedHours();
     for (let i = 0; i < duration; i += 1) {
-      arr.push(Math.ceil(prev - deltaHours));
+      arr.push((prev - deltaHours).toFixed(1));
       prev = prev - deltaHours;
     }
     return arr;
@@ -62,7 +62,7 @@ const Graph = () => {
     });
   };
 
-  const data = {
+  const getDataArr = () => ({
     labels: getDatesArray().length ? ['0', ...getDatesArray()[0]] : [],
 
     datasets: [
@@ -111,13 +111,16 @@ const Graph = () => {
         data: [...getStreightLine()],
       },
     ],
-  };
+  });
+  useEffect(() => {
+    setNewData(getDataArr());
+  }, [tasks]);
   return (
     <>
       {console.log(getPlanedTasksHours())}
       <div className="graph__content">
         <p>Burndown Chart (Calendar Team)</p>
-        <Line data={data} width={900} height={450} />
+        <Line data={newData} width={900} height={450} />
       </div>
     </>
   );
