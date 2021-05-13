@@ -3,12 +3,14 @@
 .sprintsList_box {
   width: 100%;
 
-  @media screen and (min-width: 768px) {
-    width: 512px;
-  }
-
   @media screen and (min-width: 1200px) {
-    width: 1026px;
+    display: block;
+    // width: 1026px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // padding-left: 20px;
+    margin: 0 auto;
   }
 }
 
@@ -17,21 +19,18 @@
   margin: 0 auto;
   align-items: center;
 
-  // display: flex;
-  // flex-wrap: wrap;
-  // justify-content: space-between;
-
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
-    width: 512px;
+    width: 100%;
     padding: 20px 20px;
     gap: 20px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1026px;
-    padding: 20px 70px;
+    // width: 1026px;
+    width: 100%;
+    padding: 0 55px;
   }
 }
 

@@ -10,16 +10,20 @@
 .sprintsPageHeader__container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 25px;
 
   @media screen and (min-width: 768px) {
-    // width: 512px;
+    width: 512px;
     padding: 0 40px 0 20px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1026px;
-    padding: 0 70px;
+    // width: 1026px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
   }
 }
 
@@ -122,7 +126,10 @@
 
 .sprintsPageHeader__heading_box {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
   margin-bottom: 30px;
+  padding: 0 55px;
 }
 
 .sprintsPageHeader__addTask_btn_box {
@@ -153,8 +160,11 @@
 .sprintsPageHeader__categories {
   display: none;
 
-  @media screen and (min-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     display: block;
+    // width: 1026px;
+    width: 100%;
+    padding: 0 55px;
   }
 }
 
@@ -163,6 +173,11 @@
   justify-content: space-between;
   position: relative;
   padding: 0 60px 10px 30px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 30px 10px 30px;
+    justify-content: flex-start;
+  }
 }
 
 .sprintsPageHeader__categories_list_item {
@@ -170,6 +185,22 @@
   font-size: 14px;
   line-height: 1.21;
   color: $text-primary;
+
+  &:first-child {
+    width: 170px;
+    margin-right: auto;
+  }
+
+  &:last-child {
+    width: 25px;
+    margin-left: auto;
+  }
+
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4) {
+    margin: 0 4%;
+  }
 }
 
 .desktop_item {

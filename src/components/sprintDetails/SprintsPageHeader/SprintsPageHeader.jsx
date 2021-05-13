@@ -74,24 +74,19 @@ const SprintsPageHeader = ({
         </div>
         <div className="sprintsPageHeader__categories">
           <ul className="sprintsPageHeader__categories_list">
-            <li className="sprintsPageHeader__categories_list_item desktop_item">
+            <li className="sprintsPageHeader__categories_list_item desktop_item desktop_item-1">
               {language.sprintPageHeader.taskName}
             </li>
-            <li className="sprintsPageHeader__categories_list_item">
+            <li className="sprintsPageHeader__categories_list_item desktop_item-2">
               {language.sprintPageHeader.plannedHours}
             </li>
-            <li className="sprintsPageHeader__categories_list_item">
+            <li className="sprintsPageHeader__categories_list_item desktop_item-3">
               {language.sprintPageHeader.spentHoursPerDay}
             </li>
-            <li className="sprintsPageHeader__categories_list_item">
+            <li className="sprintsPageHeader__categories_list_item desktop_item-4">
               {language.sprintPageHeader.spentHoursTotally}
             </li>
-            <li className="  desktop_item">
-              {/* <button
-                className="sprintsPageHeader__searchBtn"
-                type="button"
-              ></button> */}
-            </li>
+            <li className="sprintsPageHeader__categories_list_item desktop_item-5 desktop_item"></li>
           </ul>
         </div>
       </div>

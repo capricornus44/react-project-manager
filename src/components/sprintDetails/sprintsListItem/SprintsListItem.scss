@@ -37,13 +37,14 @@
 
   @media screen and (min-width: 1200px) {
     width: 170px;
+    margin-right: auto;
   }
 }
 
 .sprintsListItem__list {
   @media screen and (min-width: 1200px) {
     display: flex;
-    padding-left: 27px;
+    margin-left: 27px;
   }
 }
 

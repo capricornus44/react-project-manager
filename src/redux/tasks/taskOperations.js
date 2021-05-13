@@ -29,7 +29,15 @@ const addTask =
       const {
         data: { id, _id, ...rest },
       } = await axios.post(`/task/${sprintId}`, { title, hoursPlanned });
-      dispatch(addTaskSuccess({ _id: id || _id, ...rest }));
+
+      dispatch(
+        addTaskSuccess({
+          _id: id || _id,
+          ...rest,
+          hoursPlanned: Number(hoursPlanned),
+        }),
+      );
+
     } catch (error) {
       dispatch(
         getError({
@@ -51,7 +59,9 @@ const getTask = sprintId => async (dispatch, getState) => {
 
   try {
     const res = await axios.get(`/task/${sprintId}`);
-    dispatch(getTaskSuccess(res.data));
+    res.data.constructor.name === 'Array'
+      ? dispatch(getTaskSuccess(res.data))
+      : dispatch(getTaskSuccess([]));
   } catch (error) {
     dispatch(
       getError({
