@@ -8,18 +8,18 @@
 }
 
 .sprintsPageHeader__container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
+  // width: 100%;
+  // margin: 0 auto;
+  // padding: 0 20px;
 
   @media screen and (min-width: 768px) {
     // width: 512px;
-    padding: 0 40px 0 20px;
+    // padding: 0 40px 0 20px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1026px;
-    padding: 0 70px;
+    // width: 1026px;
+    padding-left: 70px;
   }
 }
 
