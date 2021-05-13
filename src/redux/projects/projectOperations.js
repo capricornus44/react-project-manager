@@ -28,7 +28,6 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   token.set(accessToken);
 
   dispatch(loaderOn());
-
   try {
     const responce = await axios.get('/project');
 

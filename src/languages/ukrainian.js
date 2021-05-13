@@ -24,6 +24,8 @@ const ukrainian = {
   projectsPage: {
     pageTitle: 'Проекти',
     addButton: 'Створити проект',
+    projectCollection:
+      'Ваша колекція проектів порожня, скористайтесь кнопкою "Створити проект"',
   },
   projectsPageForm: {
     formTitle: 'Створення проекту',
@@ -55,7 +57,7 @@ const ukrainian = {
   },
   sprintPageSidebar: {
     goBack: 'Показати спринти',
-    addSprintButton: 'Стврорити спринт',
+    addSprintButton: 'Створити спринт',
   },
   sprintPageHeader: {
     addTaskButton: 'Створити задачу',
