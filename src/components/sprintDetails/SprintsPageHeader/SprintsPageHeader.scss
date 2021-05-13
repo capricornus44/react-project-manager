@@ -2,6 +2,7 @@
 
 .sprintsPageHeader__MainContainer {
   @media screen and (min-width: 768px) {
+    width: 100%;
     border-bottom: 1px solid $border-header;
   }
 }
@@ -12,7 +13,7 @@
   padding: 0 20px;
 
   @media screen and (min-width: 768px) {
-    width: 512px;
+    // width: 512px;
     padding: 0 40px 0 20px;
   }
 
@@ -34,8 +35,8 @@
   width: 100%;
 
   @media screen and (min-width: 768px) {
-    width: 200px;
-    margin-left: 0;
+    // width: 200px;
+    // margin-left: 0;
   }
 }
 
@@ -152,7 +153,7 @@
 .sprintsPageHeader__categories {
   display: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1279px) {
     display: block;
   }
 }
