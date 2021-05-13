@@ -20,7 +20,7 @@ const SidebarSprintPanel = () => {
   return (
     <>
       <div className="sidebar__box">
-        <Link to={{ pathname: '/projects' }}>
+        <Link className="sidebar_btn_back" to={{ pathname: '/projects' }}>
           <button type="button" className="sidebar__Btn">
             <svg className="sidebar__Btn_arrow">
               <use href={sprite + '#back-arrow'}></use>

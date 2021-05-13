@@ -7,12 +7,12 @@
     display: block;
     position: sticky;
     top: 0;
-    padding-left: 40px;
+    // padding-left: 40px;
     width: 255px;
     border-right: 1px solid $border-header;
     height: 100vh;
   }
   @media screen and (min-width: 1280px) {
-    padding-left: 55px;
+    // padding-left: 55px;
   }
 }

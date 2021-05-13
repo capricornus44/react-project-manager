@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/icons/sprite.svg';
 import { changeTitleSprint } from '../../../redux/sprints/sprintOperations.js';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
-import './TitleSprintForm.scss';
+// import './TitleSprintForm.scss';
 import { LangContext } from '../../app/App';
+import '../../projectDetails/titleProjectForm/TitleProjectForm.scss';
 
 const TitleSprintForm = ({ sprintId }) => {
   const { language } = useContext(LangContext);
@@ -38,29 +39,34 @@ const TitleSprintForm = ({ sprintId }) => {
 
   return (
     <>
-      <div>
+      <div className="edit-box">
         {!isInput ? (
-          <h2 className="sprintsPageHeader__heading">{newTitle}</h2>
+          <h2 className="project__details-title">{newTitle}</h2>
         ) : (
-          <input
-            className="sprintsPageHeader__title_input"
-            type="text"
-            name={title}
-            value={newTitle}
-            required
-            onChange={handleChangeTitle}
-            placeholder={language.sprintPage.editProjectName}
-          />
+          <div className="edit-form__title__input">
+            <input
+              className="project__details-title__input"
+              type="text"
+              name={title}
+              value={newTitle}
+              required
+              onChange={handleChangeTitle}
+              placeholder={language.sprintPage.editProjectName}
+            />
+            <label className="edit-form__label" htmlFor="title">
+              Enter new title
+            </label>
+          </div>
         )}
 
         <button
-          className="sprintsPageHeader_editHeaderBtn"
+          className="project__details-edit__button project__details-edit"
           type="submit"
           aria-label="edit button"
           onClick={changeTitle}
         >
-          <svg width="20" height="20">
-            <use href={sprite + '#edit'}></use>
+          <svg className="project__details-edit__icon">
+            <use href={sprite + '#edit'} />
           </svg>
         </button>
       </div>

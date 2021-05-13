@@ -47,6 +47,10 @@
   cursor: pointer;
   transition: all 200ms linear;
 
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+  // overflow: hidden;
+
   &:hover {
     font-weight: bold;
   }
@@ -75,6 +79,10 @@
 .sidebar__list_item_name {
   width: 120px;
   margin-left: 15px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .sidebar__text {
@@ -84,9 +92,11 @@
 }
 
 .sidebar__addSprintForm_box {
-  position: fixed;
-  bottom: 80px;
-  transition: all 200ms linear;
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    bottom: 80px;
+    transition: all 200ms linear;
+  }
 }
 
 .sidebar__addSprintFormBtn_box {

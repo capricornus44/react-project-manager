@@ -1,32 +1,96 @@
 @import 'styles/shared.scss';
 
-.addTaskForm__box {
-  margin-top: 30px;
+// .addTaskForm__box {
+//   margin-top: 30px;
+// }
+
+// .addTaskForm__input {
+//   width: 100%;
+//   height: 30px;
+//   border: none;
+//   outline: none;
+//   border-bottom: 1px solid rgba(24, 28, 39, 0.2);
+//   padding-left: 8px;
+//   font-size: 16px;
+//   line-height: 1.25;
+//   color: rgba(24, 28, 39, 0.6);
+
+//   @media screen and (min-width: 768px) {
+//     font-size: 18px;
+//     line-height: 1.22;
+//   }
+// }
+
+// .addTaskForm__input.duration {
+//   @media screen and (min-width: 768px) {
+//     width: 220px;
+//   }
+// }
+
+// .addTaskForm__input + .addTaskForm__input {
+//   margin-top: 58px;
+// }
+
+.addTaskForm__group {
+  position: relative;
+  margin-bottom: 58px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+  }
+}
+
+.addTaskForm__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  color: $text-secondary;
+
+  transition: all 250ms ease-in-out;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.222;
+  }
 }
 
 .addTaskForm__input {
   width: 100%;
-  height: 30px;
+  height: 29px;
+  padding-bottom: 9px;
   border: none;
   outline: none;
-  border-bottom: 1px solid rgba(24, 28, 39, 0.2);
-  padding-left: 8px;
+  border-bottom: 1px solid $border-input;
+
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
-  color: rgba(24, 28, 39, 0.6);
+  letter-spacing: 0.04em;
+  color: $text-primary;
+
+  background-color: transparent;
+  transition: all 250ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $accent;
+  }
 
   @media screen and (min-width: 768px) {
+    width: 429px;
+    height: 30px;
     font-size: 18px;
-    line-height: 1.22;
+    line-height: 1.222;
   }
 }
 
-.addTaskForm__input.duration {
-  @media screen and (min-width: 768px) {
-    width: 220px;
-  }
-}
-
-.addTaskForm__input + .addTaskForm__input {
-  margin-top: 58px;
+.addTaskForm__input:focus + .addTaskForm__label,
+.addTaskForm__input:not(:placeholder-shown) + .addTaskForm__label {
+  top: -18px;
+  font-size: 12px;
+  line-height: 1.25;
 }

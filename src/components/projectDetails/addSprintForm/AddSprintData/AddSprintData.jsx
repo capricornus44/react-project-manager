@@ -49,26 +49,10 @@ const AddSprintData = ({ cb, projectId }) => {
         </label>
       </div>
       <div className="add-sprint-data__group">
-        <div className="add-sprint-data__form add-sprint-data__form-end-date">
-          {/* <input
-            className="add-sprint-data__input add-sprint-data_end-date"
-            placeholder=" "
-            type="date"
-            name="endDate"
-            value={endDate}
-            required
-            onChange={handleChange}
-          />
-          <label className="add-sprint-data__label">
-            {language.projectPageForm.expireDate}
-          </label> */}
-          <div className="picker_container" spellcheck="false">
-            <label htmlFor="picker_label">
-              <span className="picker_span">
-                {language.projectPageForm.expireDate}
-              </span>
-            </label>
+        <div className="add-sprint-data__form add-sprint-data__calender">
+          <div className="add-sprint-data__input add-sprint-data__input-calender">
             <DatePicker
+              placeholder=" "
               locale={locale}
               className="picker"
               selected={endDate}
@@ -78,8 +62,14 @@ const AddSprintData = ({ cb, projectId }) => {
               dateFormat="dd MMMM"
             />
           </div>
-          {/* <DatePick value={endDate} /> */}
+          <label className="add-sprint-data__label " htmlFor="picker_label">
+            <span className="picker_span">
+              {language.projectPageForm.expireDate}
+            </span>
+          </label>
         </div>
+        {/* <DatePick value={endDate} /> */}
+        {/* </div> */}
         <div className="add-sprint-data__form">
           <input
             className="add-sprint-data__input add-sprint-data_duration"

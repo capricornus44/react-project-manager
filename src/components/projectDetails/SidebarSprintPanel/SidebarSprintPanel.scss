@@ -40,3 +40,7 @@
 .sidebar-list__item-square:nth-child(3n + 3):hover:before {
   box-shadow: 0.3px 2px 3px $card-3;
 }
+
+.sidebar_btn_back {
+  text-decoration: none;
+}
