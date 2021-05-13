@@ -11,44 +11,39 @@ const SidebarHoc = ({ allProjects, location }) => {
 
   return (
     <div className="sidebar-hoc">
-      <div className="sidebar-wrapper">
-        <div className="sidebar__box">
-          <div className="sidebar__back-btn-group ">
-            <NavLink
-              className="sidebar_btn_back"
-              to={{ pathname: '/projects' }}
-            >
-              {/* <button type="button" className="sidebar__Btn"> */}
-              {/* <svg className="sidebar__Btn_arrow">
+      {/* <div className="sidebar-wrapper"> */}
+      {/* <div className="sidebar__box"> */}
+      {/* <div className="sidebar__back-btn-group "> */}
+      <NavLink className="sidebar_btn_back" to={{ pathname: '/projects' }}>
+        {/* <button type="button" className="sidebar__Btn"> */}
+        {/* <svg className="sidebar__Btn_arrow">
                 <use href={sprite + '#back-arrow'}></use>
               </svg> */}
-              <span className="sidebar__Btn_text sidebar__text sidebar__arrow">
-                {language.projectPageSidebar.goBack}
-              </span>
-              {/* </button> */}
-            </NavLink>
-          </div>
+        <span className="sidebar__Btn_text sidebar__text sidebar__arrow">
+          {language.projectPageSidebar.goBack}
+        </span>
+        {/* </button> */}
+      </NavLink>
+      {/* </div> */}
 
-          <ul className="sidebar__list">
-            {allProjects.map(proj => (
-              <li key={proj._id} className="sidebar__item-square sidebar__item">
-                <NavLink
-                  className="sidebar__link"
-                  activeClassName="sidebar__list_item_selected"
-                  to={{
-                    pathname: `/projects/${proj._id}/`,
-                    state: { from: location },
-                  }}
-                >
-                  <p className="sidebar__item-name sidebar__text">
-                    {proj.title}
-                  </p>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <ul className="sidebar__list">
+        {allProjects.map(proj => (
+          <li key={proj._id} className="sidebar__item-square sidebar__item">
+            <NavLink
+              className="sidebar__link"
+              activeClassName="sidebar__list_item_selected"
+              to={{
+                pathname: `/projects/${proj._id}/`,
+                state: { from: location },
+              }}
+            >
+              <p className="sidebar__item-name sidebar__text">{proj.title}</p>
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+      {/* </div> */}
+      {/* </div> */}
       <div className="sidebar__addSprintForm_box">
         <div className="sidebar__addSprintFormBtn_box">
           <AddProjectBtn />

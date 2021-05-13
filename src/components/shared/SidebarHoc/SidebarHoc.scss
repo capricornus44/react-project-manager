@@ -16,7 +16,7 @@
   }
 }
 .sidebar-wrapper {
-  padding-left: 50px;
+  //   padding-left: 50px;
   //   display: none;
 
   //   @media screen and(min-width: 768px) {
@@ -33,19 +33,26 @@
   //   }
 }
 
-.sidebar__box {
-  @media screen and(min-width: 768px) {
-    width: 165px;
-  }
-  @media screen and (min-width: 1280px) {
-    width: 150px;
-  }
+// .sidebar__box {
+//   @media screen and(min-width: 768px) {
+//     width: 165px;
+//   }
+//   @media screen and (min-width: 1280px) {
+//     width: 150px;
+//   }
+// }
+
+.sidebar__arrow {
+  position: relative;
+
+  margin-top: 20px;
+  padding-left: 50px;
 }
 
 .sidebar__arrow::before {
   position: absolute;
   top: 50%;
-  left: -51px;
+  left: 0;
   transform: translateY(-50%);
   content: '';
   background-image: url('../../../assets/icons/back-arrow.svg');
@@ -55,8 +62,8 @@
 }
 
 .sidebar__back-btn-group {
-  position: relative;
-  margin-top: 20px;
+  //   position: relative;
+  //   margin-top: 20px;
   //   text-decoration: none;
 }
 
@@ -105,14 +112,15 @@
 }
 .sidebar__list {
   @media screen and(min-width: 768px) {
-    margin-top: 70px;
-    height: 400px;
+    margin-top: 90px;
+    height: 500px;
 
-    // overflow-x: hidden;
-    // overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-scrollbar: $accent;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 175px;
+    // margin-top: 175px;
   }
 }
 
@@ -150,6 +158,9 @@
   width: 100%;
 }
 
+.sidebar__link {
+  padding-left: 50px;
+}
 .sidebar__list_square {
   display: block;
   width: 36px;
@@ -208,7 +219,8 @@
   height: 36px;
   // top: -50%;
   //   top: 50%;
-  left: -51px;
+  //   left: -51px;
+  left: 0;
   //   background-color: red;
   border-radius: 5px;
 
@@ -240,7 +252,9 @@
 }
 
 .sidebar_btn_back {
+  //   margin-top: 20px;
   text-decoration: none;
+  //   padding-left: 50px;
 }
 
 .sidebar_btn_back:hover {
