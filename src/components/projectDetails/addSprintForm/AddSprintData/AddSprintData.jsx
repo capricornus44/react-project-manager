@@ -63,7 +63,7 @@ const AddSprintData = ({ cb, projectId }) => {
             {language.projectPageForm.expireDate}
           </label> */}
           <div className="picker_container" spellcheck="false">
-            <label htmlFor="picker_label">
+            <label htmlFor="picker_label ">
               <span className="picker_span">
                 {language.projectPageForm.expireDate}
               </span>
