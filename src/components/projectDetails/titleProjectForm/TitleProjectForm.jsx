@@ -1,15 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useRouteMatch } from 'react-router';
 import sprite from '../../../assets/icons/sprite.svg';
-import { getProjectRequest } from '../../../redux/projects/projectActions';
-import {
-  changeTitleProject,
-  getProjectsOperation,
-} from '../../../redux/projects/projectOperations';
+import { changeTitleProject } from '../../../redux/projects/projectOperations';
 import { getProjects } from '../../../redux/projects/projectSelectors';
-import { changeTitleSprint } from '../../../redux/sprints/sprintOperations';
-import { getProjectTitle } from '../../../redux/sprints/sprintSelectors';
 import TitleProjectDetails from './TitleProjectDescription/TitleProjectDescription';
 import './TitleProjectForm.scss';
 

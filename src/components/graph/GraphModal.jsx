@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './Graph.scss';
 import sprite from '../../assets/icons/sprite.svg';
 import Graph from './Graph';
@@ -9,7 +9,7 @@ const GraphModal = ({ showModal, setShowModal }) => {
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
-  }, []);
+  }, [handleEsc]);
 
   const handleEsc = e => {
     if (e.code === 'Escape') {

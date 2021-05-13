@@ -2,17 +2,12 @@ import axios from 'axios';
 import {
   addProjectRequest,
   addProjectSuccess,
-  addProjectError,
   getProjectRequest,
   getProjectSuccess,
-  getProjectError,
   deleteProjectRequest,
   deleteProjectSuccess,
-  deleteProjectError,
   changeTitleProjectRequest,
   changeTitleProjectSuccess,
-  changeTitleProjectError,
-  addMemberProjectError,
   addMemberProjectRequest,
   addMemberProjectSuccess,
 } from './projectActions';
@@ -45,38 +40,37 @@ const getProjectsOperation = () => async (dispatch, getState) => {
   }
 };
 
-const addProjectsOperation = ({ title, description }) => async (
-  dispatch,
-  getState,
-) => {
-  const project = {
-    title,
-    description,
+const addProjectsOperation =
+  ({ title, description }) =>
+  async (dispatch, getState) => {
+    const project = {
+      title,
+      description,
+    };
+
+    dispatch(addProjectRequest());
+    const { accessToken } = getState().auth.token;
+    token.set(accessToken);
+
+    dispatch(loaderOn());
+
+    try {
+      const {
+        data: { id, _id, ...rest },
+      } = await axios.post(`/project`, project);
+      dispatch(addProjectSuccess({ _id: id || _id, ...rest }));
+    } catch (error) {
+      dispatch(
+        getError({
+          error,
+          requestCallback: () => addProjectsOperation({ title, description }),
+          errorIdent: 'addProjectError',
+        }),
+      );
+    } finally {
+      dispatch(loaderOff());
+    }
   };
-
-  dispatch(addProjectRequest());
-  const { accessToken } = getState().auth.token;
-  token.set(accessToken);
-
-  dispatch(loaderOn());
-
-  try {
-    const {
-      data: { id, _id, ...rest },
-    } = await axios.post(`/project`, project);
-    dispatch(addProjectSuccess({ _id: id || _id, ...rest }));
-  } catch (error) {
-    dispatch(
-      getError({
-        error,
-        requestCallback: () => addProjectsOperation({ title, description }),
-        errorIdent: 'addProjectError',
-      }),
-    );
-  } finally {
-    dispatch(loaderOff());
-  }
-};
 
 const deleteProjectsOperation = id => async dispatch => {
   dispatch(deleteProjectRequest());
@@ -99,51 +93,56 @@ const deleteProjectsOperation = id => async dispatch => {
   }
 };
 
-const changeTitleProject = ({ id, title }) => async dispatch => {
-  dispatch(changeTitleProjectRequest());
-  dispatch(loaderOn());
+const changeTitleProject =
+  ({ id, title }) =>
+  async dispatch => {
+    dispatch(changeTitleProjectRequest());
+    dispatch(loaderOn());
 
-  try {
-    // const newTitle = { title };
-    const responce = await axios.patch(`/project/title/${id}`, { title });
+    try {
+      const responce = await axios.patch(`/project/title/${id}`, { title });
 
-    dispatch(changeTitleProjectSuccess({ ...responce.data, _id: id }));
-  } catch (error) {
-    dispatch(
-      getError({
-        error,
-        requestCallback: () => changeTitleProject({ id, title }),
-        errorIdent: 'changeTitleProjectError',
-      }),
-    );
-  } finally {
-    dispatch(loaderOff());
-  }
-};
+      dispatch(changeTitleProjectSuccess({ ...responce.data, _id: id }));
+    } catch (error) {
+      dispatch(
+        getError({
+          error,
+          requestCallback: () => changeTitleProject({ id, title }),
+          errorIdent: 'changeTitleProjectError',
+        }),
+      );
+    } finally {
+      dispatch(loaderOff());
+    }
+  };
 
-const addMemberProject = ({ id, email }) => async (dispatch, getState) => {
-  dispatch(addMemberProjectRequest());
-  const { accessToken } = getState().auth.token;
-  token.set(accessToken);
-  dispatch(loaderOn());
+const addMemberProject =
+  ({ id, email }) =>
+  async (dispatch, getState) => {
+    dispatch(addMemberProjectRequest());
+    const { accessToken } = getState().auth.token;
+    token.set(accessToken);
+    dispatch(loaderOn());
 
-  try {
-    const response = await axios.patch(`/project/contributor/${id}`, { email });
-    dispatch(
-      addMemberProjectSuccess({ members: response.data.newMembers, id }),
-    );
-  } catch (error) {
-    dispatch(
-      getError({
-        error,
-        requestCallback: () => addMemberProject({ id, email }),
-        errorIdent: 'addMemberProjectError',
-      }),
-    );
-  } finally {
-    dispatch(loaderOff());
-  }
-};
+    try {
+      const response = await axios.patch(`/project/contributor/${id}`, {
+        email,
+      });
+      dispatch(
+        addMemberProjectSuccess({ members: response.data.newMembers, id }),
+      );
+    } catch (error) {
+      dispatch(
+        getError({
+          error,
+          requestCallback: () => addMemberProject({ id, email }),
+          errorIdent: 'addMemberProjectError',
+        }),
+      );
+    } finally {
+      dispatch(loaderOff());
+    }
+  };
 
 export {
   getProjectsOperation,

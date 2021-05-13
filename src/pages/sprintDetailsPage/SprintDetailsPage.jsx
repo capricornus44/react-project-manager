@@ -11,7 +11,6 @@ import { getSprints } from '../../redux/sprints/sprintOperations';
 import Container from '../../components/container/Container';
 import SidebarHoc from '../../components/shared/SidebarHoc/SidebarHoc';
 import SidebarTaskPanelList from '../../components/shared/SidebarHoc/SidebarPanelList/SidebarTaskPanelList';
-import SidebarSprintBackBtn from '../../components/shared/SidebarHoc/SidebarBackBtn/SidebarSprintBackBtn';
 import SidebarAddSprint from '../../components/shared/SidebarHoc/SidebarAddBtn/SidebarAddSprint';
 import SidebarTaskBackBtn from '../../components/shared/SidebarHoc/SidebarBackBtn/SidebarTaskBackBtn';
 
@@ -44,9 +43,6 @@ const SprintDetailsPage = () => {
   return (
     <Container>
       <div className="pageCont">
-        {/* <SidebarPanel>
-          <TaskPageSidebarInfo />
-        </SidebarPanel> */}
         <SidebarHoc>
           <SidebarTaskBackBtn />
           <SidebarTaskPanelList allSprints={sprints} location={location} />
