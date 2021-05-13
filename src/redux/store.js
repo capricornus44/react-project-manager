@@ -14,6 +14,7 @@ import authReducer from './auth/authReducers';
 import { sprintsReducer } from './sprints/sprintReducers';
 import projectsReducer from './projects/projectReducers';
 import { errorReducer } from './error/errorReducer';
+import { loader } from './loading/loadingReducer';
 
 import tasksReducer from './tasks/taskReducers';
 
@@ -38,6 +39,7 @@ const store = configureStore({
     sprints: sprintsReducer,
     tasks: tasksReducer,
     error: errorReducer,
+    loader,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

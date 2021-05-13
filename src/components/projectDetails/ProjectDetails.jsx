@@ -15,6 +15,8 @@ import AddSprint from './addSprintForm/AddSprint';
 import SidebarHoc from '../shared/SidebarHoc/SidebarHoc';
 import { getProjects } from '../../redux/projects/projectSelectors';
 
+import Spinner from '../spinner/Spinner';
+
 const ProjectDetails = () => {
   const dispatch = useDispatch();
 
@@ -24,6 +26,7 @@ const ProjectDetails = () => {
 
   const allProjects = useSelector(getProjects);
   const location = useLocation();
+  const isLoading = useSelector(state => state.loader);
 
   useEffect(() => {
     dispatch(getProjectsOperation());
@@ -35,22 +38,26 @@ const ProjectDetails = () => {
 
   return (
     <>
-      <div className="project__details-form">
-        {/* <SidebarPanel>
+      {!isLoading ? (
+        <>
+          <div className="project__details-form">
+            {/* <SidebarPanel>
           <SidebarSprintPanel />
         </SidebarPanel> */}
-        <SidebarHoc allProjects={allProjects} location={location} />
-        <div className="project__details-section">
-          <div className="project__details">
-            <TitleProjectForm projectId={projectId} />
-            {/* <AddSprintForm projectId={projectId} onSubmit/> */}
-            <AddSprint />
-          </div>
-          {/* <TitleProjectDetails /> */}
-          <AddMemberForm />
-          <SprintsList projectId={projectId} />
-        </div>
-      </div>
+            <SidebarHoc allProjects={allProjects} location={location} />
+            <div className="project__details-section">
+              <div className="project__details">
+                <TitleProjectForm projectId={projectId} />
+                <AddSprint />
+              </div>
+              <AddMemberForm />
+              <SprintsList projectId={projectId} />
+            </div>
+          </div>{' '}
+        </>
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 };

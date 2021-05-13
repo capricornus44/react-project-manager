@@ -1,3 +1,4 @@
+import Spinner from '../../spinner/Spinner';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProjectsOperation } from '../../../redux/projects/projectOperations';
@@ -9,23 +10,31 @@ const ProjectsList = () => {
   const allProjects = useSelector(getProjects);
   const dispatch = useDispatch();
 
+  const isLoading = useSelector(state => state.loader);
+
   useEffect(() => {
     dispatch(getProjectsOperation());
   }, [dispatch]);
 
   return (
     <>
-      <ul className="projects_list">
-        {allProjects.length > 0 &&
-          allProjects.map(prodj => (
-            <ProjectsListItem key={prodj._id} {...prodj} />
-          ))}
-      </ul>
-      {allProjects.length === 0 && (
-        <h2 className="empty_title">
-          Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
-          проект"
-        </h2>
+      {!isLoading ? (
+        <>
+          <ul className="projects_list">
+            {allProjects.length > 0 &&
+              allProjects.map(prodj => (
+                <ProjectsListItem key={prodj._id} {...prodj} />
+              ))}
+          </ul>
+          {allProjects.length === 0 && (
+            <h2 className="empty_title">
+              Ваша колекція проектів порожня, скористайтесь кнопкою "Створити
+              проект"
+            </h2>
+          )}
+        </>
+      ) : (
+        <Spinner />
       )}
     </>
   );

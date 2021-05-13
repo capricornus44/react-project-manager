@@ -14,7 +14,7 @@ const DatePick = () => {
   const [startDate, setStartDate] = useState(new Date());
   //   registerLocale('ua', ua);
   return (
-    <div className="picker_container" spellcheck="false">
+    <div className="picker_container" spellCheck="false">
       <label htmlFor="picker_label">
         <span className="picker_span">Дата початку</span>
       </label>

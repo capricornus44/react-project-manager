@@ -11,6 +11,8 @@ import {
 } from './authActions';
 
 import { getError } from '../error/errorHandler';
+import { loaderOff, loaderOn } from '../loading/loadingAction';
+import { getProjectSuccess } from '../projects/projectActions';
 
 axios.defaults.baseURL = 'https://sbc-backend.goit.global';
 
@@ -27,6 +29,7 @@ export const token = {
 const signupOperation = user => async dispatch => {
   dispatch(signupRequest());
 
+  dispatch(loaderOn());
   try {
     await axios.post('/auth/register', user);
 
@@ -39,12 +42,15 @@ const signupOperation = user => async dispatch => {
         errorIdent: 'signupError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
 const signinOperation = user => async dispatch => {
   dispatch(signinRequest());
 
+  dispatch(loaderOn());
   try {
     const response = await axios.post('/auth/login', user);
 
@@ -54,6 +60,7 @@ const signinOperation = user => async dispatch => {
     token.set(response.data.accessToken);
     dispatch(signinSuccess({ accessToken, refreshToken, sid }));
     dispatch(userSuccess({ email, id }));
+    dispatch(getProjectSuccess(response.data.data.projects));
   } catch (error) {
     dispatch(
       getError({
@@ -62,12 +69,15 @@ const signinOperation = user => async dispatch => {
         errorIdent: 'signinError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
 const logoutOperation = () => async dispatch => {
   dispatch(logoutRequest());
 
+  dispatch(loaderOn());
   try {
     await axios.post('/auth/logout');
 
@@ -81,6 +91,8 @@ const logoutOperation = () => async dispatch => {
         errorIdent: 'logoutError',
       }),
     );
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
@@ -90,6 +102,7 @@ const refreshOperation = callback => async (dispatch, getState) => {
   token.set(refreshToken);
   dispatch(refreshRequest());
 
+  dispatch(loaderOn());
   try {
     const response = await axios.post('/auth/refresh', { sid: sid });
 
@@ -100,9 +113,12 @@ const refreshOperation = callback => async (dispatch, getState) => {
         sid: response.data.newSid,
       }),
     );
+    token.set(response.data.newAccessToken);
     callback && callback();
   } catch (error) {
     dispatch(logoutSuccess());
+  } finally {
+    dispatch(loaderOff());
   }
 };
 
