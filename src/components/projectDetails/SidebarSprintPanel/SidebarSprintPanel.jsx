@@ -1,20 +1,15 @@
-import React, { useContext, useEffect } from 'react';
-import { Link, NavLink, useLocation, useRouteMatch } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { LangContext } from '../../app/App';
 import sprite from '../../../assets/icons/sprite.svg';
 import { useSelector } from 'react-redux';
-import AddSprintForm from '../addSprintForm/AddSprintForm';
 import { getProjects } from '../../../redux/projects/projectSelectors';
 import AddProjectBtn from '../../projects/addProjectBtn/AddProjectBtn';
-
-// import '../../sprintDetails/taskPageSidebarInfo/TaskPageSidebarInfo.scss';
-// import './SidebarSprintPanel.scss';
 
 const SidebarSprintPanel = () => {
   const { language } = useContext(LangContext);
 
   const allProjects = useSelector(getProjects);
-  // const projectId = useRouteMatch().params.projectId;
   const location = useLocation();
 
   return (

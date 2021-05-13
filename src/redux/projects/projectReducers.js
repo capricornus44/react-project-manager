@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { signinSuccess } from '../auth/authActions';
 import {
   addProjectSuccess,
   getProjectSuccess,

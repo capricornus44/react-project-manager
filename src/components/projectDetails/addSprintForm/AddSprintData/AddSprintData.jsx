@@ -12,18 +12,16 @@ const AddSprintData = ({ cb, projectId }) => {
   const { language } = useContext(LangContext);
 
   const [endDate, setStartDate] = useState(new Date());
-  // console.log(startDate);
   const [data, setData] = useState({
     title: '',
-    // endDate: '2021-12-28',
+    endDate: '2021-12-28',
     duration: '1',
   });
   const { title, duration } = data;
 
   useEffect(() => {
-    // console.log(projectId)
     cb({ title, endDate, duration, projectId });
-  }, [title, endDate, duration, projectId]);
+  }, [cb, title, endDate, duration, projectId]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -32,7 +30,6 @@ const AddSprintData = ({ cb, projectId }) => {
 
   return (
     <>
-      {/* <form onSubmit={handleSubmit}> */}
       <div className="add-sprint-data__form">
         <input
           className="add-sprint-data__input"
@@ -54,10 +51,8 @@ const AddSprintData = ({ cb, projectId }) => {
             <DatePicker
               placeholder=" "
               locale={locale}
-              // locale={language.name === 'UA' ? locale : localeEnglish}
               className="picker"
               selected={endDate}
-              // onSelect={value}
               onChange={date => setStartDate(date)}
               id="picker"
               dateFormat="dd MMMM"
@@ -69,8 +64,6 @@ const AddSprintData = ({ cb, projectId }) => {
             </span>
           </label>
         </div>
-        {/* <DatePick value={endDate} /> */}
-        {/* </div> */}
         <div className="add-sprint-data__form">
           <input
             className="add-sprint-data__input add-sprint-data_duration"
