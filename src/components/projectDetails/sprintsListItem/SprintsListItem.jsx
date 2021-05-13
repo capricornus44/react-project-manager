@@ -8,7 +8,7 @@ import './SprintsListItem.scss';
 import { LangContext } from '../../app/App';
 import moment from 'moment';
 
-// import uk from 'moment/locale/uk';
+import uk from 'moment/locale/uk';
 
 const SprintsListItem = ({
   startDate,
