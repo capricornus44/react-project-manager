@@ -9,8 +9,8 @@ const DatePagination = ({
 
   return (
     <>
-      {Date.now() >= getMs(startSprintDate) &&
-        Date.now() <=
+      {Date.now() + 2 * 60 * 60 * 1000 >= getMs(startSprintDate) &&
+        Date.now() + 2 * 60 * 60 * 1000 <=
           getMs(startSprintDate) + duration * 24 * 60 * 60 * 1000 && (
           <div className="sprintsPageHeader__dates">
             <button

@@ -18,7 +18,11 @@
   }
 
   @media screen and (min-width: 1200px) {
-    width: 1026px;
+    // width: 1026px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 0;
   }
 }
@@ -122,7 +126,10 @@
 
 .sprintsPageHeader__heading_box {
   display: flex;
+  width: 100%;
+  justify-content: space-between;
   margin-bottom: 30px;
+  padding: 0 55px;
 }
 
 .sprintsPageHeader__addTask_btn_box {
@@ -155,6 +162,9 @@
 
   @media screen and (min-width: 1280px) {
     display: block;
+    // width: 1026px;
+    width: 100%;
+    padding: 0 55px;
   }
 }
 
@@ -175,18 +185,22 @@
   font-size: 14px;
   line-height: 1.21;
   color: $text-primary;
-}
 
-.desktop_item-1 {
-  margin-right: 200px;
-}
+  &:first-child {
+    width: 170px;
+    margin-right: auto;
+  }
 
-.desktop_item-2 {
-  margin-right: 100px;
-}
+  &:last-child {
+    width: 25px;
+    margin-left: auto;
+  }
 
-.desktop_item-3 {
-  margin-right: 100px;
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4) {
+    margin: 0 4%;
+  }
 }
 
 .desktop_item {

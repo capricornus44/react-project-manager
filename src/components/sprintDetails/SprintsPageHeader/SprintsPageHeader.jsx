@@ -86,12 +86,7 @@ const SprintsPageHeader = ({
             <li className="sprintsPageHeader__categories_list_item desktop_item-4">
               {language.sprintPageHeader.spentHoursTotally}
             </li>
-            <li className="  desktop_item">
-              {/* <button
-                className="sprintsPageHeader__searchBtn"
-                type="button"
-              ></button> */}
-            </li>
+            <li className="sprintsPageHeader__categories_list_item desktop_item-5 desktop_item"></li>
           </ul>
         </div>
       </div>

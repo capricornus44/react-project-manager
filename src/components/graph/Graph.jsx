@@ -47,7 +47,9 @@ const Graph = () => {
     const arr = [getPlanedHours()];
     let prev = getPlanedHours();
     for (let i = 0; i < duration; i += 1) {
-      arr.push(Math.ceil(prev - deltaHours));
+      arr.push(
+        (prev - deltaHours).toFixed(1) < 0 ? 0 : (prev - deltaHours).toFixed(1),
+      );
       prev = prev - deltaHours;
     }
     return arr;
