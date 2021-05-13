@@ -1,5 +1,5 @@
 import React from 'react';
-import './SidebarPanel.scss';
+// import './SidebarPanel.scss';
 // import SprintsList from '../../projectDetails/sprintsList/SprintsList';
 // import ProjectsList from '../../projects/projectsList/ProjectsList';
 

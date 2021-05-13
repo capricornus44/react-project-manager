@@ -1,0 +1,211 @@
+@import 'styles/shared.scss';
+
+.sidebar-hoc {
+  position: relative;
+  @media screen and(min-width: 768px) {
+    display: block;
+    position: sticky;
+    // top: 0;
+    padding-left: 50px;
+    // width: 155px;
+    border-right: 1px solid $border-header;
+    // height: calc(100vh - 100px);
+  }
+  @media screen and (min-width: 1280px) {
+    // padding-left: 50px;
+  }
+}
+.sidebar-wrapper {
+  //   display: none;
+
+  //   @media screen and(min-width: 768px) {
+  //     display: block;
+  //     position: sticky;
+  //     // top: 0;
+  //     padding-left: 50px;
+  //     // width: 155px;
+  //     border-right: 1px solid $border-header;
+  //     height: 80vh;
+  //   }
+  //   @media screen and (min-width: 1280px) {
+  //     // padding-left: 50px;
+  //   }
+}
+
+.sidebar__box {
+  @media screen and(min-width: 768px) {
+    width: 165px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 150px;
+  }
+}
+.sidebar__back-btn-group {
+  margin-top: 20px;
+}
+
+.sidebar__Btn {
+  padding: 0;
+  width: 120px;
+  height: 35px;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #181c27;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 200ms linear;
+  border: none;
+  outline: none;
+  background-color: inherit;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+.sidebar__Btn_navlink {
+  text-decoration: none;
+}
+
+.sidebar__Btn_arrow {
+  width: 30px;
+  height: 100%;
+  margin-right: 21px;
+}
+
+.sidebar__Btn_text {
+  text-align: left;
+}
+
+.sidebar__list {
+  @media screen and(min-width: 768px) {
+    margin-top: 70px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 175px;
+  }
+}
+
+.sidebar__list_item {
+  display: flex;
+  align-items: center;
+  width: 170px;
+  cursor: pointer;
+  transition: all 200ms linear;
+
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+  // overflow: hidden;
+
+  &:hover {
+    font-weight: bold;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+}
+
+.sidebar__list_item_selected {
+  font-weight: bold;
+}
+
+.sidebar__list_item + .sidebar__list_item {
+  margin-top: 30px;
+}
+
+.sidebar__list_square {
+  display: block;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+  border-radius: 5px;
+}
+
+.sidebar__list_item_name {
+  width: 120px;
+  //   margin-left: 15px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar__text {
+  font-size: 14px;
+  line-height: 1.21;
+  color: #181c27;
+}
+
+.sidebar__addSprintForm_box {
+  position: absolute;
+  bottom: 50px;
+
+  @media screen and (max-width: 767px) {
+    position: none;
+    // bottom: 80px;
+    // transition: all 200ms linear;
+  }
+}
+
+.sidebar__addSprintFormBtn_box {
+  //   width: 44px;
+  //   margin: 0 auto;
+  display: flex;
+  //   justify-content: center;
+}
+
+.sidebar__addSprintForm_title {
+  margin-top: 15px;
+}
+
+.sidebar__item-square {
+  position: relative;
+}
+.sidebar__item-square::before {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 36px;
+  // top: -50%;
+  left: -51px;
+  //   background-color: red;
+  border-radius: 5px;
+
+  //   text-overflow: ellipsis;
+  //   white-space: nowrap;
+  //   overflow: hidden;
+}
+
+// .sidebar__list_item-sprint {
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   overflow: hidden;
+// }
+
+.sidebar__item-square:nth-child(3n + 1):before {
+  background-color: $card-1;
+}
+.sidebar__item-square:nth-child(3n + 2):before {
+  background-color: $card-2;
+}
+.sidebar__item-square:nth-child(3n + 3):before {
+  background-color: $card-3;
+}
+
+.sidebar__item-square:nth-child(3n + 1):hover:before {
+  box-shadow: 0.3px 2px 3px $card-1;
+}
+
+.sidebar__item-square:nth-child(3n + 2):hover:before {
+  box-shadow: 0.3px 2px 3px $card-2;
+}
+
+.sidebar__item-square:nth-child(3n + 3):hover:before {
+  box-shadow: 0.3px 2px 3px $card-3;
+}
+
+.sidebar_btn_back {
+  text-decoration: none;
+}

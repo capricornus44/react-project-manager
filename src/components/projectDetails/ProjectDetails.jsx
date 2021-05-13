@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AddMemberForm from './addMemberForm/AddMemberForm';
 import AddSprintForm from './addSprintForm/AddSprintForm';
 import SprintsList from './sprintsList/SprintsList';
@@ -12,15 +12,18 @@ import { getSprints } from '../../redux/sprints/sprintOperations';
 import { useLocation, useRouteMatch } from 'react-router';
 import { getProjectsOperation } from '../../redux/projects/projectOperations';
 import AddSprint from './addSprintForm/AddSprint';
+import SidebarHoc from '../shared/SidebarHoc/SidebarHoc';
+import { getProjects } from '../../redux/projects/projectSelectors';
 
 const ProjectDetails = () => {
   const dispatch = useDispatch();
-  // const location = useLocation()
+
   const match = useRouteMatch();
-  // console.log(match)
+
   const projectId = match.params.projectId;
 
-  // console.log(projectId);
+  const allProjects = useSelector(getProjects);
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(getProjectsOperation());
@@ -33,9 +36,10 @@ const ProjectDetails = () => {
   return (
     <>
       <div className="project__details-form">
-        <SidebarPanel>
+        {/* <SidebarPanel>
           <SidebarSprintPanel />
-        </SidebarPanel>
+        </SidebarPanel> */}
+        <SidebarHoc allProjects={allProjects} location={location} />
         <div className="project__details-section">
           <div className="project__details">
             <TitleProjectForm projectId={projectId} />
