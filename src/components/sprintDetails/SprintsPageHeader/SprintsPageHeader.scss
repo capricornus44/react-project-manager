@@ -8,18 +8,18 @@
 }
 
 .sprintsPageHeader__container {
-  // width: 100%;
-  // margin: 0 auto;
-  // padding: 0 20px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 25px;
 
   @media screen and (min-width: 768px) {
-    // width: 512px;
-    // padding: 0 40px 0 20px;
+    width: 512px;
+    padding: 0 40px 0 20px;
   }
 
   @media screen and (min-width: 1200px) {
-    // width: 1026px;
-    padding-left: 70px;
+    width: 1026px;
+    padding: 0;
   }
 }
 
@@ -153,7 +153,7 @@
 .sprintsPageHeader__categories {
   display: none;
 
-  @media screen and (min-width: 1279px) {
+  @media screen and (min-width: 1280px) {
     display: block;
   }
 }
@@ -163,6 +163,11 @@
   justify-content: space-between;
   position: relative;
   padding: 0 60px 10px 30px;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 30px 10px 30px;
+    justify-content: flex-start;
+  }
 }
 
 .sprintsPageHeader__categories_list_item {
@@ -170,6 +175,18 @@
   font-size: 14px;
   line-height: 1.21;
   color: $text-primary;
+}
+
+.desktop_item-1 {
+  margin-right: 200px;
+}
+
+.desktop_item-2 {
+  margin-right: 100px;
+}
+
+.desktop_item-3 {
+  margin-right: 100px;
 }
 
 .desktop_item {
