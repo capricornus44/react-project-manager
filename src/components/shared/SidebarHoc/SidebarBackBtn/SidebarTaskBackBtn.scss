@@ -1,0 +1,37 @@
+.sidebar-task_btn_back {
+  text-decoration: none;
+}
+
+.sidebar-task_btn_back:hover {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.sidebar-task__Btn_text {
+  display: block;
+  text-align: left;
+  width: 120px;
+  cursor: pointer;
+}
+.sidebar-task__Btn_text:hover {
+  text-decoration: none;
+}
+
+.sidebar-task__arrow {
+  position: relative;
+
+  margin-top: 20px;
+  padding-left: 50px;
+}
+
+.sidebar-task__arrow::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  content: '';
+  background-image: url('../../../../assets/icons/back-arrow.svg');
+  width: 30px;
+  height: 8px;
+  outline: none;
+}

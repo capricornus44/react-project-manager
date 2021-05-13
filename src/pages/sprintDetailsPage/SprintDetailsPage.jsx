@@ -1,16 +1,19 @@
 import { useState } from 'react';
 import SprintsPageHeader from '../../components/sprintDetails/SprintsPageHeader/SprintsPageHeader';
 import SprintsList from '../../components/sprintDetails/sprintsList/SprintsList';
-import SidebarPanel from '../../components/shared/sidebarPanel/SidebarPanel';
 import './sprintDetailsPage.scss';
 import { getAllSprints } from '../../redux/sprints/sprintSelectors';
-import TaskPageSidebarInfo from '../../components/sprintDetails/taskPageSidebarInfo/TaskPageSidebarInfo';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRouteMatch } from 'react-router';
+import { useLocation, useRouteMatch } from 'react-router';
 import { useEffect } from 'react';
 import moment from 'moment';
 import { getSprints } from '../../redux/sprints/sprintOperations';
 import Container from '../../components/container/Container';
+import SidebarHoc from '../../components/shared/SidebarHoc/SidebarHoc';
+import SidebarTaskPanelList from '../../components/shared/SidebarHoc/SidebarPanelList/SidebarTaskPanelList';
+import SidebarSprintBackBtn from '../../components/shared/SidebarHoc/SidebarBackBtn/SidebarSprintBackBtn';
+import SidebarAddSprint from '../../components/shared/SidebarHoc/SidebarAddBtn/SidebarAddSprint';
+import SidebarTaskBackBtn from '../../components/shared/SidebarHoc/SidebarBackBtn/SidebarTaskBackBtn';
 
 const curDay = startDate => moment().diff(moment(startDate), 'days');
 
@@ -23,6 +26,8 @@ const SprintDetailsPage = () => {
   const startSprintDate = curSprint?.startDate;
   const [counter, setCounter] = useState(curDay(startSprintDate));
   const [date, setDate] = useState(Date.now());
+
+  const location = useLocation();
 
   useEffect(() => {
     projectId && dispatch(getSprints(projectId));
@@ -37,16 +42,17 @@ const SprintDetailsPage = () => {
   }, [curSprint, startSprintDate]);
 
   return (
-
     <Container>
-
       <div className="pageCont">
-        <SidebarPanel>
+        {/* <SidebarPanel>
           <TaskPageSidebarInfo />
-        </SidebarPanel>
-
+        </SidebarPanel> */}
+        <SidebarHoc>
+          <SidebarTaskBackBtn />
+          <SidebarTaskPanelList allSprints={sprints} location={location} />
+          <SidebarAddSprint />
+        </SidebarHoc>
         <div className="task-wrapper">
-
           <SprintsPageHeader
             counter={counter}
             setCounter={setCounter}
@@ -57,9 +63,7 @@ const SprintDetailsPage = () => {
           <SprintsList curDate={moment(date).format('YYYY-MM-DD')} />
         </div>
       </div>
-
     </Container>
-
   );
 };
 

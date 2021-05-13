@@ -1,0 +1,50 @@
+@import 'styles/shared.scss';
+
+.sidebar-task__list {
+  @media screen and(min-width: 768px) {
+    margin-top: 90px;
+    height: 400px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-scrollbar: $accent;
+  }
+}
+
+.sidebar-task__link {
+  padding-left: 50px;
+}
+
+.sidebar-task__list_item_selected {
+  font-weight: bold;
+}
+
+.sidebar-task__item-square {
+  position: relative;
+}
+.sidebar-task__item-square::before {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 36px;
+
+  left: 0;
+
+  border-radius: 5px;
+}
+
+.sidebar-task__item-square:before {
+  background-color: $white;
+}
+
+.sidebar-task__item-square:before {
+  box-shadow: 0px 6px 26px rgba(0, 5, 97, 0.1);
+}
+
+.sidebar-task__item-name {
+  width: 120px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

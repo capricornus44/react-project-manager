@@ -36,3 +36,24 @@
     padding-top: 30px;
   }
 }
+
+.proj-enter {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 500ms linear;
+}
+.proj-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 500ms linear;
+}
+.proj-exit {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 500ms linear;
+}
+.proj-exit-active {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 500ms linear;
+}

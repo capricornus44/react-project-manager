@@ -7,8 +7,8 @@ import AddSprintForm from '../addSprintForm/AddSprintForm';
 import { getProjects } from '../../../redux/projects/projectSelectors';
 import AddProjectBtn from '../../projects/addProjectBtn/AddProjectBtn';
 
-import '../../sprintDetails/taskPageSidebarInfo/TaskPageSidebarInfo.scss';
-import './SidebarSprintPanel.scss';
+// import '../../sprintDetails/taskPageSidebarInfo/TaskPageSidebarInfo.scss';
+// import './SidebarSprintPanel.scss';
 
 const SidebarSprintPanel = () => {
   const { language } = useContext(LangContext);

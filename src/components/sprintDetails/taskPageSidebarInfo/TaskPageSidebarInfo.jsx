@@ -4,7 +4,7 @@ import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import { LangContext } from '../../app/App';
 
 import AddSprintForm from '../../projectDetails/addSprintForm/AddSprintForm';
-import './TaskPageSidebarInfo.scss';
+// import './TaskPageSidebarInfo.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import { NavLink, useLocation, useRouteMatch } from 'react-router-dom';
 
