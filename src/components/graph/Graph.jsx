@@ -35,7 +35,7 @@ const Graph = () => {
         return acc;
       }, 0);
       resultArr.push(
-        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result, // + Math.random() * 10
+        myPlanedTasksHours - result < 0 ? 0 : myPlanedTasksHours - result,
       );
       myPlanedTasksHours = myPlanedTasksHours - result;
     }
@@ -128,35 +128,3 @@ const Graph = () => {
   );
 };
 export default Graph;
-
-////////////////////////////=======////////////////////////////////
-// const planedHours = 100;
-// const days = 7;
-// const delta = planedHours / days;
-// const planed = Array(days + 1)
-//   .fill('')
-//   .map((_, idx, arr) => ({
-//     day: idx,
-//     hours: Math.ceil(delta * (arr.length - 1 - idx)),
-//   }));
-// console.log('base :>> ', planed);
-// const hoursArr = [0, 15, 25, 3];
-// const finishedArr = hoursArr.map((el, idx, arr) => {
-//   if (!idx) return el;
-//   return arr.filter((el, i) => i <= idx).reduce((acc, el) => acc + el, 0);
-// });
-// console.log('finishedArr :>> ', finishedArr);
-// const getChart = (planed, hoursArr) => {
-//   return planed
-//     .map(({ day, hours }, idx, arr) => {
-//       if (!idx) return { day, hours };
-//       if (hoursArr[idx]) {
-//         const diff = planedHours - hoursArr[idx];
-//         return { day, hours: diff };
-//       }
-//       if (idx === arr.length - 1) return { day, hours };
-//     })
-//     .filter(el => el);
-// };
-// console.log('getChart() :>> ', getChart(planed, finishedArr));
-//////////////////////////////////////////////////////////////////

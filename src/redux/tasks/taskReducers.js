@@ -27,12 +27,6 @@ const TasksItems = createReducer([], {
     }),
 });
 
-// {day :
-// {currentDay:"2021-05-12"
-// singleHoursWasted:5}
-// newWastedHours:5
-// taskId:id}
-
 const tasksReducer = combineReducers({
   tasks: TasksItems,
 });

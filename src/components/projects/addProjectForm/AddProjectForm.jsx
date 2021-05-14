@@ -25,7 +25,7 @@ const AddProjectForm = ({ cb }) => {
           name="title"
           value={title}
           placeholder=" "
-          // autoComplete="off"
+          autoComplete="off"
           required
           onChange={handleChange}
           id="name"
@@ -41,7 +41,7 @@ const AddProjectForm = ({ cb }) => {
           name="description"
           value={description}
           placeholder=" "
-          // autoComplete="off"
+          autoComplete="off"
           required
           onChange={handleChange}
           id="desc"

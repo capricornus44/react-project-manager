@@ -7,14 +7,11 @@ import uk from 'date-fns/locale/uk';
 const locale = 'uk';
 registerLocale('uk', uk);
 setDefaultLocale('uk');
-// const spell = {
-//   spellcheck: 'false',
-// };
 
 const DatePick = () => {
   const { language } = useContext(LangContext);
   const [startDate, setStartDate] = useState(new Date());
-  //   registerLocale('ua', ua);
+
   return (
     <div className="picker_container" spellCheck="false">
       <label htmlFor="picker_label">
@@ -24,7 +21,6 @@ const DatePick = () => {
       </label>
       <DatePicker
         locale={locale}
-        // locale={language.name === 'UA' ? locale : localeEnglish}
         className="picker"
         selected={startDate}
         onChange={date => setStartDate(date)}

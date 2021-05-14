@@ -10,11 +10,10 @@ import {
   changeTaskHoursSuccess,
 } from './taskActions';
 
-// const projId="6098fb0c33a36061e804eee2";
 import { token } from '../auth/authOperations';
 import { getError } from '../error/errorHandler';
 import { loaderOff, loaderOn } from '../loading/loadingAction';
-// const sprintId = '6098fba433a36061e804eee5';
+
 axios.defaults.baseURL = 'https://sbc-backend.goit.global/';
 
 const addTask =
@@ -37,7 +36,6 @@ const addTask =
           hoursPlanned: Number(hoursPlanned),
         }),
       );
-
     } catch (error) {
       dispatch(
         getError({

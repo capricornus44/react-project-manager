@@ -17,16 +17,6 @@ const AddTaskForm = ({ callback, sprintId }) => {
     callback({ title, hoursPlanned, sprintId });
   }, [callback, title, hoursPlanned, sprintId]);
 
-  //   const [name, setName] = useState('');
-  //   const onUpdateName = e => {
-  //     setName(e.target.value);
-  //   };
-
-  //   const [duration, setDuration] = useState('');
-  //   const onUpdateDuration = e => {
-  //     setDuration(e.target.value);
-  //   };
-
   return (
     <>
       <div className="addTaskForm__box">
@@ -37,7 +27,7 @@ const AddTaskForm = ({ callback, sprintId }) => {
             name="title"
             value={title}
             placeholder=" "
-            // autoComplete="off"
+            autoComplete="off"
             id="title"
             required
             onChange={handleChange}
@@ -53,7 +43,7 @@ const AddTaskForm = ({ callback, sprintId }) => {
             name="hoursPlanned"
             value={hoursPlanned}
             placeholder=" "
-            // autoComplete="off"
+            autoComplete="off"
             id="hoursPlanned"
             required
             onChange={handleChange}

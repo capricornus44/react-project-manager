@@ -68,7 +68,7 @@
     width: 100px;
 
     &:not(:first-child) {
-      margin-left: 100px;
+      margin-left: 130px;
     }
   }
 }
@@ -91,7 +91,6 @@
   width: 60px;
   text-align: right;
   padding-right: 3px;
-  // outline: none;
   border: none;
   border-bottom: 1px solid $border-input;
   font-size: 14px;

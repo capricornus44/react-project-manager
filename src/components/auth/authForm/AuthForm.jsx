@@ -94,7 +94,7 @@ const AuthForm = () => {
                   name="email"
                   value={values.email}
                   placeholder=" "
-                  // autoComplete="off"
+                  autoComplete="off"
                   id="email"
                   className="auth-form__input"
                 />
@@ -115,7 +115,7 @@ const AuthForm = () => {
                   name="password"
                   value={values.password}
                   placeholder=" "
-                  // autoComplete="off"
+                  autoComplete="off"
                   id="password"
                   className="auth-form__input"
                 />
@@ -139,7 +139,7 @@ const AuthForm = () => {
                     name="confirmPassword"
                     value={values.confirmPassword}
                     placeholder=" "
-                    // autoComplete="off"
+                    autoComplete="off"
                     id="confirmPassword"
                     className="auth-form__input"
                   />
