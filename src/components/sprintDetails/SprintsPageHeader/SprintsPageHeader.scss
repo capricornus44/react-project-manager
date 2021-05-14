@@ -31,6 +31,11 @@
   padding: 23px 0;
   display: flex;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 1280px) {
+    width: 200px;
+    margin-right: auto;
+  }
 }
 
 .sprintsPageHeader__dates {
@@ -38,9 +43,10 @@
   display: flex;
   width: 100%;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     // width: 200px;
-    // margin-left: 0;
+    margin-left: 0;
+    padding-left: 55px;
   }
 }
 
@@ -49,6 +55,10 @@
   font-size: 12px;
   line-height: 1.25;
   color: $text-secondary;
+
+  @media screen and (min-width: 1280px) {
+    margin-left: 40px;
+  }
 }
 
 .sprintsPageHeader__dates_curDay {
@@ -181,7 +191,7 @@
 }
 
 .sprintsPageHeader__categories_list_item {
-  width: 98px;
+  width: 130px;
   font-size: 14px;
   line-height: 1.21;
   color: $text-primary;
@@ -196,10 +206,13 @@
     margin-left: auto;
   }
 
-  &:nth-child(2),
-  &:nth-child(3),
-  &:nth-child(4) {
-    margin: 0 4%;
+  &:nth-child(2) {
+    white-space: inherit;
+    margin-right: 8%;
+  }
+
+  &:nth-child(3) {
+    margin-right: 8%;
   }
 }
 
