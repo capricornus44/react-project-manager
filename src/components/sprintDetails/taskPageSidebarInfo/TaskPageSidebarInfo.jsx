@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
 import { LangContext } from '../../app/App';
-
 import AddSprintForm from '../../projectDetails/addSprintForm/AddSprintForm';
-// import './TaskPageSidebarInfo.scss';
 import sprite from '../../../assets/icons/sprite.svg';
 import { NavLink, useLocation, useRouteMatch } from 'react-router-dom';
 
@@ -54,14 +52,6 @@ const TaskPageSidebarInfo = () => {
       <div className="sidebar__addSprintForm_box">
         <div className="sidebar__addSprintFormBtn_box">
           <AddSprintForm />
-
-          {/* <ModalHoc
-            titleModal="Створення спринта"
-            addOperation={addSprint}
-            data={data}
-          >
-            <AddSprintData cb={setData} projectId={projectId} />
-          </ModalHoc> */}
         </div>
 
         <p className="sidebar__addSprintForm_title sidebar__text">

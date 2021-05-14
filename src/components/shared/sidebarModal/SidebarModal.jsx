@@ -10,7 +10,6 @@ const modalRoot = document.querySelector('#modal_root');
 
 const SidebarModal = ({
   children,
-  // onClose,
   showModal,
   setShowModal,
   addOperation,
@@ -47,7 +46,7 @@ const SidebarModal = ({
   const onSave = e => {
     e.preventDefault();
     closeModal();
-    // console.log(data);
+
     dispatch(addOperation(data));
   };
 
