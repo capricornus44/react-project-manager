@@ -30,8 +30,6 @@ const SprintsListItem = ({
   );
   const [isInput, setIsInput] = useState(false);
 
-  // const singleWastedHour = getSingleHours(hoursWastedPerDay, curDate);
-
   const onHandleChange = async e => {
     try {
       await dispatch(
@@ -43,21 +41,12 @@ const SprintsListItem = ({
     }
   };
 
-  // const onHandleSubmit = e => {
-  //   e.preventDefault();
-  // };
-
-  // useEffect(() => {
-  //   setIsInput(false);
-  // }, [singleWastedHour]);
-
   useEffect(() => {
     getSingleHours(hoursWastedPerDay, curDate);
-  }, [curDate]);
+  }, [curDate, hoursWastedPerDay]);
 
   return (
     <>
-      {/* {console.log(singleWastedHour)} */}
       <li className="sprintsListItem">
         <h2 className="sprintsListItem__heading">{title}</h2>
         <ul className="sprintsListItem__list">
@@ -82,7 +71,6 @@ const SprintsListItem = ({
                 {getSingleHours(hoursWastedPerDay, curDate)}
               </p>
             ) : (
-              // <form onSubmit={onHandleSubmit}>
               <select
                 name="singleHoursWasted"
                 className="sprintsListItem__list_input"
@@ -95,7 +83,6 @@ const SprintsListItem = ({
                   </option>
                 ))}
               </select>
-              // </form>
             )}
           </li>
           <li className="sprintsListItem__list_item">

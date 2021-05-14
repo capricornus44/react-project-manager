@@ -20,7 +20,6 @@ const App = () => {
   return (
     <LangContext.Provider value={{ language, setLanguage, list }}>
       <Header />
-      {/* <button onClick={() => dispatch(refreshOperation())}>Click</button> */}
       <Main />
     </LangContext.Provider>
   );

@@ -19,17 +19,19 @@ const SprintsList = ({ curDate }) => {
   const sprintId = useRouteMatch().params.sprintId;
   const projectId = useRouteMatch().params.projectId;
   const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     dispatch(getTask(sprintId));
     if (sprints.length) {
       return;
     }
     dispatch(getSprints(projectId));
-  }, [dispatch, sprintId]);
+  }, [dispatch, sprintId, sprints.length, projectId]);
+
   const openModal = () => {
     setShowModal(true);
-    // console.log(showModal);
   };
+
   return (
     <div className="sprintsList_box">
       <ul className="sprintsList">

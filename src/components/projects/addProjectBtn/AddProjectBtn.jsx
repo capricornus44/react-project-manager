@@ -21,8 +21,6 @@ const AddProjectBtn = () => {
       <ModalHoc
         data={data}
         cbOnSubmit={submitProject}
-        // title="Створити проект"
-        // title={language.projectsPage.addButton}
         titleModal={language.projectsPageForm.formTitle}
         addOperation={addProjectsOperation}
       >

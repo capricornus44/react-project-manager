@@ -6,8 +6,6 @@
 
   @media screen and (min-width: 1280px) {
     left: 145px;
-    // left: 50%;
-    // transform: translateX(calc(-100% - (285px - 88px)));
   }
 }
 
@@ -20,8 +18,6 @@
 
   @media screen and (min-width: 1280px) {
     left: 183px;
-    // left: 50%;
-    // transform: translateX(calc(-100% - (285px - 80px)));
   }
 }
 
@@ -33,8 +29,6 @@
     display: initial;
     top: 367px;
     left: 111px;
-    // left: 50%;
-    // transform: translateX(calc(-100% - (285px + 126px)));
   }
 }
 
@@ -46,8 +40,6 @@
   @media screen and (min-width: 1280px) {
     top: 240px;
     left: 230px;
-    // left: 50%;
-    // transform: translateX(calc(-100% - (285px + 77px)));
   }
 }
 
@@ -60,7 +52,6 @@
 
   @media screen and (min-width: 1280px) {
     top: 103px;
-    // right: 325px;
   }
 }
 
@@ -71,7 +62,6 @@
     position: absolute;
     display: initial;
     top: 129px;
-    // right: 199px;
     right: 50%;
     transform: translateX(calc(100% + (285px + 130px)));
   }
@@ -85,8 +75,6 @@
     display: initial;
     bottom: 0;
     right: 0;
-    // right: 50%;
-    // transform: translateX(calc(100% + (285px - 171px)));
     z-index: -10;
   }
 }
@@ -99,8 +87,6 @@
     display: initial;
     bottom: 33px;
     right: 0;
-    // right: 50%;
-    // transform: translateX(calc(100% + (285px - 155px)));
     z-index: -10;
   }
 }

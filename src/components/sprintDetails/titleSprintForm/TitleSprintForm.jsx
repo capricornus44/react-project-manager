@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import sprite from '../../../assets/icons/sprite.svg';
 import { changeTitleSprint } from '../../../redux/sprints/sprintOperations.js';
 import { getAllSprints } from '../../../redux/sprints/sprintSelectors';
-// import './TitleSprintForm.scss';
 import { LangContext } from '../../app/App';
 import '../../projectDetails/titleProjectForm/TitleProjectForm.scss';
 

@@ -17,3 +17,5 @@ const validationSchema = yup.object().shape({
 });
 
 export { validationSchema };
+
+// !! Не забыть убрать комментарий

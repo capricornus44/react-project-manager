@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import './SprintsPageHeader.scss';
-// import sprite from '../../../assets/icons/sprite.svg';
 import ModalHoc from '../../shared/ModalHoc/ModalHoc';
 import AddTaskForm from '../addTaskForm/AddTaskForm';
 import { addTask } from '../../../redux/tasks/taskOperations';
@@ -27,10 +26,6 @@ const SprintsPageHeader = ({
     dispatch(addTask({ sprintId, data }));
   };
 
-  // const onFilterChange = e => {
-  //   const { name, value } = e.target;
-  // };
-
   return (
     <div className="sprintsPageHeader__MainContainer">
       <div className="sprintsPageHeader__container">
@@ -52,7 +47,6 @@ const SprintsPageHeader = ({
               className="sprintsPageHeader__input"
               type="text"
               name="tasksFilter"
-              // onChange={onFilterChange}
             />
           </form>
         </div>
