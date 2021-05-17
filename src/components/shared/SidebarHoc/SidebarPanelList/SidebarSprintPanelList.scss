@@ -2,13 +2,26 @@
 
 .sidebar__list {
   @media screen and(min-width: 768px) {
-    margin-top: 90px;
-    height: 400px;
+    margin-top: 160px;
+
+    padding: 20px 20px 20px 0;
+    height: 420px;
 
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-scrollbar: $accent;
   }
+}
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: $accent;
+  border-radius: 9em;
 }
 
 .sidebar__link {

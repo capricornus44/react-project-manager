@@ -41,7 +41,8 @@
 .sidebar__item {
   display: flex;
   align-items: center;
-  width: 170px;
+  max-width: 170px;
+  width: 100%;
   cursor: pointer;
   transition: all 200ms linear;
 
@@ -54,9 +55,8 @@
   }
 }
 
-.sidebar__item {
-  margin-top: 30px;
-  width: 100%;
+.sidebar__item:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .sidebar__list_square {
