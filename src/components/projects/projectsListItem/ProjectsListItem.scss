@@ -72,6 +72,9 @@
   font-size: 16px;
   line-height: 1.25;
   color: $white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   word-break: break-all; /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */
 
   // overflow-wrap: break-word; /* не поддерживает IE, Firefox; является копией word-wrap */
@@ -99,6 +102,9 @@
   word-break: break-all;
   line-height: 1.21;
   color: $white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   opacity: 0;
   // transform: translateX(-100%);
