@@ -3,7 +3,8 @@
 .project__details-title {
   display: inline-block;
   position: relative;
-  max-width: 40vw;
+  max-width: 70vw;
+  width: 100%;
 
   font-weight: 500;
   margin-right: 20px;
@@ -16,6 +17,7 @@
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
+    max-width: 40vw;
     font-size: 36px;
     line-height: 1.22;
   }

@@ -34,6 +34,9 @@
   color: #181c27;
   padding-bottom: 8px;
   border-bottom: 1px solid $border-input;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
   @media screen and (min-width: 1200px) {
     width: 170px;

@@ -1,9 +1,10 @@
 .sidebar__addSprintForm_box {
   position: absolute;
   bottom: 50px;
+  left: 10%;
 
   @media screen and (max-width: 767px) {
-    position: none;
+    position: static;
   }
 }
 
@@ -14,6 +15,6 @@
 
 .sidebar__addSprintForm_title {
   margin-top: 15px;
-
   text-align: center;
+  white-space: nowrap;
 }

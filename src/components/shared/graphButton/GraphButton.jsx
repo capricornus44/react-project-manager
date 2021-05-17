@@ -7,7 +7,7 @@ const GraphButton = ({ openModal }) => {
     <button
       type="button"
       aria-label="graph button"
-      className="add-button"
+      className="add-button chart-button"
       onClick={openModal}
     >
       <svg className="icon-plus">

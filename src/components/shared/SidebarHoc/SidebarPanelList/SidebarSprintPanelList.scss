@@ -4,10 +4,14 @@
   @media screen and(min-width: 768px) {
     margin-top: 160px;
     padding: 20px 20px 20px 0;
-    height: 420px;
+    height: 300px;
 
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  @media screen and(min-width: 1280px) {
+    height: 420px;
   }
 }
 

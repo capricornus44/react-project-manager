@@ -114,9 +114,11 @@ const Graph = () => {
       },
     ],
   });
+
   useEffect(() => {
     setNewData(getDataArr());
   }, [tasks]);
+
   return (
     <>
       <div className="graph__content">

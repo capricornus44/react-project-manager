@@ -10,7 +10,6 @@
 .sprintsPageHeader__container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 25px;
 
   @media screen and (min-width: 768px) {
     width: 512px;
@@ -38,12 +37,10 @@
 }
 
 .sprintsPageHeader__dates {
-  margin-left: 20px;
   display: flex;
   width: 100%;
 
   @media screen and (min-width: 1280px) {
-    margin-left: 0;
     padding-left: 55px;
   }
 }
@@ -137,7 +134,11 @@
   width: 100%;
   justify-content: space-between;
   margin-bottom: 30px;
-  padding: 0 55px;
+  padding: 0;
+
+  @media screen and (min-width: 1280px) {
+    padding: 0 55px;
+  }
 }
 
 .sprintsPageHeader__addTask_btn_box {

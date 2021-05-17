@@ -34,12 +34,12 @@
 .graphButton_box {
   position: fixed;
   height: 44px;
-  bottom: 20px;
+  bottom: 22px;
   left: 20px;
 
   @media screen and (min-width: 768px) {
     left: auto;
-    bottom: 60px;
+    bottom: 86px;
     right: 55px;
   }
 }
