@@ -4,7 +4,6 @@
   display: inline-block;
   position: relative;
   max-width: 70vw;
-  width: 100%;
 
   font-weight: 500;
   margin-right: 20px;
@@ -13,11 +12,17 @@
   letter-spacing: 0.04em;
 
   text-overflow: ellipsis;
-  white-space: nowrap;
+  // white-space: nowrap;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
     max-width: 40vw;
+    font-size: 36px;
+    line-height: 1.22;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 20vw;
     font-size: 36px;
     line-height: 1.22;
   }
