@@ -119,7 +119,6 @@ const Graph = () => {
   }, [tasks]);
   return (
     <>
-      {console.log(getPlanedTasksHours())}
       <div className="graph__content">
         <p>Burndown Chart (Calendar Team)</p>
         <Line data={newData} width={900} height={450} />
