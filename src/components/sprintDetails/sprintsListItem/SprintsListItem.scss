@@ -18,7 +18,7 @@
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 100%;
     display: flex;
     padding: 20px 30px;
@@ -38,14 +38,14 @@
   white-space: nowrap;
   overflow: hidden;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 170px;
     margin-right: auto;
   }
 }
 
 .sprintsListItem__list {
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     display: flex;
     margin-left: 27px;
   }
@@ -66,7 +66,7 @@
     line-height: 1.21;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     margin: 0;
     width: 100px;
 
@@ -80,7 +80,7 @@
   @media screen and (min-width: 768px) {
     max-width: 100px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     display: none;
   }
 }
@@ -106,7 +106,7 @@
     line-height: 1.22;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     text-align: left;
   }
 }

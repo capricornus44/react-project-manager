@@ -9,14 +9,15 @@
 
 .sprintsPageHeader__container {
   width: 100%;
-  margin: 0 auto;
+  // margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    width: 512px;
-    padding: 0 40px 0 20px;
+    // width: 512px;
+    // padding: 0 40px 0 20px;
+    padding: 0 0 0 20px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -86,7 +87,7 @@
     margin-left: auto;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     display: none;
   }
 }
@@ -124,7 +125,7 @@
   @media screen and (min-width: 768px) {
     right: 10px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     right: 30px;
   }
 }
@@ -217,7 +218,7 @@
 .desktop_item {
   display: none;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1280px) {
     display: block;
   }
 }
