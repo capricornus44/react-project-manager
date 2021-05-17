@@ -49,3 +49,15 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: $accent;
+  border-radius: 9em;
+}

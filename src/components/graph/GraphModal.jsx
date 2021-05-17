@@ -4,18 +4,18 @@ import sprite from '../../assets/icons/sprite.svg';
 import Graph from './Graph';
 
 const GraphModal = ({ showModal, setShowModal }) => {
+  const handleEsc = e => {
+    if (e.code === 'Escape') {
+      setShowModal(false);
+    }
+  };
+
   useEffect(() => {
     window.addEventListener('keydown', handleEsc);
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
   }, [handleEsc]);
-
-  const handleEsc = e => {
-    if (e.code === 'Escape') {
-      setShowModal(false);
-    }
-  };
 
   const handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
